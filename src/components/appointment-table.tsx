@@ -50,7 +50,7 @@ const AppointmentTable = () => {
 		<Table>
 			<TableHeader>
 				<TableRow>
-					<TableHead className="w-4/5">Title</TableHead>
+					<TableHead className="md:w-4/5 w-fill">Title</TableHead>
 					<TableHead className="text-right">Datum</TableHead>
 				</TableRow>
 			</TableHeader>
@@ -58,7 +58,7 @@ const AppointmentTable = () => {
 				{eintraege.map((eintrag) => {
 					return (
 						<TableRow key={eintrag.title}>
-							<TableCell className="w-4/5 flex flex-row items-center">
+							<TableCell className="md:w-4/5 w-fill flex flex-row items-center">
 								{eintrag.title}
 
 								{eintrag.tooltip && (
@@ -78,7 +78,8 @@ const AppointmentTable = () => {
 									</TooltipProvider>
 								)}
 							</TableCell>
-							<TableCell className="text-right">{eintrag.date}</TableCell>
+
+							<TableCell className="text-right min-w-[140px]">{eintrag.date}</TableCell>
 						</TableRow>
 					);
 				})}
