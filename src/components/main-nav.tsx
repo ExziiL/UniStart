@@ -50,6 +50,7 @@ const MainNav = () => {
 			<nav className="flex items-center space-x-6 text-sm font-medium">
 				{navItems.map((item) => (
 					<Link
+						key={item.href}
 						href={item.href}
 						className={cn('transition-colors hover:text-foreground/90', pathname === item.href ? 'text-foreground' : 'text-foreground/60')}
 					>
