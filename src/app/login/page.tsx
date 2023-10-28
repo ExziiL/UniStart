@@ -6,7 +6,7 @@ import { Button } from '../../components/ui/button';
 import { Separator } from '../../components/ui/separator';
 
 import Link from 'next/link';
-import LoginForm from './LoginForm';
+import LoginForm from './login-form';
 
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';

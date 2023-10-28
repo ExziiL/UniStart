@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MainNav from './MainNav';
+import MainNav from './main-nav';
 
 const Header = () => {
 	return (

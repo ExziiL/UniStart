@@ -5,7 +5,7 @@ import React from 'react';
 
 import { Button } from '../../components/ui/button';
 import { Separator } from '../../components/ui/separator';
-import RegistrationForm from './RegistrationForm';
+import RegistrationForm from './registration-form';
 
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
