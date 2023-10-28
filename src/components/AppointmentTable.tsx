@@ -57,7 +57,7 @@ const AppointmentTable = () => {
 			<TableBody>
 				{eintraege.map((eintrag) => {
 					return (
-						<TableRow>
+						<TableRow key={eintrag.title}>
 							<TableCell className="w-4/5 flex flex-row items-center">
 								{eintrag.title}
 
