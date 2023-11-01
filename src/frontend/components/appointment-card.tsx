@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/frontend/components/ui/card';
 import { CalendarDays } from 'lucide-react';
 
 type AppointmentCardProps = {

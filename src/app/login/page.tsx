@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-import { Button } from '../../components/ui/button';
-import { Separator } from '../../components/ui/separator';
+import { Button } from '../../frontend/components/ui/button';
+import { Separator } from '../../frontend/components/ui/separator';
 
 import Link from 'next/link';
 import LoginForm from './login-form';

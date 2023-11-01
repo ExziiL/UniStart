@@ -1,7 +1,7 @@
 import React from 'react';
 
-import AppointmentCard from '@/components/appointment-card';
-import AppointmentTable from '@/components/appointment-table';
+import AppointmentCard from '@/frontend/components/appointment-card';
+import AppointmentTable from '@/frontend/components/appointment-table';
 import { Download } from 'lucide-react';
 
 const eintraege = [

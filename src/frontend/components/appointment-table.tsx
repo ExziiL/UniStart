@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/frontend/components/ui/table';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/frontend/components/ui/tooltip';
 import { Info } from 'lucide-react';
 
 const eintraege = [

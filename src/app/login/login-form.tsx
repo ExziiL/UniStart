@@ -5,10 +5,10 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
-import { Button } from '@/components/ui/button';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { useToast } from '@/components/ui/use-toast';
+import { Button } from '@/frontend/components/ui/button';
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/frontend/components/ui/form';
+import { Input } from '@/frontend/components/ui/input';
+import { useToast } from '@/frontend/components/ui/use-toast';
 
 const loginFormSchema = z.object({
 	// TODO: Add valid checks -> Check if username exists in db and if password matches

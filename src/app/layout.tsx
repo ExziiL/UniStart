@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 
 import Header from '@/components/header';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from '@/frontend/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'] });
 

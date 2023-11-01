@@ -5,7 +5,7 @@ import React from 'react';
 import Link, { LinkProps } from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger } from '@/frontend/components/ui/sheet';
 
 import { cn } from '@/lib/utils';
 import { ViewVerticalIcon } from '@radix-ui/react-icons';

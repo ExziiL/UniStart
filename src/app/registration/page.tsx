@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import React from 'react';
 
-import { Button } from '../../components/ui/button';
-import { Separator } from '../../components/ui/separator';
+import { Button } from '../../frontend/components/ui/button';
+import { Separator } from '../../frontend/components/ui/separator';
 import RegistrationForm from './registration-form';
 
 import { FaGithub } from 'react-icons/fa';
