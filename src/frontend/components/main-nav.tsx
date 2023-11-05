@@ -28,6 +28,11 @@ const navItems: { title: string; href: string; description: string }[] = [
 		description: 'Übersicht aller wichtigen Termine der Hochschule',
 	},
 	{
+		title: 'Vorlesungsübersicht',
+		href: '/vorlesungsuebersicht',
+		description: 'Übersicht aller Vorlesungen der ersten zwei Semester',
+	},
+	{
 		title: 'Not Found',
 		href: '/not-found',
 		description: 'Übersicht aller wichtigen Termine der Hochschule',
