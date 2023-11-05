@@ -9,8 +9,8 @@ import { Sheet, SheetContent, SheetTrigger } from '@/frontend/components/ui/shee
 
 import { cn } from '@/lib/utils';
 import { ViewVerticalIcon } from '@radix-ui/react-icons';
-import { Button } from './ui/button';
-import { ScrollArea } from './ui/scroll-area';
+import { Button } from '../ui/button';
+import { ScrollArea } from '../ui/scroll-area';
 
 const MobileNav = () => {
 	const [open, setOpen] = React.useState(false);
@@ -71,7 +71,7 @@ const MobileNav = () => {
 				</MobileLink>
 
 				<ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
-					<div className="flex flex-col space-y-3">
+					<nav className="flex flex-col space-y-3">
 						{sideBarItems.map(
 							(item) =>
 								item.href && (
@@ -84,7 +84,7 @@ const MobileNav = () => {
 									</MobileLink>
 								)
 						)}
-					</div>
+					</nav>
 				</ScrollArea>
 			</SheetContent>
 		</Sheet>
