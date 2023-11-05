@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 
+import '@smastrom/react-rating/style.css';
+
 import Navigation from '@/frontend/components/navigation';
 import { Toaster } from '@/frontend/components/ui/toaster';
 
