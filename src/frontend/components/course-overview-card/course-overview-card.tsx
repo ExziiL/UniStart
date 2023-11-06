@@ -1,13 +1,24 @@
 'use client';
 
-import StarRating from '@/frontend/components/star-rating';
 import React from 'react';
+
+import StarRating from '@/frontend/components/star-rating';
+import { useToast } from '@/frontend/hooks/use-toast';
+
+import { useCopyToClipboard, useHover } from 'usehooks-ts';
 
 import { Badge } from '@/frontend/components/ui/badge';
 import { ArrowRight, Files } from 'lucide-react';
 
 function CourseOverviewCard() {
-	const [fileCopyIsHovered, setFileCopyIsHovered] = React.useState(false);
+	const PROF_EMAIL = 'max.mustermann@hs-aalen.de';
+
+	const hoverRef = React.useRef(null);
+	const isHover = useHover(hoverRef);
+
+	const [copiedText, copyText] = useCopyToClipboard();
+
+	const { toast } = useToast();
 
 	return (
 		<div className="flex max-w-lg flex-col gap-3 rounded-md border p-4">
@@ -16,11 +27,19 @@ function CourseOverviewCard() {
 				<p className="text-base font-medium">Max Mustermann</p>
 				<p
 					className="font-base flex w-fit gap-2 text-sm hover:cursor-pointer hover:text-zinc-800"
-					onMouseEnter={() => setFileCopyIsHovered(true)}
-					onMouseLeave={() => setFileCopyIsHovered(false)}
+					ref={hoverRef}
+					onClick={() => {
+						// copies the email to the users clipboard
+						copyText(PROF_EMAIL);
+
+						toast({
+							title: 'E-Mail successfully copied to clipboard',
+							description: 'You can now paste it into your email client',
+						});
+					}}
 				>
-					max.mustermann@hs-aalen.de
-					{fileCopyIsHovered && (
+					{PROF_EMAIL}
+					{isHover && (
 						<span>
 							<Files
 								size={16}
