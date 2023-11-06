@@ -21,7 +21,7 @@ function CourseOverviewCard() {
 	const { toast } = useToast();
 
 	return (
-		<div className="flex max-w-lg flex-col gap-3 rounded-md border p-4">
+		<div className="mt-4 flex max-w-lg flex-col gap-3 rounded-md border p-4 transition-shadow hover:shadow-lg">
 			<h2 className="text-lg font-medium ">Grundlagen der Mathemaik</h2>
 			<span className="text-zinc-500">
 				<p className="text-base font-medium">Max Mustermann</p>
