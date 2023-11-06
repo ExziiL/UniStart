@@ -50,7 +50,7 @@ function CourseOverviewCard() {
 				</p>
 			</span>
 			<p className="">Eine Description über das Modul, von einem Studenten oder von uns geschrieben?</p>
-			<StarRating />
+			<StarRating maxRating={5} />
 			<div className="flex justify-between">
 				<span>
 					<Badge rating="hard">Hard</Badge>

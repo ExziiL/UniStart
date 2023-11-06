@@ -2,20 +2,29 @@
 
 import React from 'react';
 
-import { Rating } from '@smastrom/react-rating';
+import { Rating, SharedProps } from '@smastrom/react-rating';
 
-function StarRating() {
+interface StarRatingProps {
+	maxRating?: SharedProps['items'];
+}
+
+// function StarRating({maxRating}) {
+const StarRating: React.FC<StarRatingProps> = ({ maxRating }) => {
 	const [rating, setRating] = React.useState(0);
 
-	console.log(rating);
-
 	return (
-		<Rating
-			style={{ maxWidth: 100 }}
-			value={rating}
-			onChange={setRating}
-		/>
+		<div className="flex items-center gap-2">
+			<Rating
+				items={maxRating}
+				style={{ maxWidth: 100 }}
+				value={rating}
+				onChange={setRating}
+			/>
+			<span className="pt-[2px] text-base font-semibold">
+				{rating} von {maxRating ? maxRating : 5}
+			</span>
+		</div>
 	);
-}
+};
 
 export default StarRating;
