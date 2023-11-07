@@ -6,9 +6,17 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
 import { Button } from '@/frontend/components/ui/button';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/frontend/components/ui/form';
+import {
+	Form,
+	FormControl,
+	FormDescription,
+	FormField,
+	FormItem,
+	FormLabel,
+	FormMessage,
+} from '@/frontend/components/ui/form';
 import { Input } from '@/frontend/components/ui/input';
-import { useToast } from '@/frontend/components/ui/use-toast';
+import { useToast } from '@/frontend/hooks/use-toast';
 
 const registrationFormSchema = z
 	.object({
@@ -136,7 +144,7 @@ function RegistrationForm() {
 			<Button
 				type="submit"
 				form="registration-form"
-				className="w-full mt-6"
+				className="mt-6 w-full"
 			>
 				Create account
 			</Button>

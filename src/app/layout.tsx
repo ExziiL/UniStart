@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 
-import Header from '@/frontend/components/header';
+import '@smastrom/react-rating/style.css';
+
+import Navigation from '@/frontend/components/navigation';
 import { Toaster } from '@/frontend/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -16,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<Header />
+				<Navigation />
 				<main className="max-w-[960px] mx-auto">
 					{children}
 					<Toaster />
