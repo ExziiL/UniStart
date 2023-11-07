@@ -6,7 +6,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import navItems from '@/frontend/components/navigation/nav-items';
+import navItems from '@/frontend/constants/nav-items';
 
 const MainNav = () => {
 	const pathname = usePathname();
