@@ -12,36 +12,10 @@ import { ViewVerticalIcon } from '@radix-ui/react-icons';
 import { Button } from '../ui/button';
 import { ScrollArea } from '../ui/scroll-area';
 
+import navItems from '@/frontend/components/navigation/nav-items';
+
 const MobileNav = () => {
 	const [open, setOpen] = React.useState(false);
-
-	const sideBarItems: { title: string; href: string; description: string }[] = [
-		{
-			title: 'Home',
-			href: '/',
-			description: 'Home page',
-		},
-		{
-			title: 'Registration',
-			href: '/registration',
-			description: 'Registration page',
-		},
-		{
-			title: 'Login',
-			href: '/login',
-			description: 'Login page',
-		},
-		{
-			title: 'Terminkalender',
-			href: '/terminplan',
-			description: 'Übersicht aller wichtigen Termine der Hochschule',
-		},
-		{
-			title: 'Not Found',
-			href: '/not-found',
-			description: 'Übersicht aller wichtigen Termine der Hochschule',
-		},
-	];
 
 	return (
 		<Sheet
@@ -72,7 +46,7 @@ const MobileNav = () => {
 
 				<ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
 					<nav className="flex flex-col space-y-3">
-						{sideBarItems.map(
+						{navItems.map(
 							(item) =>
 								item.href && (
 									<MobileLink
