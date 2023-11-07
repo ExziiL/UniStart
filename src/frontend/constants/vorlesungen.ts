@@ -1,5 +1,8 @@
-export const VORLESUNGEN = [
+import { VorlesungProps } from '@/interfaces/IVorlesung';
+
+export const VORLESUNGEN: VorlesungProps[] = [
 	{
+		slug: 'grundlagen-der-mathematik',
 		name: 'Grundlagen der Mathematik',
 		professor: 'Max Mustermann',
 		email: 'max.mustermann@hs-aalen.de',
@@ -9,6 +12,7 @@ export const VORLESUNGEN = [
 		difficulty: 'hard',
 	},
 	{
+		slug: 'einfuehrung-in-die-informatik',
 		name: 'Einführung in die Informatik',
 		professor: 'Julia Sommer',
 		email: 'julia.sommer@hs-aalen.de',
@@ -18,6 +22,7 @@ export const VORLESUNGEN = [
 		difficulty: 'medium',
 	},
 	{
+		slug: 'datenbanken-grundlagen',
 		name: 'Datenbanken Grundlagen',
 		professor: 'Lukas Bauer',
 		email: 'lukas.bauer@hs-aalen.de',
@@ -27,6 +32,7 @@ export const VORLESUNGEN = [
 		difficulty: 'medium',
 	},
 	{
+		slug: 'webentwicklung',
 		name: 'Webentwicklung',
 		professor: 'Anna Schmidt',
 		email: 'anna.schmidt@hs-aalen.de',
@@ -36,6 +42,7 @@ export const VORLESUNGEN = [
 		difficulty: 'easy',
 	},
 	{
+		slug: 'algorithmen-und-datenstrukturen',
 		name: 'Algorithmen und Datenstrukturen',
 		professor: 'Stefan Klein',
 		email: 'stefan.klein@hs-aalen.de',
@@ -45,6 +52,7 @@ export const VORLESUNGEN = [
 		difficulty: 'hard',
 	},
 	{
+		slug: 'betriebssysteme-und-netzwerke',
 		name: 'Betriebssysteme und Netzwerke',
 		professor: 'Maria Neumann',
 		email: 'maria.neumann@hs-aalen.de',
@@ -54,6 +62,7 @@ export const VORLESUNGEN = [
 		difficulty: 'medium',
 	},
 	{
+		slug: 'objektorientierte-programmierung',
 		name: 'Objektorientierte Programmierung',
 		professor: 'Felix Richter',
 		email: 'felix.richter@hs-aalen.de',
@@ -63,6 +72,7 @@ export const VORLESUNGEN = [
 		difficulty: 'medium',
 	},
 	{
+		slug: 'theoretische-informatik',
 		name: 'Theoretische Informatik',
 		professor: 'Leonie Beck',
 		email: 'leonie.beck@hs-aalen.de',
@@ -72,6 +82,7 @@ export const VORLESUNGEN = [
 		difficulty: 'hard',
 	},
 	{
+		slug: 'software-engineering',
 		name: 'Software Engineering',
 		professor: 'Tobias Lang',
 		email: 'tobias.lang@hs-aalen.de',
@@ -81,6 +92,7 @@ export const VORLESUNGEN = [
 		difficulty: 'medium',
 	},
 	{
+		slug: 'mensch-computer-interaktion',
 		name: 'Mensch-Computer-Interaktion',
 		professor: 'Sandra Koch',
 		email: 'sandra.koch@hs-aalen.de',
@@ -90,6 +102,7 @@ export const VORLESUNGEN = [
 		difficulty: 'easy',
 	},
 	{
+		slug: 'computergrafik',
 		name: 'Computergrafik',
 		professor: 'Markus Wolf',
 		email: 'markus.wolf@hs-aalen.de',
@@ -99,6 +112,7 @@ export const VORLESUNGEN = [
 		difficulty: 'medium',
 	},
 	{
+		slug: 'rechnerarchitektur',
 		name: 'Rechnerarchitektur',
 		professor: 'Laura Fischer',
 		email: 'laura.fischer@hs-aalen.de',

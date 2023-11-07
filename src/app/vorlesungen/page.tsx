@@ -9,6 +9,7 @@ function Vorlesungen() {
 		<div className="grid gap-4 p-4 md:grid-cols-2 lg:p-0 lg:py-4">
 			{VORLESUNGEN.map((vorlesung) => (
 				<CourseOverviewCard
+					slug={vorlesung.slug}
 					key={vorlesung.name}
 					name={vorlesung.name}
 					professor={vorlesung.professor}
@@ -16,7 +17,7 @@ function Vorlesungen() {
 					description={vorlesung.description}
 					rating={vorlesung.rating}
 					numOfRating={vorlesung.numOfRating}
-					difficulty={(vorlesung.difficulty as BadgeProps['rating']) || 'none'}
+					difficulty={(vorlesung.difficulty as BadgeProps['difficulty']) || 'none'}
 				/>
 			))}
 		</div>
