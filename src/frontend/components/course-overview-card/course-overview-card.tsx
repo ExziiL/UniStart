@@ -13,8 +13,8 @@ import { ArrowRight, Files } from 'lucide-react';
 function CourseOverviewCard() {
 	const PROF_EMAIL = 'max.mustermann@hs-aalen.de';
 
-	const hoverRef = React.useRef(null);
-	const isHover = useHover(hoverRef);
+	const hoverEmailRef = React.useRef(null);
+	const isEmailHover = useHover(hoverEmailRef);
 
 	const [copiedText, copyText] = useCopyToClipboard();
 
@@ -27,7 +27,7 @@ function CourseOverviewCard() {
 				<p className="text-base font-medium">Max Mustermann</p>
 				<p
 					className="font-base flex w-fit gap-2 text-sm hover:cursor-pointer hover:text-zinc-800"
-					ref={hoverRef}
+					ref={hoverEmailRef}
 					onClick={() => {
 						// copies the email to the users clipboard
 						copyText(PROF_EMAIL);
@@ -39,7 +39,7 @@ function CourseOverviewCard() {
 					}}
 				>
 					{PROF_EMAIL}
-					{isHover && (
+					{isEmailHover && (
 						<span>
 							<Files
 								size={16}
