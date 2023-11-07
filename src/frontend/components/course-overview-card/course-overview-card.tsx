@@ -8,19 +8,14 @@ import { useToast } from '@/frontend/hooks/use-toast';
 import { useCopyToClipboard, useHover } from 'usehooks-ts';
 
 import { Badge, BadgeProps } from '@/frontend/components/ui/badge';
+import { VorlesungProps } from '@/interfaces/IVorlesung';
 import { ArrowRight, Files } from 'lucide-react';
+import Link from 'next/link';
 
-interface CourseOverViewCardProps {
-	name: string;
-	professor: string;
-	email: string;
-	description: string;
-	rating: number;
-	numOfRating: number;
-	difficulty: BadgeProps['rating'];
-}
+interface CourseOverViewCardProps extends VorlesungProps {}
 
 function CourseOverviewCard({
+	slug,
 	name,
 	professor,
 	email,
@@ -76,19 +71,21 @@ function CourseOverviewCard({
 			<div className="flex justify-between">
 				<span>
 					<Badge
-						rating={difficulty}
+						difficulty={difficulty}
 						className=" capitalize"
 					>
 						{difficulty}
 					</Badge>
 				</span>
-				<div className="flex cursor-pointer items-center gap-2 text-zinc-500 hover:text-zinc-800">
-					Read more
-					<ArrowRight
-						size={20}
-						strokeWidth={1.75}
-					/>
-				</div>
+				<Link href={`/vorlesungen/${slug}`}>
+					<div className="flex cursor-pointer items-center gap-2 text-zinc-500 hover:text-zinc-800">
+						Read more
+						<ArrowRight
+							size={20}
+							strokeWidth={1.75}
+						/>
+					</div>
+				</Link>
 			</div>
 		</div>
 	);
