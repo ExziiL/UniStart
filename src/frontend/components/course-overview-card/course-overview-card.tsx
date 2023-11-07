@@ -7,10 +7,28 @@ import { useToast } from '@/frontend/hooks/use-toast';
 
 import { useCopyToClipboard, useHover } from 'usehooks-ts';
 
-import { Badge } from '@/frontend/components/ui/badge';
+import { Badge, BadgeProps } from '@/frontend/components/ui/badge';
 import { ArrowRight, Files } from 'lucide-react';
 
-function CourseOverviewCard() {
+interface CourseOverViewCardProps {
+	name: string;
+	professor: string;
+	email: string;
+	description: string;
+	rating: number;
+	numOfRating: number;
+	difficulty: BadgeProps['rating'];
+}
+
+function CourseOverviewCard({
+	name,
+	professor,
+	email,
+	description,
+	rating,
+	numOfRating,
+	difficulty,
+}: CourseOverViewCardProps) {
 	const PROF_EMAIL = 'max.mustermann@hs-aalen.de';
 
 	const hoverEmailRef = React.useRef(null);
@@ -21,16 +39,16 @@ function CourseOverviewCard() {
 	const { toast } = useToast();
 
 	return (
-		<div className="mt-4 flex max-w-lg flex-col gap-3 rounded-md border p-4 transition-shadow hover:shadow-lg">
-			<h2 className="text-lg font-medium ">Grundlagen der Mathemaik</h2>
+		<div className="flex flex-col gap-3 rounded-md border p-4 transition-shadow hover:shadow-lg">
+			<h2 className="text-lg font-medium ">{name}</h2>
 			<span className="text-zinc-500">
-				<p className="text-base font-medium">Max Mustermann</p>
+				<p className="text-base font-medium">{professor}</p>
 				<p
 					className="font-base flex w-fit gap-2 text-sm hover:cursor-pointer hover:text-zinc-800"
 					ref={hoverEmailRef}
 					onClick={() => {
 						// copies the email to the users clipboard
-						copyText(PROF_EMAIL);
+						copyText(email);
 
 						toast({
 							title: 'E-Mail successfully copied to clipboard',
@@ -38,7 +56,7 @@ function CourseOverviewCard() {
 						});
 					}}
 				>
-					{PROF_EMAIL}
+					{email}
 					{isEmailHover && (
 						<span>
 							<Files
@@ -49,11 +67,20 @@ function CourseOverviewCard() {
 					)}
 				</p>
 			</span>
-			<p className="">Eine Description über das Modul, von einem Studenten oder von uns geschrieben?</p>
-			<StarRating maxRating={5} />
+			<p className="">{description}</p>
+			<StarRating
+				rating={rating}
+				maxRating={5}
+				numOfRating={numOfRating}
+			/>
 			<div className="flex justify-between">
 				<span>
-					<Badge rating="hard">Hard</Badge>
+					<Badge
+						rating={difficulty}
+						className=" capitalize"
+					>
+						{difficulty}
+					</Badge>
 				</span>
 				<div className="flex cursor-pointer items-center gap-2 text-zinc-500 hover:text-zinc-800">
 					Read more
