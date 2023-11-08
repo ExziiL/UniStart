@@ -24,7 +24,7 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, maxRating, numOfRating 
 				onChange={setUserRating}
 				readOnly
 			/>
-			<span className="pt-[2px] text-sm text-zinc-400">({numOfRating})</span>
+			{numOfRating && <span className="pt-[2px] text-sm text-zinc-400">({numOfRating})</span>}
 		</div>
 	);
 };
