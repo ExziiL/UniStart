@@ -1,11 +1,13 @@
-import { VorlesungProps } from '@/interfaces/IVorlesung';
+import { VorlesungProps } from '@/types/IVorlesung';
 
 export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'grundlagen-der-mathematik',
 		name: 'Grundlagen der Mathematik',
-		professor: 'Max Mustermann',
-		email: 'max.mustermann@hs-aalen.de',
+		professor: {
+			name: 'Max Mustermann',
+			email: 'max.mustermann@hs-aalen.de',
+		},
 		description: 'Eine Description über das Modul, von einem Studenten oder von uns geschrieben?',
 		rating: 1.5,
 		numOfRating: 12,
@@ -14,8 +16,10 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'einfuehrung-in-die-informatik',
 		name: 'Einführung in die Informatik',
-		professor: 'Julia Sommer',
-		email: 'julia.sommer@hs-aalen.de',
+		professor: {
+			name: 'Julia Sommer',
+			email: 'julia.sommer@hs-aalen.de',
+		},
 		description: 'Grundlegende Konzepte der Informatik, inklusive Algorithmen, Datenstrukturen und OOP.',
 		rating: 3.7,
 		numOfRating: 27,
@@ -24,8 +28,10 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'datenbanken-grundlagen',
 		name: 'Datenbanken Grundlagen',
-		professor: 'Lukas Bauer',
-		email: 'lukas.bauer@hs-aalen.de',
+		professor: {
+			name: 'Lukas Bauer',
+			email: 'lukas.bauer@hs-aalen.de',
+		},
 		description: 'Entwurf, Implementierung und Nutzung relationaler Datenbanksysteme.',
 		rating: 4.1,
 		numOfRating: 35,
@@ -34,8 +40,10 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'webentwicklung',
 		name: 'Webentwicklung',
-		professor: 'Anna Schmidt',
-		email: 'anna.schmidt@hs-aalen.de',
+		professor: {
+			name: 'Anna Schmidt',
+			email: 'anna.schmidt@hs-aalen.de',
+		},
 		description: 'Entwicklung moderner Webanwendungen mit HTML, CSS, und JavaScript.',
 		rating: 3.9,
 		numOfRating: 19,
@@ -44,8 +52,10 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'algorithmen-und-datenstrukturen',
 		name: 'Algorithmen und Datenstrukturen',
-		professor: 'Stefan Klein',
-		email: 'stefan.klein@hs-aalen.de',
+		professor: {
+			name: 'Stefan Klein',
+			email: 'stefan.klein@hs-aalen.de',
+		},
 		description: 'Vertiefte Betrachtung von Algorithmen und deren Datenstrukturen.',
 		rating: 2.8,
 		numOfRating: 40,
@@ -54,8 +64,10 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'betriebssysteme-und-netzwerke',
 		name: 'Betriebssysteme und Netzwerke',
-		professor: 'Maria Neumann',
-		email: 'maria.neumann@hs-aalen.de',
+		professor: {
+			name: 'Maria Neumann',
+			email: 'maria.neumann@hs-aalen.de',
+		},
 		description: 'Grundlagen der Betriebssysteme und Computernetzwerke.',
 		rating: 3.3,
 		numOfRating: 18,
@@ -64,8 +76,10 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'objektorientierte-programmierung',
 		name: 'Objektorientierte Programmierung',
-		professor: 'Felix Richter',
-		email: 'felix.richter@hs-aalen.de',
+		professor: {
+			name: 'Felix Richter',
+			email: 'felix.richter@hs-aalen.de',
+		},
 		description: 'Konzepte und Anwendungen der objektorientierten Programmierung in Java.',
 		rating: 4.5,
 		numOfRating: 25,
@@ -74,8 +88,10 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'theoretische-informatik',
 		name: 'Theoretische Informatik',
-		professor: 'Leonie Beck',
-		email: 'leonie.beck@hs-aalen.de',
+		professor: {
+			name: 'Leonie Beck',
+			email: 'leonie.beck@hs-aalen.de',
+		},
 		description: 'Automaten, Berechenbarkeit und Komplexitätstheorie.',
 		rating: 1.9,
 		numOfRating: 20,
@@ -84,8 +100,10 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'software-engineering',
 		name: 'Software Engineering',
-		professor: 'Tobias Lang',
-		email: 'tobias.lang@hs-aalen.de',
+		professor: {
+			name: 'Tobias Lang',
+			email: 'tobias.lang@hs-aalen.de',
+		},
 		description: 'Methoden und Techniken für die Entwicklung großer Softwaresysteme.',
 		rating: 3.0,
 		numOfRating: 22,
@@ -94,8 +112,10 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'mensch-computer-interaktion',
 		name: 'Mensch-Computer-Interaktion',
-		professor: 'Sandra Koch',
-		email: 'sandra.koch@hs-aalen.de',
+		professor: {
+			name: 'Sandra Koch',
+			email: 'sandra.koch@hs-aalen.de',
+		},
 		description: 'Gestaltung benutzerfreundlicher Schnittstellen und Interaktionssysteme.',
 		rating: 4.2,
 		numOfRating: 30,
@@ -104,8 +124,10 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'computergrafik',
 		name: 'Computergrafik',
-		professor: 'Markus Wolf',
-		email: 'markus.wolf@hs-aalen.de',
+		professor: {
+			name: 'Markus Wolf',
+			email: 'markus.wolf@hs-aalen.de',
+		},
 		description: 'Einführung in die Erzeugung von Bildern mittels Computer.',
 		rating: 3.8,
 		numOfRating: 28,
@@ -114,8 +136,10 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'rechnerarchitektur',
 		name: 'Rechnerarchitektur',
-		professor: 'Laura Fischer',
-		email: 'laura.fischer@hs-aalen.de',
+		professor: {
+			name: 'Laura Fischer',
+			email: 'laura.fischer@hs-aalen.de',
+		},
 		description: 'Aufbau und Funktionsweise von Computersystemen und deren Komponenten.',
 		rating: 2.5,
 		numOfRating: 16,

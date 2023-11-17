@@ -1,10 +1,10 @@
 import { BadgeProps } from '@/frontend/components/ui/badge';
+import { ProfessorProps } from './IProfessor';
 
 export interface VorlesungProps {
 	slug: string;
 	name: string;
-	professor: string;
-	email: string;
+	professor: ProfessorProps;
 	description: string;
 	rating: number;
 	numOfRating: number;

@@ -13,7 +13,6 @@ function Vorlesungen() {
 					key={vorlesung.name}
 					name={vorlesung.name}
 					professor={vorlesung.professor}
-					email={vorlesung.email}
 					description={vorlesung.description}
 					rating={vorlesung.rating}
 					numOfRating={vorlesung.numOfRating}
