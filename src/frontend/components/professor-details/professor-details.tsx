@@ -8,9 +8,10 @@ import { useCopyToClipboard, useHover } from 'usehooks-ts';
 
 interface ProfessorDetailsProps {
 	professor: ProfessorProps;
+	className?: string;
 }
 
-function ProfessorDetails({ professor }: ProfessorDetailsProps) {
+function ProfessorDetails({ professor, className }: ProfessorDetailsProps) {
 	const hoverEmailRef = React.useRef(null);
 	const isEmailHover = useHover(hoverEmailRef);
 
@@ -19,7 +20,7 @@ function ProfessorDetails({ professor }: ProfessorDetailsProps) {
 	const { toast } = useToast();
 
 	return (
-		<span className="text-zinc-500">
+		<div className={`${className} text-zinc-500`}>
 			<p className="text-base font-medium">{professor.name}</p>
 			<p
 				className="font-base flex w-fit gap-2 text-sm hover:cursor-pointer hover:text-zinc-800"
@@ -44,7 +45,7 @@ function ProfessorDetails({ professor }: ProfessorDetailsProps) {
 					</span>
 				)}
 			</p>
-		</span>
+		</div>
 	);
 }
 
