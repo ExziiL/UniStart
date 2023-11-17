@@ -1,5 +1,6 @@
 import React from 'react';
 
+import CourseReviews from '@/frontend/components/course-reviews';
 import DetailedCourseOverview from '@/frontend/components/detailed-course-overview';
 import { VORLESUNGEN } from '@/frontend/constants/vorlesungen';
 import { VorlesungProps } from '@/types/IVorlesung';
@@ -29,9 +30,10 @@ function Page({ params }: PageProps) {
 	}
 
 	return (
-		<div className="p-4">
+		<div className="flex flex-col gap-16 p-4">
 			<DetailedCourseOverview vorlesung={vorlesung} />
-			{/* <CourseReviews /> */}
+
+			<CourseReviews />
 		</div>
 	);
 }
