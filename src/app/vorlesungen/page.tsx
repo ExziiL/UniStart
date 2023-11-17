@@ -14,6 +14,7 @@ function Vorlesungen() {
 					name={vorlesung.name}
 					professor={vorlesung.professor}
 					description={vorlesung.description}
+					longDescription={vorlesung.longDescription}
 					rating={vorlesung.rating}
 					numOfRating={vorlesung.numOfRating}
 					difficulty={(vorlesung.difficulty as BadgeProps['difficulty']) || 'none'}
