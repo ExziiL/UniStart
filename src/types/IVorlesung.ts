@@ -6,6 +6,7 @@ export interface VorlesungProps {
 	name: string;
 	professor: ProfessorProps;
 	description: string;
+	longDescription: string;
 	rating: number;
 	numOfRating: number;
 	difficulty: BadgeProps['difficulty'];
