@@ -3,6 +3,7 @@ import React from 'react';
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/frontend/components/ui/table';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/frontend/components/ui/tooltip';
 import { Info } from 'lucide-react';
+import { dateScrapper } from '@/backend/scrapper/scrapper';
 
 const eintraege = [
 	{
@@ -45,7 +46,10 @@ const eintraege = [
 	},
 ];
 
-const AppointmentTable = () => {
+const AppointmentTable = async () => {
+
+	const entries = await dateScrapper();
+
 	return (
 		<Table>
 			<TableHeader>
@@ -55,13 +59,13 @@ const AppointmentTable = () => {
 				</TableRow>
 			</TableHeader>
 			<TableBody>
-				{eintraege.map((eintrag) => {
+				{entries.map((entry) => {
 					return (
-						<TableRow key={eintrag.title}>
+						<TableRow key={entry.title}>
 							<TableCell className="md:w-4/5 w-fill flex flex-row items-center">
-								{eintrag.title}
+								{entry.title}
 
-								{eintrag.tooltip && (
+								{entry.annotation && (
 									<TooltipProvider>
 										<Tooltip>
 											<TooltipTrigger>
@@ -72,14 +76,14 @@ const AppointmentTable = () => {
 												/>
 											</TooltipTrigger>
 											<TooltipContent>
-												<p>{eintrag.tooltip}</p>
+												<p>{entry.annotation}</p>
 											</TooltipContent>
 										</Tooltip>
 									</TooltipProvider>
 								)}
 							</TableCell>
 
-							<TableCell className="text-right min-w-[140px]">{eintrag.date}</TableCell>
+							<TableCell className="text-right min-w-[140px]">{entry.dates[0]}</TableCell>
 						</TableRow>
 					);
 				})}
