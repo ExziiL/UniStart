@@ -1,4 +1,4 @@
-export interface CourseReviewProps {
+export interface SingleCourseReviewProps {
 	heading: string;
 	rating: number;
 	date: Date;
