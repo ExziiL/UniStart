@@ -67,6 +67,11 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+
+    /* --------------------- My own added colors ------------------- */
+    /* TODO: noch auf dark mode anpassen */
+    --light: 240 5% 64.9%;
+    --light-foreground: 0 0% 98%;
   }
 }
  
