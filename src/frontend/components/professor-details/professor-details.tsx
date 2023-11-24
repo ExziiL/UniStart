@@ -20,10 +20,10 @@ function ProfessorDetails({ professor, className }: ProfessorDetailsProps) {
 	const { toast } = useToast();
 
 	return (
-		<div className={`${className} text-zinc-500`}>
-			<p className="text-base font-medium">{professor.name}</p>
+		<div className={`${className} transition-colors`}>
+			<p className="text-base font-medium text-primary ">{professor.name}</p>
 			<p
-				className="font-base flex w-fit gap-2 text-sm hover:cursor-pointer hover:text-zinc-800"
+				className="font-base text-light flex w-fit gap-2 text-sm hover:cursor-pointer hover:text-primary"
 				ref={hoverEmailRef}
 				onClick={() => {
 					// copies the email to the users clipboard
