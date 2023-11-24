@@ -1,6 +1,14 @@
 import React from 'react';
 
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/frontend/components/ui/table';
+import {
+	Table,
+	TableBody,
+	TableCaption,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from '@/frontend/components/ui/table';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/frontend/components/ui/tooltip';
 import { Info } from 'lucide-react';
 
@@ -50,7 +58,7 @@ const AppointmentTable = () => {
 		<Table>
 			<TableHeader>
 				<TableRow>
-					<TableHead className="md:w-4/5 w-fill">Title</TableHead>
+					<TableHead className="w-fill md:w-4/5">Title</TableHead>
 					<TableHead className="text-right">Datum</TableHead>
 				</TableRow>
 			</TableHeader>
@@ -58,7 +66,7 @@ const AppointmentTable = () => {
 				{eintraege.map((eintrag) => {
 					return (
 						<TableRow key={eintrag.title}>
-							<TableCell className="md:w-4/5 w-fill flex flex-row items-center">
+							<TableCell className="w-fill flex flex-row items-center md:w-4/5">
 								{eintrag.title}
 
 								{eintrag.tooltip && (
@@ -68,7 +76,7 @@ const AppointmentTable = () => {
 												<Info
 													size={16}
 													strokeWidth={2}
-													className="ml-2 text-zinc-400"
+													className="text-light ml-2"
 												/>
 											</TooltipTrigger>
 											<TooltipContent>
@@ -79,7 +87,7 @@ const AppointmentTable = () => {
 								)}
 							</TableCell>
 
-							<TableCell className="text-right min-w-[140px]">{eintrag.date}</TableCell>
+							<TableCell className="min-w-[140px] text-right">{eintrag.date}</TableCell>
 						</TableRow>
 					);
 				})}
