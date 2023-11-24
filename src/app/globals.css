@@ -33,6 +33,10 @@
     --ring: 240 10% 3.9%;
  
     --radius: 0.5rem;
+
+    /* --------------------- My own added colors ------------------- */
+    --light: 240 3.8% 46.1%;
+    --light-foreground: 0  0% 98%;
   }
  
   .dark {
