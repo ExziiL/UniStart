@@ -22,7 +22,7 @@ function CourseOverviewCard({
 	difficulty,
 }: CourseOverViewCardProps) {
 	return (
-		<div className="flex flex-col gap-3 rounded-md border p-4 transition-colors">
+		<div className="flex flex-col gap-3 rounded-md border p-4">
 			<h2 className="text-lg font-medium text-primary">{name}</h2>
 
 			<ProfessorDetails professor={professor} />
