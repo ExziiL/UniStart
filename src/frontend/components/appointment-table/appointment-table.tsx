@@ -58,15 +58,15 @@ const AppointmentTable = () => {
 		<Table>
 			<TableHeader>
 				<TableRow>
-					<TableHead className="w-fill md:w-4/5">Title</TableHead>
-					<TableHead className="text-right">Datum</TableHead>
+					<TableHead className="w-fill text-light md:w-4/5">Title</TableHead>
+					<TableHead className="text-right text-light">Datum</TableHead>
 				</TableRow>
 			</TableHeader>
 			<TableBody>
 				{eintraege.map((eintrag) => {
 					return (
 						<TableRow key={eintrag.title}>
-							<TableCell className="w-fill flex flex-row items-center md:w-4/5">
+							<TableCell className="w-fill flex flex-row items-center text-primary md:w-4/5">
 								{eintrag.title}
 
 								{eintrag.tooltip && (
@@ -76,7 +76,7 @@ const AppointmentTable = () => {
 												<Info
 													size={16}
 													strokeWidth={2}
-													className="text-light ml-2"
+													className="ml-2 text-light"
 												/>
 											</TooltipTrigger>
 											<TooltipContent>
@@ -87,7 +87,7 @@ const AppointmentTable = () => {
 								)}
 							</TableCell>
 
-							<TableCell className="min-w-[140px] text-right">{eintrag.date}</TableCell>
+							<TableCell className="min-w-[140px] text-right text-primary">{eintrag.date}</TableCell>
 						</TableRow>
 					);
 				})}

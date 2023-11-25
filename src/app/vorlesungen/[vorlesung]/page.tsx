@@ -19,9 +19,9 @@ function Page({ params }: PageProps) {
 		// TODO: add (custom) 404 page
 		return (
 			<>
-				<h1 className="text-xl font-semibold">404 - Vorlesung Not Found</h1>
-				<p>{`Oops! The page you're looking for doesn't exist.`}</p>
-				<p>{`You may want to head back to the homepage. If you think something is broken, report a problem.`}</p>
+				<h1 className="text-xl font-semibold text-primary">404 - Vorlesung Not Found</h1>
+				<p className="text-primary">{`Oops! The page you're looking for doesn't exist.`}</p>
+				<p className="text-primary">{`You may want to head back to the homepage. If you think something is broken, report a problem.`}</p>
 				<div>
 					<Link href="/">Go Home</Link>
 				</div>

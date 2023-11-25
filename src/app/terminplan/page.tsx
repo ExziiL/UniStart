@@ -30,10 +30,10 @@ const eintraege = [
 function Terminplan() {
 	return (
 		<div className="mx-auto max-w-[960px] space-y-16">
-			<h1 className="my-16 text-6xl font-bold">Terminplan für das WS 2023/2024</h1>
+			<h1 className="my-16 text-6xl font-bold text-primary">Terminplan für das WS 2023/2024</h1>
 
 			<div className="space-y-6">
-				<h2 className="text-4xl font-medium">Upcoming Appointments</h2>
+				<h2 className="text-4xl font-medium text-primary">Upcoming Appointments</h2>
 				<div className="grid grid-cols-2 gap-6">
 					{eintraege.map((eintrag) => (
 						<AppointmentCard
@@ -47,11 +47,11 @@ function Terminplan() {
 			</div>
 
 			<div className="space-y-6">
-				<h2 className="text-4xl font-medium">Appointment Overview</h2>
+				<h2 className="text-4xl font-medium text-primary">Appointment Overview</h2>
 
 				<AppointmentTable />
 
-				<div className="flex cursor-pointer items-start justify-end space-x-2 text-blue-400 hover:text-blue-600">
+				<div className="text-link hover:text-link/90 flex w-auto cursor-pointer items-start justify-end space-x-2">
 					<Download className="h-5 w-5" />
 					<span className="">Download PDF</span>
 				</div>

@@ -23,7 +23,7 @@ function ProfessorDetails({ professor, className }: ProfessorDetailsProps) {
 		<div className={`${className}`}>
 			<p className="text-base font-medium text-primary ">{professor.name}</p>
 			<p
-				className="font-base text-light flex w-fit gap-2 text-sm transition-colors hover:cursor-pointer hover:text-primary"
+				className="font-base flex w-fit gap-2 text-sm text-light transition-colors hover:cursor-pointer hover:text-primary"
 				ref={hoverEmailRef}
 				onClick={() => {
 					// copies the email to the users clipboard
@@ -40,7 +40,7 @@ function ProfessorDetails({ professor, className }: ProfessorDetailsProps) {
 					<span>
 						<Files
 							size={16}
-							strokeWidth={1.5}
+							strokeWidth={2}
 						/>
 					</span>
 				)}

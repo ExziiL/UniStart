@@ -12,7 +12,7 @@ interface DetailedCourseOverviewProps {
 
 function DetailedCourseOverview({ vorlesung }: DetailedCourseOverviewProps) {
 	return (
-		<div>
+		<div className="text-primary">
 			<h1 className="text-xl font-medium">{vorlesung.name}</h1>
 			<Badge
 				difficulty={vorlesung.difficulty}
@@ -26,7 +26,7 @@ function DetailedCourseOverview({ vorlesung }: DetailedCourseOverviewProps) {
 				className=" mb-6"
 			/>
 
-			<p className="max-w-xl text-zinc-600">{vorlesung.longDescription}</p>
+			<p className="max-w-xl">{vorlesung.longDescription}</p>
 		</div>
 	);
 }

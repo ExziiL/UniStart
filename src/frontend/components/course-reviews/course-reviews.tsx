@@ -16,7 +16,7 @@ function CourseReviews() {
 
 	return (
 		<div>
-			<h2 className="text-2xl font-medium">Reviews</h2>
+			<h2 className="text-2xl font-medium text-primary">Reviews</h2>
 			{COURSE_REVIEWS.map((review, index) => (
 				<CourseReview
 					review={review}

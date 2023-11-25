@@ -20,10 +20,10 @@ function RegistrationCard() {
 	};
 
 	return (
-		<div className="border m-4 rounded-lg w-96 p-6">
-			<h1 className="font-semibold text-3xl">Create an account</h1>
-			<p className="text-zinc-400 text-sm mt-2">Enter your email below to create your account.</p>
-			<div className="flex flex-row w-full space-x-4 mt-6">
+		<div className="m-4 w-96 rounded-lg border p-6 text-primary">
+			<h1 className="text-3xl font-semibold">Create an account</h1>
+			<p className="mt-2 text-sm text-light">Enter your email below to create your account.</p>
+			<div className="mt-6 flex w-full flex-row space-x-4">
 				<Button
 					variant="outline"
 					className="w-full"
@@ -48,13 +48,13 @@ function RegistrationCard() {
 				</Button>
 			</div>
 
-			<Separator className="mt-8 mb-6">or continue with</Separator>
+			<Separator className="mb-6 mt-8">or continue with</Separator>
 
 			<RegistrationForm />
 
-			<p className="text-xs pt-2">
+			<p className="pt-2 text-xs text-light">
 				Already have an account?{' '}
-				<span className="text-blue-400 cursor-pointer">
+				<span className="text-link hover:text-link/90 cursor-pointer">
 					<Link href="/login">Log in here.</Link>
 				</span>
 			</p>

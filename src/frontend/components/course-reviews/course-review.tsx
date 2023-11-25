@@ -11,8 +11,8 @@ interface CourseReviewProps {
 
 function CourseReview({ review, lastReview }: CourseReviewProps) {
 	return (
-		<div className="pt-7">
-			<h2 className="font-medium text-zinc-800">{review.heading}</h2>
+		<div className="pt-7 text-primary">
+			<h2 className="font-medium">{review.heading}</h2>
 			<div className="flex gap-3 pb-2 pt-1">
 				<StarRating rating={review.rating} />
 
@@ -20,9 +20,9 @@ function CourseReview({ review, lastReview }: CourseReviewProps) {
 					<Separator orientation="vertical" />
 				</div>
 
-				<span className="flex flex-col justify-center text-sm text-zinc-500">2 minutes ago</span>
+				<span className="flex flex-col justify-center text-sm text-light">2 minutes ago</span>
 			</div>
-			<p className="text-zinc-800">{review.comment}</p>
+			<p className="">{review.comment}</p>
 
 			{lastReview || <Separator className="mt-7" />}
 		</div>

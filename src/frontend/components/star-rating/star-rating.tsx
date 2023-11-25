@@ -25,8 +25,8 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, maxRating, numOfRating 
 			/>
 
 			<div className="flex items-center gap-2">
-				<span className="pt-[2px] text-base font-medium text-primary">{rating}</span>
-				{numOfRating && <span className="text-light pt-[2px] text-sm">({numOfRating})</span>}
+				<span className="pt-[2px] text-sm font-medium text-primary">{rating}</span>
+				{numOfRating && <span className="pt-[2px] text-sm text-light">({numOfRating})</span>}
 			</div>
 		</div>
 	);

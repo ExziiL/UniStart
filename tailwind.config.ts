@@ -50,6 +50,10 @@ module.exports = {
 					DEFAULT: 'hsl(var(--light))',
 					foreground: 'hsl(var(--light-foreground))',
 				},
+				link: {
+					DEFAULT: 'hsl(var(--link))',
+					foreground: 'hsl(var(--link-foreground))',
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

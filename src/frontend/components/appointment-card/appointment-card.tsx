@@ -13,13 +13,13 @@ const AppointmentCard: FunctionComponent<AppointmentCardProps> = ({ title, date,
 	return (
 		<Card className="flex flex-col justify-between shadow-sm">
 			<CardHeader className="p-4 pb-0">
-				<CardTitle className="text-base">{title}</CardTitle>
+				<CardTitle className="text-base text-primary">{title}</CardTitle>
 			</CardHeader>
 			<div>
 				<CardContent className="px-4 pb-3 pt-1">
-					<p className="text-base font-light">{dueDay}</p>
+					<p className="text-base font-light text-primary">{dueDay}</p>
 				</CardContent>
-				<CardFooter className="space-x-1 p-4 pt-0 text-[#64748B]">
+				<CardFooter className="space-x-1 p-4 pt-0 text-light">
 					<CalendarDays
 						size={20}
 						strokeWidth={1.75}
