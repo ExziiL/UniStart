@@ -1,6 +1,6 @@
-import { CourseReviewProps } from '@/types/ICourseReview';
+import { SingleCourseReviewProps } from '@/types/ICourseReview';
 
-export const COURSE_REVIEWS: CourseReviewProps[] = [
+export const COURSE_REVIEWS: SingleCourseReviewProps[] = [
 	{
 		heading: 'The perfect course for product managers who are new to the role',
 		rating: 5,
