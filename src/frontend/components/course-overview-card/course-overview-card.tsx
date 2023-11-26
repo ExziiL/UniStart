@@ -1,29 +1,14 @@
 'use client';
 
-import React from 'react';
-
+import CourseBadge from '@/frontend/components/course-badge';
 import ProfessorDetails from '@/frontend/components/professor-details';
 import StarRating from '@/frontend/components/star-rating';
-import { Badge } from '@/frontend/components/ui/badge';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/frontend/components/ui/tooltip';
-import { cn } from '@/lib/utils';
 import { VorlesungProps } from '@/types/IVorlesung';
-import { cva, type VariantProps } from 'class-variance-authority';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import React from 'react';
 
-interface CourseOverViewCardProps extends VorlesungProps, VariantProps<typeof badgeDifficulty> {}
-
-const badgeDifficulty = cva('', {
-	variants: {
-		variant: {
-			none: '',
-			easy: 'bg-green-100 text-green-500 border-green-500 hover:bg-green-200 hover:text-green-600',
-			medium: 'bg-yellow-100 text-yellow-500 border-yellow-500 hover:bg-yellow-200 hover:text-yellow-600 dark:bg-yellow-50 dark:text-yellow-600 dark:border-yellow-600 dark:hover:bg-yellow-200 dark:hover:text-yellow-700',
-			hard: 'bg-red-100 text-red-500 border-red-500 hover:bg-red-200 hover:text-red-600',
-		},
-	},
-});
+interface CourseOverViewCardProps extends VorlesungProps {}
 
 function CourseOverviewCard({
 	slug,
@@ -49,20 +34,7 @@ function CourseOverviewCard({
 			/>
 
 			<div className="flex justify-between">
-				<span>
-					<TooltipProvider>
-						<Tooltip>
-							<TooltipTrigger>
-								<Badge className={cn(badgeDifficulty({ variant: difficulty }), 'capitalize')}>
-									{difficulty}
-								</Badge>
-							</TooltipTrigger>
-							<TooltipContent>
-								<p>{`Andere Studenten haben diese Vorlesung als ${difficulty} empfunden.`}</p>
-							</TooltipContent>
-						</Tooltip>
-					</TooltipProvider>
-				</span>
+				<CourseBadge difficulty={difficulty} />
 
 				<Link href={`/vorlesungen/${slug}`}>
 					<div className="flex cursor-pointer items-center gap-2 text-light transition-colors hover:text-primary">

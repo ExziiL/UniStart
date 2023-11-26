@@ -17,7 +17,7 @@ function Vorlesungen() {
 					longDescription={vorlesung.longDescription}
 					rating={vorlesung.rating}
 					numOfRating={vorlesung.numOfRating}
-					difficulty={(vorlesung.difficulty as BadgeProps['difficulty']) || 'none'}
+					difficulty={vorlesung.difficulty}
 				/>
 			))}
 		</div>
