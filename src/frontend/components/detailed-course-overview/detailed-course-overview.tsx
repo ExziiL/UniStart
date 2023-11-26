@@ -1,6 +1,6 @@
 'use client';
 
-import { Separator } from '@/frontend/components/ui/separator';
+import CourseBadge from '@/frontend/components/course-badge';
 import { VorlesungProps } from '@/types/IVorlesung';
 import React from 'react';
 import ProfessorDetails from '../professor-details';
@@ -14,12 +14,10 @@ function DetailedCourseOverview({ vorlesung }: DetailedCourseOverviewProps) {
 	return (
 		<div className="text-primary">
 			<h1 className="text-xl font-medium">{vorlesung.name}</h1>
-			<Badge
-				difficulty={vorlesung.difficulty}
+			<CourseBadge
 				className="mb-4 mt-2 capitalize"
-			>
-				{vorlesung.difficulty}
-			</Badge>
+				difficulty={vorlesung.difficulty}
+			/>
 
 			<ProfessorDetails
 				professor={vorlesung.professor}

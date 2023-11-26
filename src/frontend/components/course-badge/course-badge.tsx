@@ -1,4 +1,4 @@
-import { Badge } from '@/frontend/components/ui/badge';
+import { Badge, BadgeProps } from '@/frontend/components/ui/badge';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/frontend/components/ui/tooltip';
 import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
@@ -15,17 +15,17 @@ const badgeDifficulty = cva('', {
 	},
 });
 
-interface CourseBadgeProps extends VariantProps<typeof badgeDifficulty> {
+interface CourseBadgeProps extends BadgeProps {
 	difficulty: 'easy' | 'medium' | 'hard';
 }
 
-function CourseBadge({ difficulty }: CourseBadgeProps) {
+function CourseBadge({ className, difficulty }: CourseBadgeProps) {
 	return (
 		<span>
 			<TooltipProvider>
 				<Tooltip>
 					<TooltipTrigger>
-						<Badge className={cn(badgeDifficulty({ variant: difficulty }), 'capitalize')}>
+						<Badge className={cn(badgeDifficulty({ variant: difficulty }), className, 'capitalize')}>
 							{difficulty}
 						</Badge>
 					</TooltipTrigger>
