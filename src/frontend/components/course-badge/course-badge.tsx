@@ -30,7 +30,7 @@ function CourseBadge({ className, difficulty }: CourseBadgeProps) {
 						</Badge>
 					</TooltipTrigger>
 					<TooltipContent>
-						<p>{`Andere Studenten haben diese Vorlesung als ${difficulty} empfunden.`}</p>
+						<p>{`Studenten haben diese Vorlesung als ${difficulty} empfunden.`}</p>
 					</TooltipContent>
 				</Tooltip>
 			</TooltipProvider>
