@@ -76,7 +76,7 @@ const AppointmentTable = () => {
 												<Info
 													size={16}
 													strokeWidth={2}
-													className="ml-2 text-light"
+													className="ml-2 cursor-default text-light"
 												/>
 											</TooltipTrigger>
 											<TooltipContent>
