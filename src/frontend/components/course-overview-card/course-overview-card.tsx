@@ -20,31 +20,35 @@ function CourseOverviewCard({
 	difficulty,
 }: CourseOverViewCardProps) {
 	return (
-		<div className="flex flex-col gap-3 rounded-md border p-4">
-			<h2 className="text-lg font-medium text-primary">{name}</h2>
+		<div className="flex flex-col justify-between gap-3 rounded-md border p-4  ">
+			<div className="flex flex-col gap-3 ">
+				<h2 className="text-lg font-medium text-primary">{name}</h2>
 
-			<ProfessorDetails professor={professor} />
+				<ProfessorDetails professor={professor} />
 
-			<p className="text-primary">{description}</p>
+				<p className="text-primary">{description}</p>
+			</div>
 
-			<StarRating
-				rating={rating}
-				maxRating={5}
-				numOfRating={numOfRating}
-			/>
+			<div className="flex flex-col gap-3">
+				<StarRating
+					rating={rating}
+					maxRating={5}
+					numOfRating={numOfRating}
+				/>
 
-			<div className="flex justify-between">
-				<CourseBadge difficulty={difficulty} />
+				<div className="flex justify-between">
+					<CourseBadge difficulty={difficulty} />
 
-				<Link href={`/vorlesungen/${slug}`}>
-					<div className="flex cursor-pointer items-center gap-2 text-light transition-colors hover:text-primary">
-						Read more
-						<ArrowRight
-							size={20}
-							strokeWidth={1.75}
-						/>
-					</div>
-				</Link>
+					<Link href={`/vorlesungen/${slug}`}>
+						<div className="flex cursor-pointer items-center gap-2 text-light transition-colors hover:text-primary">
+							Read more
+							<ArrowRight
+								size={20}
+								strokeWidth={1.75}
+							/>
+						</div>
+					</Link>
+				</div>
 			</div>
 		</div>
 	);
