@@ -1,4 +1,3 @@
-import { BadgeProps } from '@/frontend/components/ui/badge';
 import { ProfessorProps } from './IProfessor';
 
 export interface VorlesungProps {
@@ -9,5 +8,5 @@ export interface VorlesungProps {
 	longDescription: string;
 	rating: number;
 	numOfRating: number;
-	difficulty: BadgeProps['difficulty'];
+	difficulty: 'easy' | 'medium' | 'hard';
 }
