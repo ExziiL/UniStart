@@ -4,7 +4,7 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 const badgeVariants = cva(
-	'inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+	'inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 select-none',
 	{
 		variants: {
 			variant: {
@@ -16,7 +16,7 @@ const badgeVariants = cva(
 			difficulty: {
 				none: '',
 				easy: 'bg-green-100 text-green-500 border-green-500 hover:bg-green-200 hover:text-green-600',
-				medium: 'bg-yellow-100 text-yellow-500 border-yellow-500 hover:bg-yellow-200 hover:text-yellow-600',
+				medium: 'bg-yellow-100 text-yellow-500 border-yellow-500 hover:bg-yellow-200 hover:text-yellow-600 dark:bg-yellow-50 dark:text-yellow-600 dark:border-yellow-600 dark:hover:bg-yellow-200 dark:hover:text-yellow-700',
 				hard: 'bg-red-100 text-red-500 border-red-500 hover:bg-red-200 hover:text-red-600',
 			},
 		},
