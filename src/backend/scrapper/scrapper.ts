@@ -33,7 +33,7 @@ export function dateScrapper(): Promise<Information[]> {
                 }
             )
             .catch((error) => {
-                //console.error(error);
+                console.error(error);
             }); // Error handling    .catch(console.error); // Error handlingnpm i -D @types/axios @types/cheerio
     });
     return data;
