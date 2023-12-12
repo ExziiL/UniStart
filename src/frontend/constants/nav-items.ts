@@ -25,6 +25,11 @@ const navItems: { title: string; href: string; description: string }[] = [
 		description: 'Übersicht aller Vorlesungen der ersten zwei Semester',
 	},
 	{
+		title: 'Chat',
+		href: '/chat',
+		description: 'User-Chat',
+	},
+	{
 		title: 'Not Found',
 		href: '/not-found',
 		description: 'Übersicht aller wichtigen Termine der Hochschule',
