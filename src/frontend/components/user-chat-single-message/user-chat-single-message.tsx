@@ -16,7 +16,7 @@ function UserChatSingleMessage({ user }: UserChatSingleMessageProps) {
 	}
 
 	return (
-		<div className="w-fill m-4 flex gap-4 px-4 hover:bg-zinc-100">
+		<div className="w-fill transition-color mx-2 my-2 flex cursor-pointer gap-4 rounded-md px-3 py-3 transition-all hover:bg-zinc-100">
 			<div className="relative">
 				<Avatar>
 					<AvatarImage
