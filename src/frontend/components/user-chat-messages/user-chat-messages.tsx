@@ -4,7 +4,9 @@ import React from 'react';
 
 function UserChatMessages() {
 	return (
-		<div className="bg-zinc-50">
+		<div className="w-96 bg-zinc-50 ">
+			<UserChatSingleMessage />
+			<UserChatSingleMessage />
 			<UserChatSingleMessage />
 			<UserChatSingleMessage />
 		</div>
