@@ -1,12 +1,12 @@
 import UserBar from '@/frontend/components/user-bar/user-bar';
-import UserChatSingleOverview from '@/frontend/components/user-chat-single-overview';
+import UserChatMessages from '@/frontend/components/user-chat-messages';
 import React from 'react';
 
 function Chat() {
 	return (
 		<div>
 			<UserBar />
-			<UserChatSingleOverview />
+			<UserChatMessages />
 		</div>
 	);
 }
