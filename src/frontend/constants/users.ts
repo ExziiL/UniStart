@@ -41,7 +41,7 @@ const USERS = [
         age: 30,
         email: 'alice.smith@example.com',
         profile: {
-            avatar: 'https://www.gravatar.com/avatar/somehash',
+            avatar: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50',
             bio: 'Explorer of new technologies'
         },
         contactInfo: {
