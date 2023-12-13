@@ -1,14 +1,16 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/frontend/components/ui/avatar';
 import UserChatSingleMessage from '@/frontend/components/user-chat-single-message';
+import { USERS } from '@/frontend/constants/users';
 import React from 'react';
 
 function UserChatMessages() {
 	return (
 		<div className="w-96 bg-zinc-50 ">
-			<UserChatSingleMessage />
-			<UserChatSingleMessage />
-			<UserChatSingleMessage />
-			<UserChatSingleMessage />
+			{USERS.map((user) => (
+				<UserChatSingleMessage
+					key={user.id}
+					user={user}
+				/>
+			))}
 		</div>
 	);
 }

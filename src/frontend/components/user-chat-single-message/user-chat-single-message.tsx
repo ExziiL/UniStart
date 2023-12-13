@@ -1,13 +1,26 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/frontend/components/ui/avatar';
+import IUser from '@/types/IUser';
 import React from 'react';
 
-function UserChatSingleMessage() {
+interface UserChatSingleMessageProps {
+	user: IUser;
+}
+
+function UserChatSingleMessage({ user }: UserChatSingleMessageProps) {
+	function getMessageDate() {
+		const date = new Date(user.messages![0].date);
+		const hours = date.getHours();
+		const minutes = date.getMinutes();
+		const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+		return `${hours}:${formattedMinutes}`;
+	}
+
 	return (
 		<div className="w-fill m-4 flex gap-4 px-2 py-4">
 			<div className="relative">
 				<Avatar>
 					<AvatarImage
-						src="https://github.com/shadcn.png"
+						src={user.profile!.avatar}
 						alt="@shadcn"
 					/>
 					<AvatarFallback>Profile Picture</AvatarFallback>
@@ -20,13 +33,10 @@ function UserChatSingleMessage() {
 			</div>
 			<div className="flex w-full flex-col gap-1">
 				<div className="flex justify-between">
-					<h2 className=" font-medium">Angela Bower</h2>
-					<span className="text-zinc-400">3h ago</span>
+					<h2 className=" font-medium">{user.name}</h2>
+					<span className="text-zinc-400">{getMessageDate()}</span>
 				</div>
-				<p className="line-clamp-2 text-zinc-500">
-					Hi, mir geht's ganz gut, ich bin gerade in der Vorlesung. Wie geht's dir? An sich ganz okay, ich
-					mochte nur etwas schauen.
-				</p>
+				<p className="line-clamp-2 text-zinc-500">{user.messages![0].text}</p>
 			</div>
 		</div>
 	);

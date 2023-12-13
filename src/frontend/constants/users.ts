@@ -1,4 +1,6 @@
-const USERS = [
+import IUser from '@/types/IUser';
+
+export const USERS: IUser[] = [
     {
         id: 1,
         name: 'John Doe',
@@ -20,7 +22,7 @@ const USERS = [
         },
         chatSettings: {
             isOnline: true,
-            lastSeen: '2020-10-10T12:00:00.000Z',
+            lastSeen: '2023-10-10T12:00:00.000Z',
             privacySettings: {
                 showLastSeen: true,
             },
@@ -29,7 +31,7 @@ const USERS = [
             {
                 conversationId: 'conv123', // Identifier for the conversation
                 text: 'Hello, how are you?',
-                date: '2020-10-10T12:00:00.000Z',
+                date: '2023-10-10T12:00:00.000Z',
                 seen: true, 
             }
         ],
@@ -56,7 +58,7 @@ const USERS = [
         },
         chatSettings: {
             isOnline: false,
-            lastSeen: '2020-11-10T15:00:00.000Z',
+            lastSeen: '2023-11-10T15:00:00.000Z',
             privacySettings: {
                 showLastSeen: false,
             },
@@ -65,7 +67,7 @@ const USERS = [
             {
                 conversationId: 'conv456',
                 text: 'Are we meeting tomorrow?',
-                date: '2020-11-10T15:00:00.000Z',
+                date: '2023-11-10T15:00:00.000Z',
                 seen: false,
             }
         ],
@@ -92,7 +94,7 @@ const USERS = [
         },
         chatSettings: {
             isOnline: true,
-            lastSeen: '2020-12-01T09:00:00.000Z',
+            lastSeen: '2023-12-01T09:00:00.000Z',
             privacySettings: {
                 showLastSeen: true,
             },
@@ -101,7 +103,7 @@ const USERS = [
             {
                 conversationId: 'conv789',
                 text: "Let's discuss the project updates",
-                date: '2020-12-01T09:00:00.000Z',
+                date: '2023-12-01T09:00:00.000Z',
                 seen: true,
             }
         ],
@@ -128,7 +130,7 @@ const USERS = [
         },
         chatSettings: {
             isOnline: true,
-            lastSeen: '2020-11-15T13:00:00.000Z',
+            lastSeen: '2023-11-15T13:00:00.000Z',
             privacySettings: {
                 showLastSeen: true,
             },
@@ -137,7 +139,7 @@ const USERS = [
             {
                 conversationId: 'conv102',
                 text: 'Can you share the latest design files?',
-                date: '2020-11-15T13:00:00.000Z',
+                date: '2023-11-15T13:00:00.000Z',
                 seen: true,
             }
         ],
@@ -164,7 +166,7 @@ const USERS = [
         },
         chatSettings: {
             isOnline: false,
-            lastSeen: '2020-12-05T18:30:00.000Z',
+            lastSeen: '2023-12-05T18:30:00.000Z',
             privacySettings: {
                 showLastSeen: false,
             },
@@ -173,7 +175,7 @@ const USERS = [
             {
                 conversationId: 'conv103',
                 text: 'Looking forward to our meeting next week.',
-                date: '2020-12-05T18:30:00.000Z',
+                date: '2023-12-05T18:30:00.000Z',
                 seen: false,
             }
         ],
