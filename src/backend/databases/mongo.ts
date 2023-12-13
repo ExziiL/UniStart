@@ -1,5 +1,9 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
-const uri = "mongodb+srv://userUniStart:uniStart124@cluster0.joewohf.mongodb.net/?retryWrites=true&w=majority";
+import { config } from "dotenv";
+
+config();
+
+const uri = "mongodb+srv://" + process.env.MONGODB_ADMINUSER + ":" + process.env.MONGODB_ADMINPASSWORD + "@cluster0.joewohf.mongodb.net/?retryWrites=true&w=majority";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
@@ -20,8 +24,8 @@ export async function getOneFromMongo(collection: string, query: Object, options
 
   const result = await collect.findOne(query, options);
 
-  if (result) return {exists: result!== null, result: result }
-  else return {exists: result!== null, result: {}}
+  if (result) return { exists: result !== null, result: result }
+  else return { exists: result !== null, result: {} }
 }
 
 export async function setMongoSingleData(collection: string, data: Object) {
