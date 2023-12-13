@@ -1,5 +1,6 @@
 import UserActivityStatus from '@/frontend/components/user-activity-status';
-import UserChatUserActions from '@/frontend/components/user-chat-user-settings';
+import UserChatUserActions from '@/frontend/components/user-chat-user-actions';
+import { Settings } from 'lucide-react';
 import React from 'react';
 
 function UserBar() {
@@ -7,7 +8,9 @@ function UserBar() {
 		<div>
 			<div className="flex h-16 items-center justify-between border-b p-2 px-8">
 				<UserActivityStatus />
-				<UserChatUserActions />
+				<UserChatUserActions>
+					<Settings />
+				</UserChatUserActions>
 			</div>
 		</div>
 	);

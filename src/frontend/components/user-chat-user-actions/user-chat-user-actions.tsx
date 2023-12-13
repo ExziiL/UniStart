@@ -1,3 +1,5 @@
+'use client';
+
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -7,16 +9,18 @@ import {
 	DropdownMenuShortcut,
 	DropdownMenuTrigger,
 } from '@/frontend/components/ui/dropdown-menu';
-import { Archive, Settings, Trash2, User } from 'lucide-react';
+import { Archive, Trash2, User } from 'lucide-react';
 import React from 'react';
 
-function UserChatUserActions() {
+interface UserChatUserActionsProps {
+	children: React.ReactNode;
+}
+
+function UserChatUserActions({ children }: UserChatUserActionsProps) {
 	return (
 		<div className="flex justify-center">
 			<DropdownMenu>
-				<DropdownMenuTrigger className="">
-					<Settings />
-				</DropdownMenuTrigger>
+				<DropdownMenuTrigger className="">{children}</DropdownMenuTrigger>
 				<DropdownMenuContent className="w-40">
 					<DropdownMenuLabel>Chat Settings</DropdownMenuLabel>
 					<DropdownMenuSeparator />
