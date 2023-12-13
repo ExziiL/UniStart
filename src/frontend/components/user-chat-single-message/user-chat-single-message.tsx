@@ -2,6 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/frontend/components/ui/avatar';
 import IUser from '@/types/IUser';
+import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import React from 'react';
 
@@ -48,12 +49,20 @@ function UserChatSingleMessage({ user }: UserChatSingleMessageProps) {
 					<span className="text-zinc-400">{getMessageDate()}</span>
 				</div>
 				<div className="relative flex justify-between">
-					<p className="line-clamp-2 text-zinc-500">{user.messages![0].text}</p>
-					{isHovered && (
-						<span className="absolute right-0 bg-zinc-100">
-							<ChevronDown />
-						</span>
-					)}
+					<p className="line-clamp-1 text-zinc-500">{user.messages![0].text}</p>
+					<AnimatePresence>
+						{isHovered && (
+							<motion.div
+								initial={{ x: 8, opacity: 0 }}
+								animate={{ x: 0, opacity: 1 }}
+								exit={{ x: 8, opacity: 0 }}
+								transition={{ duration: 0.1 }}
+								className="right-0 bg-zinc-100 text-zinc-500"
+							>
+								<ChevronDown />
+							</motion.div>
+						)}
+					</AnimatePresence>
 				</div>
 			</div>
 		</div>
