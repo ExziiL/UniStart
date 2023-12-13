@@ -40,7 +40,7 @@ interface User {
     email: string;
     profile?: UserProfile;
     contactInfo?: UserContactInfo;
-    chatSettings?: UserChatSettings;
+    chatSettings: UserChatSettings;
     messages?: UserMessage[];
     friends?: number[];
 }

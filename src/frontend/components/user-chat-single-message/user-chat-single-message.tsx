@@ -16,7 +16,7 @@ function UserChatSingleMessage({ user }: UserChatSingleMessageProps) {
 	}
 
 	return (
-		<div className="w-fill flex gap-4 px-4 py-5">
+		<div className="w-fill m-4 flex gap-4 px-4 hover:bg-zinc-100">
 			<div className="relative">
 				<Avatar>
 					<AvatarImage
@@ -25,11 +25,13 @@ function UserChatSingleMessage({ user }: UserChatSingleMessageProps) {
 					/>
 					<AvatarFallback>Profile Picture</AvatarFallback>
 				</Avatar>
-				<div className="relative -right-1 -top-3 flex w-full justify-end">
-					<div className="rounded-full bg-white p-[3px]">
-						<div className="h-[10px] w-[10px] rounded-full bg-green-600 text-green-600"></div>
+				{user.chatSettings.isOnline && (
+					<div className="relative -right-1 -top-3 flex w-full justify-end">
+						<div className="rounded-full bg-white p-[3px]">
+							<div className="h-[10px] w-[10px] rounded-full bg-green-600 text-green-600"></div>
+						</div>
 					</div>
-				</div>
+				)}
 			</div>
 			<div className="flex w-full flex-col gap-1">
 				<div className="flex justify-between">
