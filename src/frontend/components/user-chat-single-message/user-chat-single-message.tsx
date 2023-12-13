@@ -3,7 +3,7 @@ import React from 'react';
 
 function UserChatSingleMessage() {
 	return (
-		<div className="m-4 flex w-96 gap-4 px-2 py-4">
+		<div className="w-fill m-4 flex gap-4 px-2 py-4">
 			<div className="relative">
 				<Avatar>
 					<AvatarImage
@@ -18,7 +18,7 @@ function UserChatSingleMessage() {
 					</div>
 				</div>
 			</div>
-			<div className="w-full pr-4">
+			<div className="flex w-full flex-col gap-1">
 				<div className="flex justify-between">
 					<h2 className=" font-medium">Angela Bower</h2>
 					<span className="text-zinc-400">3h ago</span>
