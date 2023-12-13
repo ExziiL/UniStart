@@ -1,5 +1,8 @@
+'use client';
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/frontend/components/ui/avatar';
 import IUser from '@/types/IUser';
+import { ChevronDown } from 'lucide-react';
 import React from 'react';
 
 interface UserChatSingleMessageProps {
@@ -7,6 +10,8 @@ interface UserChatSingleMessageProps {
 }
 
 function UserChatSingleMessage({ user }: UserChatSingleMessageProps) {
+	const [isHovered, setIsHovered] = React.useState(false);
+
 	function getMessageDate() {
 		const date = new Date(user.messages![0].date);
 		const hours = date.getHours();
@@ -16,7 +21,11 @@ function UserChatSingleMessage({ user }: UserChatSingleMessageProps) {
 	}
 
 	return (
-		<div className="w-fill transition-color mx-2 my-2 flex cursor-pointer gap-4 rounded-md px-3 py-3 transition-all hover:bg-zinc-100">
+		<div
+			className="w-fill transition-color mx-2 my-2 flex cursor-pointer gap-4 rounded-md px-3 py-3 transition-all hover:bg-zinc-100"
+			onMouseEnter={() => setIsHovered(true)}
+			onMouseLeave={() => setIsHovered(false)}
+		>
 			<div className="relative">
 				<Avatar>
 					<AvatarImage
@@ -35,10 +44,17 @@ function UserChatSingleMessage({ user }: UserChatSingleMessageProps) {
 			</div>
 			<div className="flex w-full flex-col gap-1">
 				<div className="flex justify-between">
-					<h2 className=" font-medium">{user.name}</h2>
+					<h2 className="font-medium">{user.name}</h2>
 					<span className="text-zinc-400">{getMessageDate()}</span>
 				</div>
-				<p className="line-clamp-2 text-zinc-500">{user.messages![0].text}</p>
+				<div className="relative flex justify-between">
+					<p className="line-clamp-2 text-zinc-500">{user.messages![0].text}</p>
+					{isHovered && (
+						<span className="absolute right-0 bg-zinc-100">
+							<ChevronDown />
+						</span>
+					)}
+				</div>
 			</div>
 		</div>
 	);
