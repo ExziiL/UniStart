@@ -16,7 +16,7 @@ function UserChatSingleMessage({ user }: UserChatSingleMessageProps) {
 	}
 
 	return (
-		<div className="w-fill m-4 flex gap-4 px-2 py-4">
+		<div className="w-fill flex gap-4 px-4 py-5">
 			<div className="relative">
 				<Avatar>
 					<AvatarImage

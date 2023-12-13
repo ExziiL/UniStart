@@ -5,19 +5,16 @@ import React from 'react';
 
 function UserChatMessages() {
 	return (
-		<div className="w-96 bg-zinc-50 ">
+		<div className="w-96 bg-zinc-50">
 			{USERS.map((user, index) => (
-				<>
-					<UserChatSingleMessage
-						key={user.id}
-						user={user}
-					/>
+				<div key={user.id}>
+					<UserChatSingleMessage user={user} />
 					{index !== USERS.length - 1 && (
 						<div className="mx-4">
 							<Separator />
 						</div>
 					)}
-				</>
+				</div>
 			))}
 		</div>
 	);
