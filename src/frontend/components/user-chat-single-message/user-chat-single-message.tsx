@@ -82,10 +82,7 @@ function UserChatSingleMessage({ user }: UserChatSingleMessageProps) {
 			</div>
 
 			<div className="flex w-full flex-col gap-1">
-				<div
-					onClick={handleChevronClick}
-					className="flex justify-between"
-				>
+				<div className="flex justify-between">
 					<h2 className="font-medium">{user.name}</h2>
 					<span className="text-zinc-400">{getMessageDate()}</span>
 				</div>
