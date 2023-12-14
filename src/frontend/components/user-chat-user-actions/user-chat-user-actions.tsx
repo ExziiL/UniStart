@@ -13,33 +13,32 @@ import { Archive, Trash2, User } from 'lucide-react';
 import React from 'react';
 
 interface UserChatUserActionsProps {
-	children: React.ReactNode;
+	children?: React.ReactNode;
+	onClick?: () => void;
 }
 
-function UserChatUserActions({ children }: UserChatUserActionsProps) {
+function UserChatUserActions({ children, ...props }: UserChatUserActionsProps) {
 	return (
-		<div className="flex justify-center">
-			<DropdownMenu>
-				<DropdownMenuTrigger className="">{children}</DropdownMenuTrigger>
-				<DropdownMenuContent className="w-40">
-					<DropdownMenuLabel>Chat Settings</DropdownMenuLabel>
-					<DropdownMenuSeparator />
-					<DropdownMenuItem className="cursor-pointer">
-						<User className="mr-2 h-4 w-4" />
-						<span>Report</span>
-					</DropdownMenuItem>
-					<DropdownMenuItem className="cursor-pointer">
-						<Trash2 className="mr-2 h-4 w-4" />
-						<span>Archive</span>
-					</DropdownMenuItem>
-					<DropdownMenuSeparator />
-					<DropdownMenuItem className="cursor-pointer text-red-500 hover:text-red-600 focus:text-red-600 ">
-						<Archive className="mr-2 h-4 w-4" />
-						<span className="">Delete</span>
-					</DropdownMenuItem>
-				</DropdownMenuContent>
-			</DropdownMenu>
-		</div>
+		<DropdownMenu {...props}>
+			<DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
+			<DropdownMenuContent className="w-40">
+				<DropdownMenuLabel>Chat Settings</DropdownMenuLabel>
+				<DropdownMenuSeparator />
+				<DropdownMenuItem className="cursor-pointer">
+					<User className="mr-2 h-4 w-4" />
+					<span>Report</span>
+				</DropdownMenuItem>
+				<DropdownMenuItem className="cursor-pointer">
+					<Trash2 className="mr-2 h-4 w-4" />
+					<span>Archive</span>
+				</DropdownMenuItem>
+				<DropdownMenuSeparator />
+				<DropdownMenuItem className="cursor-pointer text-red-500 hover:text-red-600 focus:text-red-600 ">
+					<Archive className="mr-2 h-4 w-4" />
+					<span className="">Delete</span>
+				</DropdownMenuItem>
+			</DropdownMenuContent>
+		</DropdownMenu>
 	);
 }
 
