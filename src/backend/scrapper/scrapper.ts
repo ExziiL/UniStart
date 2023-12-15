@@ -51,5 +51,5 @@ function getDates(res: string): string[] {
 }
 
 (async function main() {
-    console.log(await dateScrapper());
+    // console.log(await dateScrapper());
 })();

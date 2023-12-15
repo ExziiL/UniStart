@@ -1,7 +1,10 @@
-import { MongoClient, ServerApiVersion } from 'mongodb';
 import { config } from "dotenv";
+import { MongoClient, ServerApiVersion } from 'mongodb';
 
 config();
+
+console.log(process.env.MONGODB_ADMINUSER);
+console.log(process.env.MONGODB_ADMINPASSWORD);
 
 const uri = "mongodb+srv://" + process.env.MONGODB_ADMINUSER + ":" + process.env.MONGODB_ADMINPASSWORD + "@cluster0.joewohf.mongodb.net/?retryWrites=true&w=majority";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
