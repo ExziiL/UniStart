@@ -55,7 +55,7 @@ function LoginCard() {
 
 			<p className="pt-2 text-xs">
 				First time here?{' '}
-				<span className="text-link hover:text-link/90 cursor-pointer">
+				<span className="cursor-pointer text-link hover:text-link/90">
 					<Link href="/registration">Sign up for free.</Link>
 				</span>
 			</p>
