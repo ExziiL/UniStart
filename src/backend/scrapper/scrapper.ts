@@ -5,14 +5,14 @@ import * as cheerio from 'cheerio';
 const url = 'https://www.hs-aalen.de/semesters/20'; // URL we're scraping
 const app = axios.create(); // Create a new Axios Instance
 
-interface Information {
-    titel: string;
+export type Information = {
+    title: string;
     dates: string[];
     annotation: string;
 }
 
-export function dateScrapper(): Promise<string> {
-    let data = new Promise<string>((resolve, reject) => {
+export function dateScrapper(): Promise<Information[]> {
+    let data = new Promise<Information[]>((resolve, reject) => {
         // Send an async HTTP Get request to the url
         app.get(url)
             .then( // Once we have data returned ...
@@ -23,18 +23,17 @@ export function dateScrapper(): Promise<string> {
                     const info: Information[] = [];
 
                     table.each((i, elem) => {
-                        let titel: string = $(elem).find('td:nth-of-type(1)').text();
+                        let title: string = $(elem).find('td:nth-of-type(1)').text();
                         let dates: string[] = getDates($(elem).find('td:nth-of-type(2)').text());
                         let annotation: string = $(elem).find('td:nth-of-type(3)').text();
 
-                        info.push({ titel, dates, annotation });
+                        info.push({ title, dates, annotation });
                     })
-                    resolve(JSON.stringify(info));
+                    resolve(info);
                 }
             )
-            .catch(error => {
-                console.error();
-                reject(JSON.stringify(error));
+            .catch((error) => {
+                console.error(error);
             }); // Error handling    .catch(console.error); // Error handlingnpm i -D @types/axios @types/cheerio
     });
     return data;
@@ -50,3 +49,7 @@ function getDates(res: string): string[] {
         return new Array(res);
     }
 }
+
+(async function main() {
+    console.log(await dateScrapper());
+})();
