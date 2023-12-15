@@ -16,9 +16,10 @@ import React from 'react';
 
 interface UserChatSingleMessageProps {
 	user: IUser;
+	activeChat?: number;
 }
 
-function UserChatSingleMessage({ user }: UserChatSingleMessageProps) {
+function UserChatSingleMessage({ user, activeChat }: UserChatSingleMessageProps) {
 	const [isHovered, setIsHovered] = React.useState(false);
 	const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 	const dropdownRef = React.useRef<HTMLDivElement>(null);
@@ -60,7 +61,9 @@ function UserChatSingleMessage({ user }: UserChatSingleMessageProps) {
 
 	return (
 		<div
-			className="w-fill transition-color mx-2 my-2 flex cursor-pointer gap-4 rounded-md px-3 py-3 transition-all hover:bg-zinc-100"
+			className={` w-fill transition-color mx-2 my-2 flex cursor-pointer gap-4 rounded-md px-3 py-3 transition-all hover:bg-zinc-100 ${
+				activeChat === user.id ? 'bg-zinc-200' : ''
+			}`}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
 		>
