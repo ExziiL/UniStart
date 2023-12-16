@@ -1,5 +1,3 @@
-'use client';
-
 import CourseBadge from '@/frontend/components/course-badge';
 import ProfessorDetails from '@/frontend/components/professor-details';
 import StarRating from '@/frontend/components/star-rating';
