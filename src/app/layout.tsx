@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -5,6 +6,7 @@ import './globals.css';
 import '@smastrom/react-rating/style.css';
 
 import Navigation from '@/frontend/components/navigation';
+import ThemeProvider from '@/frontend/components/theme-provider';
 import { Toaster } from '@/frontend/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -18,11 +20,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<Navigation />
-				<main className="max-w-[960px] mx-auto">
-					{children}
-					<Toaster />
-				</main>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<Navigation />
+					<main className="mx-auto max-w-[960px]">
+						{children}
+						<SpeedInsights />
+						<Toaster />
+					</main>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

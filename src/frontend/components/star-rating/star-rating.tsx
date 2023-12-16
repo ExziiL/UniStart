@@ -15,8 +15,7 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, maxRating, numOfRating 
 	const [userRating, setUserRating] = React.useState(0);
 
 	return (
-		<div className="flex items-center gap-2">
-			<span className="pt-[2px] text-base font-semibold">{rating}</span>
+		<div className="flex items-center gap-3">
 			<Rating
 				items={maxRating}
 				style={{ maxWidth: 100 }}
@@ -24,7 +23,11 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, maxRating, numOfRating 
 				onChange={setUserRating}
 				readOnly
 			/>
-			<span className="pt-[2px] text-sm text-zinc-400">({numOfRating})</span>
+
+			<div className="flex items-center gap-2">
+				<span className="pt-[2px] text-sm font-medium text-primary">{rating}</span>
+				{numOfRating && <span className="pt-[2px] text-sm text-light">({numOfRating})</span>}
+			</div>
 		</div>
 	);
 };

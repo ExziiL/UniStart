@@ -20,16 +20,26 @@ const eintraege = [
 		date: 'Samstag, 15.07.2023',
 		dueDay: 'fällig in 16 Tagen',
 	},
+	{
+		title: 'Letzter Termin zur Immatrikulation bei NC-freien Bachelorstudiengängen und höheren Semestern	',
+		date: 'Samstag, 06.10.2023',
+		dueDay: 'fällig in 43 Tagen',
+	},
 ];
 
 function Terminplan() {
 	return (
-		<div className="max-w-[960px] space-y-16 mx-auto">
-			<h1 className="text-6xl font-bold my-16">Terminplan für das WS 2023/2024</h1>
+		<div className="mx-auto max-w-[960px] space-y-16">
+			<h1 className="my-16 text-6xl font-bold text-primary">Terminplan für das WS 2023/2024</h1>
 
 			<div className="space-y-6">
-				<h2 className="text-4xl font-medium">Upcoming Appointments</h2>
-				<div className="flex flex-wrap gap-4">
+				<div className="flex items-end gap-4">
+					<h2 className="text-4xl font-medium text-primary">Upcoming Appointments</h2>
+					<span className="cursor-pointer pb-1 text-light transition-colors hover:text-primary">
+						<Download className="h-6 w-6" />
+					</span>
+				</div>
+				<div className="grid grid-cols-2 gap-6">
 					{eintraege.map((eintrag) => (
 						<AppointmentCard
 							key={eintrag.title + eintrag.date}
@@ -42,14 +52,9 @@ function Terminplan() {
 			</div>
 
 			<div className="space-y-6">
-				<h2 className="text-4xl font-medium">Appointment Overview</h2>
+				<h2 className="text-4xl font-medium text-primary">Appointment Overview</h2>
 
 				<AppointmentTable />
-
-				<div className="space-x-2 flex items-start justify-end cursor-pointer text-blue-400 hover:text-blue-600">
-					<Download className="w-5 h-5" />
-					<span className="">Download PDF</span>
-				</div>
 			</div>
 		</div>
 	);

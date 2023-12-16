@@ -7,29 +7,29 @@ import { Information, dateScrapper } from '@/backend/scrapper/scrapper';
 import { getOneFromMongo, setMongoSingleData } from '@/backend/databases/mongo';
 
 const AppointmentTable = async () => {
-	let data = await getOneFromMongo('scrapper', { semester: 'WS23' }, { projection: { table: 1 } })
+	let data = await getOneFromMongo('scrapper', { semester: 'WS23' }, { projection: { table: 1 } });
 
 	if (!data.exists) {
-		console.log("Not n database found");
-		setMongoSingleData('scrapper', { semester: 'WS23', table: await dateScrapper() })
-		data = await getOneFromMongo('scrapper', { semester: 'WS23' }, { projection: {  table: 1 } });
+		console.log('Not n database found');
+		setMongoSingleData('scrapper', { semester: 'WS23', table: await dateScrapper() });
+		data = await getOneFromMongo('scrapper', { semester: 'WS23' }, { projection: { table: 1 } });
 	}
 
-	const entries: Information[] = Object.values(data.result)[1];
+	const entries: Information[] = Object.values(data.result)[1] as Information[];
 
 	return (
 		<Table>
 			<TableHeader>
 				<TableRow>
-					<TableHead className="md:w-4/5 w-fill">Title</TableHead>
-					<TableHead className="text-right">Datum</TableHead>
+					<TableHead className="w-fill text-light md:w-4/5">Title</TableHead>
+					<TableHead className="text-right text-light">Datum</TableHead>
 				</TableRow>
 			</TableHeader>
 			<TableBody>
 				{entries.map((entry) => {
 					return (
 						<TableRow key={entry.title}>
-							<TableCell className="md:w-4/5 w-fill flex flex-row items-center">
+							<TableCell className="w-fill flex flex-row items-center text-primary md:w-4/5">
 								{entry.title}
 
 								{entry.annotation && (
@@ -39,7 +39,7 @@ const AppointmentTable = async () => {
 												<Info
 													size={16}
 													strokeWidth={2}
-													className="ml-2 text-zinc-400"
+													className="ml-2 cursor-default text-light"
 												/>
 											</TooltipTrigger>
 											<TooltipContent>
@@ -49,7 +49,7 @@ const AppointmentTable = async () => {
 									</TooltipProvider>
 								)}
 							</TableCell>
-							<TableCell className="text-right min-w-[140px]">{entry.dates[0]}</TableCell>
+							<TableCell className="min-w-[140px] text-right text-primary">{entry.dates[0]}</TableCell>
 						</TableRow>
 					);
 				})}

@@ -33,6 +33,13 @@
     --ring: 240 10% 3.9%;
  
     --radius: 0.5rem;
+
+    /* --------------------- My own added colors ------------------- */
+    --light: 240 3.8% 46.1%;
+    --light-foreground: 0  0% 98%;
+
+    --link: 199 96% 50%; 
+    --link-foreground: 199 96% 43%;
   }
  
   .dark {
@@ -63,6 +70,11 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+
+    /* --------------------- My own added colors ------------------- */
+    /* TODO: noch auf dark mode anpassen */
+    --light: 240 5% 64.9%;
+    --light-foreground: 0 0% 98%;
   }
 }
  

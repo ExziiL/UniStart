@@ -6,6 +6,8 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import ThemeToggle from '@/frontend/components/theme-toggle';
+
 import navItems from '@/frontend/constants/nav-items';
 
 const MainNav = () => {
@@ -36,7 +38,9 @@ const MainNav = () => {
 				))}
 			</nav>
 			{/* Diese div ist dafür da um die navigation items durch das "justify-between" zentral zu halten, deshalb nicht löschen! */}
-			<div> </div>
+			<div>
+				<ThemeToggle />
+			</div>
 		</div>
 	);
 };
