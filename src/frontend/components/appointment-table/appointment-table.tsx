@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { getOneFromMongo, setMongoSingleData } from '@/backend/databases/mongo';
+import { Information, dateScrapper } from '@/backend/scrapper/scrapper';
 import {
 	Table,
 	TableBody,
@@ -12,48 +14,17 @@ import {
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/frontend/components/ui/tooltip';
 import { Info } from 'lucide-react';
 
-const eintraege = [
-	{
-		title: 'Freischaltung Online-Bewerbung',
-		date: 'Mo, 10.07.2023',
-		tooltip: 'Online-Bewerbung freigeschaltet',
-	},
-	{
-		title: 'Infoveranstaltung für Masterstudiengänge (online)',
-		date: 'Mi, 12.07.2023',
-	},
-	{
-		title: 'Infoveranstaltung für Bachelorstudiengänge (Präsenz)',
-		date: 'Sa, 15.07.2023',
-	},
-	{
-		title: 'Bewerbungsschluss für Masterstudiengänge',
-		date: 'Sa, 15.07.2023',
-		tooltip: 'Ausschlussfrist! (ggf. Änderungen – siehe Zulassungssatzung)',
-	},
-	{
-		title: 'Bewerbungsschluss für NC-Studiengänge (Bachelor) und höhere Semester',
-		date: 'Di, 06.10.2023',
-	},
-	{
-		title: 'Vorlage aktueller Notenspiegel (Wechsler höheres Semester)',
-		date: 'Do, 07.10.2023',
-	},
-	{
-		title: 'Letzter Termin zur Immatrikulation bei NC-freien Bachelorstudiengängen und höheren Semestern',
-		date: 'So, 13.10.2023',
-	},
-	{
-		title: 'Letzter Termin zur Immatrikulation bei Masterstudiengängen',
-		date: 'Mi, 10.11.2023',
-	},
-	{
-		title: 'Letzter Abgabetermin Anerkennungen',
-		date: 'Fr, 12.12.2023',
-	},
-];
+const AppointmentTable = async () => {
+	let data = await getOneFromMongo('scrapper', { semester: 'WS23' }, { projection: { table: 1 } });
 
-const AppointmentTable = () => {
+	if (!data.exists) {
+		console.log('Not n database found');
+		setMongoSingleData('scrapper', { semester: 'WS23', table: await dateScrapper() });
+		data = await getOneFromMongo('scrapper', { semester: 'WS23' }, { projection: { table: 1 } });
+	}
+
+	const entries: Information[] = Object.values(data.result)[1] as Information[];
+
 	return (
 		<Table>
 			<TableHeader>
@@ -63,13 +34,13 @@ const AppointmentTable = () => {
 				</TableRow>
 			</TableHeader>
 			<TableBody>
-				{eintraege.map((eintrag) => {
+				{entries.map((entry) => {
 					return (
-						<TableRow key={eintrag.title}>
+						<TableRow key={entry.title}>
 							<TableCell className="w-fill flex flex-row items-center text-primary md:w-4/5">
-								{eintrag.title}
+								{entry.title}
 
-								{eintrag.tooltip && (
+								{entry.annotation && (
 									<TooltipProvider>
 										<Tooltip>
 											<TooltipTrigger>
@@ -80,14 +51,13 @@ const AppointmentTable = () => {
 												/>
 											</TooltipTrigger>
 											<TooltipContent>
-												<p>{eintrag.tooltip}</p>
+												<p>{entry.annotation}</p>
 											</TooltipContent>
 										</Tooltip>
 									</TooltipProvider>
 								)}
 							</TableCell>
-
-							<TableCell className="min-w-[140px] text-right text-primary">{eintrag.date}</TableCell>
+							<TableCell className="min-w-[140px] text-right text-primary">{entry.dates[0]}</TableCell>
 						</TableRow>
 					);
 				})}
