@@ -8,6 +8,7 @@ function Chat() {
 		<div className="">
 			<UserBar />
 			<div className="flex flex-row">
+				{/* TODO: UserCHatMessages ab md: anzeigen, davor anders darstellen */}
 				<UserChatMessages />
 				<div className="w-full">
 					<ChatBox />
