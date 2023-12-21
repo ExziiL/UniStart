@@ -4,10 +4,10 @@ import React from 'react';
 
 import { cn } from '@/lib/utils';
 
-const chatMessageVariants = cva('w-fit rounded-md bg-zinc-100 p-2 px-4', {
+const chatMessageVariants = cva('w-fit rounded-md bg-light-foreground p-2 px-4', {
 	variants: {
 		variant: {
-			outgoing: 'bg-zinc-800 text-secondary',
+			outgoing: 'bg-foreground text-secondary',
 			incoming: 'text-primary',
 			ai: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
 		},
