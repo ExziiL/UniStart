@@ -17,26 +17,33 @@ interface UserChatUserActionsProps {
 
 function UserChatUserActions({ children, ...props }: UserChatUserActionsProps) {
 	return (
-		<DropdownMenu {...props}>
-			<DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
-			<DropdownMenuContent className="w-40">
-				<DropdownMenuLabel>Chat Settings</DropdownMenuLabel>
-				<DropdownMenuSeparator />
-				<DropdownMenuItem className="cursor-pointer">
-					<User className="mr-2 h-4 w-4" />
-					<span>Report</span>
-				</DropdownMenuItem>
-				<DropdownMenuItem className="cursor-pointer">
-					<Trash2 className="mr-2 h-4 w-4" />
-					<span>Archive</span>
-				</DropdownMenuItem>
-				<DropdownMenuSeparator />
-				<DropdownMenuItem className="cursor-pointer text-red-500 hover:text-red-600 focus:text-red-600 ">
-					<Archive className="mr-2 h-4 w-4" />
-					<span className="">Delete</span>
-				</DropdownMenuItem>
-			</DropdownMenuContent>
-		</DropdownMenu>
+		<div {...props}>
+			<DropdownMenu>
+				<DropdownMenuTrigger
+					asChild
+					className="text-primary-muted cursor-pointer transition-colors hover:text-primary active:text-primary"
+				>
+					{children}
+				</DropdownMenuTrigger>
+				<DropdownMenuContent className="w-40">
+					<DropdownMenuLabel>Chat Settings</DropdownMenuLabel>
+					<DropdownMenuSeparator />
+					<DropdownMenuItem className="cursor-pointer">
+						<User className="mr-2 h-4 w-4" />
+						<span>Report</span>
+					</DropdownMenuItem>
+					<DropdownMenuItem className="cursor-pointer">
+						<Trash2 className="mr-2 h-4 w-4" />
+						<span>Archive</span>
+					</DropdownMenuItem>
+					<DropdownMenuSeparator />
+					<DropdownMenuItem className="cursor-pointer text-red-500 hover:text-red-600 focus:text-red-600 ">
+						<Archive className="mr-2 h-4 w-4" />
+						<span className="">Delete</span>
+					</DropdownMenuItem>
+				</DropdownMenuContent>
+			</DropdownMenu>
+		</div>
 	);
 }
 

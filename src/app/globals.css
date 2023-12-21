@@ -40,6 +40,9 @@
 
     --link: 199 96% 50%; 
     --link-foreground: 199 96% 43%;
+
+    --primary-muted: 240 5.9% 60%;
+    --primary-muted-foreground: 0 0% 98%;
   }
  
   .dark {
@@ -75,6 +78,9 @@
     /* TODO: noch auf dark mode anpassen */
     --light: 240 5% 64.9%;
     --light-foreground: 0 0% 98%;
+
+    --primary-muted: 0 0% 55%;
+    --primary-muted-foreground: 0 0% 98%;
   }
 }
  
