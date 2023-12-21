@@ -2,6 +2,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { Providers } from './providers';
 
 import '@smastrom/react-rating/style.css';
 
@@ -18,21 +19,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en">
+		<html
+			lang="en"
+			suppressHydrationWarning
+		>
 			<body className={inter.className}>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-				>
+				<Providers>
 					<Navigation />
 					<main className="mx-auto max-w-[960px]">
 						{children}
 						<SpeedInsights />
 						<Toaster />
 					</main>
-				</ThemeProvider>
+				</Providers>
 			</body>
 		</html>
 	);
