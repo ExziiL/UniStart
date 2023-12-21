@@ -41,7 +41,7 @@ function ChatMessage({ variant }: ChatMessageProps) {
 			)}
 
 			<div className={cn(chatMessageVariants({ variant }))}>
-				<div className="">Hey, I'm having trouble with my account :(</div>
+				<div className="">{`Hey, I am having trouble with my account :(`}</div>
 			</div>
 		</div>
 	);
