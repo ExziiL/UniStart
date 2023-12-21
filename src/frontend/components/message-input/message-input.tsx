@@ -2,6 +2,7 @@
 
 import { Button } from '@/frontend/components/ui/button';
 import { Textarea } from '@/frontend/components/ui/textarea';
+import { Send } from 'lucide-react';
 import React from 'react';
 
 function MessageInput() {
@@ -21,7 +22,12 @@ function MessageInput() {
 					onChange={(e) => setMessage(e.target.value)}
 					rows={1}
 				/>
-				<Button onClick={handleButtonClick}>Send Message</Button>
+				<Button onClick={handleButtonClick}>
+					<Send
+						strokeWidth={1.75}
+						size={20}
+					/>
+				</Button>
 			</div>
 
 			{/* <p className="text-sm text-muted-foreground">Your message will be copied to the support team.</p> */}
