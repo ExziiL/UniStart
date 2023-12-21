@@ -5,9 +5,9 @@ import React from 'react';
 
 function Chat() {
 	return (
-		<div className="h-full">
+		<div className="">
 			<UserBar />
-			<div className="flex h-full flex-row">
+			<div className="flex flex-row">
 				<UserChatMessages />
 				<div className="w-full">
 					<ChatBox />
