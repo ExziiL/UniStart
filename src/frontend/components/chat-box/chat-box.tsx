@@ -5,9 +5,9 @@ import React from 'react';
 function ChatBox() {
 	return (
 		<div className="flex h-full flex-col justify-end gap-6 p-4">
+			<ChatMessage variant="incoming" />
 			<ChatMessage />
-			<ChatMessage userMessage />
-			<ChatMessage />
+			<ChatMessage variant="incoming" />
 			<MessageInput />
 		</div>
 	);
