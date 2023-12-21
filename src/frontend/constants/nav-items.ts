@@ -4,16 +4,16 @@ const navItems: { title: string; href: string; description: string }[] = [
 		href: '/',
 		description: 'Home page',
 	},
-	{
-		title: 'Registration',
-		href: '/registration',
-		description: 'Registration page',
-	},
-	{
-		title: 'Login',
-		href: '/login',
-		description: 'Login page',
-	},
+	// {
+	// 	title: 'Registration',
+	// 	href: '/registration',
+	// 	description: 'Registration page',
+	// },
+	// {
+	// 	title: 'Login',
+	// 	href: '/login',
+	// 	description: 'Login page',
+	// },
 	{
 		title: 'Terminkalender',
 		href: '/terminplan',
@@ -27,6 +27,11 @@ const navItems: { title: string; href: string; description: string }[] = [
 	{
 		title: 'Chat',
 		href: '/chat',
+		description: 'User-Chat',
+	},
+	{
+		title: 'Ai-Chat',
+		href: '/ai-chat',
 		description: 'User-Chat',
 	},
 	{
