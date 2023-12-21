@@ -61,8 +61,8 @@ function UserChatSingleMessage({ user, activeChat }: UserChatSingleMessageProps)
 
 	return (
 		<div
-			className={` w-fill transition-color mx-2 my-2 flex cursor-pointer gap-4 rounded-md px-3 py-3 transition-all hover:bg-zinc-100 ${
-				activeChat === user.id ? 'bg-zinc-200' : ''
+			className={` w-fill mx-2 my-2 flex cursor-pointer gap-4 rounded-md px-3 py-3 transition-all hover:bg-muted ${
+				activeChat === user.id ? 'bg-muted' : ''
 			}`}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
@@ -77,7 +77,7 @@ function UserChatSingleMessage({ user, activeChat }: UserChatSingleMessageProps)
 				</Avatar>
 				{user.chatSettings.isOnline && (
 					<div className="relative -right-1 -top-3 flex w-full justify-end">
-						<div className="rounded-full bg-white p-[3px]">
+						<div className="rounded-full bg-background p-[3px]">
 							<div className="h-[10px] w-[10px] rounded-full bg-green-600 text-green-600"></div>
 						</div>
 					</div>
@@ -87,14 +87,15 @@ function UserChatSingleMessage({ user, activeChat }: UserChatSingleMessageProps)
 			<div className="flex w-full flex-col gap-1">
 				<div className="flex justify-between">
 					<h2 className="font-medium">{user.name}</h2>
-					<span className="text-zinc-400">{getMessageDate()}</span>
+					<span className="text-primary-muted">{getMessageDate()}</span>
 				</div>
 				<div className="relative flex justify-between">
-					<p className="line-clamp-1 text-zinc-500">{user.messages![0].text}</p>
+					<p className=" text-primary-muted line-clamp-1">{user.messages![0].text}</p>
 
 					<AnimatePresence>
 						{(isHovered || isDropdownOpen) && (
 							<motion.div
+								layout
 								ref={dropdownRef}
 								initial={{ x: 8, opacity: 0 }}
 								animate={{ x: 0, opacity: 1 }}
