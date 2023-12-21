@@ -18,7 +18,7 @@ function UserChatMessages() {
 		<div className="w-96 bg-background">
 			<div className="flex items-end justify-between p-4 pb-2 text-lg font-semibold">
 				<h2 className="">Messages</h2>
-				<div className="cursor-pointer text-zinc-500 transition-colors hover:text-primary">
+				<div className="text-primary-muted cursor-pointer transition-colors hover:text-primary">
 					<Edit />
 				</div>
 			</div>
