@@ -49,7 +49,7 @@ function RegistrationForm() {
 	});
 
 	// TODO: Add loading state
-	function onSubmit(values: z.infer<typeof registrationFormSchema>) {
+	async function onSubmit(values: z.infer<typeof registrationFormSchema>) {
 		console.log('form submitted', values);
 		toast({
 			title: 'You submitted the following values:',
@@ -59,6 +59,39 @@ function RegistrationForm() {
 				</pre>
 			),
 		});
+
+		try {
+			const userExists = await fetch('api/register?' +
+				new URLSearchParams({ email: values.email }), {
+				method: 'GET',
+				headers: { 'Content-Type': 'application/json' }
+			});
+
+			const { user } = await userExists.json();
+
+			if (user) {
+				console.log("user already exists");
+				return;
+			}
+
+			const res = await fetch('api/register', {
+				method: "PUT",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(
+					{
+						name: values.username,
+						email: values.email,
+						password: values.password
+					})
+			})
+
+			if (res.ok) {
+				form.reset();
+			}
+		} catch (error) {
+			console.log("Error during registration: ", error);
+
+		}
 	}
 
 	return (

@@ -1,5 +1,3 @@
-'use client';
-
 import CourseBadge from '@/frontend/components/course-badge';
 import { VorlesungProps } from '@/types/IVorlesung';
 import React from 'react';
