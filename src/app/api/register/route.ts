@@ -2,8 +2,7 @@ import { connectMongo } from "@/backend/databases/mongo";
 import User from "@/backend/models/user";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { log } from "console";
-//import { NextApiRequest } from "next";
+
 
 export async function PUT(request: NextRequest) {
     try {

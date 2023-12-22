@@ -17,6 +17,8 @@ import {
 } from '@/frontend/components/ui/form';
 import { Input } from '@/frontend/components/ui/input';
 import { useToast } from '@/frontend/hooks/use-toast';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const loginFormSchema = z.object({
 	// TODO: Add valid checks -> Check if username exists in db and if password matches
@@ -26,6 +28,7 @@ const loginFormSchema = z.object({
 
 function LoginForm() {
 	const { toast } = useToast();
+	const router = useRouter();
 
 	const form = useForm<z.infer<typeof loginFormSchema>>({
 		resolver: zodResolver(loginFormSchema),
@@ -36,7 +39,7 @@ function LoginForm() {
 	});
 
 	// TODO: Add loading state
-	function onSubmit(values: z.infer<typeof loginFormSchema>) {
+	async function onSubmit(values: z.infer<typeof loginFormSchema>) {
 		console.log('form submitted', values);
 		toast({
 			title: 'You submitted the following values:',
@@ -46,6 +49,24 @@ function LoginForm() {
 				</pre>
 			),
 		});
+
+		try {			
+			const res = await signIn('credentials', {
+				name: values.username,
+				password: values.password,
+				redirect: false,
+			});
+
+			if (res?.error) {
+				console.log("Invalid credentials");				
+				return;
+			}
+
+			router.replace("/")
+		} catch (error) {
+			console.log(error);
+			
+		}
 	}
 
 	return (
