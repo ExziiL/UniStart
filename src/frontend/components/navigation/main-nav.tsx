@@ -1,14 +1,27 @@
 'use client';
 
+import ThemeToggle from '@/frontend/components/theme-toggle';
+import { Avatar, AvatarFallback, AvatarImage } from '@/frontend/components/ui/avatar';
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuGroup,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuPortal,
+	DropdownMenuSeparator,
+	DropdownMenuShortcut,
+	DropdownMenuSub,
+	DropdownMenuSubContent,
+	DropdownMenuSubTrigger,
+	DropdownMenuTrigger,
+} from '@/frontend/components/ui/dropdown-menu';
+import navItems from '@/frontend/constants/nav-items';
 import { cn } from '@/lib/utils';
-import React from 'react';
-
+import { LogOut, Settings, SunMoon, User } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-import ThemeToggle from '@/frontend/components/theme-toggle';
-
-import navItems from '@/frontend/constants/nav-items';
+import React from 'react';
 
 const MainNav = () => {
 	const pathname = usePathname();
@@ -39,7 +52,44 @@ const MainNav = () => {
 			</nav>
 			{/* Diese div ist dafür da um die navigation items durch das "justify-between" zentral zu halten, deshalb nicht löschen! */}
 			<div>
-				<ThemeToggle />
+				<DropdownMenu>
+					<DropdownMenuTrigger>
+						<Avatar>
+							<AvatarImage src="https://github.com/shadcn.png" />
+							<AvatarFallback>CN</AvatarFallback>
+						</Avatar>
+					</DropdownMenuTrigger>
+					<DropdownMenuContent className="w-56">
+						<DropdownMenuLabel>My Account</DropdownMenuLabel>
+						<DropdownMenuSeparator />
+						<DropdownMenuGroup>
+							<DropdownMenuItem>
+								<User className="mr-2 h-4 w-4" />
+								<span>Profile</span>
+								<DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+							</DropdownMenuItem>
+							<DropdownMenuItem>
+								<Settings className="mr-2 h-4 w-4" />
+								<span>Settings</span>
+								<DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+							</DropdownMenuItem>
+						</DropdownMenuGroup>
+						<DropdownMenuSeparator />
+						<DropdownMenuItem>
+							<SunMoon className="mr-2 h-4 w-4" />
+							<span>Dark Mode</span>
+							<DropdownMenuShortcut>
+								<ThemeToggle />
+							</DropdownMenuShortcut>
+						</DropdownMenuItem>
+						<DropdownMenuSeparator />
+						<DropdownMenuItem>
+							<LogOut className="mr-2 h-4 w-4" />
+							<span>Log out</span>
+							<DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+						</DropdownMenuItem>
+					</DropdownMenuContent>
+				</DropdownMenu>
 			</div>
 		</div>
 	);
