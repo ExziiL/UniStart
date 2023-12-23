@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "dev-backend": "npx tsx ./src/backend/databases/mongo.ts"
+    "dev-backend": "npx tsx ./src/backend/web-scrapper/scrapper.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
