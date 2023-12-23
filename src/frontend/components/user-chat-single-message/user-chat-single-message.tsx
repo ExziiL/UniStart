@@ -67,22 +67,24 @@ function UserChatSingleMessage({ user, activeChat }: UserChatSingleMessageProps)
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
 		>
-			<div className="relative">
-				<Avatar>
-					<AvatarImage
-						src={user.profile!.avatar}
-						alt="@shadcn"
-					/>
-					<AvatarFallback>Profile Picture</AvatarFallback>
-				</Avatar>
-				{user.chatSettings.isOnline && (
-					<div className="relative -right-1 -top-3 flex w-full justify-end">
-						<div className="rounded-full bg-background p-[3px]">
-							<div className="h-[10px] w-[10px] rounded-full bg-green-600 text-green-600"></div>
+			{user && (
+				<div className="relative">
+					<Avatar>
+						<AvatarImage
+							src={user.profile!.avatar}
+							alt="@shadcn"
+						/>
+						<AvatarFallback>Profile Picture</AvatarFallback>
+					</Avatar>
+					{user.chatSettings.isOnline && (
+						<div className="relative -right-1 -top-3 flex w-full justify-end">
+							<div className="rounded-full bg-background p-[3px]">
+								<div className="h-[10px] w-[10px] rounded-full bg-green-600 text-green-600"></div>
+							</div>
 						</div>
-					</div>
-				)}
-			</div>
+					)}
+				</div>
+			)}
 
 			<div className="flex w-full flex-col gap-1">
 				<div className="flex justify-between">
