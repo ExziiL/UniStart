@@ -8,8 +8,7 @@ import { Information, dateScrapper } from '@/backend/web-scrapper/scrapper';
 
 const AppointmentTable = async () => {
 	
-	const entries: Information[] = Object.values(JSON.parse(await dateScrapper(new Date())))[1] as Information[];
-	
+	const entries: Information[] = Object.values(JSON.parse(await dateScrapper(new Date())))[0] as Information[];	
 
 	return (
 		<Table>

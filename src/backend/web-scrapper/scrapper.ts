@@ -2,8 +2,7 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import UniDate from '../models/uniDates';
-import { connectMongo } from '../databases/mongo';
-import { resolve } from 'path';
+import { connectMongo } from '../lib/mongo';
 
 const uri = 'https://www.hs-aalen.de/semesters/'; // URL we're scraping
 const app = axios.create(); // Create a new Axios Instance
@@ -48,7 +47,7 @@ export const dateScrapper = (date: Date): Promise<string> => {
             const uniInfo = await UniDate.findOne(
                 {
                     semester: getShort(page, date)
-                })
+                }, { _id: 0, semester: 0 })
                 .select('infos');
 
             if (uniInfo) {
@@ -73,7 +72,7 @@ export const dateScrapper = (date: Date): Promise<string> => {
 
                         await UniDate.create({ semester: getShort(page, date), infos: Info })
 
-                        resolve(JSON.stringify(Info));
+                        resolve(JSON.stringify({ infos: Info }));
                     })
             }
         } catch (error) {
@@ -93,9 +92,3 @@ function getDates(res: string): string[] {
         return new Array(res);
     }
 }
-
-/* (async function main() {
-    const res = await dateScrapper(new Date());
-    console.log(JSON.parse(res));
-
-})(); */

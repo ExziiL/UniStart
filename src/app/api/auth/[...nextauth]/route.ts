@@ -1,11 +1,11 @@
-import { connectMongo } from "@/backend/databases/mongo";
+import { connectMongo } from "@/backend/lib/mongo";
 import User from "@/backend/models/user";
 import { AuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 
-const authOptions: AuthOptions = {
+export const authOptions: AuthOptions = {
     providers: [
         CredentialsProvider({
             name: "credentials",

@@ -1,4 +1,4 @@
-import { connectMongo } from "@/backend/databases/mongo";
+import { connectMongo } from "@/backend/lib/mongo";
 import User from "@/backend/models/user";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
