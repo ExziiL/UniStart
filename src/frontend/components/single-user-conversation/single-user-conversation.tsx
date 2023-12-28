@@ -14,12 +14,12 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Archive, ChevronDown, Trash2, User } from 'lucide-react';
 import React from 'react';
 
-interface SingleConversationProps {
+interface SingleUserConversationProps {
 	user: IUser;
 	activeChat?: number;
 }
 
-function SingleConversation({ user, activeChat }: SingleConversationProps) {
+function SingleUserConversation({ user, activeChat }: SingleUserConversationProps) {
 	const [isHovered, setIsHovered] = React.useState(false);
 	const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 	const dropdownRef = React.useRef<HTMLDivElement>(null);
@@ -147,4 +147,4 @@ function SingleConversation({ user, activeChat }: SingleConversationProps) {
 	);
 }
 
-export default SingleConversation;
+export default SingleUserConversation;
