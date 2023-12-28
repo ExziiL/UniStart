@@ -1,12 +1,16 @@
 'use client';
 
-import SingleConversation from '@/frontend/components/single-conversation';
+import SingleUserConversation from '@/frontend/components/single-user-conversation';
 import { Separator } from '@/frontend/components/ui/separator';
 import { USERS } from '@/frontend/constants/users';
 import { Edit } from 'lucide-react';
 import React from 'react';
 
-function ConversationsOverview() {
+interface ConversationsOverviewProps extends React.HTMLAttributes<HTMLDivElement> {
+	title?: string;
+}
+
+function ConversationsOverview({ title }: ConversationsOverviewProps) {
 	const [activeChat, setActiveChat] = React.useState<number | undefined>(undefined);
 
 	const handleUserClick = (userId: number) => {
@@ -17,7 +21,7 @@ function ConversationsOverview() {
 	return (
 		<div className="w-96 bg-background">
 			<div className="flex items-end justify-between p-4 pb-2 text-lg font-semibold">
-				<h2 className="">Messages</h2>
+				<h2 className="">{title || 'Messages'}</h2>
 				<div className="cursor-pointer text-primary-muted transition-colors hover:text-primary">
 					<Edit />
 				</div>
@@ -28,7 +32,7 @@ function ConversationsOverview() {
 						key={user.id}
 						onClick={() => handleUserClick(user.id)}
 					>
-						<SingleConversation
+						<SingleUserConversation
 							user={user}
 							activeChat={activeChat}
 						/>
