@@ -9,10 +9,9 @@ const config = {
 	tabWidth: 4,
 	printWidth: 120,
 	useTabs: true,
-	semi: false,
-	singleQuote: true,
 	singleAttributePerLine: true,
+	embeddedLanguageFormatting: 'auto',
 	semi: true,
-}
+};
 
-module.exports = config
+module.exports = config;
