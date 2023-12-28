@@ -8,7 +8,6 @@ import '@smastrom/react-rating/style.css';
 
 import Navigation from '@/frontend/components/navigation';
 import TailwindIndictor from '@/frontend/components/tailwind-indictor';
-import ThemeProvider from '@/frontend/components/theme-provider';
 import { Toaster } from '@/frontend/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'] });
