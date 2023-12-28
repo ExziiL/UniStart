@@ -13,12 +13,6 @@ function UserActivityStatus() {
 					/>
 					<AvatarFallback>Profile Picture</AvatarFallback>
 				</Avatar>
-				{/* <Image
-					alt="User Profile picture"
-					src="/images/online.svg"
-					width={10}
-					height={10}
-				/> */}
 			</div>
 			<div>
 				<h2 className=" font-medium">Angela Bower</h2>
