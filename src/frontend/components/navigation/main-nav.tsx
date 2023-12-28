@@ -5,23 +5,18 @@ import ThemeToggle from '@/frontend/components/theme-toggle';
 import {
 	NavigationMenu,
 	NavigationMenuContent,
-	NavigationMenuIndicator,
 	NavigationMenuItem,
 	NavigationMenuLink,
 	NavigationMenuList,
 	NavigationMenuTrigger,
-	NavigationMenuViewport,
 	navigationMenuTriggerStyle,
 } from '@/frontend/components/ui/navigation-menu';
 import navItems from '@/frontend/constants/nav-items';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import React from 'react';
 
 const MainNav = () => {
-	const pathname = usePathname();
-
 	return (
 		<div className="hidden w-full max-w-[960px] justify-between md:flex">
 			<Link
@@ -73,7 +68,7 @@ const MainNav = () => {
 
 			{/* Diese div ist dafür da um die navigation items durch das "justify-between" zentral zu halten, deshalb nicht löschen! */}
 			<div className="flex flex-row gap-4">
-				<ThemeToggle />
+				{/* <ThemeToggle /> */}
 				<NavAvatar />
 			</div>
 		</div>
