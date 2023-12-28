@@ -1,32 +1,5 @@
-export const AI_CHATS = [
-    {
-        id: 1,
-        isAi: true,
-        name: 'Hi, I am the AI chatbot',
-        messages: [
-            {
-                conversationId: 'ai_conv_1',
-                text: "Hi, I am the AI chatbot. How can I help you?",
-                date: '2023-10-10T12:00:00.000Z',
-                timestamp: 1633396800000,
-                senderId: 1,
-                receiverId: 2,
-            }
-        ]
-    },
-    {
-        id: 2,
-        isAi: true,
-        name: 'Hallo, ich bin der AI Chatbot!',
-        messages: [
-            {
-                conversationId: 'ai_conv_2',
-                text: "Hallo, ich bin der AI Chatbot. Wie kann ich dir helfen?",
-                date: '2023-10-10T12:00:00.000Z',
-                timestamp: 1633396800000,
-                senderId: 2,
-                receiverId: 3,
-            }
-        ]
-    }
-]
+export const AI_CHATS = { messages: [{"role": "system", "content": "You are a helpful assistant."},
+{"role": "user", "content": "Who won the world series in 2020?"},
+{"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
+{"role": "user", "content": "Where was it played?"}],
+model: "gpt-3.5-turbo" } 
