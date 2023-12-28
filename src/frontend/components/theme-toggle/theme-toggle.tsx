@@ -1,36 +1,37 @@
 'use client';
 
-import { Switch } from '@/frontend/components/ui/switch';
+import { Button } from '@/frontend/components/ui/button';
+import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import * as React from 'react';
 
 function ThemeToggle() {
-	const [mounted, setMounted] = React.useState(false);
-	const [darkmode, setDarkmode] = React.useState(false);
-
 	const { theme, setTheme } = useTheme();
-
-	React.useEffect(() => {
-		setMounted(true);
-		setDarkmode(theme === 'dark');
-	}, [theme]);
-
-	if (!mounted) {
-		return null;
-	}
+	const [_, startTransition] = React.useTransition();
 
 	return (
-		<div className="flex justify-center gap-2">
-			<Switch
-				id="theme-toggle"
-				checked={darkmode}
-				onCheckedChange={() => {
-					setDarkmode(!darkmode);
-					setTheme(darkmode ? 'light' : 'dark');
-				}}
-			/>
+		<Button
+			variant="outline"
+			size="icon"
+			onClick={() => {
+				startTransition(() => {
+					setTheme(theme === 'light' ? 'dark' : 'light');
+				});
+			}}
+		>
+			{theme === 'dark' ? (
+				<Moon
+					size={16}
+					className="transition-all"
+				/>
+			) : (
+				<Sun
+					size={16}
+					className="transition-all"
+				/>
+			)}
 			<span className="sr-only">Toggle theme</span>
-		</div>
+		</Button>
 	);
 }
 

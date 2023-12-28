@@ -43,14 +43,14 @@ function NavAvatar() {
 						</DropdownMenuItem>
 					</DropdownMenuGroup>
 					<DropdownMenuSeparator />
-					<DropdownMenuItem>
+					{/* <DropdownMenuItem>
 						<SunMoon className="mr-2 h-4 w-4" />
 						<span>Dark Mode</span>
 						<DropdownMenuShortcut>
 							<ThemeToggle />
 						</DropdownMenuShortcut>
 					</DropdownMenuItem>
-					<DropdownMenuSeparator />
+					<DropdownMenuSeparator /> */}
 					<DropdownMenuItem>
 						<LogOut className="mr-2 h-4 w-4" />
 						<span>Log out</span>

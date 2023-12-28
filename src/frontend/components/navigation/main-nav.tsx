@@ -1,6 +1,7 @@
 'use client';
 
 import NavAvatar from '@/frontend/components/navigation/nav-avatar';
+import ThemeToggle from '@/frontend/components/theme-toggle';
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -71,7 +72,10 @@ const MainNav = () => {
 			{/* ----------------------------------------------- */}
 
 			{/* Diese div ist dafür da um die navigation items durch das "justify-between" zentral zu halten, deshalb nicht löschen! */}
-			<NavAvatar />
+			<div className="flex flex-row gap-4">
+				<ThemeToggle />
+				<NavAvatar />
+			</div>
 		</div>
 	);
 };
