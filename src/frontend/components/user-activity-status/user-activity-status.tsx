@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/frontend/components/ui/avatar';
-import Image from 'next/image';
 import React from 'react';
 
 function UserActivityStatus() {
