@@ -6,9 +6,7 @@ import { USERS } from '@/frontend/constants/users';
 import { Edit } from 'lucide-react';
 import React from 'react';
 
-interface AiConversationsProps extends React.HTMLAttributes<HTMLDivElement> {
-	title?: string;
-}
+interface AiConversationsProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 function AiConversations() {
 	const [activeChat, setActiveChat] = React.useState<number | undefined>(undefined);
