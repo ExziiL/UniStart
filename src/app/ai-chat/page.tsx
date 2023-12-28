@@ -1,7 +1,7 @@
 import AiChatBar from '@/frontend/components/ai-chat-bar';
 import ChatBox from '@/frontend/components/chat-box';
-import Conversations from '@/frontend/components/conversations';
 import { Separator } from '@/frontend/components/ui/separator';
+import Conversations from '@/frontend/components/user-conversations';
 import React from 'react';
 
 function AiChat() {

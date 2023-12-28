@@ -6,11 +6,11 @@ import { USERS } from '@/frontend/constants/users';
 import { Edit } from 'lucide-react';
 import React from 'react';
 
-interface ConversationsProps extends React.HTMLAttributes<HTMLDivElement> {
+interface UserConversationsProps extends React.HTMLAttributes<HTMLDivElement> {
 	title?: string;
 }
 
-function Conversations({ title }: ConversationsProps) {
+function UserConversations({ title }: UserConversationsProps) {
 	const [activeChat, setActiveChat] = React.useState<number | undefined>(undefined);
 
 	const handleUserClick = (userId: number) => {
@@ -49,4 +49,4 @@ function Conversations({ title }: ConversationsProps) {
 	);
 }
 
-export default Conversations;
+export default UserConversations;
