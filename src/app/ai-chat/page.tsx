@@ -7,7 +7,7 @@ import React from 'react';
 function AiChat() {
 	return (
 		<div className="flex h-full flex-row justify-between">
-			<AiConversations title="Conversations" />
+			<AiConversations />
 			<div className="w-full p-4">
 				<ChatBox className="rounded-lg bg-zinc-50">
 					<AiChatBar />

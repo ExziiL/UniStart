@@ -10,7 +10,7 @@ interface AiConversationsProps extends React.HTMLAttributes<HTMLDivElement> {
 	title?: string;
 }
 
-function AiConversations({ title }: AiConversationsProps) {
+function AiConversations() {
 	const [activeChat, setActiveChat] = React.useState<number | undefined>(undefined);
 
 	const handleAiClick = (userId: number) => {
@@ -21,19 +21,19 @@ function AiConversations({ title }: AiConversationsProps) {
 	return (
 		<div className="w-96 bg-background">
 			<div className="flex items-end justify-between p-4 pb-2 text-lg font-semibold">
-				<h2 className="">{title || 'Messages'}</h2>
+				<h2 className="">Conversation</h2>
 				<div className="cursor-pointer text-primary-muted transition-colors hover:text-primary">
 					<Edit />
 				</div>
 			</div>
 			<div className="">
-				{USERS.map((user, index) => (
+				{USERS.map((chat, index) => (
 					<div
-						key={user.id}
-						onClick={() => handleAiClick(user.id)}
+						key={chat.id}
+						onClick={() => handleAiClick(chat.id)}
 					>
 						<SingleAiConversation
-							user={user}
+							chat={chat}
 							activeChat={activeChat}
 						/>
 						{/* <div>{user.id}</div> */}
