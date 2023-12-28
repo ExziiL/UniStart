@@ -14,12 +14,12 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Archive, ChevronDown, Trash2, User } from 'lucide-react';
 import React from 'react';
 
-interface UserChatSingleMessageProps {
+interface SingleConversationProps {
 	user: IUser;
 	activeChat?: number;
 }
 
-function UserChatSingleMessage({ user, activeChat }: UserChatSingleMessageProps) {
+function SingleConversation({ user, activeChat }: SingleConversationProps) {
 	const [isHovered, setIsHovered] = React.useState(false);
 	const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 	const dropdownRef = React.useRef<HTMLDivElement>(null);
@@ -92,7 +92,7 @@ function UserChatSingleMessage({ user, activeChat }: UserChatSingleMessageProps)
 					<span className="text-primary-muted">{getMessageDate()}</span>
 				</div>
 				<div className="relative flex justify-between">
-					<p className=" text-primary-muted line-clamp-1">{user.messages![0].text}</p>
+					<p className=" line-clamp-1 text-primary-muted">{user.messages![0].text}</p>
 
 					<AnimatePresence>
 						{(isHovered || isDropdownOpen) && (
@@ -147,4 +147,4 @@ function UserChatSingleMessage({ user, activeChat }: UserChatSingleMessageProps)
 	);
 }
 
-export default UserChatSingleMessage;
+export default SingleConversation;

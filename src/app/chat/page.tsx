@@ -1,6 +1,6 @@
 import ChatBox from '@/frontend/components/chat-box';
+import ConversationsOverview from '@/frontend/components/conversations-overview';
 import UserBar from '@/frontend/components/user-bar/user-bar';
-import UserChatMessages from '@/frontend/components/user-chat-messages';
 import React from 'react';
 
 function Chat() {
@@ -9,7 +9,7 @@ function Chat() {
 			<UserBar />
 			<div className="flex flex-row">
 				{/* TODO: UserCHatMessages ab md: anzeigen, davor anders darstellen */}
-				<UserChatMessages />
+				<ConversationsOverview />
 				<div className="w-full">
 					<ChatBox />
 				</div>

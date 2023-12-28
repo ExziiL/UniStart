@@ -1,12 +1,12 @@
 'use client';
 
+import SingleConversation from '@/frontend/components/single-conversation';
 import { Separator } from '@/frontend/components/ui/separator';
-import UserChatSingleMessage from '@/frontend/components/user-chat-single-message';
 import { USERS } from '@/frontend/constants/users';
 import { Edit } from 'lucide-react';
 import React from 'react';
 
-function UserChatMessages() {
+function ConversationsOverview() {
 	const [activeChat, setActiveChat] = React.useState<number | undefined>(undefined);
 
 	const handleUserClick = (userId: number) => {
@@ -18,7 +18,7 @@ function UserChatMessages() {
 		<div className="w-96 bg-background">
 			<div className="flex items-end justify-between p-4 pb-2 text-lg font-semibold">
 				<h2 className="">Messages</h2>
-				<div className="text-primary-muted cursor-pointer transition-colors hover:text-primary">
+				<div className="cursor-pointer text-primary-muted transition-colors hover:text-primary">
 					<Edit />
 				</div>
 			</div>
@@ -28,7 +28,7 @@ function UserChatMessages() {
 						key={user.id}
 						onClick={() => handleUserClick(user.id)}
 					>
-						<UserChatSingleMessage
+						<SingleConversation
 							user={user}
 							activeChat={activeChat}
 						/>
@@ -45,4 +45,4 @@ function UserChatMessages() {
 	);
 }
 
-export default UserChatMessages;
+export default ConversationsOverview;
