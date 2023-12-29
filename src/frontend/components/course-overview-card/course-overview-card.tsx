@@ -33,6 +33,7 @@ function CourseOverviewCard({
 						text={location}
 						icon={<Home />}
 					/>
+					<CourseBadge difficulty={difficulty} />
 				</div>
 
 				<ProfessorDetails professor={professor} />
@@ -42,9 +43,8 @@ function CourseOverviewCard({
 
 			<div className="flex flex-col gap-3">
 				<div className="flex justify-between">
-					<CourseBadge difficulty={difficulty} />
 					<Link href={`/vorlesungen/${slug}`}>
-						<div className="flex cursor-pointer items-center gap-2 text-light transition-colors hover:text-primary">
+						<div className="flex cursor-pointer items-center gap-2 text-link/95 transition-colors hover:text-link">
 							Read more
 							<ArrowRight
 								size={20}
