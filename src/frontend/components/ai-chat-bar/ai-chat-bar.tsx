@@ -25,7 +25,7 @@ function AiChatBar() {
 					<Trash2 />
 				</div>
 			</div>
-			<Separator className="my-4" />
+			<Separator className="my-4 dark:bg-zinc-700" />
 		</div>
 	);
 }

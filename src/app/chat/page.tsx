@@ -1,5 +1,5 @@
-import ChatBox from '@/frontend/components/chat-box';
 import UserBar from '@/frontend/components/user-bar/user-bar';
+import UserChatBox from '@/frontend/components/user-chat-box';
 import UserConversations from '@/frontend/components/user-conversations';
 import React from 'react';
 
@@ -11,7 +11,7 @@ function Chat() {
 				{/* TODO: UserCHatMessages ab md: anzeigen, davor anders darstellen */}
 				<UserConversations />
 				<div className="w-full">
-					<ChatBox />
+					<UserChatBox />
 				</div>
 			</div>
 		</div>

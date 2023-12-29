@@ -7,9 +7,9 @@ import { cn } from '@/lib/utils';
 const chatMessageVariants = cva('w-fit rounded-md bg-light-foreground p-2 px-4', {
 	variants: {
 		variant: {
-			outgoing: 'bg-foreground text-secondary',
+			outgoing: 'bg-foreground/95 text-secondary',
 			incoming: 'text-primary',
-			ai: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+			ai: 'border border-light/15 bg-light/15',
 		},
 		// size: {
 		// 	default: 'h-10 px-4 py-2',
