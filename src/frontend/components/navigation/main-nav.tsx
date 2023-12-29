@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import NavAvatar from '@/frontend/components/navigation/nav-avatar';
-import ThemeToggle from '@/frontend/components/theme-toggle';
+import NavAvatar from "@/frontend/components/navigation/nav-avatar";
+import ThemeToggle from "@/frontend/components/theme-toggle";
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -10,11 +10,11 @@ import {
 	NavigationMenuList,
 	NavigationMenuTrigger,
 	navigationMenuTriggerStyle,
-} from '@/frontend/components/ui/navigation-menu';
-import navItems from '@/frontend/constants/nav-items';
-import { cn } from '@/lib/utils';
-import Link from 'next/link';
-import React from 'react';
+} from "@/frontend/components/ui/navigation-menu";
+import navItems from "@/frontend/constants/nav-items";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import React from "react";
 
 const MainNav = () => {
 	return (
@@ -56,11 +56,21 @@ const MainNav = () => {
 				</NavigationMenuList>
 
 				<Link
-					href="/ai-chat"
+					href="/vorlesungen"
 					legacyBehavior
 					passHref
 				>
-					<NavigationMenuLink className={navigationMenuTriggerStyle()}>Ai-Chat</NavigationMenuLink>
+					<NavigationMenuLink className={navigationMenuTriggerStyle()}>Vorlesungen</NavigationMenuLink>
+				</Link>
+
+				<Link
+					href="/vorlesungen/grundlagen-der-mathematik"
+					legacyBehavior
+					passHref
+				>
+					<NavigationMenuLink className={navigationMenuTriggerStyle()}>
+						Detailed-Vorlesungen
+					</NavigationMenuLink>
 				</Link>
 			</NavigationMenu>
 
@@ -74,7 +84,7 @@ const MainNav = () => {
 
 export default MainNav;
 
-const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWithoutRef<'a'>>(
+const ListItem = React.forwardRef<React.ElementRef<"a">, React.ComponentPropsWithoutRef<"a">>(
 	({ className, title, children, ...props }, ref) => {
 		return (
 			<li>
@@ -82,7 +92,7 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWit
 					<a
 						ref={ref}
 						className={cn(
-							'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+							"block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
 							className
 						)}
 						{...props}
@@ -95,4 +105,4 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWit
 		);
 	}
 );
-ListItem.displayName = 'ListItem';
+ListItem.displayName = "ListItem";

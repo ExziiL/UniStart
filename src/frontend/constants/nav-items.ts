@@ -4,16 +4,16 @@ const navItems: { title: string; href: string; description: string }[] = [
 		href: '/',
 		description: 'Home page',
 	},
-	// {
-	// 	title: 'Registration',
-	// 	href: '/registration',
-	// 	description: 'Registration page',
-	// },
-	// {
-	// 	title: 'Login',
-	// 	href: '/login',
-	// 	description: 'Login page',
-	// },
+	{
+		title: 'Registration',
+		href: '/registration',
+		description: 'Registration page',
+	},
+	{
+		title: 'Login',
+		href: '/login',
+		description: 'Login page',
+	},
 	{
 		title: 'Terminkalender',
 		href: '/terminplan',
