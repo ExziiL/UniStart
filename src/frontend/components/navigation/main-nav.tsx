@@ -67,10 +67,7 @@ const MainNav = () => {
 			{/* ----------------------------------------------- */}
 
 			{/* Diese div ist dafür da um die navigation items durch das "justify-between" zentral zu halten, deshalb nicht löschen! */}
-			<div className="flex flex-row gap-4">
-				{/* <ThemeToggle /> */}
-				<NavAvatar />
-			</div>
+			<NavAvatar />
 		</div>
 	);
 };
