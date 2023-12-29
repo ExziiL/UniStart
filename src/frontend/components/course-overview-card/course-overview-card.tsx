@@ -16,7 +16,7 @@ function CourseOverviewCard({
 	professor,
 	description,
 	rating,
-	numOfRating,
+	location,
 	difficulty,
 }: CourseOverViewCardProps) {
 	return (
@@ -30,7 +30,7 @@ function CourseOverviewCard({
 						icon={<Star />}
 					/>
 					<IconWithText
-						text="G2 0.21"
+						text={location}
 						icon={<Home />}
 					/>
 				</div>

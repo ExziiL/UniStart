@@ -1,8 +1,8 @@
-import CourseOverviewCard from '@/frontend/components/course-overview-card';
-import { BadgeProps } from '@/frontend/components/ui/badge';
-import React from 'react';
+import CourseOverviewCard from "@/frontend/components/course-overview-card";
+import { BadgeProps } from "@/frontend/components/ui/badge";
+import React from "react";
 
-import { VORLESUNGEN } from '@/frontend/constants/vorlesungen';
+import { VORLESUNGEN } from "@/frontend/constants/vorlesungen";
 
 function Vorlesungen() {
 	return (
@@ -13,6 +13,7 @@ function Vorlesungen() {
 					key={vorlesung.name}
 					name={vorlesung.name}
 					professor={vorlesung.professor}
+					location={vorlesung.location}
 					description={vorlesung.description}
 					longDescription={vorlesung.longDescription}
 					rating={vorlesung.rating}
