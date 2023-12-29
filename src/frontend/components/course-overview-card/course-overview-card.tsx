@@ -8,42 +8,36 @@ import { ArrowRight, Home, Star } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-interface CourseOverViewCardProps extends VorlesungProps {}
+interface CourseOverViewCardProps {
+	vorlesung: VorlesungProps;
+}
 
-function CourseOverviewCard({
-	slug,
-	name,
-	professor,
-	description,
-	rating,
-	location,
-	difficulty,
-}: CourseOverViewCardProps) {
+function CourseOverviewCard({ vorlesung }: CourseOverViewCardProps) {
 	return (
 		<div className="flex flex-col justify-between gap-3 rounded-md border p-4  ">
 			<div className="flex flex-col gap-3 ">
-				<h2 className="text-lg font-medium text-primary">{name}</h2>
+				<h2 className="text-lg font-medium text-primary">{vorlesung.name}</h2>
 
 				<div className="flex flex-row gap-6">
 					<IconWithText
-						text={rating}
+						text={vorlesung.rating}
 						icon={<Star />}
 					/>
 					<IconWithText
-						text={location}
+						text={vorlesung.location}
 						icon={<Home />}
 					/>
-					<CourseBadge difficulty={difficulty} />
+					<CourseBadge difficulty={vorlesung.difficulty} />
 				</div>
 
-				<ProfessorDetails professor={professor} />
+				<ProfessorDetails professor={vorlesung.professor} />
 
-				<p className="text-primary">{description}</p>
+				<p className="text-primary">{vorlesung.description}</p>
 			</div>
 
 			<div className="flex flex-col gap-3">
 				<div className="flex justify-between">
-					<Link href={`/vorlesungen/${slug}`}>
+					<Link href={`/vorlesungen/${vorlesung.slug}`}>
 						<div className="flex cursor-pointer items-center gap-2 text-link/95 transition-colors hover:text-link">
 							Read more
 							<ArrowRight
