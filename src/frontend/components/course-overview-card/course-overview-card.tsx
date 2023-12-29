@@ -25,20 +25,22 @@ function CourseOverviewCard({ vorlesung }: CourseOverViewCardProps) {
 	};
 
 	return (
-		<div className="flex w-80 flex-col justify-between rounded-md border p-4">
-			<div className="flex flex-col gap-3 ">
-				<h2 className="text-lg font-medium text-primary">{vorlesung.name}</h2>
+		<div className="flex w-80 flex-col justify-between gap-3 rounded-md border p-4">
+			<div className="flex flex-col gap-3">
+				<div className="flex flex-col gap-1">
+					<h2 className="truncate text-lg font-medium text-primary">{vorlesung.name}</h2>
 
-				<div className="flex flex-row gap-6">
-					<IconWithText
-						text={vorlesung.rating}
-						icon={<Star />}
-					/>
-					<IconWithText
-						text={vorlesung.location}
-						icon={<Home />}
-					/>
-					<CourseBadge difficulty={vorlesung.difficulty} />
+					<div className="flex flex-row gap-6">
+						<IconWithText
+							text={vorlesung.rating}
+							icon={<Star />}
+						/>
+						<IconWithText
+							text={vorlesung.location}
+							icon={<Home />}
+						/>
+						<CourseBadge difficulty={vorlesung.difficulty} />
+					</div>
 				</div>
 
 				<ProfessorDetails professor={vorlesung.professor} />
