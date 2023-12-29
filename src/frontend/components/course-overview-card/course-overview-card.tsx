@@ -19,7 +19,7 @@ function CourseOverviewCard({ vorlesung }: CourseOverViewCardProps) {
 	const isHovered = useHover(hoverRef);
 
 	const arrowVariants: Variants = {
-		tap: { x: 10 },
+		tapped: { x: 3 },
 		initial: { x: -5, opacity: 0 },
 		hovered: { x: -1, opacity: 1 },
 	};
@@ -48,25 +48,25 @@ function CourseOverviewCard({ vorlesung }: CourseOverViewCardProps) {
 
 			<div className="flex flex-col gap-3">
 				<div className="flex justify-between">
-					{/* <Link href={`/vorlesungen/${vorlesung.slug}`}> */}
-					<Link href="#">
+					<Link href={`/vorlesungen/${vorlesung.slug}`}>
 						<motion.div
-							className="flex cursor-pointer items-center gap-2 text-link/95 transition-colors hover:text-link"
+							className="relative flex cursor-pointer items-center gap-2 text-link/95 transition-colors hover:text-link"
 							ref={hoverRef}
-							whileTap="tap"
 						>
 							Read more
-							<motion.div
+							<motion.span
 								variants={arrowVariants}
 								initial="initial"
 								animate={isHovered ? "hovered" : "initial"}
 								transition={{ type: "spring", stiffness: 400, damping: 17 }}
+								whileTap="tapped"
+								className="absolute w-full pl-[88px]"
 							>
 								<ArrowRight
 									size={20}
 									strokeWidth={1.75}
 								/>
-							</motion.div>
+							</motion.span>
 						</motion.div>
 					</Link>
 				</div>
