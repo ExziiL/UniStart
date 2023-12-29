@@ -14,7 +14,7 @@ interface CourseOverViewCardProps {
 
 function CourseOverviewCard({ vorlesung }: CourseOverViewCardProps) {
 	return (
-		<div className="flex flex-col justify-between gap-3 rounded-md border p-4  ">
+		<div className="flex w-80 flex-col justify-between rounded-md border p-4">
 			<div className="flex flex-col gap-3 ">
 				<h2 className="text-lg font-medium text-primary">{vorlesung.name}</h2>
 
