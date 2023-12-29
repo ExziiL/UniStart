@@ -4,15 +4,26 @@ import CourseBadge from "@/frontend/components/course-badge";
 import ProfessorDetails from "@/frontend/components/professor-details";
 import StarRating from "@/frontend/components/star-rating";
 import { VorlesungProps } from "@/types/IVorlesung";
+import { Variants, motion } from "framer-motion";
 import { ArrowRight, Home, Star } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { useHover } from "usehooks-ts";
 
 interface CourseOverViewCardProps {
 	vorlesung: VorlesungProps;
 }
 
 function CourseOverviewCard({ vorlesung }: CourseOverViewCardProps) {
+	const hoverRef = React.useRef<HTMLDivElement>(null);
+	const isHovered = useHover(hoverRef);
+
+	const arrowVariants: Variants = {
+		tap: { x: 10 },
+		initial: { x: -5, opacity: 0 },
+		hovered: { x: -1, opacity: 1 },
+	};
+
 	return (
 		<div className="flex w-80 flex-col justify-between rounded-md border p-4">
 			<div className="flex flex-col gap-3 ">
@@ -37,14 +48,26 @@ function CourseOverviewCard({ vorlesung }: CourseOverViewCardProps) {
 
 			<div className="flex flex-col gap-3">
 				<div className="flex justify-between">
-					<Link href={`/vorlesungen/${vorlesung.slug}`}>
-						<div className="flex cursor-pointer items-center gap-2 text-link/95 transition-colors hover:text-link">
+					{/* <Link href={`/vorlesungen/${vorlesung.slug}`}> */}
+					<Link href="#">
+						<motion.div
+							className="flex cursor-pointer items-center gap-2 text-link/95 transition-colors hover:text-link"
+							ref={hoverRef}
+							whileTap="tap"
+						>
 							Read more
-							<ArrowRight
-								size={20}
-								strokeWidth={1.75}
-							/>
-						</div>
+							<motion.div
+								variants={arrowVariants}
+								initial="initial"
+								animate={isHovered ? "hovered" : "initial"}
+								transition={{ type: "spring", stiffness: 400, damping: 17 }}
+							>
+								<ArrowRight
+									size={20}
+									strokeWidth={1.75}
+								/>
+							</motion.div>
+						</motion.div>
 					</Link>
 				</div>
 			</div>
