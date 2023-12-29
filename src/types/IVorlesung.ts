@@ -6,6 +6,7 @@ export interface VorlesungProps {
 	professor: ProfessorProps;
 	description: string;
 	longDescription: string;
+	location: string;
 	rating: number;
 	numOfRating: number;
 	difficulty: 'easy' | 'medium' | 'hard';
