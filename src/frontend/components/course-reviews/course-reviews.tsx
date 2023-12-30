@@ -1,10 +1,10 @@
 "use client";
 
 import CourseReview from "@/frontend/components/course-reviews/course-review";
-import { Button } from "@/frontend/components/ui/button";
 import { Review } from "@/types/IReview";
-import { ArrowUpDown, Edit3, Filter } from "lucide-react";
+import { ArrowUpDown, Filter } from "lucide-react";
 import React from "react";
+import CourseReviewsDialog from "../course-reviews-dialog";
 import { Separator } from "../ui/separator";
 
 interface CourseReviewsProps {
@@ -16,11 +16,6 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 
 	// TODO: Make with smaller
 	// TODO: Change Star Color of small stars
-	// TODO: Add "Write a Review"-Button Modal
-
-	const handleButtonClick = () => {
-		console.log("Write a Review Button Clicked");
-	};
 
 	return (
 		<div className="flex flex-col">
@@ -28,16 +23,7 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 				<h2 className="text-2xl font-medium text-primary">
 					Reviews <span className="pl-1 text-lg font-normal text-ultra-light">({numOfReviews})</span>
 				</h2>
-				<Button
-					variant="outline"
-					onClick={handleButtonClick}
-				>
-					<Edit3
-						size={16}
-						className="mr-2"
-					/>
-					Write a Review
-				</Button>
+				<CourseReviewsDialog />
 			</div>
 
 			<div className="flex flex-row gap-8 pb-4 pt-5">
