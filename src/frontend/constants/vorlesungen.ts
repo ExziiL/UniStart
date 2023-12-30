@@ -51,7 +51,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 			},
 			{
 				headline: 'Excellent Deep Dive into Data Structures and Algorithms',
-				rating: 3,
+				rating: 3.5,
 				date: new Date('2022-09-05'),
 				description:
 					'For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.',
