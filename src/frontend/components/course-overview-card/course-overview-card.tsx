@@ -40,7 +40,6 @@ function CourseOverviewCard({ vorlesung }: CourseOverViewCardProps) {
 							text={vorlesung.location}
 							icon={<Home />}
 						/>
-						<CourseBadge difficulty={vorlesung.difficulty} />
 					</div>
 				</div>
 
