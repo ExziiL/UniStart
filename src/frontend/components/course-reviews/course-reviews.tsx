@@ -9,10 +9,11 @@ import { Separator } from "../ui/separator";
 
 interface CourseReviewsProps {
 	reviews: Review[];
-	numOfReviews?: number;
 }
 
-function CourseReviews({ reviews, numOfReviews }: CourseReviewsProps) {
+function CourseReviews({ reviews }: CourseReviewsProps) {
+	const numOfReviews = reviews.length;
+
 	// TODO: Add Star with Ratings
 	// TODO: Add correct Date
 	// TODO: Make with smaller
@@ -27,7 +28,7 @@ function CourseReviews({ reviews, numOfReviews }: CourseReviewsProps) {
 		<div>
 			<div className="flex justify-between">
 				<h2 className="text-2xl font-medium text-primary">
-					Reviews <span className=" text-ultra-light text-lg font-normal">({numOfReviews})</span>
+					Reviews <span className="pl-1 text-lg font-normal text-ultra-light">({numOfReviews})</span>
 				</h2>
 				<Button
 					variant="outline"

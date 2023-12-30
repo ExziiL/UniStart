@@ -26,7 +26,6 @@ export interface VorlesungProps {
 	longDescription: string;
 	location: string;
 	rating: number;
-	numOfReviews: number;
 	difficulty: 'easy' | 'medium' | 'hard';
 	reviews: Review[];
 }
