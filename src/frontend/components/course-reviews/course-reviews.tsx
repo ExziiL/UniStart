@@ -20,14 +20,10 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 			<h2 className="text-2xl font-medium text-primary">Reviews</h2>
 
 			{reviews.map((review, index) => (
-				<>
-					<CourseReview
-						key={index}
-						review={review}
-					/>
-
+				<div key={index}>
+					<CourseReview review={review} />
 					<Separator className="mt-7 last:hidden" />
-				</>
+				</div>
 			))}
 		</div>
 	);
