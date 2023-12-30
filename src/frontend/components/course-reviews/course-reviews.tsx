@@ -1,6 +1,5 @@
 import CourseReview from "@/frontend/components/course-reviews/course-review";
 import { Review } from "@/types/IReview";
-import { VorlesungProps } from "@/types/IVorlesung";
 import React from "react";
 import { Separator } from "../ui/separator";
 
@@ -9,9 +8,6 @@ interface CourseReviewsProps {
 }
 
 function CourseReviews({ reviews }: CourseReviewsProps) {
-	// const lastIndex = COURSE_REVIEWS.length - 1;
-	// const lastReview = COURSE_REVIEWS[lastIndex];
-
 	// TODO: Add Star with Ratings
 	// TODO: Add add review Button
 	// TODO: Add correct Date
@@ -28,7 +24,6 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 					<CourseReview
 						key={index}
 						review={review}
-						// lastReview={index === reviews.length - 1}
 					/>
 
 					<Separator className="mt-7 last:hidden" />

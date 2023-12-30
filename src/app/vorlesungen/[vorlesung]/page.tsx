@@ -32,7 +32,6 @@ function Page({ params }: PageProps) {
 	return (
 		<div className="flex flex-col gap-16 p-4">
 			<DetailedCourseOverview vorlesung={vorlesung} />
-
 			<CourseReviews reviews={vorlesung.reviews} />
 		</div>
 	);
