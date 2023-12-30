@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
-
 import { Rating, SharedProps } from "@smastrom/react-rating";
+import React from "react";
 
 interface StarRatingProps {
 	rating: number;
