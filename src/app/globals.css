@@ -38,6 +38,9 @@
     --light: 240 3.8% 46.1%;
     --light-foreground: 0  0% 96%;
 
+    --ultra-light: 240 5% 67%;
+    --ultra-light-foreground: 0  0% 96%;
+
     --link: 199 96% 40%; 
     --link-foreground: 199 96% 43%;
 
@@ -78,6 +81,9 @@
     /* TODO: noch auf dark mode anpassen */
     --light: 240 5% 64.9%;
     --light-foreground: 240 4.9% 16%;
+
+    --ultra-light: 240 3.7% 15.9%;
+    --ultra-light-foreground: 240 4.9% 16%;
 
     --primary-muted: 0 0% 55%;
     --primary-muted-foreground: 0 0% 98%;
