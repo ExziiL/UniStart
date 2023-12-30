@@ -5,6 +5,22 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		slug: 'grundlagen-der-mathematik',
 		name: 'Grundlagen der Mathematik',
 		semester: 1,
+		dates: {
+			firstLecture: {
+				weekday: "Dienstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			},
+			secondLecture: {
+				weekday: "Donnerstag",
+				time: {
+					start: "11:30",
+					end: "13:00" 
+				}
+			}
+		},
 		professor: {
 			name: 'Max Mustermann',
 			email: 'max.mustermann@hs-aalen.de',
@@ -21,6 +37,22 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		slug: 'einfuehrung-in-die-informatik',
 		name: 'Einführung in die Informatik',
 		semester: 1,
+		dates: {
+			firstLecture: {
+				weekday: "Dienstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			},
+			secondLecture: {
+				weekday: "Donnerstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			}
+		},
 		professor: {
 			name: 'Julia Sommer',
 			email: 'julia.sommer@hs-aalen.de',
@@ -37,6 +69,22 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		slug: 'datenbanken-grundlagen',
 		name: 'Datenbanken Grundlagen',
 		semester: 1,
+		dates: {
+			firstLecture: {
+				weekday: "Dienstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			},
+			secondLecture: {
+				weekday: "Donnerstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			}
+		},
 		professor: {
 			name: 'Lukas Bauer',
 			email: 'lukas.bauer@hs-aalen.de',
@@ -53,6 +101,22 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		slug: 'webentwicklung',
 		name: 'Webentwicklung',
 		semester: 1,
+		dates: {
+			firstLecture: {
+				weekday: "Dienstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			},
+			secondLecture: {
+				weekday: "Donnerstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			}
+		},
 		professor: {
 			name: 'Anna Schmidt',
 			email: 'anna.schmidt@hs-aalen.de',
@@ -69,6 +133,22 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		slug: 'algorithmen-und-datenstrukturen',
 		name: 'Algorithmen und Datenstrukturen',
 		semester: 1,
+		dates: {
+			firstLecture: {
+				weekday: "Dienstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			},
+			secondLecture: {
+				weekday: "Donnerstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			}
+		},
 		professor: {
 			name: 'Stefan Klein',
 			email: 'stefan.klein@hs-aalen.de',
@@ -85,6 +165,22 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		slug: 'betriebssysteme-und-netzwerke',
 		name: 'Betriebssysteme und Netzwerke',
 		semester: 1,
+		dates: {
+			firstLecture: {
+				weekday: "Dienstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			},
+			secondLecture: {
+				weekday: "Donnerstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			}
+		},
 		professor: {
 			name: 'Maria Neumann',
 			email: 'maria.neumann@hs-aalen.de',
@@ -101,6 +197,22 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		slug: 'objektorientierte-programmierung',
 		name: 'Objektorientierte Programmierung',
 		semester: 2,
+		dates: {
+			firstLecture: {
+				weekday: "Dienstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			},
+			secondLecture: {
+				weekday: "Donnerstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			}
+		},
 		professor: {
 			name: 'Felix Richter',
 			email: 'felix.richter@hs-aalen.de',
@@ -117,6 +229,22 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		slug: 'theoretische-informatik',
 		name: 'Theoretische Informatik',
 		semester: 2,
+		dates: {
+			firstLecture: {
+				weekday: "Dienstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			},
+			secondLecture: {
+				weekday: "Donnerstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			}
+		},
 		professor: {
 			name: 'Leonie Beck',
 			email: 'leonie.beck@hs-aalen.de',
@@ -133,6 +261,22 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		slug: 'software-engineering',
 		name: 'Software Engineering',
 		semester: 2,
+		dates: {
+			firstLecture: {
+				weekday: "Dienstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			},
+			secondLecture: {
+				weekday: "Donnerstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			}
+		},
 		professor: {
 			name: 'Tobias Lang',
 			email: 'tobias.lang@hs-aalen.de',
@@ -149,6 +293,22 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		slug: 'mensch-computer-interaktion',
 		name: 'Mensch-Computer-Interaktion',
 		semester: 2,
+		dates: {
+			firstLecture: {
+				weekday: "Dienstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			},
+			secondLecture: {
+				weekday: "Donnerstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			}
+		},
 		professor: {
 			name: 'Sandra Koch',
 			email: 'sandra.koch@hs-aalen.de',
@@ -165,6 +325,22 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		slug: 'computergrafik',
 		name: 'Computergrafik',
 		semester: 2,
+		dates: {
+			firstLecture: {
+				weekday: "Dienstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			},
+			secondLecture: {
+				weekday: "Donnerstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			}
+		},
 		professor: {
 			name: 'Markus Wolf',
 			email: 'markus.wolf@hs-aalen.de',
@@ -181,6 +357,22 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		slug: 'rechnerarchitektur',
 		name: 'Rechnerarchitektur',
 		semester: 2,
+		dates: {
+			firstLecture: {
+				weekday: "Dienstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			},
+			secondLecture: {
+				weekday: "Donnerstag",
+				time: {
+					start: "11:30",
+					end: "13:00"
+				}
+			}
+		},
 		professor: {
 			name: 'Laura Fischer',
 			email: 'laura.fischer@hs-aalen.de',
