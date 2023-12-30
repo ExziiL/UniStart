@@ -5,9 +5,10 @@ import { Separator } from "../ui/separator";
 
 interface CourseReviewsProps {
 	reviews: Review[];
+	numOfReviews?: number;
 }
 
-function CourseReviews({ reviews }: CourseReviewsProps) {
+function CourseReviews({ reviews, numOfReviews }: CourseReviewsProps) {
 	// TODO: Add Star with Ratings
 	// TODO: Add add review Button
 	// TODO: Add correct Date
@@ -17,7 +18,9 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 
 	return (
 		<div>
-			<h2 className="text-2xl font-medium text-primary">Reviews</h2>
+			<h2 className="text-2xl font-medium text-primary">
+				Reviews <span className=" text-ultra-light text-lg font-normal">({numOfReviews})</span>
+			</h2>
 
 			{reviews.map((review, index) => (
 				<div key={index}>
