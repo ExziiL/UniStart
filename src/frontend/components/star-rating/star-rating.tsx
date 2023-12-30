@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
-import { Rating, SharedProps } from '@smastrom/react-rating';
+import { Rating, SharedProps } from "@smastrom/react-rating";
 
 interface StarRatingProps {
 	rating: number;
-	maxRating?: SharedProps['items'];
+	maxRating?: SharedProps["items"];
 	numOfRating?: number;
 }
 
