@@ -14,7 +14,7 @@ function CourseReview({ review }: CourseReviewProps) {
 	const downvotes = review.downvotes;
 
 	return (
-		<div className="flex gap-3 pt-7 text-primary">
+		<div className="flex gap-3 text-primary">
 			<div className="flex flex-col justify-center">
 				<Voting
 					upvotes={upvotes}
