@@ -37,11 +37,7 @@ const formSchema = z.object({
 	description: z.string().min(5).max(1000),
 });
 
-function CourseReviewsDialog({ children }: CourseReviewsDialogProps) {
-	const handleButtonClick = () => {
-		console.log("Write a Review Button Clicked");
-	};
-
+function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 	// Define Form
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
@@ -76,10 +72,8 @@ function CourseReviewsDialog({ children }: CourseReviewsDialogProps) {
 						className="flex flex-col gap-4"
 					>
 						<DialogHeader>
-							<DialogTitle>Write a Review</DialogTitle>
-							<DialogDescription>
-								<p>Please write a review for this course.</p>
-							</DialogDescription>
+							<DialogTitle>Leave a Review</DialogTitle>
+							<DialogDescription>How would you rate this course?</DialogDescription>
 						</DialogHeader>
 						<div className="">
 							<FormField
@@ -94,10 +88,11 @@ function CourseReviewsDialog({ children }: CourseReviewsDialogProps) {
 												placeholder="FormControl Placeholder"
 											/>
 										</FormControl>
-										<FormDescription>
-											{/* <FormMessage {...field} /> */}
-											This is the Form Description
-										</FormDescription>
+										<FormMessage
+											{...field}
+											className="pt-1"
+										/>
+										<FormDescription>{/* This is the Form Description */}</FormDescription>
 									</FormItem>
 								)}
 							/>
