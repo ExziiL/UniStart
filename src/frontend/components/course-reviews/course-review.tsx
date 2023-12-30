@@ -33,10 +33,22 @@ function CourseReview({ review }: CourseReviewProps) {
 					<span className="flex flex-col justify-center text-sm text-light">
 						{review.date.toLocaleDateString("de-DE", {
 							year: "numeric",
-							month: "long",
+							month: "short",
 							day: "numeric",
 						})}
 					</span>
+
+					<div className="py-1">
+						<Separator orientation="vertical" />
+					</div>
+
+					<span className="flex flex-col justify-center text-sm text-light">Sem. von Verf.</span>
+
+					<div className="py-1">
+						<Separator orientation="vertical" />
+					</div>
+
+					<span className="flex flex-col justify-center text-sm text-light">St.-gang von Verf.</span>
 				</div>
 				<p className="">{review.description}</p>
 			</div>
