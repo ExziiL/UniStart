@@ -1,11 +1,16 @@
-import React from 'react';
+import CourseReview from "@/frontend/components/course-reviews/course-review";
+import { Review } from "@/types/IReview";
+import { VorlesungProps } from "@/types/IVorlesung";
+import React from "react";
+import { Separator } from "../ui/separator";
 
-import CourseReview from '@/frontend/components/course-reviews/course-review';
-import { COURSE_REVIEWS } from '@/frontend/constants/course-reviews';
+interface CourseReviewsProps {
+	reviews: Review[];
+}
 
-function CourseReviews() {
-	const lastIndex = COURSE_REVIEWS.length - 1;
-	const lastReview = COURSE_REVIEWS[lastIndex];
+function CourseReviews({ reviews }: CourseReviewsProps) {
+	// const lastIndex = COURSE_REVIEWS.length - 1;
+	// const lastReview = COURSE_REVIEWS[lastIndex];
 
 	// TODO: Add Star with Ratings
 	// TODO: Add add review Button
@@ -17,13 +22,17 @@ function CourseReviews() {
 	return (
 		<div>
 			<h2 className="text-2xl font-medium text-primary">Reviews</h2>
-			{COURSE_REVIEWS.map((review, index) => (
-				<CourseReview
-					review={review}
-					key={index}
-					// gets the last review and adds "lastReview" prop to it
-					{...(index === lastIndex && { lastReview: true })}
-				/>
+
+			{reviews.map((review, index) => (
+				<>
+					<CourseReview
+						key={index}
+						review={review}
+						// lastReview={index === reviews.length - 1}
+					/>
+
+					<Separator className="mt-7 last:hidden" />
+				</>
 			))}
 		</div>
 	);

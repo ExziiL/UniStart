@@ -1,4 +1,5 @@
 import { ProfessorProps } from './IProfessor';
+import { Review } from './IReview';
 
 export interface VorlesungProps {
 	slug: string;
@@ -25,6 +26,7 @@ export interface VorlesungProps {
 	longDescription: string;
 	location: string;
 	rating: number;
-	numOfRating: number;
+	numOfReviews: number;
 	difficulty: 'easy' | 'medium' | 'hard';
+	reviews: Review[];
 }

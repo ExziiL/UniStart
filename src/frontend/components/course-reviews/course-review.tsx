@@ -1,18 +1,16 @@
-import { COURSE_REVIEWS } from '@/frontend/constants/course-reviews';
-import { SingleCourseReviewProps } from '@/types/ICourseReview';
-import React from 'react';
-import StarRating from '../star-rating';
-import { Separator } from '../ui/separator';
+import { Review } from "@/types/IReview";
+import React from "react";
+import StarRating from "../star-rating";
+import { Separator } from "../ui/separator";
 
-interface CourseReviewProps {
-	review: SingleCourseReviewProps;
-	lastReview?: boolean;
+interface CourseReviewProps extends React.HTMLAttributes<HTMLDivElement> {
+	review: Review;
 }
 
-function CourseReview({ review, lastReview }: CourseReviewProps) {
+function CourseReview({ review }: CourseReviewProps) {
 	return (
 		<div className="pt-7 text-primary">
-			<h2 className="font-medium">{review.heading}</h2>
+			<h2 className="font-medium">{review.headline}</h2>
 			<div className="flex gap-3 pb-2 pt-1">
 				<StarRating rating={review.rating} />
 
@@ -22,9 +20,7 @@ function CourseReview({ review, lastReview }: CourseReviewProps) {
 
 				<span className="flex flex-col justify-center text-sm text-light">2 minutes ago</span>
 			</div>
-			<p className="">{review.comment}</p>
-
-			{lastReview || <Separator className="mt-7" />}
+			<p className="">{review.description}</p>
 		</div>
 	);
 }
