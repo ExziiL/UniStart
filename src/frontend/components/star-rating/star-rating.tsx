@@ -9,8 +9,8 @@ interface StarRatingProps extends SharedProps {
 }
 
 // function StarRating({maxRating}) {
-const StarRating: React.FC<StarRatingProps> = ({ numOfRating, hideRatingNumber, readOnly, style, value }) => {
-	const [rating, setRating] = React.useState(0);
+const StarRating: React.FC<StarRatingProps> = ({ numOfRating, hideRatingNumber, readOnly, value, style }) => {
+	const [rating, setRating] = React.useState(value);
 
 	const customStyles = {
 		itemShapes: Star,
@@ -26,7 +26,7 @@ const StarRating: React.FC<StarRatingProps> = ({ numOfRating, hideRatingNumber, 
 	return (
 		<div className="flex items-center gap-2">
 			<Rating
-				value={rating ? rating : value}
+				value={rating}
 				itemStyles={customStyles}
 				style={style}
 				onChange={setRating}
@@ -34,7 +34,7 @@ const StarRating: React.FC<StarRatingProps> = ({ numOfRating, hideRatingNumber, 
 			/>
 
 			<div className="flex items-center gap-2">
-				<span className="pt-[2px] text-sm text-light">{hideRatingNumber ? null : value}</span>
+				<span className="pt-[2px] text-sm text-light">{hideRatingNumber ? null : rating}</span>
 				{numOfRating && <span className="pt-[2px] text-sm text-light">({numOfRating})</span>}
 			</div>
 		</div>

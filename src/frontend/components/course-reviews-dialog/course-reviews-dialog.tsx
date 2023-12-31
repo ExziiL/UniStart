@@ -25,7 +25,7 @@ import {
 import { Input } from "@/frontend/components/ui/input";
 import { Textarea } from "@/frontend/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Rating, SharedProps } from "@smastrom/react-rating";
+import { Rating, SharedProps, Star } from "@smastrom/react-rating";
 import { Edit3 } from "lucide-react";
 import * as React from "react";
 import { useForm } from "react-hook-form";
@@ -38,11 +38,22 @@ interface CourseReviewsDialogProps extends React.HTMLAttributes<HTMLDivElement> 
 function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 	const maxDescriptionLength = 500;
 
+	const customStyles = {
+		itemShapes: Star,
+
+		itemStrokeWidth: 2,
+
+		activeFillColor: "#D4D4D8",
+		activeStrokeColor: "#AFAFB6",
+		inactiveFillColor: "#FAFAFA",
+		inactiveStrokeColor: "#D4D4D8",
+	};
+
 	// Define Form Validation
 	const formSchema = z.object({
 		headline: z.string().min(5).max(100),
 		description: z.string().min(5).max(maxDescriptionLength),
-		userRating: z.number().min(1).max(5),
+		rating: z.number().min(1).max(5),
 	});
 
 	// Define Form
@@ -51,7 +62,7 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 		defaultValues: {
 			headline: "",
 			description: "",
-			userRating: 0,
+			rating: 0,
 		},
 	});
 
@@ -66,7 +77,7 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 		form.reset({
 			description: "",
 			headline: "",
-			userRating: 0,
+			rating: 0,
 		});
 	};
 
@@ -97,21 +108,17 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 						<div className="flex flex-col gap-4">
 							<FormField
 								control={form.control}
-								name="userRating"
+								name="rating"
 								render={({ field }) => (
 									<FormItem>
 										<FormLabel>Overall Rating</FormLabel>
 										<FormControl>
-											{/* <Rating
+											<Rating
 												{...field}
 												value={field.value}
 												style={{ maxWidth: 160 }}
 												isRequired
-											/> */}
-											<StarRating
-												value={field.value}
-												style={{ maxWidth: 160 }}
-												hideRatingNumber
+												itemStyles={customStyles}
 											/>
 										</FormControl>
 										<FormMessage className="pt-1" />
