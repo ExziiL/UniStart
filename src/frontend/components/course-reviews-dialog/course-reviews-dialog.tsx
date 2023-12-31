@@ -82,7 +82,7 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 				</Button>
 			</DialogTrigger>
 
-			<DialogContent>
+			<DialogContent className="">
 				<Form {...form}>
 					<form
 						onSubmit={form.handleSubmit(onSubmit)}
