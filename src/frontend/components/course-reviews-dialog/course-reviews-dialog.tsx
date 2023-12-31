@@ -28,7 +28,6 @@ import { Edit3 } from "lucide-react";
 import * as React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import StarRating from "../star-rating";
 
 interface CourseReviewsDialogProps extends React.HTMLAttributes<HTMLDivElement> {
 	// reviews: Review[];
@@ -58,8 +57,19 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 	// integrate with backend here
 	const onSubmit = (data: z.infer<typeof formSchema>) => {
 		console.log("Form Submitted: ", data);
+		// integrate with backend here and wait for successful response
+
+		// reset the form
+		// TODO: in a later stage, we might want to show the user the data they entered and disable the submit button until they edit the form again
+		form.reset({
+			description: "",
+			headline: "",
+			userRating: 0,
+		});
 	};
 
+	// TODO: add a loading state to the form
+	// TODO: edit the form error messages
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
@@ -79,7 +89,7 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 						className="flex flex-col gap-4"
 					>
 						<DialogHeader>
-							<DialogTitle>Leave a Review</DialogTitle>
+							<DialogTitle>Create a Review</DialogTitle>
 							<DialogDescription>How would you rate this course?</DialogDescription>
 						</DialogHeader>
 						<div className="flex flex-col gap-4">
@@ -88,14 +98,13 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 								name="userRating"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>Your Rating</FormLabel>
+										<FormLabel>Overall Rating</FormLabel>
 										<FormControl>
 											<Rating
 												{...field}
 												value={field.value}
 												style={{ maxWidth: 160 }}
 												isRequired
-												// className="mt-2"
 											/>
 										</FormControl>
 										{{ ...field } && <FormMessage className="pt-1" />}
@@ -107,10 +116,10 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 								name="headline"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>Review Title</FormLabel>
+										<FormLabel>Title</FormLabel>
 										<FormControl>
 											<Input
-												placeholder="FormControl Placeholder"
+												placeholder="This course was..."
 												{...field}
 											/>
 										</FormControl>
@@ -124,10 +133,10 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 								name="description"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>Review Summary</FormLabel>
+										<FormLabel>Description</FormLabel>
 										<FormControl>
 											<Textarea
-												placeholder="Tell us a little bit about yourself"
+												placeholder="Describe your experience in more detail..."
 												className="resize-none"
 												{...field}
 											/>
