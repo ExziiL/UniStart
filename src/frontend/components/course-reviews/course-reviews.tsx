@@ -16,7 +16,6 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 	const numOfReviews = reviews.length;
 
 	const [showAllReviews, setShowAllReviews] = React.useState(false);
-
 	const displayedReviews = showAllReviews ? reviews : reviews.slice(0, 3);
 
 	const handleShowMoreClick = () => {
@@ -54,11 +53,11 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 					<div key={index}>
 						<CourseReview review={review} />
 
-						<Separator className="my-7" />
+						{index !== displayedReviews.length - 1 && <Separator className="my-7" />}
 					</div>
 				))}
 
-				<div>
+				<div className="pt-7">
 					<p
 						className="w-fit cursor-pointer text-light hover:text-primary"
 						onClick={handleShowMoreClick}
