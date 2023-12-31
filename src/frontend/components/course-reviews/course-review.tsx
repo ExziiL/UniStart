@@ -24,7 +24,11 @@ function CourseReview({ review }: CourseReviewProps) {
 			<div>
 				<h2 className="font-medium">{review.headline}</h2>
 				<div className="flex gap-3 pb-2 pt-1">
-					<StarRating rating={review.rating} />
+					<StarRating
+						value={review.rating}
+						style={{ maxWidth: 100 }}
+						readOnly
+					/>
 
 					<div className="py-1">
 						<Separator orientation="vertical" />

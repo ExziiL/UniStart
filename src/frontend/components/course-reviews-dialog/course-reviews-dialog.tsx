@@ -1,5 +1,7 @@
 "use client";
 
+import StarRating from "@/frontend/components/star-rating";
+
 import { Button } from "@/frontend/components/ui/button";
 import {
 	Dialog,
@@ -100,11 +102,16 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 									<FormItem>
 										<FormLabel>Overall Rating</FormLabel>
 										<FormControl>
-											<Rating
+											{/* <Rating
 												{...field}
 												value={field.value}
 												style={{ maxWidth: 160 }}
 												isRequired
+											/> */}
+											<StarRating
+												value={field.value}
+												style={{ maxWidth: 160 }}
+												hideRatingNumber
 											/>
 										</FormControl>
 										<FormMessage className="pt-1" />

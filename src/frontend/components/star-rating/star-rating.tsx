@@ -1,30 +1,40 @@
 "use client";
 
-import { Rating, SharedProps } from "@smastrom/react-rating";
+import { Rating, SharedProps, Star } from "@smastrom/react-rating";
 import React from "react";
 
-interface StarRatingProps {
-	rating: number;
-	maxRating?: SharedProps["items"];
+interface StarRatingProps extends SharedProps {
 	numOfRating?: number;
+	hideRatingNumber?: boolean;
 }
 
 // function StarRating({maxRating}) {
-const StarRating: React.FC<StarRatingProps> = ({ rating, maxRating, numOfRating }) => {
-	const [userRating, setUserRating] = React.useState(0);
+const StarRating: React.FC<StarRatingProps> = ({ numOfRating, hideRatingNumber, readOnly, style, value }) => {
+	const [rating, setRating] = React.useState(0);
+
+	const customStyles = {
+		itemShapes: Star,
+
+		itemStrokeWidth: 2,
+
+		activeFillColor: "#D4D4D8",
+		activeStrokeColor: "#AFAFB6",
+		inactiveFillColor: "#FAFAFA",
+		inactiveStrokeColor: "#D4D4D8",
+	};
 
 	return (
 		<div className="flex items-center gap-2">
 			<Rating
-				items={maxRating}
-				style={{ maxWidth: 100 }}
-				value={rating ? rating : userRating}
-				onChange={setUserRating}
-				readOnly
+				value={rating ? rating : value}
+				itemStyles={customStyles}
+				style={style}
+				onChange={setRating}
+				readOnly={readOnly}
 			/>
 
 			<div className="flex items-center gap-2">
-				<span className="pt-[2px] text-sm text-light">{rating}</span>
+				<span className="pt-[2px] text-sm text-light">{hideRatingNumber ? null : value}</span>
 				{numOfRating && <span className="pt-[2px] text-sm text-light">({numOfRating})</span>}
 			</div>
 		</div>
