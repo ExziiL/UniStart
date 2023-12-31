@@ -34,14 +34,16 @@ interface CourseReviewsDialogProps extends React.HTMLAttributes<HTMLDivElement> 
 	// reviews: Review[];
 }
 
-// Define Form Validation
-const formSchema = z.object({
-	headline: z.string().min(5).max(100),
-	description: z.string().min(5).max(1000),
-	userRating: z.number().min(1).max(5),
-});
-
 function CourseReviewsDialog({}: CourseReviewsDialogProps) {
+	const maxDescriptionLength = 500;
+
+	// Define Form Validation
+	const formSchema = z.object({
+		headline: z.string().min(5).max(100),
+		description: z.string().min(5).max(maxDescriptionLength),
+		userRating: z.number().min(1).max(5),
+	});
+
 	// Define Form
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
@@ -53,6 +55,7 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 	});
 
 	// Handle Form Submit
+	// integrate with backend here
 	const onSubmit = (data: z.infer<typeof formSchema>) => {
 		console.log("Form Submitted: ", data);
 	};
@@ -90,14 +93,12 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 											<Rating
 												{...field}
 												value={field.value}
+												style={{ maxWidth: 160 }}
+												isRequired
 												// className="mt-2"
 											/>
 										</FormControl>
-										<FormMessage
-											{...field}
-											className="pt-1"
-										/>
-										<FormDescription>{/* This is the Form Description */}</FormDescription>
+										{{ ...field } && <FormMessage className="pt-1" />}
 									</FormItem>
 								)}
 							/>
@@ -106,17 +107,14 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 								name="headline"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>Headline</FormLabel>
+										<FormLabel>Review Title</FormLabel>
 										<FormControl>
 											<Input
-												{...field}
 												placeholder="FormControl Placeholder"
+												{...field}
 											/>
 										</FormControl>
-										<FormMessage
-											{...field}
-											className="pt-1"
-										/>
+										<FormMessage className="pt-1" />
 										<FormDescription>{/* This is the Form Description */}</FormDescription>
 									</FormItem>
 								)}
@@ -126,7 +124,7 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 								name="description"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>Bio</FormLabel>
+										<FormLabel>Review Summary</FormLabel>
 										<FormControl>
 											<Textarea
 												placeholder="Tell us a little bit about yourself"
@@ -135,7 +133,7 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 											/>
 										</FormControl>
 										<FormDescription className="pt-1">
-											You can <span>@mention</span> other users and organizations to link to them.
+											{`${field.value.length}/${maxDescriptionLength}`}
 										</FormDescription>
 										<FormMessage />
 									</FormItem>
