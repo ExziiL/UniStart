@@ -137,7 +137,7 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 										<FormControl>
 											<Textarea
 												placeholder="Describe your experience in more detail..."
-												className="resize-none"
+												className="h-24 resize-none"
 												{...field}
 											/>
 										</FormControl>
