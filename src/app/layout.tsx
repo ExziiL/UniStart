@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body className={inter.className}>
 				<Providers>
 					<Navigation />
-					<main className="">
+					<main className="wrapper">
 						{children}
 						<SpeedInsights />
 						<Toaster />
