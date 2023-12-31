@@ -107,7 +107,7 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 												isRequired
 											/>
 										</FormControl>
-										{{ ...field } && <FormMessage className="pt-1" />}
+										<FormMessage className="pt-1" />
 									</FormItem>
 								)}
 							/>
