@@ -67,7 +67,7 @@ function DetailedCourseOverview({ vorlesung }: DetailedCourseOverviewProps) {
 				/>
 			</div>
 
-			<p className="max-w-xl">{vorlesung.longDescription}</p>
+			<p className="">{vorlesung.longDescription}</p>
 		</div>
 	);
 }

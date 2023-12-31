@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body className={inter.className}>
 				<Providers>
 					<Navigation />
-					<main className="mx-auto max-w-[1920px]">
+					<main className="">
 						{children}
 						<SpeedInsights />
 						<Toaster />
