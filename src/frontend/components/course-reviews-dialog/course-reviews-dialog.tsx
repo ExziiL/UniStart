@@ -27,6 +27,7 @@ import { Textarea } from "@/frontend/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Rating, SharedProps, Star } from "@smastrom/react-rating";
 import { Edit3 } from "lucide-react";
+import { useTheme } from "next-themes";
 import * as React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -37,6 +38,7 @@ interface CourseReviewsDialogProps extends React.HTMLAttributes<HTMLDivElement> 
 
 function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 	const maxDescriptionLength = 500;
+	const { theme } = useTheme();
 
 	const customStyles = {
 		itemShapes: Star,
@@ -47,6 +49,17 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 		activeStrokeColor: "#AFAFB6",
 		inactiveFillColor: "#FAFAFA",
 		inactiveStrokeColor: "#D4D4D8",
+	};
+
+	const customStylesDark = {
+		itemShapes: Star,
+
+		itemStrokeWidth: 2,
+
+		activeFillColor: "#A1A1AA",
+		activeStrokeColor: "#A1A1AA",
+		inactiveFillColor: "#3F3F46",
+		inactiveStrokeColor: "#52525B",
 	};
 
 	// Define Form Validation
@@ -118,7 +131,7 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 												value={field.value}
 												style={{ maxWidth: 160 }}
 												isRequired
-												itemStyles={customStyles}
+												itemStyles={theme === "light" ? customStyles : customStylesDark}
 											/>
 										</FormControl>
 										<FormMessage className="pt-1" />
