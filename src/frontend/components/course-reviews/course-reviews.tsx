@@ -26,8 +26,9 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 		<div className="flex flex-col">
 			<div className="flex justify-between">
 				<h2 className="text-2xl font-medium text-primary">
-					Reviews <span className="pl-1 text-lg font-normal text-ultra-light">({numOfReviews})</span>
+					Reviews <span className="pl-1 text-lg font-normal text-light">({numOfReviews})</span>
 				</h2>
+
 				<CourseReviewsDialog />
 			</div>
 
@@ -59,7 +60,7 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 
 				<div className="pt-7">
 					<p
-						className="w-fit cursor-pointer text-light hover:text-primary"
+						className="w-fit cursor-pointer text-light transition-colors hover:text-primary"
 						onClick={handleShowMoreClick}
 					>
 						{showAllReviews ? "Show Less" : `Load more comments (${numOfReviews - 3})`}

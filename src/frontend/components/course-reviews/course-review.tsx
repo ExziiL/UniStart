@@ -63,11 +63,11 @@ function CourseReview({ review }: CourseReviewProps) {
 const Voting = ({ upvotes, downvotes }: { upvotes: number; downvotes: number }) => {
 	return (
 		<div className="flex flex-col items-center justify-center gap-1">
-			<div className="cursor-pointer text-ultra-light transition-colors hover:text-primary">
+			<div className="cursor-pointer text-ultra-light transition-colors hover:text-light">
 				<ThumbsUp size={20} />
 			</div>
 			<span className=" text-lg font-medium text-primary">{upvotes - downvotes}</span>
-			<div className="cursor-pointer text-ultra-light transition-colors hover:text-primary">
+			<div className="cursor-pointer text-ultra-light transition-colors hover:text-light">
 				<ThumbsDown size={20} />
 			</div>
 		</div>
