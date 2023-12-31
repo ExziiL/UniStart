@@ -12,6 +12,7 @@ interface StarRatingProps extends SharedProps {
 const StarRating: React.FC<StarRatingProps> = ({ numOfRating, hideRatingNumber, readOnly, value, style }) => {
 	const [rating, setRating] = React.useState(value);
 
+	// add darkmode colors and apply them
 	const customStyles = {
 		itemShapes: Star,
 

@@ -1,6 +1,7 @@
 "use client";
 
 import CourseReview from "@/frontend/components/course-reviews/course-review";
+import { Button } from "@/frontend/components/ui/button";
 import { Review } from "@/types/IReview";
 import { ArrowUpDown, Filter } from "lucide-react";
 import React from "react";
@@ -14,8 +15,13 @@ interface CourseReviewsProps {
 function CourseReviews({ reviews }: CourseReviewsProps) {
 	const numOfReviews = reviews.length;
 
-	// TODO: Make with smaller
-	// TODO: Change Star Color of small stars
+	const [showAllReviews, setShowAllReviews] = React.useState(false);
+
+	const displayedReviews = showAllReviews ? reviews : reviews.slice(0, 3);
+
+	const handleShowMoreClick = () => {
+		setShowAllReviews(!showAllReviews);
+	};
 
 	return (
 		<div className="flex flex-col">
@@ -44,13 +50,22 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 			</div>
 
 			<div>
-				{reviews.map((review, index) => (
+				{displayedReviews.map((review, index) => (
 					<div key={index}>
 						<CourseReview review={review} />
 
 						<Separator className="my-7" />
 					</div>
 				))}
+
+				<div>
+					<p
+						className="w-fit cursor-pointer text-light hover:text-primary"
+						onClick={handleShowMoreClick}
+					>
+						{showAllReviews ? "Show Less" : `Load more comments (${numOfReviews - 3})`}
+					</p>
+				</div>
 			</div>
 		</div>
 	);
