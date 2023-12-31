@@ -30,7 +30,7 @@ function Page({ params }: PageProps) {
 	}
 
 	return (
-		<div className="flex flex-col gap-16">
+		<div className="col-start-2 flex flex-col gap-16">
 			<DetailedCourseOverview vorlesung={vorlesung} />
 			<CourseReviews reviews={vorlesung.reviews} />
 		</div>
