@@ -1,9 +1,9 @@
-import AiChatBar from '@/frontend/components/ai-chat-bar';
-import AiChatBox from '@/frontend/components/ai-chat-box';
-import AiConversations from '@/frontend/components/ai-conversations';
-import ChatMessage from '@/frontend/components/chat-message';
-import { Separator } from '@/frontend/components/ui/separator';
-import React from 'react';
+import AiChatBar from "@/frontend/components/ai-chat-bar";
+import AiChatBox from "@/frontend/components/ai-chat-box";
+import AiConversations from "@/frontend/components/ai-conversations";
+import ChatMessage from "@/frontend/components/chat-message";
+import { Separator } from "@/frontend/components/ui/separator";
+import React from "react";
 
 function AiChat() {
 	return (
