@@ -56,21 +56,11 @@ const MainNav = () => {
 				</NavigationMenuList>
 
 				<Link
-					href="/vorlesungen"
+					href="/map"
 					legacyBehavior
 					passHref
 				>
-					<NavigationMenuLink className={navigationMenuTriggerStyle()}>Vorlesungen</NavigationMenuLink>
-				</Link>
-
-				<Link
-					href="/vorlesungen/grundlagen-der-mathematik"
-					legacyBehavior
-					passHref
-				>
-					<NavigationMenuLink className={navigationMenuTriggerStyle()}>
-						Detailed-Vorlesungen
-					</NavigationMenuLink>
+					<NavigationMenuLink className={navigationMenuTriggerStyle()}>Map</NavigationMenuLink>
 				</Link>
 			</NavigationMenu>
 
