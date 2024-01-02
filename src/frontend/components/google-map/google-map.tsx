@@ -3,7 +3,15 @@
 import locations from "@/frontend/constants/locations";
 import type { Marker } from "@googlemaps/markerclusterer";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
-import { APIProvider, AdvancedMarker, InfoWindow, Map, Pin, useMap } from "@vis.gl/react-google-maps";
+import {
+	APIProvider,
+	AdvancedMarker,
+	InfoWindow,
+	Map,
+	Pin,
+	useAdvancedMarkerRef,
+	useMap,
+} from "@vis.gl/react-google-maps";
 import * as React from "react";
 
 function GoogleMap() {
@@ -45,50 +53,84 @@ type MarkersProps = {
 };
 
 // Video zu dem code: https://www.youtube.com/watch?v=ZvoMak9yApU
+// const Markers = ({ points }: MarkersProps) => {
+// 	const map = useMap();
+// 	const [markers, setMarkers] = React.useState<{ [key: string]: Marker }>({});
+// 	const clusterer = React.useRef<MarkerClusterer | null>(null);
+
+// 	React.useEffect(() => {
+// 		if (!map) return;
+
+// 		if (!clusterer.current) {
+// 			clusterer.current = new MarkerClusterer({ map });
+// 		}
+// 	}, [map]);
+
+// 	React.useEffect(() => {
+// 		clusterer.current?.clearMarkers();
+// 		clusterer.current?.addMarkers(Object.values(markers));
+// 	}, [markers]);
+
+// 	const setMarkerRef = (marker: Marker | null, key: string) => {
+// 		if (marker && markers[key]) return; // marker already set
+// 		if (!marker && !markers[key]) return; // no marker and nothing to remove either
+
+// 		setMarkers((prev) => {
+// 			if (marker) {
+// 				return { ...prev, [key]: marker };
+// 			} else {
+// 				const newMarkers = { ...prev };
+// 				delete newMarkers[key];
+// 				return newMarkers;
+// 			}
+// 		});
+// 	};
+
+// 	return (
+// 		<>
+// 			{points.map((point) => (
+// 				<AdvancedMarker
+// 					position={point}
+// 					key={point.key}
+// 					ref={(marker) => setMarkerRef(marker, point.key)}
+// 				>
+// 					<span style={{ fontSize: "1.5rem" }}>🔥</span>
+// 				</AdvancedMarker>
+// 			))}
+// 		</>
+// 	);
+// };
+// -------------------------------------
 const Markers = ({ points }: MarkersProps) => {
-	const map = useMap();
-	const [markers, setMarkers] = React.useState<{ [key: string]: Marker }>({});
-	const clusterer = React.useRef<MarkerClusterer | null>(null);
+	const [markerRef, marker] = useAdvancedMarkerRef();
+	const [infowindowShown, setInfowindowShown] = React.useState(false);
 
-	React.useEffect(() => {
-		if (!map) return;
-
-		if (!clusterer.current) {
-			clusterer.current = new MarkerClusterer({ map });
-		}
-	}, [map]);
-
-	React.useEffect(() => {
-		clusterer.current?.clearMarkers();
-		clusterer.current?.addMarkers(Object.values(markers));
-	}, [markers]);
-
-	const setMarkerRef = (marker: Marker | null, key: string) => {
-		if (marker && markers[key]) return; // marker already set
-		if (!marker && !markers[key]) return; // no marker and nothing to remove either
-
-		setMarkers((prev) => {
-			if (marker) {
-				return { ...prev, [key]: marker };
-			} else {
-				const newMarkers = { ...prev };
-				delete newMarkers[key];
-				return newMarkers;
-			}
-		});
+	const toggleInfoWindow = () => {
+		setInfowindowShown((prevState) => !prevState);
 	};
+
+	const closeInfoWindow = () => setInfowindowShown(false);
 
 	return (
 		<>
 			{points.map((point) => (
 				<AdvancedMarker
+					ref={markerRef}
 					position={point}
-					key={point.key}
-					ref={(marker) => setMarkerRef(marker, point.key)}
+					onClick={toggleInfoWindow}
 				>
 					<span style={{ fontSize: "1.5rem" }}>🔥</span>
 				</AdvancedMarker>
 			))}
+
+			{infowindowShown && (
+				<InfoWindow
+					anchor={marker}
+					onCloseClick={closeInfoWindow}
+				>
+					You can drag and drop me.
+				</InfoWindow>
+			)}
 		</>
 	);
 };
