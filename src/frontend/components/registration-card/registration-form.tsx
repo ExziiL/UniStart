@@ -85,7 +85,7 @@ function RegistrationForm() {
 					})
 			})
 
-			if (res.ok) {
+			if (res?.ok) {
 				form.reset();
 			}
 		} catch (error) {

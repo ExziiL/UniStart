@@ -9,10 +9,16 @@ import RegistrationForm from './registration-form';
 
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
+import { signIn } from 'next-auth/react';
 
 function RegistrationCard() {
-	const handleGitHubRegistration = () => {
+	const handleGitHubRegistration = async () => {
 		console.log('github registration');
+		const res = await signIn('github', { redirect: false })
+
+		if (res?.ok) {
+			console.log('Successfully registered')
+		}
 	};
 
 	const handleGoogleRegistration = () => {
