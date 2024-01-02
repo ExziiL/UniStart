@@ -1,6 +1,6 @@
 "use client";
 
-import locations from "@/frontend/constants/locations";
+import locations from "@/frontend/constants/old-locations";
 import type { Marker } from "@googlemaps/markerclusterer";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import {

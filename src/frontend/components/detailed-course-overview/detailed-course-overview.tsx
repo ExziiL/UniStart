@@ -31,7 +31,7 @@ function DetailedCourseOverview({ vorlesung }: DetailedCourseOverviewProps) {
 						icon={<Star />}
 					/>
 					<IconWithText
-						text={vorlesung.location}
+						text={`${vorlesung.building} ${vorlesung.room}`}
 						icon={<Home />}
 					/>
 					<IconWithText
