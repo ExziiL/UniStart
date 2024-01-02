@@ -15,7 +15,7 @@ function SemesterCarousel({ semester }: SemesterCarouselProps) {
 				<div className="flex w-max gap-4">
 					{VORLESUNGEN.map(
 						(vorlesung, index) =>
-							vorlesung.semester == semester && (
+							vorlesung.semester[0] == semester && (
 								<CourseOverviewCard
 									key={index}
 									vorlesung={vorlesung}
