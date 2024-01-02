@@ -53,6 +53,14 @@ module.exports = {
 				link: {
 					DEFAULT: 'hsl(var(--link))',
 					foreground: 'hsl(var(--link-foreground))',
+				},
+				'primary-muted': {
+					DEFAULT: 'hsl(var(--primary-muted))',
+					// foreground: 'hsl(var(--primary-muted-foreground))',
+				},
+				'ultra-light': {
+					DEFAULT: 'hsl(var(--ultra-light))',
+					foreground: 'hsl(var(--ultra-light-foreground))',
 				}
 			},
 			borderRadius: {

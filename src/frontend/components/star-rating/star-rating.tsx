@@ -1,31 +1,54 @@
-'use client';
+"use client";
 
-import React from 'react';
+import { Rating, SharedProps, Star } from "@smastrom/react-rating";
+import { useTheme } from "next-themes";
+import React from "react";
 
-import { Rating, SharedProps } from '@smastrom/react-rating';
-
-interface StarRatingProps {
-	rating: number;
-	maxRating?: SharedProps['items'];
+interface StarRatingProps extends SharedProps {
 	numOfRating?: number;
+	hideRatingNumber?: boolean;
 }
 
 // function StarRating({maxRating}) {
-const StarRating: React.FC<StarRatingProps> = ({ rating, maxRating, numOfRating }) => {
-	const [userRating, setUserRating] = React.useState(0);
+const StarRating: React.FC<StarRatingProps> = ({ numOfRating, hideRatingNumber, readOnly, value, style }) => {
+	const [rating, setRating] = React.useState(value);
+	const { theme } = useTheme();
+
+	// add darkmode colors and apply them
+	const customStyles = {
+		itemShapes: Star,
+
+		itemStrokeWidth: 2,
+
+		activeFillColor: "#D4D4D8",
+		activeStrokeColor: "#AFAFB6",
+		inactiveFillColor: "#FAFAFA",
+		inactiveStrokeColor: "#D4D4D8",
+	};
+
+	const customStylesDark = {
+		itemShapes: Star,
+
+		itemStrokeWidth: 2,
+
+		activeFillColor: "#A1A1AA",
+		activeStrokeColor: "#A1A1AA",
+		inactiveFillColor: "#3F3F46",
+		inactiveStrokeColor: "#52525B",
+	};
 
 	return (
-		<div className="flex items-center gap-3">
+		<div className="flex items-center gap-2">
 			<Rating
-				items={maxRating}
-				style={{ maxWidth: 100 }}
-				value={rating ? rating : userRating}
-				onChange={setUserRating}
-				readOnly
+				value={rating}
+				itemStyles={theme === "light" ? customStyles : customStylesDark}
+				style={style}
+				onChange={setRating}
+				readOnly={readOnly}
 			/>
 
 			<div className="flex items-center gap-2">
-				<span className="pt-[2px] text-sm font-medium text-primary">{rating}</span>
+				<span className="pt-[2px] text-sm text-light">{hideRatingNumber ? null : rating}</span>
 				{numOfRating && <span className="pt-[2px] text-sm text-light">({numOfRating})</span>}
 			</div>
 		</div>

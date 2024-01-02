@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import CourseReviews from '@/frontend/components/course-reviews';
-import DetailedCourseOverview from '@/frontend/components/detailed-course-overview';
-import { VORLESUNGEN } from '@/frontend/constants/vorlesungen';
-import { VorlesungProps } from '@/types/IVorlesung';
-import Link from 'next/link';
+import CourseReviews from "@/frontend/components/course-reviews";
+import DetailedCourseOverview from "@/frontend/components/detailed-course-overview";
+import { VORLESUNGEN } from "@/frontend/constants/vorlesungen";
+import { VorlesungProps } from "@/types/IVorlesung";
+import Link from "next/link";
 
 interface PageProps {
 	params: {
-		vorlesung: VorlesungProps['slug'];
+		vorlesung: VorlesungProps["slug"];
 	};
 }
 
@@ -30,10 +30,9 @@ function Page({ params }: PageProps) {
 	}
 
 	return (
-		<div className="flex flex-col gap-16 p-4">
+		<div className="col-start-2 flex flex-col gap-16">
 			<DetailedCourseOverview vorlesung={vorlesung} />
-
-			<CourseReviews />
+			<CourseReviews reviews={vorlesung.reviews} />
 		</div>
 	);
 }

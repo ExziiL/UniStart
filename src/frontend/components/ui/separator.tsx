@@ -5,10 +5,6 @@ import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 
-type SeparatorProps = React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root> & {
-	text?: string; // Adding text attribute
-};
-
 const Separator = React.forwardRef<
 	React.ElementRef<typeof SeparatorPrimitive.Root>,
 	React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>

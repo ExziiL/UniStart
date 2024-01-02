@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import CourseBadge from '@/frontend/components/course-badge';
 import ProfessorDetails from '@/frontend/components/professor-details';
 import StarRating from '@/frontend/components/star-rating';
@@ -5,46 +6,80 @@ import { VorlesungProps } from '@/types/IVorlesung';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
+=======
+"use client";
 
-interface CourseOverViewCardProps extends VorlesungProps {}
+import CourseBadge from "@/frontend/components/course-badge";
+import IconWithText from "@/frontend/components/icon-with-text";
+import ProfessorDetails from "@/frontend/components/professor-details";
+import StarRating from "@/frontend/components/star-rating";
+import { VorlesungProps } from "@/types/IVorlesung";
+import { Variants, motion } from "framer-motion";
+import { ArrowRight, Home, Star } from "lucide-react";
+import Link from "next/link";
+import React from "react";
+import { useHover } from "usehooks-ts";
+>>>>>>> main
 
-function CourseOverviewCard({
-	slug,
-	name,
-	professor,
-	description,
-	rating,
-	numOfRating,
-	difficulty,
-}: CourseOverViewCardProps) {
+interface CourseOverViewCardProps {
+	vorlesung: VorlesungProps;
+}
+
+function CourseOverviewCard({ vorlesung }: CourseOverViewCardProps) {
+	const hoverRef = React.useRef<HTMLDivElement>(null);
+	const isHovered = useHover(hoverRef);
+
+	const arrowVariants: Variants = {
+		tapped: { x: 3 },
+		initial: { x: -5, opacity: 0 },
+		hovered: { x: -1, opacity: 1 },
+	};
+
 	return (
-		<div className="flex flex-col justify-between gap-3 rounded-md border p-4  ">
-			<div className="flex flex-col gap-3 ">
-				<h2 className="text-lg font-medium text-primary">{name}</h2>
+		<div className="flex w-80 flex-col justify-between gap-3 rounded-md border p-4">
+			<div className="flex flex-col gap-3">
+				<div className="flex flex-col gap-1">
+					<h2 className="truncate text-lg font-medium text-primary">{vorlesung.name}</h2>
 
-				<ProfessorDetails professor={professor} />
+					<div className="flex flex-row gap-6">
+						<IconWithText
+							text={vorlesung.rating}
+							icon={<Star />}
+						/>
+						<IconWithText
+							text={vorlesung.location}
+							icon={<Home />}
+						/>
+					</div>
+				</div>
 
-				<p className="text-primary">{description}</p>
+				<ProfessorDetails professor={vorlesung.professor} />
+
+				<p className="text-primary">{vorlesung.description}</p>
 			</div>
 
 			<div className="flex flex-col gap-3">
-				<StarRating
-					rating={rating}
-					maxRating={5}
-					numOfRating={numOfRating}
-				/>
-
 				<div className="flex justify-between">
-					<CourseBadge difficulty={difficulty} />
-
-					<Link href={`/vorlesungen/${slug}`}>
-						<div className="flex cursor-pointer items-center gap-2 text-light transition-colors hover:text-primary">
+					<Link href={`/vorlesungen/${vorlesung.slug}`}>
+						<motion.div
+							className="relative flex cursor-pointer items-center gap-2 text-link/95 transition-colors hover:text-link"
+							ref={hoverRef}
+						>
 							Read more
-							<ArrowRight
-								size={20}
-								strokeWidth={1.75}
-							/>
-						</div>
+							<motion.span
+								variants={arrowVariants}
+								initial="initial"
+								animate={isHovered ? "hovered" : "initial"}
+								transition={{ type: "spring", stiffness: 400, damping: 17 }}
+								whileTap="tapped"
+								className="absolute w-full pl-[88px]"
+							>
+								<ArrowRight
+									size={20}
+									strokeWidth={1.75}
+								/>
+							</motion.span>
+						</motion.div>
 					</Link>
 				</div>
 			</div>
