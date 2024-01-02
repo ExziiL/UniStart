@@ -24,7 +24,8 @@ export interface VorlesungProps {
 	professor: ProfessorProps;
 	description: string;
 	longDescription: string;
-	location: string;
+	building: string;
+	room: string;
 	rating: number;
 	difficulty: 'easy' | 'medium' | 'hard';
 	reviews: Review[];
