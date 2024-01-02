@@ -4,7 +4,7 @@ import { Review } from './IReview';
 export interface VorlesungProps {
 	slug: string;
 	name: string;
-	semester: number;
+	semester: number[];
 	dates: {
 		firstLecture: {
 			weekday: string;

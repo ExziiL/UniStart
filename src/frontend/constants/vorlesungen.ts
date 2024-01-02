@@ -4,7 +4,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'grundlagen-der-mathematik',
 		name: 'Grundlagen der Mathematik',
-		semester: 1,
+		semester: [1],
 		dates: {
 			firstLecture: {
 				weekday: "Dienstag",
@@ -81,7 +81,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'einfuehrung-in-die-informatik',
 		name: 'Einführung in die Informatik',
-		semester: 1,
+		semester: [1],
 		dates: {
 			firstLecture: {
 				weekday: "Dienstag",
@@ -158,7 +158,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'datenbanken-grundlagen',
 		name: 'Datenbanken Grundlagen',
-		semester: 1,
+		semester: [1],
 		dates: {
 			firstLecture: {
 				weekday: "Dienstag",
@@ -235,7 +235,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'webentwicklung',
 		name: 'Webentwicklung',
-		semester: 1,
+		semester: [1],
 		dates: {
 			firstLecture: {
 				weekday: "Dienstag",
@@ -312,7 +312,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'algorithmen-und-datenstrukturen',
 		name: 'Algorithmen und Datenstrukturen',
-		semester: 1,
+		semester: [1],
 		dates: {
 			firstLecture: {
 				weekday: "Dienstag",
@@ -389,7 +389,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'betriebssysteme-und-netzwerke',
 		name: 'Betriebssysteme und Netzwerke',
-		semester: 1,
+		semester: [1],
 		dates: {
 			firstLecture: {
 				weekday: "Dienstag",
@@ -466,7 +466,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'objektorientierte-programmierung',
 		name: 'Objektorientierte Programmierung',
-		semester: 2,
+		semester: [2],
 		dates: {
 			firstLecture: {
 				weekday: "Dienstag",
@@ -543,7 +543,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'theoretische-informatik',
 		name: 'Theoretische Informatik',
-		semester: 2,
+		semester: [2],
 		dates: {
 			firstLecture: {
 				weekday: "Dienstag",
@@ -620,7 +620,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'software-engineering',
 		name: 'Software Engineering',
-		semester: 2,
+		semester: [2],
 		dates: {
 			firstLecture: {
 				weekday: "Dienstag",
@@ -697,7 +697,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'mensch-computer-interaktion',
 		name: 'Mensch-Computer-Interaktion',
-		semester: 2,
+		semester: [2],
 		dates: {
 			firstLecture: {
 				weekday: "Dienstag",
@@ -774,7 +774,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'computergrafik',
 		name: 'Computergrafik',
-		semester: 2,
+		semester: [2],
 		dates: {
 			firstLecture: {
 				weekday: "Dienstag",
@@ -851,7 +851,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 	{
 		slug: 'rechnerarchitektur',
 		name: 'Rechnerarchitektur',
-		semester: 2,
+		semester: [2],
 		dates: {
 			firstLecture: {
 				weekday: "Dienstag",
