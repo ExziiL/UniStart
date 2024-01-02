@@ -52,7 +52,7 @@ function LoginForm() {
 
 		try {			
 			const res = await signIn('credentials', {
-				name: values.username,
+				email: values.username,
 				password: values.password,
 				redirect: false,
 			});
