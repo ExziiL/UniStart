@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import CourseBadge from '@/frontend/components/course-badge';
-import ProfessorDetails from '@/frontend/components/professor-details';
-import StarRating from '@/frontend/components/star-rating';
-import { VorlesungProps } from '@/types/IVorlesung';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-import React from 'react';
-=======
 "use client";
 
 import CourseBadge from "@/frontend/components/course-badge";
@@ -19,7 +10,6 @@ import { ArrowRight, Home, Star } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { useHover } from "usehooks-ts";
->>>>>>> main
 
 interface CourseOverViewCardProps {
 	vorlesung: VorlesungProps;

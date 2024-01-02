@@ -1,18 +1,29 @@
-import { connectMongo } from "@/backend/lib/mongo";
-import User from "@/backend/models/user";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
+import prisma from "@/backend/lib/prisma";
 
 
 export async function PUT(request: NextRequest) {
     try {
         const { name, email, password } = await request.json();
+
+        if (!name || !email || !password) {
+            return NextResponse.json(
+                { message: "Missing information" },
+                { status: 400 });
+        }
+
         const hash = await bcrypt.hash(password, 13);
 
-        await connectMongo();
-        await User.create({ name, email, password: hash });
+        const user = prisma.user.create({
+            data: {
+                name: name,
+                email: email,
+                password: hash
+            }
+        });
 
-        return NextResponse.json({ message: "User registered" },
+        return NextResponse.json({ message: "User registered", user },
             { status: 200 })
     } catch (error) {
         return NextResponse.json({
@@ -24,11 +35,12 @@ export async function PUT(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
     try {
-        await connectMongo();      
-
         const { email } = Object.fromEntries(request.nextUrl.searchParams);
-        const user = await User.findOne({ email }).select('_id');
-        
+        const user = await prisma.user.findUnique({
+            where: { email: email },
+            select: { id: true }
+        });
+
         return NextResponse.json({ user }, { status: 200 });
     } catch (error) {
         console.log(error);

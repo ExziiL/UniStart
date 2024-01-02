@@ -1,49 +1,61 @@
-import { connectMongo } from "@/backend/lib/mongo";
-import User from "@/backend/models/user";
-import { AuthOptions } from "next-auth";
-import NextAuth from "next-auth/next";
+import NextAuth, { AuthOptions } from "next-auth";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
-import bcrypt from "bcryptjs";
+import GoogleProvider from "next-auth/providers/google";
+import bcrypt from "bcryptjs"
+import prisma from "@/backend/lib/prisma";
 
 export const authOptions: AuthOptions = {
+    adapter: PrismaAdapter(prisma),
     providers: [
         GitHubProvider({
             clientId: process.env.GITHUB_ID as string,
             clientSecret: process.env.GITHUB_SECRET as string,
         }),
+        GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID as string,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
+        }),
         CredentialsProvider({
             name: "credentials",
             credentials: {
-                name: { label: "name", type: "text" },
+                email: { label: "email", type: "text" },
                 password: { label: "password", type: "password" }
             },
-
-
             async authorize(credentials) {
-                console.log("Credentials: ", credentials);
-                const { name, password } = credentials as { name: string, password: string };
+                if (!credentials?.email || !credentials?.password) {
+                    throw new Error("Invalid credentials");
+                }
+                const { email, password } = credentials;
 
                 try {
-                    await connectMongo();
-                    const user = await User.findOne({ name });
+                    const user = await prisma.user.findUnique({
+                        where: { email: email }
+                    })
 
-                    if (!user) {
-                        return null;
+                    if (!user || !user?.password) {
+                        throw new Error("Invalide credentials")
                     }
-                    const passwordMatch = await bcrypt.compare(password, user.password);
+                    const passwordMatch = await bcrypt.compare(
+                        password,
+                        user.password
+                    );
 
                     if (!passwordMatch) {
-                        return null;
+                        throw new Error("Invalide credentials");
                     }
 
                     return user;
                 } catch (error) {
-                    console.log("Error: ", error);
+                    throw new Error("Something went wrong: \n" + error)
                 }
+
+
             },
         }),
     ],
+    debug: process.env.NODE_ENV === 'development',
     session: {
         strategy: "jwt",
     },

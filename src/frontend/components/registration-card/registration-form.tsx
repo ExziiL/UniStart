@@ -61,7 +61,7 @@ function RegistrationForm() {
 		});
 
 		try {
-			const userExists = await fetch('api/register?' +
+				const userExists = await fetch('api/register?' +
 				new URLSearchParams({ email: values.email }), {
 				method: 'GET',
 				headers: { 'Content-Type': 'application/json' }

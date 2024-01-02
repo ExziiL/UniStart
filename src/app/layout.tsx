@@ -4,13 +4,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import '@smastrom/react-rating/style.css';
 import Navigation from '@/frontend/components/navigation';
-import ThemeProvider from '@/frontend/components/theme-provider';
 import { Toaster } from '@/frontend/components/ui/toaster';
-import AuthProvider from './providers/AuthProvider';
-import TanstackProvider from './providers/TanstackProvider';
-import "./globals.css";
 import { Providers } from "./providers";
-import "@smastrom/react-rating/style.css";
 import TailwindIndictor from "@/frontend/components/tailwind-indictor";
 
 
@@ -28,23 +23,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 			suppressHydrationWarning
 		>
 			<body className={inter.className}>
-	{/* <AuthProvider>
-		<TanstackProvider>
-			<ThemeProvider
-				attribute="class"
-				defaultTheme="system"
-				enableSystem
-				disableTransitionOnChange
-			>
-				<Navigation />
-				<main className="mx-auto max-w-[960px]">
-					{children}
-					<SpeedInsights />
-					<Toaster />
-				</main>
-			</ThemeProvider>
-		</TanstackProvider>
-	</AuthProvider> */}
 				<Providers>
 					<Navigation />
 					<main className="wrapper">

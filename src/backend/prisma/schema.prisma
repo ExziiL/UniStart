@@ -12,21 +12,31 @@ datasource db {
 
 model User {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
-  name     String
-  email    String
+  name     String @unique
+  email    String @unique 
   password String
   role     String @default("user")
 
-  accounts Account[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@unique([name, email])
-  @@map("users")
+  accounts Account[]
 }
 
 model Account {
-  id     String @id @default(auto()) @map("_id") @db.ObjectId
-  userId String @map("user_id")
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@map("accounts")
+  @@unique([provider, providerAccountId])
 }
