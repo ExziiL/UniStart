@@ -5,7 +5,7 @@ interface FilterIconProps extends React.HTMLAttributes<HTMLDivElement> {
 	data: any;
 }
 
-function FilterIcon() {
+function FilterIcon({ data }: FilterIconProps) {
 	return (
 		<div className="flex cursor-pointer flex-row items-center gap-3">
 			<Filter
