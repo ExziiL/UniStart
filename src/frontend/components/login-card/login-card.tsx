@@ -10,14 +10,25 @@ import LoginForm from './login-form';
 
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
+import { signIn } from 'next-auth/react';
 
 function LoginCard() {
-	const handleGitHubLogin = () => {
+	const handleGitHubLogin = async() => {
 		console.log('github login');
+		const res = await signIn('github', { redirect: false })
+
+		if (res?.ok) {
+			console.log('Successfully logged in');
+		}
 	};
 
-	const handleGoogleLogin = () => {
+	const handleGoogleLogin = async() => {
 		console.log('google login');
+		const res = await signIn('google', { redirect: false })
+
+		if (res?.ok) {
+			console.log('Successfully logged in')
+		}
 	};
 
 	return (
