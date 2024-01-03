@@ -20,27 +20,29 @@ function GoogleMap() {
 	const [open, setOpen] = React.useState(false);
 
 	return (
-		<APIProvider apiKey={`${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}>
-			<Map
-				zoom={17}
-				center={center}
-				mapId={`${process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID}`}
-			>
-				<Markers points={locations} />
+		<div className="h-full w-full">
+			<APIProvider apiKey={`${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}>
+				<Map
+					zoom={17}
+					center={center}
+					mapId={`${process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID}`}
+				>
+					<Markers points={locations} />
 
-				{open && (
-					<InfoWindow
-						position={center}
-						onCloseClick={() => setOpen(false)}
-					>
-						<div ref={ref}>
-							<h1>InfoWindow</h1>
-							<p>Content</p>
-						</div>
-					</InfoWindow>
-				)}
-			</Map>
-		</APIProvider>
+					{open && (
+						<InfoWindow
+							position={center}
+							onCloseClick={() => setOpen(false)}
+						>
+							<div ref={ref}>
+								<h1>InfoWindow</h1>
+								<p>Content</p>
+							</div>
+						</InfoWindow>
+					)}
+				</Map>
+			</APIProvider>
+		</div>
 	);
 }
 

@@ -4,9 +4,9 @@ import * as React from "react";
 // TODO: implement location type
 function LocationCard({ location }: { location: any }) {
 	return (
-		<Card>
+		<Card className="w-80 md:w-96">
 			<CardHeader>
-				<CardTitle>Grundlagen der Mathematik</CardTitle>
+				<CardTitle className="text-xl">Grundlagen der Mathematik</CardTitle>
 				<CardDescription>Prof. Dr. Dr. h.c. mult. Wolfgang Lück</CardDescription>
 			</CardHeader>
 			<CardContent>

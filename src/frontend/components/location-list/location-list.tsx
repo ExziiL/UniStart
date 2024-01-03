@@ -4,15 +4,17 @@ import LocationCard from "@/frontend/components/location-card";
 import { ScrollArea, ScrollBar } from "@/frontend/components/ui/scroll-area";
 import locations from "@/frontend/constants/old-locations";
 
-function LocationList() {
+interface LocationListProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+function LocationList({}: LocationListProps) {
 	return (
-		<div>
+		<div className="">
 			<h1>Find a Location</h1>
 
 			{/* <SearchBar /> */}
 
-			<ScrollArea>
-				<ul className="flex flex-row gap-4 lg:flex-col">
+			<div className="lg:h-full">
+				<ul className="flex flex-row gap-4 lg:flex-col ">
 					{locations.map((location) => (
 						<li
 							key={location.key}
@@ -22,8 +24,7 @@ function LocationList() {
 						</li>
 					))}
 				</ul>
-				<ScrollBar orientation="horizontal" />
-			</ScrollArea>
+			</div>
 		</div>
 	);
 }
