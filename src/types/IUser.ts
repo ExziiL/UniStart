@@ -1,3 +1,5 @@
+import { UserGender, UserRole } from '@/enums/user';
+
 interface UserProfile {
     avatar: string;
     bio: string;
@@ -34,11 +36,16 @@ interface UserMessage {
 }
 
 interface User {
-    id: number;
-    name: string;
+    uuid: number;
+    firstName: string;
+    lastName: string;
     age: number;
-    email: string;
+    gender: UserGender.MALE;
+    password: string;
+    role: UserRole.USER,
     profile?: UserProfile;
+
+    email: string;
     contactInfo?: UserContactInfo;
     chatSettings: UserChatSettings;
     messages?: UserMessage[];
