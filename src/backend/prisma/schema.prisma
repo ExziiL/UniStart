@@ -11,18 +11,23 @@ datasource db {
 }
 
 model user {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  name          String?   @unique
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  password      String?
-  role          String    @default("user")
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  name            String?   @unique
+  email           String?   @unique
+  emailVerified   DateTime?
+  image           String?
+  password        String?
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  role              Role?            @default(USER)
+  profile           Profile?
+  universityInfo    UniversityInfo?
+  siteSettings      SiteSettings?
+  privacySettings   PrivacySettings?
 
-  accounts account[]
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  accounts          account[]
 }
 
 model account {
@@ -42,3 +47,82 @@ model account {
 
   @@unique([provider, providerAccountId])
 }
+
+//#region types and enums
+
+type Profile {
+  bio      String?
+  isOnline Boolean?
+}
+
+type UserInfo {
+  age         Int?
+  gender      Gender?
+  contactInfo ContactInfo?
+}
+
+type ContactInfo {
+  phone  String?
+  email  String?
+  adress Address?
+}
+
+type Address {
+  country    String?
+  city       String?
+  street     String?
+  streetNr   Int?
+  postalCode Int?
+}
+
+type UniversityInfo {
+  semester   Int?
+  course     Course?
+  focus      Focus?
+  enrollment DateTime?
+}
+
+type SiteSettings {
+  darkModeEnabled Boolean?
+  language        Language?
+}
+
+type PrivacySettings {
+  hideOnlineStatus   Boolean?
+  verificationStatus Verification?
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  DIVERSE
+}
+
+enum Course {
+  COMPUTER_SIENCE
+}
+
+enum Focus {
+  SOFTWARE_ENGINEERING
+  IT_SECURITY
+  MEDIA_COMPUTER_SIENCE
+  GENERAL_COMPUTER_SIENCE
+}
+
+enum Language {
+  ENGLISH
+  GERMAN
+}
+
+enum Verification {
+  NOT_VERIFIED
+  PENDING
+  VERIFIED
+}
+
+//#endregion
