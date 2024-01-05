@@ -1,9 +1,15 @@
-export const initialState = {
-	user: null,
+export const initialUserState = {
+	uuid: 1,
+	firstName: "firstName",
+	lastName: "lastName",
+	password: "password",
+	lastActivity: new Date(),
+	accountCreated: new Date(),
+	role: UserRole.USER,
 };
 
 // TODO: change the any here
-const userReducer = (state = initialState, action: any) => {
+const userReducer = (state = initialUserState, action: any) => {
 	switch (action.type) {
 		case "SET_USER":
 			return {

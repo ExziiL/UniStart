@@ -1,4 +1,4 @@
-import userReducer, { initialState } from "@/reducer/user-reducer";
+import userReducer, { initialUserState } from "@/reducer/user-reducer";
 import User from "@/types/IUser";
 import React from "react";
 
@@ -15,8 +15,8 @@ interface UserContextProviderProps {
 }
 
 export const UserContextProvider: React.FC<UserContextProviderProps> = ({ children, initial }) => {
-	// const [user, setUser] = React.useState<User>(initial);
-	const [state, dispatch] = React.useReducer(userReducer, initialState);
+	// das ist der useReducer Hook aus React, der den state und die dispatch Funktion zurückgibt, nicht zu verwechseln mit dem userReducer aus src/reducer/user-reducer.tsx
+	const [state, dispatch] = React.useReducer(userReducer, initialUserState);
 
 	return <UserContext.Provider value={{ userState: state, userDispatch: dispatch }}>{children}</UserContext.Provider>;
 };
