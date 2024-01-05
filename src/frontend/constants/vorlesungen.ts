@@ -77,7 +77,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				upvotes: 0,
 				downvotes: 40,
 			},
-		]
+		],
 	},
 	{
 		slug: 'einfuehrung-in-die-informatik',

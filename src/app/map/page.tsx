@@ -7,9 +7,9 @@ import { VORLESUNGEN } from "@/frontend/constants/vorlesungen";
 import React from "react";
 
 function Map() {
-	const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		console.log(e.target.value);
-	};
+	// const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	// 	console.log(e.target.value);
+	// };
 
 	return (
 		<div className="full-bleed h-[calc(100vh-58px)] p-4 md:p-24 ">
@@ -21,7 +21,7 @@ function Map() {
 						placeholder="Email"
 					/>
 				</div>
-				<FilterIcon onChange={handleFilterChange} />
+				<FilterIcon />
 			</div>
 			<div className="grid h-full grid-rows-[auto,_1fr] gap-4 lg:grid-cols-[auto,_1fr] lg:grid-rows-1">
 				<ScrollArea>
