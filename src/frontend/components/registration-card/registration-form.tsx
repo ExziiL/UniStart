@@ -17,6 +17,7 @@ import {
 } from '@/frontend/components/ui/form';
 import { Input } from '@/frontend/components/ui/input';
 import { useToast } from '@/frontend/hooks/use-toast';
+import router from 'next/router';
 
 const registrationFormSchema = z
 	.object({
@@ -87,6 +88,7 @@ function RegistrationForm() {
 
 			if (res?.ok) {
 				form.reset();
+				router.replace("/")
 			}
 		} catch (error) {
 			console.log("Error during registration: ", error);

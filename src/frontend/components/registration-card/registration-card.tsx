@@ -23,7 +23,7 @@ function RegistrationCard() {
 
 	const handleGoogleRegistration = async () => {
 		console.log('google registration');
-		const res = await signIn('google', { redirect: false })
+		const res = await signIn('google', { redirect: false });
 
 		if (res?.ok) {
 			console.log('Successfully registered')
