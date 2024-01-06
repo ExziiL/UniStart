@@ -17,11 +17,7 @@ export async function PUT(request: NextRequest) {
 
 
         const user = await prisma.user.create({
-            data: {
-                name: name,
-                email: email,
-                password: hash
-            }
+            data: { name: name, email: email, password: hash }
         });
 
         return NextResponse.json({ message: "User registered", user },

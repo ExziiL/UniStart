@@ -12,7 +12,4 @@ const driver = neo4j.driver(
     { disableLosslessIntegers: true }
 );
 
-
-(async function main(){
-    console.log(await driver.getServerInfo());
-})();
+export default driver;

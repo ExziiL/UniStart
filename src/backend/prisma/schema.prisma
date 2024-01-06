@@ -18,8 +18,8 @@ model user {
   image           String?
   password        String?
 
-  role              Role?            @default(USER)
-  profile           Profile?
+  role              Role            @default(USER)
+  profile           Profile?         
   universityInfo    UniversityInfo?
   siteSettings      SiteSettings?
   privacySettings   PrivacySettings?
@@ -52,13 +52,13 @@ model account {
 
 type Profile {
   bio      String?
-  isOnline Boolean?
+  isOnline Boolean? @default(false)
 }
 
 type UserInfo {
   age         Int?
   gender      Gender?
-  contactInfo ContactInfo?
+  contactInfo ContactInfo
 }
 
 type ContactInfo {
@@ -84,7 +84,7 @@ type UniversityInfo {
 
 type SiteSettings {
   darkModeEnabled Boolean?
-  language        Language?
+  language        Language @default(GERMAN)
 }
 
 type PrivacySettings {

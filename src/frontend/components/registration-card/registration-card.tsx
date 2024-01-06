@@ -9,24 +9,42 @@ import RegistrationForm from './registration-form';
 
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
-import { signIn } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
+import { register, registerGraph } from './registration';
+import { useRouter } from 'next/navigation';
 
 function RegistrationCard() {
+	const router = useRouter();
+	const session = useSession();
+
 	const handleGitHubRegistration = async () => {
 		console.log('github registration');
-		const res = await signIn('github', { redirect: false })
+		try {
+			const res = await register('google', null);
 
-		if (res?.ok) {
-			console.log('Successfully registered')
+			if (res?.ok) {
+				await registerGraph(session.data, router)
+				console.log('Successfully registered')
+			}
+		} catch (error) {
+			console.log("Something went wrong\n" + error);
+
 		}
+
 	};
 
 	const handleGoogleRegistration = async () => {
 		console.log('google registration');
-		const res = await signIn('google', { redirect: false });
+		try {
+			const res = await register('google', null);
 
-		if (res?.ok) {
-			console.log('Successfully registered')
+			if (res?.ok) {
+				await registerGraph(session.data, router)
+				console.log('Successfully registered')
+			}
+		} catch (error) {
+			console.log("Something went wrong\n" + error);
+
 		}
 	};
 

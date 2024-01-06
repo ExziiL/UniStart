@@ -17,9 +17,12 @@ import {
 } from '@/frontend/components/ui/form';
 import { Input } from '@/frontend/components/ui/input';
 import { useToast } from '@/frontend/hooks/use-toast';
-import router from 'next/router';
+import { register, registerGraph } from './registration';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
-const registrationFormSchema = z
+
+export const registrationFormSchema = z
 	.object({
 		email: z.string().email(),
 		username: z.string().min(3, { message: 'Username must be at least 3 characters.' }).max(20),
@@ -38,6 +41,8 @@ const registrationFormSchema = z
 
 function RegistrationForm() {
 	const { toast } = useToast();
+	const router = useRouter();
+	const session = useSession();
 
 	const form = useForm<z.infer<typeof registrationFormSchema>>({
 		resolver: zodResolver(registrationFormSchema),
@@ -62,39 +67,18 @@ function RegistrationForm() {
 		});
 
 		try {
-				const userExists = await fetch('api/register?' +
-				new URLSearchParams({ email: values.email }), {
-				method: 'GET',
-				headers: { 'Content-Type': 'application/json' }
-			});
-
-			const { user } = await userExists.json();
-
-			if (user) {
-				console.log("user already exists");
-				return;
-			}
-
-			const res = await fetch('api/register', {
-				method: "PUT",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify(
-					{
-						name: values.username,
-						email: values.email,
-						password: values.password
-					})
-			})
-
+			const res = await register('credentials', values);
+	
 			if (res?.ok) {
-				form.reset();
-				router.replace("/")
-			}
+				await registerGraph(session.data, router)
+			}			
 		} catch (error) {
-			console.log("Error during registration: ", error);
-
+			console.log("Something went wrong\n"+ error);
+			
 		}
+
 	}
+
 
 	return (
 		<Form {...form}>
