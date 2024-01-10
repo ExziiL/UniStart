@@ -1,10 +1,10 @@
 import * as z from 'zod';
 import { registrationFormSchema } from './registration-form';
 import { signIn } from 'next-auth/react';
-import { Session } from 'next-auth';
-import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import { User } from 'next-auth';
 
 export async function register(action: string, values: z.infer<typeof registrationFormSchema> | null) {
+   
     let response;
     switch (action) {
         case 'github': case 'google':
@@ -37,7 +37,7 @@ async function emailRegister(values: z.infer<typeof registrationFormSchema> | nu
         return;
     }
 
-    return await fetch('api/register', {
+    const response = await fetch('api/register', {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(
@@ -48,17 +48,24 @@ async function emailRegister(values: z.infer<typeof registrationFormSchema> | nu
             })
     })
 
+    if (response.ok) {
+        const { user } = await response.json()
+        console.log(user);
+
+        await createNode(user);
+    }
+    return response;
 }
 
-export async function registerGraph(session: Session | null, router: AppRouterInstance) {
-    if (!session) throw new Error("session is required");
-    const res = await fetch('api/graph', {
+
+export async function createNode(user: User, hostUrl = "") {
+    const res = await fetch(hostUrl + 'api/graph', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: session?.user?.email })
+        body: JSON.stringify({ email: user?.email })
     });
 
-    if (res.ok) {
-        router.replace("/")
+    if (!res.ok) {
+        throw new Error("User Cretaion in Graph didn't work properly\n" + await res.json());
     }
 }

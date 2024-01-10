@@ -11,23 +11,23 @@ datasource db {
 }
 
 model user {
-  id              String    @id @default(auto()) @map("_id") @db.ObjectId
-  name            String?   @unique
-  email           String?   @unique
-  emailVerified   DateTime?
-  image           String?
-  password        String?
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?   @unique
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
 
-  role              Role            @default(USER)
-  profile           Profile?         
-  universityInfo    UniversityInfo?
-  siteSettings      SiteSettings?
-  privacySettings   PrivacySettings?
+  role            Role             @default(USER)
+  profile         Profile?
+  universityInfo  UniversityInfo?
+  siteSettings    SiteSettings?
+  privacySettings PrivacySettings?
 
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  accounts          account[]
+  accounts account[]
 }
 
 model account {
@@ -46,6 +46,12 @@ model account {
   user              user    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+}
+
+model conversation {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  
+  
 }
 
 //#region types and enums

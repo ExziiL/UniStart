@@ -9,6 +9,8 @@ export async function PUT(request: NextRequest) {
     );
     try {
         const res = await request.json();
+        console.log(res);
+        
 
         const user = await prisma.user.findUnique({
             where: { email: res.email },

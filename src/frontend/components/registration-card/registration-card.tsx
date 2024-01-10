@@ -9,21 +9,16 @@ import RegistrationForm from './registration-form';
 
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
-import { useSession } from 'next-auth/react';
-import { register, registerGraph } from './registration';
-import { useRouter } from 'next/navigation';
+import { register } from './registration';
 
 function RegistrationCard() {
-	const router = useRouter();
-	const session = useSession();
-
 	const handleGitHubRegistration = async () => {
+
 		console.log('github registration');
 		try {
-			const res = await register('google', null);
+			const res = await register('github', null);
 
 			if (res?.ok) {
-				await registerGraph(session.data, router)
 				console.log('Successfully registered')
 			}
 		} catch (error) {
@@ -39,7 +34,6 @@ function RegistrationCard() {
 			const res = await register('google', null);
 
 			if (res?.ok) {
-				await registerGraph(session.data, router)
 				console.log('Successfully registered')
 			}
 		} catch (error) {

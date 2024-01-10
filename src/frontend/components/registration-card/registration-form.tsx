@@ -17,7 +17,7 @@ import {
 } from '@/frontend/components/ui/form';
 import { Input } from '@/frontend/components/ui/input';
 import { useToast } from '@/frontend/hooks/use-toast';
-import { register, registerGraph } from './registration';
+import { register} from './registration';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
@@ -70,7 +70,7 @@ function RegistrationForm() {
 			const res = await register('credentials', values);
 	
 			if (res?.ok) {
-				await registerGraph(session.data, router)
+				//await registerGraph(session.data, router)
 			}			
 		} catch (error) {
 			console.log("Something went wrong\n"+ error);

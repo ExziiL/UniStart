@@ -5,6 +5,7 @@ import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcryptjs"
 import prisma from "@/backend/lib/prisma";
+import { createNode } from "@/frontend/components/registration-card/registration";
 
 export const authOptions: AuthOptions = {
     adapter: PrismaAdapter(prisma),
@@ -32,7 +33,7 @@ export const authOptions: AuthOptions = {
                 try {
                     const user = await prisma.user.findUnique({
                         where: { email: email }
-                    })                    
+                    })
 
                     if (!user || !user?.password) {
                         throw new Error("Invalide credentials")
@@ -56,6 +57,15 @@ export const authOptions: AuthOptions = {
         }),
     ],
     debug: process.env.NODE_ENV === 'development',
+    events: {
+        createUser: async (data) => {
+            console.log("User created");  
+            
+            const baseUrl = process.env.VERCEL_URL ?? process.env.NEXTAUTH_URL!
+
+            await createNode(data.user, baseUrl);
+        },
+    },
     session: {
         strategy: "jwt",
     },
