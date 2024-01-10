@@ -1,48 +1,52 @@
+import { UserGender, UserRole } from '@/enums/user';
+
 interface UserProfile {
-    avatar: string;
-    bio: string;
+    bio: string,
 }
 
 interface UserAddress {
-    country: string;
-    city: string;
-    street: string;
-    streetNr: number;
-    postalCode: number;
+    country: string,
+    city: string,
+    street: string,
+    streetNumber: number,
+    houseNumber: number,
+    postalCode: number,
 }
 
 interface UserContactInfo {
-    phone: string;
-    address: UserAddress;
-}
-
-interface UserPrivacySettings {
-    showLastSeen: boolean;
-}
-
-interface UserChatSettings {
-    isOnline: boolean;
-    lastSeen: string;
-    privacySettings: UserPrivacySettings;
-}
-
-interface UserMessage {
-    conversationId: string;
-    text: string;
-    date: string;
-    seen: boolean;
+    countryPrefix: number,
+    phone: string,
+    email: string,
+    address: UserAddress,
 }
 
 interface User {
-    id: number;
-    name: string;
-    age: number;
-    email: string;
-    profile?: UserProfile;
-    contactInfo?: UserContactInfo;
-    chatSettings: UserChatSettings;
-    messages?: UserMessage[];
-    friends?: number[];
+    uuid: number,
+    firstName: string,
+    lastName: string,
+    age: number,
+    gender: UserGender.MALE,
+    password: string,
+    role: UserRole.USER,
+    lastActivity: Date,
+    accountCreated: Date,
+    avatarImage: string,
+
+    profile?: UserProfile,
+    contactInfo?: UserContactInfo,
+    universityInfo?: {
+        semester: number,
+        course: Course.WEBENTWICKLUNG,
+        focus: Focus.SOFTWARE_ENGINEERING,
+        enrollmendDate: Date,
+    }
+
+
+    siteSettings: {
+        darkModeEnabled: boolean,
+        languageSettings: string,
+    },
+    friends?: number[],
 }
 
 export default User;
