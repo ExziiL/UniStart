@@ -1,7 +1,10 @@
+"use client";
+
 import FeatureCard from "@/frontend/components/feature-card";
+import Testimonials from "@/frontend/components/testimonials";
 import { Button } from "@/frontend/components/ui/button";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 
 const features = [
 	{
@@ -38,7 +41,7 @@ const features = [
 
 export default function Home() {
 	return (
-		<div className="flex flex-col gap-32 py-16">
+		<div className="flex flex-col gap-32 py-16 lg:pt-32">
 			<div className="flex flex-col gap-16 md:flex-row">
 				<div className="flex flex-col">
 					<h1 className="text-4xl font-medium">Introducing your University Helper</h1>
@@ -56,9 +59,13 @@ export default function Home() {
 				/>
 			</div>
 
-			<div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-3">
+			<div className="grid w-full grid-cols-2 gap-6 sm:grid-cols-3">
 				{features.map((feature) => (
-					<div className="rounded-lg">
+					<motion.div
+						whileHover={{ y: -7.5 }}
+						className="rounded-lg"
+						key={feature.title}
+					>
 						<FeatureCard key={feature.title}>
 							<FeatureCard.Image
 								src={feature.image}
@@ -68,8 +75,12 @@ export default function Home() {
 							<div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-lg bg-gradient-to-t from-zinc-900 via-transparent" />
 							<FeatureCard.Title>{feature.title}</FeatureCard.Title>
 						</FeatureCard>
-					</div>
+					</motion.div>
 				))}
+			</div>
+
+			<div>
+				<Testimonials />
 			</div>
 		</div>
 	);
