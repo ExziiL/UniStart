@@ -1,14 +1,19 @@
 import Image from "next/image";
 import * as React from "react";
 
-function Testimonial() {
+interface TestimonialProps {
+	testimonial: {
+		text: string;
+		name: string;
+		company: string;
+	};
+}
+
+function Testimonial({ testimonial }: TestimonialProps) {
 	return (
 		<div className="w-full max-w-[680px]">
 			<div className="">
-				<p className="text-center text-primary">
-					Rise has made managing my day effortless. We have used it across our team and had definitely helped
-					finding the best time to meet and ensure we are not wasting time during some of our busiest hours.
-				</p>
+				<p className="text-center text-primary">{testimonial.text}</p>
 				<div className="flex flex-row justify-center gap-4 pt-4 lg:pt-6">
 					<Image
 						src="https://source.unsplash.com/random"
@@ -18,8 +23,8 @@ function Testimonial() {
 						height={48}
 					/>
 					<div>
-						<div className="font-medium">Max Mustermann</div>
-						<div className="text-ultra-light">CEO at Pepsi</div>
+						<div className="font-medium">{testimonial.name}</div>
+						<div className="text-ultra-light">{testimonial.company}</div>
 					</div>
 				</div>
 			</div>
