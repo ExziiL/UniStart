@@ -5,7 +5,7 @@ function Testimonial() {
 	return (
 		<div className="w-full max-w-[680px]">
 			<div className="">
-				<p className="text-center">
+				<p className="text-center text-primary">
 					Rise has made managing my day effortless. We have used it across our team and had definitely helped
 					finding the best time to meet and ensure we are not wasting time during some of our busiest hours.
 				</p>
