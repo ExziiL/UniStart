@@ -1,10 +1,11 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 // Quelle: https://ui.aceternity.com/components/infinite-moving-cards
-export const InfiniteMovingCards = ({
+const InfiniteMovingCards = ({
 	items,
 	direction = "left",
 	speed = "fast",
@@ -95,9 +96,20 @@ export const InfiniteMovingCards = ({
 							></div>
 							<span className="relative z-20 text-sm font-normal leading-[1.6]">{item.quote}</span>
 							<div className="relative z-20 mt-6 flex flex-row items-center">
-								<span className="flex flex-col gap-1">
-									<span className=" text-sm font-medium leading-[1.6] text-primary">{item.name}</span>
-									<span className=" text-sm leading-[1.6] text-light">{item.title}</span>
+								<span className="flex flex-row gap-4">
+									<span>
+										<Image
+											src="https://source.unsplash.com/random"
+											alt="Picture of the author"
+											className="h-12 w-12 rounded-full"
+											width={48}
+											height={48}
+										/>
+									</span>
+									<span className="flex flex-col gap-1">
+										<span className=" text-sm font-medium text-primary">{item.name}</span>
+										<span className=" text-sm text-light">{item.title}</span>
+									</span>
 								</span>
 							</div>
 						</blockquote>
@@ -107,3 +119,5 @@ export const InfiniteMovingCards = ({
 		</div>
 	);
 };
+
+export default InfiniteMovingCards;

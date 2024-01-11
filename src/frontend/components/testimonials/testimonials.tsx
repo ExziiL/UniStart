@@ -1,6 +1,6 @@
 import Testimonial from "@/frontend/components/testimonial";
 import * as React from "react";
-import { InfiniteMovingCards } from "../infinite-moving-cards";
+import InfiniteMovingCards from "../infinite-moving-cards";
 
 const testimonials = [
 	{
