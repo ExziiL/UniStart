@@ -28,6 +28,9 @@ model user {
   updatedAt DateTime @updatedAt
 
   accounts account[]
+
+  //message message[]
+  //seen    message[] @relation("seen")
 }
 
 model account {
@@ -43,15 +46,32 @@ model account {
   scope             String?
   id_token          String? @db.String
   session_state     String?
-  user              user    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  user user @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
 
 model conversation {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  
-  
+
+  messageIds String[]
+  messages   message[] @relation(name: "conversations")
+}
+
+model message {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  image   String?
+  content String?
+
+  conversationid String       @db.ObjectId
+  conversation   conversation @relation(name: "conversations", fields: [conversationid], references: [id])
+
+  senderid String @db.ObjectId
+  //sender   user   @relation(fields: [senderid], references: [id])
+
+  seenIds String[] @db.ObjectId
+//seen    user     @relation("seen", fields: [seenIds], references: [id])
 }
 
 //#region types and enums
