@@ -18,10 +18,13 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 
 const FormSchema = z.object({
+	firstName: z.string().min(3).max(32),
+	lastName: z.string().min(3).max(32),
+	email: z.string().email(),
 	username: z.string().min(3).max(32),
 });
 
-function UsernameFormInput() {
+function ProfileFormInput() {
 	const form = useForm<z.infer<typeof FormSchema>>({
 		resolver: zodResolver(FormSchema),
 		defaultValues: {
@@ -45,29 +48,79 @@ function UsernameFormInput() {
 		<Form {...form}>
 			<form
 				onSubmit={form.handleSubmit(onSubmit)}
-				className="w-2/3 space-y-6"
+				className="space-y-2"
 			>
-				<FormField
-					control={form.control}
-					name="username"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Username</FormLabel>
-							<FormControl>
-								<Input
-									placeholder="shadcn"
-									{...field}
-								/>
-							</FormControl>
-							<FormDescription>This is your public display name.</FormDescription>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
+				<div className="grid grid-cols-10 grid-rows-3 gap-4">
+					<FormField
+						control={form.control}
+						name="username"
+						render={({ field }) => (
+							<FormItem className="col-span-3">
+								<FormLabel>Username</FormLabel>
+								<FormControl>
+									<Input
+										placeholder="shadcn"
+										{...field}
+									/>
+								</FormControl>
+								<FormDescription>This is your public display name.</FormDescription>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name="firstName"
+						render={({ field }) => (
+							<FormItem className="col-span-3 row-start-2">
+								<FormLabel>First Name</FormLabel>
+								<FormControl>
+									<Input
+										placeholder="Max"
+										{...field}
+									/>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name="lastName"
+						render={({ field }) => (
+							<FormItem className="col-span-3 row-start-2">
+								<FormLabel>Last Name</FormLabel>
+								<FormControl>
+									<Input
+										placeholder="Mustermann"
+										{...field}
+									/>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name="email"
+						render={({ field }) => (
+							<FormItem className="col-span-3 row-start-3">
+								<FormLabel>E-mail</FormLabel>
+								<FormControl>
+									<Input
+										placeholder="example@email.com"
+										{...field}
+									/>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+				</div>
 				<Button type="submit">Submit</Button>
 			</form>
 		</Form>
 	);
 }
 
-export default UsernameFormInput;
+export default ProfileFormInput;

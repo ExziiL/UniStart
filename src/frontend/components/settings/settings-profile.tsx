@@ -7,10 +7,10 @@ import { Separator } from "../ui/separator";
 
 function SettingsProfile() {
 	return (
-		<div className="mx-auto w-full max-w-[960px] space-y-8">
+		<div className="mx-auto w-full max-w-[960px] space-y-8 p-4">
 			<h1>Profile</h1>
 			<Separator />
-			<div>
+			<div className="space-y-8">
 				<div className="flex flex-row gap-6">
 					<Avatar className="h-16 w-16">
 						<AvatarImage src="https://github.com/shadcn.png" />
@@ -37,6 +37,7 @@ function SettingsProfile() {
 						<p className="text-xs text-light">We support PNGs, JPEGs under 10MB</p>
 					</div>
 				</div>
+
 				<ProfileFormInputs />
 			</div>
 		</div>
