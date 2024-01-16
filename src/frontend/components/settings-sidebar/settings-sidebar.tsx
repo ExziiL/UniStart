@@ -31,7 +31,10 @@ function SettingsSidebar() {
 			<div>
 				<ul className="space-y-1">
 					{sidebarItems.map((item) => (
-						<li className="flex cursor-pointer items-center space-x-2 rounded-md p-1 px-2 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700">
+						<li
+							className="flex cursor-pointer items-center space-x-2 rounded-md p-1 px-2 transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700"
+							key={item.name}
+						>
 							<div>{item.icon}</div>
 							<div className="">{item.name}</div>
 						</li>
