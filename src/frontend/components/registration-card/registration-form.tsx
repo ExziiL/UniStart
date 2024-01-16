@@ -17,7 +17,7 @@ import {
 } from '@/frontend/components/ui/form';
 import { Input } from '@/frontend/components/ui/input';
 import { useToast } from '@/frontend/hooks/use-toast';
-import { register} from './registration';
+import { register} from './actions';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 

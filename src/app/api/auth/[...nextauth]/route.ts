@@ -5,7 +5,7 @@ import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcryptjs"
 import prisma from "@/backend/lib/prisma";
-import { createNode } from "@/frontend/components/registration-card/registration";
+import { createNode } from "@/frontend/components/registration-card/actions";
 
 export const authOptions: AuthOptions = {
     adapter: PrismaAdapter(prisma),
@@ -58,9 +58,11 @@ export const authOptions: AuthOptions = {
     ],
     debug: process.env.NODE_ENV === 'development',
     events: {
+        signIn: async (data) => { },
+        signOut: async (data) => { },
         createUser: async (data) => {
-            console.log("User created");  
-            
+            console.log("User created");
+
             const baseUrl = process.env.VERCEL_URL ?? process.env.NEXTAUTH_URL!
 
             await createNode(data.user, baseUrl);

@@ -9,7 +9,7 @@ import RegistrationForm from './registration-form';
 
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
-import { register } from './registration';
+import { register } from './actions';
 
 function RegistrationCard() {
 	const handleGitHubRegistration = async () => {
