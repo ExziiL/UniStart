@@ -3,9 +3,11 @@ import { UserGender, UserRole } from "@/enums/user";
 export const initialUserState = {
 	uuid: 1,
 	// TODO: change the input into empty strings
+	name: "(User)Name",
 	firstName: "firstName",
 	lastName: "lastName",
 	age: 21,
+	email: "contactInfo@email",
 	gender: UserGender.MALE,
 	password: "password",
 	role: UserRole.USER,
@@ -18,7 +20,6 @@ export const initialUserState = {
 	contactInfo: {
 		countryPrefix: 49,
 		phone: "0123456789",
-		email: "contactInfo@email",
 		address: {
 			country: "contactInfo.address.country",
 			city: "contactInfo.address.city",

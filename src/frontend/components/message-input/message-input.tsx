@@ -9,7 +9,7 @@ import React from "react";
 function MessageInput() {
 	const [message, setMessage] = React.useState("");
 	const textareaRef = React.useRef<HTMLTextAreaElement>(null);
-	// const { state, dispatch } = useUserContext();
+	const { userState, userDispatch } = useUserContext();
 
 	const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 		setMessage(e.target.value);
