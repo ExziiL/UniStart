@@ -1,4 +1,4 @@
-import { UserRole } from "@/enums/user";
+import { UserGender, UserRole } from "@/enums/user";
 
 export const initialUserState = {
 	uuid: 1,
@@ -6,7 +6,7 @@ export const initialUserState = {
 	firstName: "firstName",
 	lastName: "lastName",
 	age: 21,
-	gender: "male",
+	gender: UserGender.MALE,
 	password: "password",
 	role: UserRole.USER,
 	profile: {

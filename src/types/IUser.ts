@@ -25,12 +25,12 @@ interface User {
     firstName: string,
     lastName: string,
     age: number,
-    gender: UserGender.MALE,
+    gender?: UserGender.MALE,
     password: string,
     role: UserRole.USER,
-    lastActivity: Date,
-    accountCreated: Date,
-    avatarImage: string,
+    lastActivity?: Date,
+    accountCreated?: Date,
+    avatarImage?: string,
 
     profile?: UserProfile,
     contactInfo?: UserContactInfo,
@@ -42,7 +42,7 @@ interface User {
     }
 
 
-    siteSettings: {
+    siteSettings?: {
         darkModeEnabled: boolean,
         languageSettings: string,
     },
