@@ -27,7 +27,7 @@ const sidebarItems = [
 function SettingsSidebar() {
 	return (
 		<div className="h-full w-64 bg-muted p-4">
-			<h2 className="mb-1 font-medium text-light">Settings</h2>
+			<div className="mb-1 font-medium text-light">Settings</div>
 			<div>
 				<ul className="space-y-1">
 					{sidebarItems.map((item) => (
