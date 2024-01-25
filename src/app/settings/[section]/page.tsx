@@ -1,5 +1,5 @@
 "use client";
-import settings from "@/frontend/components/settings";
+
 import SettingsSidebar from "@/frontend/components/settings-sidebar";
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
