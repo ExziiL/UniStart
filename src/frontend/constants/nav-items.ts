@@ -35,6 +35,11 @@ const navItems: { title: string; href: string; description: string }[] = [
 		description: 'User-Chat',
 	},
 	{
+		title: 'Profile Settings',
+		href: '/settings',
+		description: 'Übersicht aller wichtigsten Settingseinstellungen',
+	},
+	{
 		title: 'Not Found',
 		href: '/not-found',
 		description: 'Übersicht aller wichtigen Termine der Hochschule',

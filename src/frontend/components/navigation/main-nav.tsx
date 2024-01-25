@@ -56,14 +56,14 @@ const MainNav = () => {
 				</NavigationMenuList>
 
 				<Link
-					href="/vorlesungen"
+					href="/chat"
 					legacyBehavior
 					passHref
 				>
-					<NavigationMenuLink className={navigationMenuTriggerStyle()}>Vorlesungen</NavigationMenuLink>
+					<NavigationMenuLink className={navigationMenuTriggerStyle()}>Chat</NavigationMenuLink>
 				</Link>
 
-				<Link
+				{/* <Link
 					href="/vorlesungen/grundlagen-der-mathematik"
 					legacyBehavior
 					passHref
@@ -71,7 +71,7 @@ const MainNav = () => {
 					<NavigationMenuLink className={navigationMenuTriggerStyle()}>
 						Detailed-Vorlesungen
 					</NavigationMenuLink>
-				</Link>
+				</Link> */}
 			</NavigationMenu>
 
 			{/* ----------------------------------------------- */}
