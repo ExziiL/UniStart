@@ -25,6 +25,10 @@ function UserConversations() {
 		setActiveChat(userId);
 	};
 
+	const handleNewUserClick = ({ id }: { id: number }) => {
+		console.log("new user clicked with id: ", id);
+	};
+
 	return (
 		<div className="bg-background">
 			<div className="flex items-end justify-between p-4 pb-2 text-lg font-semibold">
@@ -78,7 +82,12 @@ function UserConversations() {
 								<ScrollBar orientation="vertical" />
 							</ScrollArea>
 							<div className="mt-8 flex w-full flex-row justify-end">
-								<Button className="w-fit">Add Chat</Button>
+								<Button
+									onClick={() => handleNewUserClick({ id: 1 })}
+									className="w-fit"
+								>
+									Add Chat
+								</Button>
 							</div>
 						</div>
 					</SheetContent>
