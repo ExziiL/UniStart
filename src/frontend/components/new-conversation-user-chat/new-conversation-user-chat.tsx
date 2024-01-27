@@ -1,13 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/frontend/components/ui/avatar";
 import React from "react";
 
-type NewConversationUserOverviewProps = {
+type NewConversationUserChatProps = {
 	// TODO: change any to user type
 	user?: any;
 };
 
 // TODO: change static data to user data
-function NewConversationUserOverview({ user }: NewConversationUserOverviewProps) {
+function NewConversationUserChat({ user }: NewConversationUserChatProps) {
 	const [isSelected, setIsSelected] = React.useState(false);
 
 	return (
@@ -43,4 +43,4 @@ function NewConversationUserOverview({ user }: NewConversationUserOverviewProps)
 	);
 }
 
-export default NewConversationUserOverview;
+export default NewConversationUserChat;

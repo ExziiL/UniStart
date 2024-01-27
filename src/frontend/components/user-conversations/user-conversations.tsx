@@ -1,6 +1,6 @@
 "use client";
 
-import NewConversationUserOverview from "@/frontend/components/new-conversation-user-overview";
+import NewConversationUserChat from "@/frontend/components/new-conversation-user-chat";
 import SingleUserConversation from "@/frontend/components/single-user-conversation";
 import { Button } from "@/frontend/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/frontend/components/ui/scroll-area";
@@ -51,34 +51,34 @@ function UserConversations() {
 						<div className="flex h-full flex-col pb-12 pt-4">
 							<ScrollArea className="w-full">
 								{/* {xxx.map((user, index) => (
-									<NewConversationUserOverview
+									<NewConversationUserChat
 										key={index}
 										user={user}
 									/>
 								))} */}
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
-								<NewConversationUserOverview />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
+								<NewConversationUserChat />
 								<ScrollBar orientation="vertical" />
 							</ScrollArea>
 							<div className="mt-8 flex w-full flex-row justify-end">
