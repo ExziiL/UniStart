@@ -27,7 +27,7 @@ const MainNav = () => {
 				<span className="hidden font-bold sm:inline-block">LOGO</span>
 			</Link>
 
-			<NavigationMenu>
+			<NavigationMenu className="flex gap-2">
 				<Link
 					href="/"
 					legacyBehavior
