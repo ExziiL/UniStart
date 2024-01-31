@@ -49,7 +49,7 @@ export default function Home() {
 						Navigate your campus, connect with peers, and find your place in university life - all with
 						ease!
 					</p>
-					<Button className="w-fit">Get started - it's free!</Button>
+					<Button className="w-fit">Get started - it is free!</Button>
 				</div>
 				<Image
 					src="https://source.unsplash.com/random"
@@ -89,7 +89,7 @@ export default function Home() {
 				<p className="max-w-[480px] pb-12 pt-6 text-light">
 					Navigate your campus, connect with peers, and find your place in university life - all with ease!
 				</p>
-				<Button className="w-fit">Get started - it's free!</Button>
+				<Button className="w-fit">Get started - it is free!</Button>
 			</div>
 		</div>
 	);

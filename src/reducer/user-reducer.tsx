@@ -1,23 +1,23 @@
 import { UserGender, UserRole } from "@/enums/user";
 
 export const initialUserState = {
-	uuid: 1,
+	id: 1,
 	// TODO: change the input into empty strings
 	name: "(User)Name",
+	email: "contactInfo@email",
+	image: "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200",
+	password: "password",
+
+	role: UserRole.USER,
 	firstName: "firstName",
 	lastName: "lastName",
-	age: 21,
-	email: "contactInfo@email",
-	gender: UserGender.MALE,
-	password: "password",
-	role: UserRole.USER,
+
 	profile: {
-		profilePicture: {
-			avatarUrl: "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200",
-		},
 		bio: "This is the bio description for the user",
 	},
 	contactInfo: {
+		age: 21,
+		gender: UserGender.MALE,
 		countryPrefix: 49,
 		phone: "0123456789",
 		address: {
@@ -25,21 +25,16 @@ export const initialUserState = {
 			city: "contactInfo.address.city",
 			street: "contactInfo.address.street",
 			houseNumber: 21,
-			zipCode: "contactInfo.address.zipCode",
+			postalCode: "contactInfo.address.zipCode",
 		},
-	},
-	activity: {
-		isOnline: true,
-		lastActivity: new Date(),
-		accountCreated: new Date(),
 	},
 	university: {
 		name: "university.name",
 		faculty: "university.faculty",
+		semester: 1,
 		course: "university.course",
 		focus: "university.focus",
 		enrollment: "university.enrollment",
-		semester: 1,
 	},
 	siteSettings: {
 		theme: "light",
@@ -58,6 +53,9 @@ export const initialUserState = {
 		hideOnlineStatus: false,
 		verified: false,
 	},
+	createdAt: new Date(),
+	updatedAt: new Date(),
+
 };
 
 // TODO: change the any here

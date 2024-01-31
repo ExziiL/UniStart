@@ -3,6 +3,25 @@ import bcrypt from "bcryptjs";
 import prisma from "@/backend/lib/prisma";
 import driver from "@/backend/lib/neo4j";
 
+export async function GET(req: NextRequest) {
+    const client = driver.session();
+
+    try {
+        const { id } = Object.fromEntries(req.nextUrl.searchParams);
+
+        const result = await client.executeRead((tsx) => {
+            return tsx.run(`
+            MATCH (u:User {id: $id})-[:MEMBER]-(c:Conversation)
+            RETURN c`,
+            {id}
+            )
+        })
+        if (!result) return NextResponse.json({ message: "No conversations aviable" }, { status: 500 })
+        return NextResponse.json({ data: result }, { status: 200 })
+    } catch (error) {
+        return NextResponse.json({ message: "Error while getting conversations", error: error }, { status: 500 })
+    }
+}
 
 export async function PUT(req: NextRequest) {
     const client = driver.session();

@@ -20,6 +20,7 @@ model user {
 
   role            Role             @default(USER)
   profile         Profile?
+  contactInfo     ContactInfo?
   universityInfo  UniversityInfo?
   siteSettings    SiteSettings?
   privacySettings PrivacySettings?
@@ -71,37 +72,35 @@ model message {
   //sender   user   @relation(fields: [senderid], references: [id])
 
   seenIds String[] @db.ObjectId
-//seen    user     @relation("seen", fields: [seenIds], references: [id])
+  //seen    user     @relation("seen", fields: [seenIds], references: [id])
 }
 
 //#region types and enums
 
 type Profile {
-  bio      String?
-  isOnline Boolean? @default(false)
-}
-
-type UserInfo {
-  age         Int?
-  gender      Gender?
-  contactInfo ContactInfo
+  bio      String  @default("")
+  isOnline Boolean @default(false)
 }
 
 type ContactInfo {
+  age    Int?
+  gender Gender?
   phone  String?
   email  String?
   adress Address?
 }
 
 type Address {
-  country    String?
-  city       String?
-  street     String?
-  streetNr   Int?
-  postalCode Int?
+  country     String?
+  city        String?
+  street      String?
+  houseNumber Int?
+  postalCode  Int?
 }
 
 type UniversityInfo {
+  name       String?
+  faculty    String?
   semester   Int?
   course     Course?
   focus      Focus?
@@ -109,13 +108,13 @@ type UniversityInfo {
 }
 
 type SiteSettings {
-  darkModeEnabled Boolean?
-  language        Language @default(GERMAN)
+  theme    String?
+  language Language @default(GERMAN)
 }
 
 type PrivacySettings {
-  hideOnlineStatus   Boolean?
-  verificationStatus Verification?
+  hideOnlineStatus Boolean?
+  verified         Boolean?
 }
 
 enum Role {
@@ -144,11 +143,4 @@ enum Language {
   ENGLISH
   GERMAN
 }
-
-enum Verification {
-  NOT_VERIFIED
-  PENDING
-  VERIFIED
-}
-
 //#endregion

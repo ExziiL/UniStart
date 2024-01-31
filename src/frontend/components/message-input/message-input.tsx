@@ -5,6 +5,7 @@ import { Button } from "@/frontend/components/ui/button";
 import { Textarea } from "@/frontend/components/ui/textarea";
 import { send } from "@/frontend/components/message-input/actions";
 import React from "react";
+import { Send } from "lucide-react";
 
 function MessageInput() {
 	const [message, setMessage] = React.useState("");
@@ -26,7 +27,7 @@ function MessageInput() {
 	};
 
 	const handleButtonClick = () => {
-		send(state.user, message)
+		send(userState, message)
 	};
 
 	return (

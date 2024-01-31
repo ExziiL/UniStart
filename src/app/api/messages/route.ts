@@ -8,7 +8,7 @@ export async function PUT(req: NextRequest) {
         const data = await req.json();
 
         const result = await prisma.message.create({
-            data: { senderid: data.id, image: data.image, content: data.message, conversationid: data.converId }
+            data: { senderid: data.id, image: data.image, content: data.message, conversationid: data.convoId }
         });
 
         if (!result) return NextResponse.json({ message: "No message created" }, { status: 500 });
