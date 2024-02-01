@@ -49,8 +49,8 @@ function Faq() {
 				>
 					{questions.map((question, index) => (
 						<AccordionItem value={"item-" + index}>
-							<AccordionTrigger>{question.question}</AccordionTrigger>
-							<AccordionContent>{question.answer}</AccordionContent>
+							<AccordionTrigger className="text-start">{question.question}</AccordionTrigger>
+							<AccordionContent className="text-light">{question.answer}</AccordionContent>
 						</AccordionItem>
 					))}
 				</Accordion>
