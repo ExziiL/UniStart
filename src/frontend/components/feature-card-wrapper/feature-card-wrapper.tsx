@@ -3,10 +3,11 @@
 import FeatureCard from "@/frontend/components/feature-card";
 import { Variants, motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import * as React from "react";
 import { useHover } from "usehooks-ts";
 
-function FeatureCardWrapper({ feature }: { feature: { title: string; image: string; alt: string } }) {
+function FeatureCardWrapper({ feature }: { feature: { title: string; image: string; alt: string; href: string } }) {
 	const hoverRef = React.useRef<HTMLDivElement>(null);
 	const isHovered = useHover(hoverRef);
 
@@ -18,41 +19,46 @@ function FeatureCardWrapper({ feature }: { feature: { title: string; image: stri
 
 	return (
 		<motion.div
-			whileHover={{ y: -1.5 }}
+			whileHover={{ y: -2 }}
 			className="cursor-pointer rounded-lg"
 			key={feature.title}
 			ref={hoverRef}
 		>
-			<FeatureCard key={feature.title}>
-				<FeatureCard.Image
-					src={feature.image}
-					alt={feature.alt}
-				/>
-				{/* die div hier unten ist das Gradient */}
-				<div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-lg bg-gradient-to-t from-zinc-900 via-transparent" />
+			<Link
+				href={feature.href}
+				passHref
+			>
+				<FeatureCard key={feature.title}>
+					<FeatureCard.Image
+						src={feature.image}
+						alt={feature.alt}
+					/>
+					{/* die div hier unten ist das Gradient */}
+					<div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-lg bg-gradient-to-t from-zinc-900 via-transparent" />
 
-				<FeatureCard.Title>
-					<div className="flex w-full flex-row items-center">
-						{feature.title}
+					<FeatureCard.Title>
+						<div className="flex w-full flex-row items-center">
+							{feature.title}
 
-						{/* ab hier */}
-						<motion.span
-							variants={arrowVariants}
-							initial="initial"
-							animate={isHovered ? "hovered" : "initial"}
-							transition={{ type: "spring", stiffness: 400, damping: 17 }}
-							whileTap="tapped"
-							className="pl-2"
-						>
-							<ArrowRight
-								size={20}
-								strokeWidth={2}
-							/>
-						</motion.span>
-						{/* bis hier */}
-					</div>
-				</FeatureCard.Title>
-			</FeatureCard>
+							{/* ab hier */}
+							<motion.span
+								variants={arrowVariants}
+								initial="initial"
+								animate={isHovered ? "hovered" : "initial"}
+								transition={{ type: "spring", stiffness: 400, damping: 17 }}
+								whileTap="tapped"
+								className="pl-2"
+							>
+								<ArrowRight
+									size={20}
+									strokeWidth={2}
+								/>
+							</motion.span>
+							{/* bis hier */}
+						</div>
+					</FeatureCard.Title>
+				</FeatureCard>
+			</Link>
 		</motion.div>
 	);
 }
