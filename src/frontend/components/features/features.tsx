@@ -1,5 +1,4 @@
-import FeatureCard from "@/frontend/components/feature-card";
-import { motion } from "framer-motion";
+import FeatureCardWrapper from "@/frontend/components/feature-card-wrapper";
 import * as React from "react";
 
 const features = [
@@ -39,21 +38,10 @@ function Features() {
 	return (
 		<div className="grid w-full grid-cols-2 gap-6 sm:grid-cols-3">
 			{features.map((feature) => (
-				<motion.div
-					whileHover={{ y: -7.5 }}
-					className="rounded-lg"
+				<FeatureCardWrapper
 					key={feature.title}
-				>
-					<FeatureCard key={feature.title}>
-						<FeatureCard.Image
-							src={feature.image}
-							alt={feature.alt}
-						/>
-						{/* die div hier unten ist das Gradient */}
-						<div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-lg bg-gradient-to-t from-zinc-900 via-transparent" />
-						<FeatureCard.Title>{feature.title}</FeatureCard.Title>
-					</FeatureCard>
-				</motion.div>
+					feature={feature}
+				/>
 			))}
 		</div>
 	);
