@@ -1,15 +1,15 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/frontend/components/ui/avatar';
-import { cva, type VariantProps } from 'class-variance-authority';
-import React from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from "@/frontend/components/ui/avatar";
+import { cva, type VariantProps } from "class-variance-authority";
+import React from "react";
 
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
-const chatMessageVariants = cva('w-fit rounded-md bg-light-foreground p-2 px-4', {
+const chatMessageVariants = cva("w-fit rounded-md bg-light-foreground p-2 px-4", {
 	variants: {
 		variant: {
-			outgoing: 'bg-foreground/95 text-secondary',
-			incoming: 'text-primary',
-			ai: 'border border-light/15 bg-light/15',
+			outgoing: "bg-foreground/95 text-secondary ml-4",
+			incoming: "text-primary",
+			ai: "border border-light/15 mr-4 bg-light/15",
 		},
 		// size: {
 		// 	default: 'h-10 px-4 py-2',
@@ -19,7 +19,7 @@ const chatMessageVariants = cva('w-fit rounded-md bg-light-foreground p-2 px-4',
 		// },
 	},
 	defaultVariants: {
-		variant: 'outgoing',
+		variant: "outgoing",
 		// size: 'default',
 	},
 });
@@ -29,10 +29,10 @@ interface ChatMessageProps extends React.HTMLAttributes<HTMLDivElement>, Variant
 }
 
 function ChatMessage({ variant }: ChatMessageProps) {
-	const isOutgoingMessage = variant === 'outgoing' || variant == undefined;
+	const isOutgoingMessage = variant === "outgoing" || variant == undefined;
 
 	return (
-		<div className={`${isOutgoingMessage ? 'items-end' : ''} flex flex-col gap-2`}>
+		<div className={`${isOutgoingMessage ? "items-end" : ""} flex flex-col gap-2`}>
 			{!isOutgoingMessage && (
 				<Avatar>
 					<AvatarImage src="https://github.com/shadcn.png" />
