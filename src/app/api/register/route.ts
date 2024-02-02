@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
         const { email } = Object.fromEntries(request.nextUrl.searchParams);
         const user = await prisma.user.findUnique({
             where: { email: email },
-            select: { id: true }
+            select: { uuid: true }
         });
 
         return NextResponse.json({ user }, { status: 200 });

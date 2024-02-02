@@ -14,11 +14,14 @@ import {
 	SheetTrigger,
 } from "@/frontend/components/ui/sheet";
 import { USERS } from "@/frontend/constants/users";
+import User from "@/types/IUser";
 import { Edit } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
+import { useQuery } from '@tanstack/react-query'
 
 function UserConversations() {
 	const [activeChat, setActiveChat] = React.useState<number | undefined>(undefined);
+	const [users, setUsers] = React.useState<Array<User> | null>(null)
 
 	const handleUserClick = (userId: number) => {
 		console.log(userId, " clicked");
@@ -28,6 +31,17 @@ function UserConversations() {
 	const handleNewUserClick = ({ id }: { id: number }) => {
 		console.log("new user clicked with id: ", id);
 	};
+
+	const { isPending, error, data } = useQuery({
+		queryKey: ['getUsers'], queryFn: () =>
+			fetch('api/user', { method: 'GET', headers: { 'Content-Type': 'application' } })
+				.then(async (res) => await res.json())
+	})
+
+	if (isPending) { return 'Loading...'; }
+	setUsers(data.data);
+
+
 
 	return (
 		<div className="bg-background">
