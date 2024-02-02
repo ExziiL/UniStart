@@ -7,8 +7,8 @@ import Image from "next/image";
 
 export default function Home() {
 	return (
-		<div className="flex flex-col gap-32 py-16 lg:pt-32">
-			<div className="flex flex-col gap-16 md:flex-row">
+		<div className="full-bleed flex flex-col items-center gap-32 px-4 py-16 lg:pt-32">
+			<div className="flex max-w-[1024px] flex-col gap-16 md:flex-row">
 				<div className="flex flex-col">
 					<h1 className="text-4xl font-medium">Explore & Engage: Your University Companion!</h1>
 					<p className="pb-12 pt-6 text-light">
@@ -28,7 +28,7 @@ export default function Home() {
 
 			<Features />
 
-			<div>
+			<div className="w-full">
 				<Testimonials />
 			</div>
 

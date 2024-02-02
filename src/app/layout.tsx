@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 
 import "@smastrom/react-rating/style.css";
 
+import AiQuickChatTrigger from "@/frontend/components/ai-quick-chat-trigger";
 import Navigation from "@/frontend/components/navigation";
 import TailwindIndictor from "@/frontend/components/tailwind-indictor";
 import { Toaster } from "@/frontend/components/ui/toaster";
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						<SpeedInsights />
 						<Toaster />
 					</main>
+					<AiQuickChatTrigger />
 					<TailwindIndictor />
 				</Providers>
 			</body>
