@@ -20,7 +20,7 @@ function AiQuickChatBox({ className, ...props }: AiQuickChatBoxProps) {
 
 			{/* {chatMessages.length == 0 && <AiChatEmptyState />} */}
 
-			<div className="flex h-[410px] flex-col gap-6">
+			<div className="flex h-[410px] flex-col gap-2">
 				<ScrollArea className="">
 					<div className="flex flex-col gap-6">
 						<ChatMessage variant="ai" />
