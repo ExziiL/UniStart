@@ -6,24 +6,23 @@ import { ScrollArea, ScrollBar } from "@/frontend/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import React from "react";
 
-interface AiChatBoxProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface AiQuickChatBoxProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-function AiChatBox({ className, ...props }: AiChatBoxProps) {
+function AiQuickChatBox({ className, ...props }: AiQuickChatBoxProps) {
 	const chatMessages = [];
 
 	return (
-		// <div className={`${className} flex h-full flex-col ${children ? 'justify-between' : 'justify-end'} p-4`}>
 		<div
-			className={cn(` flex max-h-min flex-col justify-between rounded-xl bg-muted p-4`, className)}
+			className={cn(`flex flex-col justify-between rounded-xl bg-muted p-2`, className)}
 			{...props}
 		>
 			<AiChatBar />
 
 			{/* {chatMessages.length == 0 && <AiChatEmptyState />} */}
 
-			<div className="flex h-[calc(100vh-200px)] flex-col justify-end gap-6">
-				<ScrollArea className="h-max">
-					<div className="flex h-min flex-col gap-6">
+			<div className="flex h-[410px] flex-col gap-6">
+				<ScrollArea className="">
+					<div className="flex flex-col gap-6">
 						<ChatMessage variant="ai" />
 						<ChatMessage />
 						<ChatMessage variant="ai" />
@@ -43,4 +42,4 @@ function AiChatBox({ className, ...props }: AiChatBoxProps) {
 		</div>
 	);
 }
-export default AiChatBox;
+export default AiQuickChatBox;

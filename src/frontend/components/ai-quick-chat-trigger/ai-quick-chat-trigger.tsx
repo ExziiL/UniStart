@@ -6,7 +6,7 @@ import React from "react";
 
 function AiQuickChatTrigger() {
 	return (
-		<div className="fixed bottom-8 right-8 z-50">
+		<div className="absolute bottom-8 right-8 z-50">
 			<Popover>
 				<PopoverTrigger asChild>
 					<Button
@@ -17,7 +17,7 @@ function AiQuickChatTrigger() {
 					</Button>
 				</PopoverTrigger>
 
-				<PopoverContent className="mb-1 mr-2">
+				<PopoverContent className="mb-1 mr-2 max-h-[540px] w-96 overflow-hidden p-2">
 					<AiQuickChat />
 				</PopoverContent>
 			</Popover>

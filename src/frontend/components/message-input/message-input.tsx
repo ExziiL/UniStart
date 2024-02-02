@@ -49,8 +49,6 @@ function MessageInput() {
 					/>
 				</Button>
 			</div>
-
-			{/* <p className="text-sm text-muted-foreground">Your message will be copied to the support team.</p> */}
 		</div>
 	);
 }

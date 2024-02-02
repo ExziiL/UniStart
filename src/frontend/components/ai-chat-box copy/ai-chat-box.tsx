@@ -21,7 +21,7 @@ function AiChatBox({ className, ...props }: AiChatBoxProps) {
 
 			{/* {chatMessages.length == 0 && <AiChatEmptyState />} */}
 
-			<div className="flex h-[calc(100vh-200px)] flex-col justify-end gap-6">
+			<div className="flex h-[calc(100vh-200px)] flex-col gap-6">
 				<ScrollArea className="h-max">
 					<div className="flex h-min flex-col gap-6">
 						<ChatMessage variant="ai" />

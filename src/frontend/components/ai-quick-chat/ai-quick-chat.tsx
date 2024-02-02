@@ -1,7 +1,8 @@
 import React from "react";
+import AiQuickChatBox from "../ai-quick-chat-box";
 
 function AiQuickChat() {
-	return <div>some content in aiquickchat</div>;
+	return <AiQuickChatBox className="" />;
 }
 
 export default AiQuickChat;
