@@ -1,9 +1,10 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/frontend/components/ui/avatar";
+import IUser from "@/types/IUser";
 import React from "react";
 
 type NewConversationUserChatProps = {
 	// TODO: change any to user type
-	user?: any;
+	user?: IUser;
 };
 
 // TODO: change static data to user data
@@ -12,15 +13,14 @@ function NewConversationUserChat({ user }: NewConversationUserChatProps) {
 
 	return (
 		<div
-			className={`${
-				isSelected ? "bg-ultra-light/15" : ""
-			} my-1 flex w-full cursor-pointer flex-row gap-4 rounded-sm px-3 pt-4 hover:bg-ultra-light/10`}
+			className={`${isSelected ? "bg-ultra-light/15" : ""
+				} my-1 flex w-full cursor-pointer flex-row gap-4 rounded-sm px-3 pt-4 hover:bg-ultra-light/10`}
 			onClick={() => setIsSelected(!isSelected)}
 		>
 			<div className="relative">
 				<Avatar>
 					<AvatarImage
-						src="https://github.com/shadcn.png"
+						src={user?.image}
 						alt="@shadcn"
 					/>
 					<AvatarFallback>Profile Picture</AvatarFallback>
@@ -36,7 +36,7 @@ function NewConversationUserChat({ user }: NewConversationUserChatProps) {
 			</div>
 
 			<div className="">
-				<div className="font-medium">Marcel Mueller</div>
+				<div className="font-medium">{user?.name}</div>
 				<div className="text-sm text-light">Informatik - Software Engineering</div>
 			</div>
 		</div>

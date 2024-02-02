@@ -5,7 +5,7 @@ export async function send(user: User, message: string, convoId: string) {
         {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ sender: user.id, image: user.image, message: message, convoId: convoId })
+            body: JSON.stringify({ sender: user.uuid, image: user.image, message: message, convoId: convoId })
         })
 
     if (!res.ok) { throw new Error('Message did not send correctly\n' + res.body) }

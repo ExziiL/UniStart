@@ -18,10 +18,11 @@ import User from "@/types/IUser";
 import { Edit } from "lucide-react";
 import React, { useEffect } from "react";
 import { useQuery } from '@tanstack/react-query'
+import { toast } from "@/frontend/hooks/use-toast";
 
 function UserConversations() {
 	const [activeChat, setActiveChat] = React.useState<number | undefined>(undefined);
-	const [users, setUsers] = React.useState<Array<User> | null>(null)
+	const [users, setUsers] = React.useState<Array<User> | []>([])
 
 	const handleUserClick = (userId: number) => {
 		console.log(userId, " clicked");
@@ -32,16 +33,23 @@ function UserConversations() {
 		console.log("new user clicked with id: ", id);
 	};
 
-	const { isPending, error, data } = useQuery({
-		queryKey: ['getUsers'], queryFn: () =>
+	const { isPending, isError, error, data } = useQuery({
+		queryKey: ['getUsers'],
+		queryFn: () =>
 			fetch('api/user', { method: 'GET', headers: { 'Content-Type': 'application' } })
 				.then(async (res) => await res.json())
 	})
 
-	if (isPending) { return 'Loading...'; }
-	setUsers(data.data);
-
-
+	useEffect(() => {
+		if (isPending) { }
+		if (isError) {
+			toast({
+				title: 'Error getting users',
+				description: error.message,
+			});
+		}
+		if (!isError) setUsers(data?.users);
+	}, [isPending, isError]);
 
 	return (
 		<div className="bg-background">
@@ -64,12 +72,13 @@ function UserConversations() {
 
 						<div className="flex h-full flex-col pb-12 pt-4">
 							<ScrollArea className="w-full">
-								{/* {xxx.map((user, index) => (
+								{users?.map((user, index) => (
 									<NewConversationUserChat
 										key={index}
 										user={user}
 									/>
-								))} */}
+								))}
+								{/* <NewConversationUserChat />
 								<NewConversationUserChat />
 								<NewConversationUserChat />
 								<NewConversationUserChat />
@@ -91,8 +100,7 @@ function UserConversations() {
 								<NewConversationUserChat />
 								<NewConversationUserChat />
 								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
+								<NewConversationUserChat /> */}
 								<ScrollBar orientation="vertical" />
 							</ScrollArea>
 							<div className="mt-8 flex w-full flex-row justify-end">

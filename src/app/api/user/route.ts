@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
         if (!users) return NextResponse.json({
             message: "No users found"
         }, { status: 500 })
-        return NextResponse.json({ data: users }, { status: 200 })
+        return NextResponse.json({ users: users }, { status: 200 })
     }
     catch (error) {
         return NextResponse.json({
