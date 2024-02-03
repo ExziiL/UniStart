@@ -1,3 +1,5 @@
+"use client";
+
 import { Lock, Settings, User, Users } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
