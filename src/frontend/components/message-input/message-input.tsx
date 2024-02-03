@@ -1,5 +1,6 @@
 "use client";
 
+import { useUserContext } from "@/context/user-context/user-context";
 import { Button } from "@/frontend/components/ui/button";
 import { Textarea } from "@/frontend/components/ui/textarea";
 import { Send } from "lucide-react";
@@ -8,6 +9,7 @@ import React from "react";
 function MessageInput() {
 	const [message, setMessage] = React.useState("");
 	const textareaRef = React.useRef<HTMLTextAreaElement>(null);
+	const { userState, userDispatch } = useUserContext();
 
 	const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 		setMessage(e.target.value);

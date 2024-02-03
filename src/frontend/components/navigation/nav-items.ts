@@ -35,6 +35,11 @@ const navItems: { title: string; href: string; description: string }[] = [
 		description: 'User-Chat',
 	},
 	{
+		title: 'Profile Settings',
+		href: '/settings',
+		description: 'Übersicht aller wichtigsten Settingseinstellungen',
+	},
+	{
 		title: 'FAQ',
 		href: '/faq',
 		description: 'Frequently Asked Questions',

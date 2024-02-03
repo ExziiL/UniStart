@@ -3,11 +3,11 @@ import User from "@/types/IUser";
 import React from "react";
 
 interface UserContextProps {
-	// user: User;
-	// setUser: (user: User) => void;
+	userState: User;
+	userDispatch: React.Dispatch<any>;
 }
 
-export const UserContext = React.createContext<UserContextProps>({});
+export const UserContext = React.createContext<UserContextProps | undefined>(undefined);
 
 interface UserContextProviderProps {
 	children: React.ReactNode;
