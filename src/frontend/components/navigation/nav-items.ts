@@ -40,6 +40,11 @@ const navItems: { title: string; href: string; description: string }[] = [
 		description: 'Übersicht aller wichtigsten Settingseinstellungen',
 	},
 	{
+		title: 'FAQ',
+		href: '/faq',
+		description: 'Frequently Asked Questions',
+	},
+	{
 		title: 'Not Found',
 		href: '/not-found',
 		description: 'Übersicht aller wichtigen Termine der Hochschule',

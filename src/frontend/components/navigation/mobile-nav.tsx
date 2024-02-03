@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
-import Link, { LinkProps } from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link, { LinkProps } from "next/link";
+import { useRouter } from "next/navigation";
 
-import { Sheet, SheetContent, SheetTrigger } from '@/frontend/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger } from "@/frontend/components/ui/sheet";
 
-import { cn } from '@/lib/utils';
-import { ViewVerticalIcon } from '@radix-ui/react-icons';
-import { Button } from '../ui/button';
-import { ScrollArea } from '../ui/scroll-area';
+import { cn } from "@/lib/utils";
+import { ViewVerticalIcon } from "@radix-ui/react-icons";
+import { Button } from "../ui/button";
+import { ScrollArea } from "../ui/scroll-area";
 
-import navItems from '@/frontend/constants/nav-items';
+import navItems from "@/frontend/components/navigation/nav-items";
 
 const MobileNav = () => {
 	const [open, setOpen] = React.useState(false);

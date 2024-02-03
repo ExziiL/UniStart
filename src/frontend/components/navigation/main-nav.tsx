@@ -1,6 +1,7 @@
 "use client";
 
 import NavAvatar from "@/frontend/components/navigation/nav-avatar";
+import navItems from "@/frontend/components/navigation/nav-items";
 import ThemeToggle from "@/frontend/components/theme-toggle";
 import {
 	NavigationMenu,
@@ -11,7 +12,6 @@ import {
 	NavigationMenuTrigger,
 	navigationMenuTriggerStyle,
 } from "@/frontend/components/ui/navigation-menu";
-import navItems from "@/frontend/constants/nav-items";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
@@ -27,7 +27,7 @@ const MainNav = () => {
 				<span className="hidden font-bold sm:inline-block">LOGO</span>
 			</Link>
 
-			<NavigationMenu>
+			<NavigationMenu className="flex gap-2">
 				<Link
 					href="/"
 					legacyBehavior
@@ -56,11 +56,11 @@ const MainNav = () => {
 				</NavigationMenuList>
 
 				<Link
-					href="/chat"
+					href="/faq"
 					legacyBehavior
 					passHref
 				>
-					<NavigationMenuLink className={navigationMenuTriggerStyle()}>Chat</NavigationMenuLink>
+					<NavigationMenuLink className={navigationMenuTriggerStyle()}>FAQ</NavigationMenuLink>
 				</Link>
 
 				{/* <Link
