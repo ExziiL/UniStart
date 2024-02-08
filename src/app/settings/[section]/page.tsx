@@ -35,7 +35,7 @@ const SettingsSection: React.FC = () => {
 			<SettingsSidebar />
 
 			<div className="grow p-4 xl:mr-[256px]">
-				<div className="mx-auto max-w-[960px]">
+				<div className="mx-auto max-w-[1024px]">
 					{/* Breadcrumb Component */}
 					<div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
 						<div className="overflow-hidden text-ellipsis whitespace-nowrap">Settings</div>

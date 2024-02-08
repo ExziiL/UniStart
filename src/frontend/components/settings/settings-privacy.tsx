@@ -4,7 +4,7 @@ import React from "react";
 
 function SettingsPrivacy() {
 	return (
-		<div className="mx-auto w-full max-w-[960px] space-y-8">
+		<div className="mx-auto w-full max-w-[1024px] space-y-8">
 			<div className="space-y-8">
 				<div className="flex items-center space-x-2">
 					<Checkbox id="profilePic" />
