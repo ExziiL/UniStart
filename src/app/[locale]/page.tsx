@@ -3,9 +3,12 @@
 import Features from "@/frontend/components/features";
 import Testimonials from "@/frontend/components/testimonials";
 import { Button } from "@/frontend/components/ui/button";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export default function Home() {
+	const t = useTranslations("Home");
+
 	return (
 		<div className="full-bleed flex flex-col items-center gap-32 px-4 py-16 lg:pt-32">
 			<div className="flex max-w-[1024px] flex-col gap-16 md:flex-row">
