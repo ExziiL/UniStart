@@ -7,7 +7,7 @@ import { Separator } from "../ui/separator";
 
 function SettingsGeneral() {
 	return (
-		<div className="mx-auto w-full max-w-[960px]">
+		<div className="w-full max-w-[960px]">
 			<div className="">
 				<div className="mb-12">
 					<h2 className="text-lg font-medium text-primary">Preferred Language</h2>

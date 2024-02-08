@@ -33,23 +33,27 @@ const SettingsSection: React.FC = () => {
 	return (
 		<div className="full-bleed flex flex-row ">
 			<SettingsSidebar />
-			<div className="w-full p-4">
-				<div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
-					<div className="overflow-hidden text-ellipsis whitespace-nowrap">Settings</div>
-					<ChevronRight size={16} />
-					<div className="font-medium text-foreground">{capitalize(section)}</div>
-				</div>
 
-				<div className="w-full space-y-8">
-					<h1 className="pt-6 text-xl font-semibold text-primary">{capitalize(section)}</h1>
+			<div className="grow p-4 xl:mr-[256px]">
+				<div className="mx-auto max-w-[960px]">
+					{/* Breadcrumb Component */}
+					<div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
+						<div className="overflow-hidden text-ellipsis whitespace-nowrap">Settings</div>
+						<ChevronRight size={16} />
+						<div className="font-medium text-foreground">{capitalize(section)}</div>
+					</div>
 
-					<Separator />
+					<div className="space-y-8">
+						<h1 className="pt-6 text-xl font-semibold text-primary">{capitalize(section)}</h1>
 
-					{SectionComponent ? (
-						<SectionComponent />
-					) : (
-						<div>Please select a settings option in the sidebar</div>
-					)}
+						<Separator />
+
+						{SectionComponent ? (
+							<SectionComponent />
+						) : (
+							<div>Oops. There is nothing here! please select an option in the sidebar.</div>
+						)}
+					</div>
 				</div>
 			</div>
 		</div>
