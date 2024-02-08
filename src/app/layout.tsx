@@ -31,8 +31,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						{children}
 						<SpeedInsights />
 						<Toaster />
+						<AiQuickChatTrigger />
 					</main>
-					<AiQuickChatTrigger />
 					<TailwindIndictor />
 				</Providers>
 			</body>
