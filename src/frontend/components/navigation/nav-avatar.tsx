@@ -15,10 +15,13 @@ import {
 	DropdownMenuTrigger,
 } from "@/frontend/components/ui/dropdown-menu";
 import { LogOut, Settings, SunMoon, User } from "lucide-react";
+import { useLocale } from "next-intl";
 import Link from "next/link";
 import React from "react";
 
 function NavAvatar() {
+	const locale = useLocale();
+
 	return (
 		<div>
 			<DropdownMenu>
@@ -32,14 +35,14 @@ function NavAvatar() {
 					<DropdownMenuLabel>My Account</DropdownMenuLabel>
 					<DropdownMenuSeparator />
 					<DropdownMenuGroup>
-						<Link href="/settings/profile">
+						<Link href={`/${locale}/settings/profile`}>
 							<DropdownMenuItem>
 								<User className="mr-2 h-4 w-4" />
 								<span>Profile</span>
 								<DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
 							</DropdownMenuItem>
 						</Link>
-						<Link href="/settings/general">
+						<Link href={`/${locale}/settings/general`}>
 							<DropdownMenuItem>
 								<Settings className="mr-2 h-4 w-4" />
 								<span>Settings</span>

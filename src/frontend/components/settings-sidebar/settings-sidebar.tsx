@@ -1,43 +1,46 @@
 "use client";
 
 import { Lock, Settings, User, Users } from "lucide-react";
+import { useLocale } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as React from "react";
 
+interface SidebarItem {
+	icon: React.ReactElement;
+	name: string;
+	path: string;
+}
 interface SettingsSidebarProps {
-	sidebarItems?: {
-		icon: React.ReactNode;
-		name: string;
-		path: string;
-		component?: React.ReactNode;
-	}[];
+	sidebarItems: SidebarItem[];
 }
 
-const sidebarItems = [
-	{
-		icon: <Settings size={16} />,
-		name: "General",
-		path: "/settings/general",
-	},
-	{
-		icon: <User size={16} />,
-		name: "Profile",
-		path: "/settings/profile",
-	},
-	{
-		icon: <Lock size={16} />,
-		name: "Privacy",
-		path: "/settings/privacy",
-	},
-	{
-		icon: <Users size={16} />,
-		name: "Friends",
-		path: "/settings/friends",
-	},
-];
-
 function SettingsSidebar() {
+	const locale = useLocale();
+
+	const sidebarItems: SidebarItem[] = [
+		{
+			icon: <Settings size={16} />,
+			name: "General",
+			path: `/${locale}/settings/general`,
+		},
+		{
+			icon: <User size={16} />,
+			name: "Profile",
+			path: `/${locale}/settings/profile`,
+		},
+		{
+			icon: <Lock size={16} />,
+			name: "Privacy",
+			path: `/${locale}/settings/privacy`,
+		},
+		{
+			icon: <Users size={16} />,
+			name: "Friends",
+			path: `/${locale}/settings/friends`,
+		},
+	];
+
 	const pathname = usePathname();
 
 	return (

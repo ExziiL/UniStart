@@ -13,6 +13,7 @@ export default function Home() {
 		<div className="full-bleed flex flex-col items-center gap-32 px-4 py-16 lg:pt-32">
 			<div className="flex max-w-[1024px] flex-col gap-16 md:flex-row">
 				<div className="flex flex-col">
+					<div>{t("title")}</div>
 					<h1 className="text-4xl font-medium">Explore & Engage: Your University Companion!</h1>
 					<p className="pb-12 pt-6 text-light">
 						Navigate your campus, connect with peers, and find your place in university life - all with
@@ -25,7 +26,7 @@ export default function Home() {
 					alt="Picture of the author"
 					width={400}
 					height={400}
-					style={{ borderRadius: "8px", objectFit: "contain" }}
+					style={{ borderRadius: "8px", objectFit: "fill" }}
 				/>
 			</div>
 

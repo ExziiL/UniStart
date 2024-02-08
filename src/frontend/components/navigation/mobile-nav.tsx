@@ -1,21 +1,21 @@
 "use client";
 
-import React from "react";
-
-import Link, { LinkProps } from "next/link";
-import { useRouter } from "next/navigation";
-
+import { default as generateNavItems, default as navItems } from "@/frontend/components/navigation/nav-items";
 import { Sheet, SheetContent, SheetTrigger } from "@/frontend/components/ui/sheet";
-
 import { cn } from "@/lib/utils";
 import { ViewVerticalIcon } from "@radix-ui/react-icons";
+import { useLocale } from "next-intl";
+import Link, { LinkProps } from "next/link";
+import { useRouter } from "next/navigation";
+import React from "react";
 import { Button } from "../ui/button";
 import { ScrollArea } from "../ui/scroll-area";
 
-import navItems from "@/frontend/components/navigation/nav-items";
-
 const MobileNav = () => {
 	const [open, setOpen] = React.useState(false);
+
+	const locale = useLocale();
+	let navItems = generateNavItems(locale);
 
 	return (
 		<Sheet

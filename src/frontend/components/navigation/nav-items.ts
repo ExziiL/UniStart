@@ -1,54 +1,64 @@
-const navItems: { title: string; href: string; description: string }[] = [
-	{
+// Define the structure of your navigation items
+interface NavItem {
+	title: string;
+	href: string;
+	description: string;
+  }
+  
+  // Function to generate navigation items with localized hrefs
+  function generateNavItems(locale: string): NavItem[] {
+	return [
+	  {
 		title: 'Home',
-		href: '/',
+		href: `/${locale}/`,
 		description: 'Home page',
-	},
-	{
+	  },
+	  {
 		title: 'Registration',
-		href: '/registration',
+		href: `/${locale}/registration`,
 		description: 'Registration page',
-	},
-	{
+	  },
+	  {
 		title: 'Login',
-		href: '/login',
+		href: `/${locale}/login`,
 		description: 'Login page',
-	},
-	{
+	  },
+	  {
 		title: 'Terminkalender',
-		href: '/terminplan',
+		href: `/${locale}/terminplan`,
 		description: 'Übersicht aller wichtigen Termine der Hochschule',
-	},
-	{
+	  },
+	  {
 		title: 'Vorlesungen',
-		href: '/vorlesungen',
+		href: `/${locale}/vorlesungen`,
 		description: 'Übersicht aller Vorlesungen der ersten zwei Semester',
-	},
-	{
+	  },
+	  {
 		title: 'Chat',
-		href: '/chat',
+		href: `/${locale}/chat`,
 		description: 'User-Chat',
-	},
-	{
+	  },
+	  {
 		title: 'Ai-Chat',
-		href: '/ai-chat',
+		href: `/${locale}/ai-chat`,
 		description: 'User-Chat',
-	},
-	{
+	  },
+	  {
 		title: 'Profile Settings',
-		href: '/settings/profile',
+		href: `/${locale}/settings/profile`,
 		description: 'Übersicht aller wichtigsten Settingseinstellungen',
-	},
-	{
+	  },
+	  {
 		title: 'FAQ',
-		href: '/faq',
+		href: `/${locale}/faq`,
 		description: 'Frequently Asked Questions',
-	},
-	{
+	  },
+	  {
 		title: 'Not Found',
-		href: '/not-found',
-		description: 'Übersicht aller wichtigen Termine der Hochschule',
-	},
-];
-
-export default navItems;
+		href: `/${locale}/not-found`,
+		description: '404 Error Page',
+	  },
+	];
+  }
+  
+  export default generateNavItems;

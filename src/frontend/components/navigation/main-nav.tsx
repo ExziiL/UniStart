@@ -1,7 +1,7 @@
 "use client";
 
 import NavAvatar from "@/frontend/components/navigation/nav-avatar";
-import navItems from "@/frontend/components/navigation/nav-items";
+import generateNavItems from "@/frontend/components/navigation/nav-items";
 import ThemeToggle from "@/frontend/components/theme-toggle";
 import {
 	NavigationMenu,
@@ -13,10 +13,14 @@ import {
 	navigationMenuTriggerStyle,
 } from "@/frontend/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import { useLocale } from "next-intl";
 import Link from "next/link";
 import React from "react";
 
 const MainNav = () => {
+	const locale = useLocale();
+	let navItems = generateNavItems(locale);
+
 	return (
 		<div className="hidden w-full max-w-[1024px] justify-between md:flex">
 			<Link

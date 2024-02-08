@@ -27,7 +27,7 @@ const settingsComponents: SettingsComponentMap = {
 
 const SettingsSection: React.FC = () => {
 	const pathname = usePathname();
-	const section = pathname.split("/")[2];
+	const section = pathname.split("/").slice(3)[0];
 
 	const SectionComponent = section && settingsComponents[section as keyof SettingsComponentMap];
 
@@ -36,7 +36,7 @@ const SettingsSection: React.FC = () => {
 			<div className="full-bleed flex flex-row ">
 				<SettingsSidebar />
 
-				<div className="grow p-4 xl:mr-[256px]">
+				<div className="grow p-4 2xl:mr-[256px]">
 					<div className="mx-auto max-w-[1024px]">
 						{/* Breadcrumb Component */}
 						<div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
