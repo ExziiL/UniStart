@@ -1,6 +1,6 @@
 "use client";
 
-import NotFound from "@/app/not-found";
+import NotFound from "@/app/[locale]/not-found";
 import SettingsSidebar from "@/frontend/components/settings-sidebar";
 import { Separator } from "@/frontend/components/ui/separator";
 import { capitalize } from "@/lib/utils";
