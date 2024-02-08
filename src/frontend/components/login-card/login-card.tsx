@@ -15,7 +15,7 @@ import { signIn } from 'next-auth/react';
 function LoginCard() {
 	const handleGitHubLogin = async() => {
 		console.log('github login');
-		const res = await signIn('github', { redirect: false })
+		const res = await signIn('github')
 
 		if (res?.ok) {
 			console.log('Successfully logged in');
@@ -24,7 +24,7 @@ function LoginCard() {
 
 	const handleGoogleLogin = async() => {
 		console.log('google login');
-		const res = await signIn('google', { redirect: false })
+		const res = await signIn('google')
 
 		if (res?.ok) {
 			console.log('Successfully logged in')

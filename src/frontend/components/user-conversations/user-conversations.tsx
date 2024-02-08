@@ -19,24 +19,31 @@ import { Edit } from "lucide-react";
 import React, { useEffect } from "react";
 import { useQuery } from '@tanstack/react-query'
 import { toast } from "@/frontend/hooks/use-toast";
+import userReducer from "@/reducer/user-reducer";
+import { useUserContext } from "@/context/user-context/user-context";
 
 function UserConversations() {
 	const [activeChat, setActiveChat] = React.useState<number | undefined>(undefined);
-	const [users, setUsers] = React.useState<Array<User> | []>([])
+	const [users, setUsers] = React.useState<Array<User> | []>([]);
+
+	const { userState } = useUserContext();
 
 	const handleUserClick = (userId: number) => {
-		console.log(userId, " clicked");
+		// console.log(userId, " clicked");
 		setActiveChat(userId);
+		// console.log(userState.id);
 	};
 
 	const handleNewUserClick = ({ id }: { id: number }) => {
-		console.log("new user clicked with id: ", id);
+		// console.log("new user clicked with id: ", id);
 	};
 
 	const { isPending, isError, error, data } = useQuery({
 		queryKey: ['getUsers'],
 		queryFn: () =>
-			fetch('api/user', { method: 'GET', headers: { 'Content-Type': 'application' } })
+			fetch('api/conversationusers', 
+				{ method: 'POST', headers: { 'Content-Type': 'application' },
+				  body: JSON.stringify(userState.id) })
 				.then(async (res) => await res.json())
 	})
 
@@ -78,29 +85,6 @@ function UserConversations() {
 										user={user}
 									/>
 								))}
-								{/* <NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat />
-								<NewConversationUserChat /> */}
 								<ScrollBar orientation="vertical" />
 							</ScrollArea>
 							<div className="mt-8 flex w-full flex-row justify-end">
@@ -120,7 +104,7 @@ function UserConversations() {
 				{USERS.map((user, index) => (
 					<div
 						key={index}
-						onClick={() => handleUserClick(user.uuid)}
+						onClick={() => handleUserClick(user.id)}
 					>
 						<SingleUserConversation
 							user={user}

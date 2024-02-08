@@ -82,7 +82,7 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 	// Handle Form Submit
 	// integrate with backend here
 	const onSubmit = (data: z.infer<typeof formSchema>) => {
-		console.log("Form Submitted: ", data);
+		// console.log("Form Submitted: ", data);
 		// integrate with backend here and wait for successful response
 
 		// reset the form

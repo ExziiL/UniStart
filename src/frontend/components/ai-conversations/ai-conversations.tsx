@@ -12,7 +12,7 @@ function AiConversations() {
 	const [activeChat, setActiveChat] = React.useState<number | undefined>(undefined);
 
 	const handleAiClick = (userId: number) => {
-		console.log(userId, " clicked");
+		// console.log(userId, " clicked");
 		setActiveChat(userId);
 	};
 

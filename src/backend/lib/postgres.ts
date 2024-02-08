@@ -16,10 +16,10 @@ const connectDb = async () => {
  
         await client.connect()
         const res = await client.query('CREATE TABLE some_table (id INTEGER PRIMARY KEY, name VARCHAR);')
-        console.log(res)
+        // console.log(res)
         await client.end()
     } catch (error) {
-        console.log(error)
+        // console.log(error)
     }
 }
  

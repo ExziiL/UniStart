@@ -3,13 +3,19 @@ import bcrypt from "bcryptjs";
 import prisma from "@/backend/lib/prisma";
 import driver from "@/backend/lib/neo4j";
 
-export async function GET(req: NextRequest) {
+export async function POST(req: NextRequest) {
     try {
-        const users = await prisma.user.findMany();
-        if (!users) return NextResponse.json({
+        const body = await req.json();
+
+        const user = await prisma.user.findUnique({
+            where: {
+                email: body.email
+            }
+        });
+        if (!user) return NextResponse.json({
             message: "No users found"
         }, { status: 500 })
-        return NextResponse.json({ users: users }, { status: 200 })
+        return NextResponse.json({ user: user }, { status: 200 })
     }
     catch (error) {
         return NextResponse.json({
@@ -19,7 +25,7 @@ export async function GET(req: NextRequest) {
     }
 }
 
-export async function POST(req: NextRequest) {
+export async function PUT(req: NextRequest) {
 
 }
 

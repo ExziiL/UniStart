@@ -11,7 +11,7 @@ datasource db {
 }
 
 model user {
-  uuid            String    @id @default(auto()) @map("_id") @db.ObjectId
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
   name          String?   @unique
   email         String?   @unique
   emailVerified DateTime?
@@ -48,7 +48,7 @@ model account {
   id_token          String? @db.String
   session_state     String?
 
-  user user @relation(fields: [userId], references: [uuid], onDelete: Cascade)
+  user user @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }

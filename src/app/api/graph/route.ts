@@ -9,7 +9,7 @@ export async function PUT(request: NextRequest) {
     );
     try {
         const res = await request.json();
-        console.log(res);
+        // console.log(res);
         
 
         const user = await prisma.user.findUnique({
@@ -19,13 +19,10 @@ export async function PUT(request: NextRequest) {
                 email: true,
                 name: true,
                 role: true,
-                profile: {
-                    select: { isOnline: true }
-                }
             }
         })
 
-        console.log(user);
+        // console.log(user);
 
 
         await client.executeWrite((tsa) => {
@@ -36,7 +33,8 @@ export async function PUT(request: NextRequest) {
                     username: $user.name,
                     email: $user.email,
                     role: $user.role,
-                    online: $user.online
+                    online: true,
+                    bio: ""
                 })
                 RETURN u`,
                 { user }

@@ -56,7 +56,7 @@ function RegistrationForm() {
 
 	// TODO: Add loading state
 	async function onSubmit(values: z.infer<typeof registrationFormSchema>) {
-		console.log('form submitted', values);
+		// console.log('form submitted', values);
 		toast({
 			title: 'You submitted the following values:',
 			description: (
@@ -73,7 +73,7 @@ function RegistrationForm() {
 				//await registerGraph(session.data, router)
 			}			
 		} catch (error) {
-			console.log("Something went wrong\n"+ error);
+			// console.log("Something went wrong\n"+ error);
 			
 		}
 

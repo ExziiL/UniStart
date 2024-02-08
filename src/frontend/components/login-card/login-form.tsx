@@ -40,7 +40,7 @@ function LoginForm() {
 
 	// TODO: Add loading state
 	async function onSubmit(values: z.infer<typeof loginFormSchema>) {
-		console.log('form submitted', values);
+		// console.log('form submitted', values);
 		toast({
 			title: 'You submitted the following values:',
 			description: (
@@ -58,13 +58,13 @@ function LoginForm() {
 			});
 
 			if (res?.error) {
-				console.log("Invalid credentials");				
+				// console.log("Invalid credentials");				
 				return;
 			}
 
 			router.replace("/")
 		} catch (error) {
-			console.log(error);
+			// console.log(error);
 			
 		}
 	}

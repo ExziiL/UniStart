@@ -8,12 +8,12 @@ export async function GET(request: NextRequest) {
         const { email } = Object.fromEntries(request.nextUrl.searchParams);
         const user = await prisma.user.findUnique({
             where: { email: email },
-            select: { uuid: true }
+            select: { id: true }
         });
 
         return NextResponse.json({ user }, { status: 200 });
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return NextResponse.json({
             message: "An error occurred while fetching user",
             error: error

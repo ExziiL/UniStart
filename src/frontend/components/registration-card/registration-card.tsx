@@ -14,30 +14,30 @@ import { register } from './actions';
 function RegistrationCard() {
 	const handleGitHubRegistration = async () => {
 
-		console.log('github registration');
+		// console.log('github registration');
 		try {
 			const res = await register('github', null);
 
 			if (res?.ok) {
-				console.log('Successfully registered')
+				// console.log('Successfully registered')
 			}
 		} catch (error) {
-			console.log("Something went wrong\n" + error);
+			// console.log("Something went wrong\n" + error);
 
 		}
 
 	};
 
 	const handleGoogleRegistration = async () => {
-		console.log('google registration');
+		// console.log('google registration');
 		try {
 			const res = await register('google', null);
 
 			if (res?.ok) {
-				console.log('Successfully registered')
+				// console.log('Successfully registered')
 			}
 		} catch (error) {
-			console.log("Something went wrong\n" + error);
+			// console.log("Something went wrong\n" + error);
 
 		}
 	};
