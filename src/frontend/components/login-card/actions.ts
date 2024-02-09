@@ -1,7 +1,8 @@
 import { User } from 'next-auth';
 
 export async function setOnlineState(email: String, isonline: boolean) {
-    const res = await fetch('api/online',
+    const baseUrl = process.env.VERCEL_URL ?? process.env.NEXTAUTH_URL!
+    const res = await fetch(baseUrl + 'api/online',
         {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

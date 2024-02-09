@@ -22,30 +22,46 @@ import { toast } from "@/frontend/hooks/use-toast";
 import userReducer from "@/reducer/user-reducer";
 import { useUserContext } from "@/context/user-context/user-context";
 
+const fetchData = async (id: string | number) => {
+
+	const response = await fetch('api/conversationusers', {
+		method: 'POST',
+		headers: { 'Content-Type': 'application' },
+		body: JSON.stringify(id)
+	});
+
+	if (!response.ok) {
+		throw new Error('Network response was not ok');
+	}
+
+	return await response.json();
+}
+
 function UserConversations() {
+	const { userState } = useUserContext();
 	const [activeChat, setActiveChat] = React.useState<number | undefined>(undefined);
 	const [users, setUsers] = React.useState<Array<User> | []>([]);
+	const [shouldFetch, setShouldFetch] = React.useState<boolean>(false);
 
-	const { userState } = useUserContext();
+
 
 	const handleUserClick = (userId: number) => {
 		// console.log(userId, " clicked");
 		setActiveChat(userId);
-		// console.log(userState.id);
+		console.log(userState);
 	};
 
 	const handleNewUserClick = ({ id }: { id: number }) => {
 		// console.log("new user clicked with id: ", id);
 	};
 
-	const { isPending, isError, error, data } = useQuery({
-		queryKey: ['getUsers'],
-		queryFn: () =>
-			fetch('api/conversationusers', 
-				{ method: 'POST', headers: { 'Content-Type': 'application' },
-				  body: JSON.stringify(userState.id) })
-				.then(async (res) => await res.json())
-	})
+	useEffect(() => {
+		if (!shouldFetch && userState.id != 0) {
+			setShouldFetch(true);
+		}
+	}, [userState])
+
+	const { isPending, isError, error, data } = useQuery({ queryKey: ['getUsers'], queryFn: () => fetchData(userState.id), enabled: shouldFetch });
 
 	useEffect(() => {
 		if (isPending) { }
@@ -55,8 +71,12 @@ function UserConversations() {
 				description: error.message,
 			});
 		}
-		if (!isError) setUsers(data?.users);
+		if (!isError) {
+			console.log(data);
+			setUsers(data?.users)
+		};
 	}, [isPending, isError]);
+
 
 	return (
 		<div className="bg-background">
@@ -79,7 +99,7 @@ function UserConversations() {
 
 						<div className="flex h-full flex-col pb-12 pt-4">
 							<ScrollArea className="w-full">
-								{users?.map((user, index) => (
+								{USERS.map((user, index) => (
 									<NewConversationUserChat
 										key={index}
 										user={user}

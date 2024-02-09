@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
     try {
         const res = await request.json();
 
-        await client.executeWrite((tsa) => {
+        const user = await client.executeWrite((tsa) => {
             return tsa.run(
                 `
                 MATCH (u:User { email: $email })
@@ -19,7 +19,10 @@ export async function POST(request: NextRequest) {
             )
         })
         return NextResponse.json(
-            { message: "Successfull changed Usernode" },
+            {
+                message: "Successfull changed Usernode",
+                data: user
+            },
             { status: 200 });
     } catch (error) {
         return NextResponse.json({

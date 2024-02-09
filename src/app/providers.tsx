@@ -5,25 +5,28 @@ import { ThemeProviderProps } from 'next-themes/dist/types';
 import AuthProvider from './providers/AuthProvider';
 import TanstackProvider from './providers/TanstackProvider';
 import { UserContextProvider } from "@/context/user-context/user-context";
+import { SessionProvider, useSession } from "next-auth/react"
 
 export function Providers({ children, ...props }: Readonly<ThemeProviderProps>) {
 	return (
-		<AuthProvider>
-			<TanstackProvider>
-				<UserContextProvider>
-					<NextThemesProvider
-						attribute="class"
-						enableColorScheme={true}
-						// defaultTheme="system"
-						enableSystem={false}
-						// disableTransitionOnChange
-						{...props}
-					>
-						{children}
-					</NextThemesProvider>
-				</UserContextProvider>
-			</TanstackProvider>
-		</AuthProvider>
+		<UserContextProvider>
+			<SessionProvider>
+				<AuthProvider>
+					<TanstackProvider>
+						<NextThemesProvider
+							attribute="class"
+							enableColorScheme={true}
+							// defaultTheme="system"
+							enableSystem={false}
+							// disableTransitionOnChange
+							{...props}
+							>
+							{children}
+						</NextThemesProvider>
+					</TanstackProvider>
+				</AuthProvider>
+			</SessionProvider>
+		</UserContextProvider>
 
 	);
 }

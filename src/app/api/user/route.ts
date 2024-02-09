@@ -6,20 +6,21 @@ import driver from "@/backend/lib/neo4j";
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
-
+       
         const user = await prisma.user.findUnique({
             where: {
                 email: body.email
             }
         });
+        
         if (!user) return NextResponse.json({
-            message: "No users found"
+            message: "No user found"
         }, { status: 500 })
         return NextResponse.json({ user: user }, { status: 200 })
     }
     catch (error) {
         return NextResponse.json({
-            message: "An error occurred while fetching users",
+            message: "An error occurred while fetching user",
             error: error
         }, { status: 500 });
     }

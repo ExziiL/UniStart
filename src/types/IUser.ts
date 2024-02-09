@@ -125,7 +125,7 @@ interface User {
 	profile?: {
 		bio: string,
 	},
-	contactInfo: {
+	contactInfo?: {
 		age?: number,
 		gender?: string,
 		countryPrefix?: number,
