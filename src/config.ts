@@ -13,6 +13,10 @@ export const pathnames = {
 		en: "/courses",
 		de: "/vorlesungen",
 	},
+    "/faq": {
+        en: "/frequently-asked-questions",
+        de: "/fragen-und-antworten",
+    },
 
 	// Dynamic params are supported via square brackets
 	// "/news/[articleSlug]-[articleId]": {

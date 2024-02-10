@@ -46,5 +46,47 @@
 				"href": "/faq"
 			}
 		}
+	},
+	"FAQ": {
+		"title": "Häufig gestellte Fragen",
+		"sub-heading": "Du hast Fragen? Wir haben Antworten! Hier findest du die am häufigsten gestellten Fragen rund um die Universität und das Studium.",
+		"questions": {
+			"question1": {
+				"title": "Wie finde ich meine Vorlesungen?",
+				"answer": "Du kannst deine Vorlesungen finden, indem du auf den 'Vorlesungen' Tab in der Navigationsleiste klickst. Dort kannst du nach deinen Vorlesungen nach Namen oder nach dem Namen des Professors suchen."
+			},
+			"question2": {
+				"title": "Wie bewerte ich meine Vorlesungen?",
+				"answer": "Du kannst deine Vorlesungen bewerten, indem du auf den 'Vorlesungen' Tab in der Navigationsleiste klickst. Nun kannst du auf eine Vorlesung klicken und eine Bewertung abgeben."
+			},
+			"question3": {
+				"title": "Was sind die Grundvoraussetzungen für das Studium der Informatik?",
+				"answer": "Die Grundvoraussetzungen für das Studium der Informatik umfassen in der Regel ein starkes Interesse an Technologie und Computerwissenschaften, gute analytische Fähigkeiten und Problemlösungskompetenzen. Mathematische Grundkenntnisse sind ebenfalls wichtig, da viele Konzepte auf Mathematik basieren. Abhängig von der Hochschule können spezifische Voraussetzungen wie ein bestimmter Notendurchschnitt oder Kenntnisse in bestimmten Programmiersprachen erforderlich sein."
+			},
+			"question4": {
+				"title": "Welche Programmiersprachen sollte ich als erstes lernen?",
+				"answer": "Als Einstieg eignen sich Programmiersprachen, die breit angewendet werden und eine gute Grundlage für das Verständnis weiterer Sprachen bieten. Python wird oft wegen seiner Einfachheit und Vielseitigkeit Einfachheit und Vielseitigkeit empfohlen. Java und C++ sind ebenfalls gute Wahlmöglichkeiten, da sie viele Konzepte der objektorientierten Programmierung vermitteln, die in der Softwareentwicklung weit verbreitet sind."
+			},
+			"question5": {
+				"title": "Wie viel Zeit sollte ich wöchentlich für das Studium einplanen?",
+				"answer": "Die empfohlene Lernzeit variiert, aber viele Hochschulen und Universitäten raten zu etwa 40 Stunden pro Woche, einschließlich Vorlesungen, Seminaren und Selbststudium. Dies kann je nach Schwierigkeitsgrad der Kurse und individuellen Lerngewohnheiten variieren."
+			},
+			"question6": {
+				"title": "Ist es wichtig, bereits vor Studienbeginn Programmiererfahrung zu haben?",
+				"answer": "Obwohl es hilfreich ist, ist es nicht zwingend notwendig, vor Studienbeginn Programmiererfahrung zu haben. Viele Studiengänge sind so konzipiert, dass sie Studierenden ohne Vorkenntnisse die Grundlagen der Programmierung und Computertechnik vermitteln."
+			},
+			"question7": {
+				"title": "Wie kann ich mich auf die Mathematik im Studium vorbereiten?",
+				"answer": "Um sich auf die Mathematik im Studium vorzubereiten, kann es hilfreich sein, Grundlagen in Algebra, Geometrie und eventuell auch in der Analysis zu wiederholen. Online-Kurse, Lehrbücher und Vorbereitungskurse bieten gute Möglichkeiten, vorhandenes Wissen aufzufrischen oder neue Konzepte zu lernen."
+			},
+			"question8": {
+				"title": "Was ist der Unterschied zwischen angewandter Informatik und theoretischer Informatik?",
+				"answer": "Die theoretische Informatik befasst sich mit den grundlegenden Prinzipien und Theorien, die der Berechnung und Informationsverarbeitung zugrunde liegen, wie Algorithmentheorie und Komplexitätstheorie. Angewandte Informatik konzentriert sich hingegen auf die praktische Anwendung dieser Theorien in Bereichen wie Softwareentwicklung, Datenanalyse und Systemintegration."
+			},
+			"question9": {
+				"title": "Wie wichtig sind Gruppenarbeiten im Informatikstudium?",
+				"answer": "Gruppenarbeiten sind im Informatikstudium sehr wichtig, da sie die Zusammenarbeit, Kommunikationsfähigkeit und Problemlösung in der Praxis fördern. Sie spiegeln die Teamarbeit wider, die in der Berufswelt häufig erforderlich ist, und helfen, praktische Erfahrungen im Projektmanagement und in der Softwareentwicklung zu sammeln."
+			}
+		}
 	}
 }

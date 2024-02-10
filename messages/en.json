@@ -46,5 +46,47 @@
 				"href": "/faq"
 			}
 		}
+	},
+	"FAQ": {
+		"title": "Frequently Asked Questions",
+		"sub-heading": "You have questions? We have answers! Here are the most frequently asked questions about the university and your studies.",
+		"questions": {
+			"question1": {
+				"title": "How do I find my courses?",
+				"answer": "You can find your courses by clicking on the 'Courses' tab in the navigation bar. There you can search for your courses by name or by the name of the professor."
+			},
+			"question2": {
+				"title": "How can I rate my courses?",
+				"answer": "You can rate your courses by clicking on the 'Courses' tab in the navigation bar. There you can search for your courses by name or by the name of the professor."
+			},
+			"question3": {
+				"title": "What are the basic requirements for studying computer science?",
+				"answer": "The basic requirements for studying computer science generally include a strong interest in technology and computer science, good analytical skills, and problem-solving competencies. Mathematical basics are also important, as many concepts are based on mathematics. Depending on the university, specific requirements such as a certain grade point average or knowledge in certain programming languages may be required."
+			},
+			"question4": {
+				"title": "Which programming languages should I learn first?",
+				"answer": "Programming languages that are widely used and provide a good foundation for understanding further languages are suitable for beginners. Python is often recommended for its simplicity and versatility. Java and C++ are also good choices, as they teach many concepts of object-oriented programming that are widely used in software development."
+			},
+			"question5": {
+				"title": "How much time should I plan for studying each week?",
+				"answer": "The recommended study time varies, but many colleges and universities advise about 40 hours per week, including lectures, seminars, and self-study. This can vary depending on the difficulty of the courses and individual learning habits."
+			},
+			"question6": {
+				"title": "Is it important to have programming experience before starting my studies?",
+				"answer": "Although it is helpful, it is not strictly necessary to have programming experience before starting your studies. Many programs are designed to teach students the basics of programming and computer technology without prior knowledge."
+			},
+			"question7": {
+				"title": "How can I prepare for the mathematics in my studies?",
+				"answer": "To prepare for the mathematics in your studies, it can be helpful to review basics in algebra, geometry, and possibly calculus. Online courses, textbooks, and preparatory courses offer good opportunities to refresh existing knowledge or learn new concepts."
+			},
+			"question8": {
+				"title": "What is the difference between applied computer science and theoretical computer science?",
+				"answer": "Theoretical computer science deals with the fundamental principles and theories underlying computation and information processing, such as algorithm theory and complexity theory. Applied computer science, on the other hand, focuses on the practical application of these theories in areas such as software development, data analysis, and system integration."
+			},
+			"question9": {
+				"title": "How important is group work in computer science studies?",
+				"answer": "Group work is very important in computer science studies as it promotes collaboration, communication skills, and problem-solving in practice. It reflects the teamwork often required in the professional world and helps to gain practical experience in project management and software development."
+			}
+		}
 	}
 }

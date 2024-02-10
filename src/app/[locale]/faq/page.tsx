@@ -1,45 +1,56 @@
+"use client";
+
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/frontend/components/ui/accordion";
+import { useTranslations } from "next-intl";
 import React from "react";
 
-const questions: Array<{ question: string; answer: string }> = [
-	{
-		question: "Was sind die Grundvoraussetzungen für das Studium der Informatik?",
-		answer: "Die Grundvoraussetzungen für das Studium der Informatik umfassen in der Regel ein starkes Interesse an Technologie und Computerwissenschaften, gute analytische Fähigkeiten und Problemlösungskompetenzen. Mathematische Grundkenntnisse sind ebenfalls wichtig, da viele Konzepte auf Mathematik basieren. Abhängig von der Hochschule können spezifische Voraussetzungen wie ein bestimmter Notendurchschnitt oder Kenntnisse in bestimmten Programmiersprachen erforderlich sein.",
-	},
-	{
-		question: "Welche Programmiersprachen sollte ich als erstes lernen?",
-		answer: "Als Einstieg eignen sich Programmiersprachen, die breit angewendet werden und eine gute Grundlage für das Verständnis weiterer Sprachen bieten. Python wird oft wegen seiner Einfachheit und Vielseitigkeit empfohlen. Java und C++ sind ebenfalls gute Wahlmöglichkeiten, da sie viele Konzepte der objektorientierten Programmierung vermitteln, die in der Softwareentwicklung weit verbreitet sind.",
-	},
-	{
-		question: "Wie viel Zeit sollte ich wöchentlich für das Studium einplanen?",
-		answer: "Die empfohlene Lernzeit variiert, aber viele Hochschulen und Universitäten raten zu etwa 40 Stunden pro Woche, einschließlich Vorlesungen, Seminaren und Selbststudium. Dies kann je nach Schwierigkeitsgrad der Kurse und individuellen Lerngewohnheiten variieren.",
-	},
-	{
-		question: "Ist es wichtig, bereits vor Studienbeginn Programmiererfahrung zu haben?",
-		answer: "Obwohl es hilfreich ist, ist es nicht zwingend notwendig, vor Studienbeginn Programmiererfahrung zu haben. Viele Studiengänge sind so konzipiert, dass sie Studierenden ohne Vorkenntnisse die Grundlagen der Programmierung und Computertechnik vermitteln.",
-	},
-	{
-		question: "Wie kann ich mich auf die Mathematik im Studium vorbereiten?",
-		answer: "Um sich auf die Mathematik im Studium vorzubereiten, kann es hilfreich sein, Grundlagen in Algebra, Geometrie und eventuell auch in der Analysis zu wiederholen. Online-Kurse, Lehrbücher und Vorbereitungskurse bieten gute Möglichkeiten, vorhandenes Wissen aufzufrischen oder neue Konzepte zu lernen.",
-	},
-	{
-		question: "Was ist der Unterschied zwischen angewandter Informatik und theoretischer Informatik?",
-		answer: "Die theoretische Informatik befasst sich mit den grundlegenden Prinzipien und Theorien, die der Berechnung und Informationsverarbeitung zugrunde liegen, wie Algorithmentheorie und Komplexitätstheorie. Angewandte Informatik konzentriert sich hingegen auf die praktische Anwendung dieser Theorien in Bereichen wie Softwareentwicklung, Datenanalyse und Systemintegration.",
-	},
-	{
-		question: "Wie wichtig sind Gruppenarbeiten im Informatikstudium?",
-		answer: "Gruppenarbeiten sind im Informatikstudium sehr wichtig, da sie die Zusammenarbeit, Kommunikationsfähigkeit und Problemlösung in der Praxis fördern. Sie spiegeln die Teamarbeit wider, die in der Berufswelt häufig erforderlich ist, und helfen, praktische Erfahrungen im Projektmanagement und in der Softwareentwicklung zu sammeln.",
-	},
-];
-
 function Faq() {
+	const t = useTranslations("FAQ");
+
+	const questions: Array<{ question: string; answer: string }> = [
+		{
+			question: t("questions.question1.title"),
+			answer: t("questions.question1.answer"),
+		},
+		{
+			question: t("questions.question2.title"),
+			answer: t("questions.question2.answer"),
+		},
+		{
+			question: t("questions.question3.title"),
+			answer: t("questions.question3.answer"),
+		},
+		{
+			question: t("questions.question4.title"),
+			answer: t("questions.question4.answer"),
+		},
+		{
+			question: t("questions.question5.title"),
+			answer: t("questions.question5.answer"),
+		},
+		{
+			question: t("questions.question6.title"),
+			answer: t("questions.question6.answer"),
+		},
+		{
+			question: t("questions.question7.title"),
+			answer: t("questions.question7.answer"),
+		},
+		{
+			question: t("questions.question8.title"),
+			answer: t("questions.question8.answer"),
+		},
+		{
+			question: t("questions.question9.title"),
+			answer: t("questions.question9.answer"),
+		},
+	];
+
 	return (
-		<div className="flex flex-col items-center ">
-			<div className="py-8">
-				<h1 className="text-3xl font-medium">Frequently Asked Questions</h1>
-				<p className="text-base text-light">
-					Looking for more information? Here are some things other students have asked us in the past.
-				</p>
+		<div className="no-scrollbar flex flex-col items-center pb-16">
+			<div className="max-w-[720px] px-4 py-8">
+				<h1 className="text-3xl font-medium">{t("title")}</h1>
+				<p className="text-base text-light">{t("sub-heading")}</p>
 			</div>
 
 			<div className="max-w-[720px] py-4 md:w-[720px]">
@@ -48,7 +59,10 @@ function Faq() {
 					collapsible
 				>
 					{questions.map((question, index) => (
-						<AccordionItem value={"item-" + index}>
+						<AccordionItem
+							value={"item-" + index}
+							key={"item-" + index}
+						>
 							<AccordionTrigger className="text-start">{question.question}</AccordionTrigger>
 							<AccordionContent className="text-light">{question.answer}</AccordionContent>
 						</AccordionItem>
