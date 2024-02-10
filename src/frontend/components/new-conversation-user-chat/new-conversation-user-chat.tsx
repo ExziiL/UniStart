@@ -2,20 +2,23 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/frontend/components/ui/av
 import IUser from "@/types/IUser";
 import React from "react";
 
-type NewConversationUserChatProps = {
+interface NewConversationUserChatProps extends React.HTMLAttributes<HTMLDivElement> {
 	// TODO: change any to user type
 	user?: IUser;
 };
 
 // TODO: change static data to user data
-function NewConversationUserChat({ user }: NewConversationUserChatProps) {
+function NewConversationUserChat({ user}: NewConversationUserChatProps) {
 	const [isSelected, setIsSelected] = React.useState(false);
 
 	return (
 		<div
 			className={`${isSelected ? "bg-ultra-light/15" : ""
 				} my-1 flex w-full cursor-pointer flex-row gap-4 rounded-sm px-3 pt-4 hover:bg-ultra-light/10`}
-			onClick={() => setIsSelected(!isSelected)}
+			onClick={() => {
+				setIsSelected(!isSelected)
+			}
+			}
 		>
 			<div className="relative">
 				<Avatar>

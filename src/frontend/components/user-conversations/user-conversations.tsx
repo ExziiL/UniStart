@@ -39,24 +39,27 @@ const fetchData = async (id: string | number) => {
 
 function UserConversations() {
 	const { userState } = useUserContext();
-	const [activeChat, setActiveChat] = React.useState<number | undefined>(undefined);
+	const [activeChat, setActiveChat] = React.useState<string | undefined>(undefined);
+	const [selectedUsers, setSelectedUsers] = React.useState<string[]>([]);
 	const [users, setUsers] = React.useState<Array<User> | []>([]);
 	const [shouldFetch, setShouldFetch] = React.useState<boolean>(false);
 
 
 
-	const handleUserClick = (userId: number) => {
+	const handleUserClick = (userId: string) => {
 		// console.log(userId, " clicked");
 		setActiveChat(userId);
 		console.log(userState);
 	};
 
-	const handleNewUserClick = ({ id }: { id: number }) => {
-		// console.log("new user clicked with id: ", id);
+	const handleNewUserClick = () => {
+		console.log(selectedUsers);
+
+		// console.log("new user clicked with id: ", id);		
 	};
 
 	useEffect(() => {
-		if (!shouldFetch && userState.id != 0) {
+		if (!shouldFetch && userState.id !== '0') {
 			setShouldFetch(true);
 		}
 	}, [userState])
@@ -71,12 +74,24 @@ function UserConversations() {
 				description: error.message,
 			});
 		}
-		if (!isError) {
-			console.log(data);
-			setUsers(data?.users)
+		if (!isError && data) {
+			setUsers(data?.users);
+			setShouldFetch(false);
 		};
 	}, [isPending, isError]);
 
+	function handleUserSelection(id: string) {
+		setSelectedUsers((prev) => {
+			if (prev.includes(id)) {
+				return prev.filter((user) => user !== id);
+			} else {
+				return ([...prev, id]);
+			}
+		})
+
+		console.log(selectedUsers);
+
+	}
 
 	return (
 		<div className="bg-background">
@@ -95,21 +110,25 @@ function UserConversations() {
 						<SheetHeader>
 							<SheetTitle>New Chat</SheetTitle>
 							<SheetDescription>Select the person you want to start chatting.</SheetDescription>
+							<div>{selectedUsers}</div>
 						</SheetHeader>
 
 						<div className="flex h-full flex-col pb-12 pt-4">
 							<ScrollArea className="w-full">
-								{USERS.map((user, index) => (
-									<NewConversationUserChat
+								{users.map((user, index) => (
+									<div
 										key={index}
-										user={user}
-									/>
+										onClick={() => handleUserSelection(user.id)}>
+										<NewConversationUserChat
+											user={user}
+										/>
+									</div>
 								))}
 								<ScrollBar orientation="vertical" />
 							</ScrollArea>
 							<div className="mt-8 flex w-full flex-row justify-end">
 								<Button
-									onClick={() => handleNewUserClick({ id: 1 })}
+									onClick={() => handleNewUserClick()}
 									className="w-fit"
 								>
 									Add Chat

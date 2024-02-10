@@ -111,7 +111,7 @@ import { UserGender, UserRole } from '@/enums/user';
 } */
 
 interface User {
-	id: number,
+	id: string,
 	name: string,
 	email: string,
 	image: string,

@@ -8,7 +8,7 @@ export const useFetchUser = () => {
 
     const fetchUser = async (session: Session) => {
         try {
-            const response = await fetch('/api/user', {
+            const response = await fetch('api/user', {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: session?.user?.email })
             });

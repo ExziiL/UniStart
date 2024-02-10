@@ -9,8 +9,6 @@ export async function PUT(request: NextRequest) {
     );
     try {
         const res = await request.json();
-        // console.log(res);
-        
 
         const user = await prisma.user.findUnique({
             where: { email: res.email },
@@ -22,15 +20,12 @@ export async function PUT(request: NextRequest) {
             }
         })
 
-        // console.log(user);
-
-
         await client.executeWrite((tsa) => {
             return tsa.run(
                 `
                 CREATE (u:User {
                     id: $user.id,
-                    username: $user.name,
+                    name: $user.name,
                     email: $user.email,
                     role: $user.role,
                     online: true,

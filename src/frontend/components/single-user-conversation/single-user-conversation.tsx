@@ -16,7 +16,7 @@ import React from 'react';
 
 interface SingleUserConversationProps {
 	user: IUser;
-	activeChat?: number;
+	activeChat?: string;
 }
 
 function SingleUserConversation({ user, activeChat }: SingleUserConversationProps) {

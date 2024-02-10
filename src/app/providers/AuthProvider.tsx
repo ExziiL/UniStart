@@ -16,7 +16,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
     useEffect(() => {
         if (session) fetchUser(session)
-    }, [session, fetchUser])
+    }, [session])
 
     return children
 }
