@@ -1,5 +1,46 @@
 {
 	"Home": {
-		"title": "Hallo Welt!"
+		"title": "Erkunden & Engagieren: Dein Universitätsbegleiter!",
+		"sub-heading": "Navigiere durch deinen Campus, vernetze dich mit Gleichgesinnten und finde deinen Platz im Universitätsleben - alles ganz einfach!",
+		"button": "Leg los - es ist kostenlos!",
+		"image-alt": "Illustration eines Studenten mit einem Rucksack und einem Smartphone",
+		"features": {
+			"feature1": {
+				"title": "Vorlesungsübersicht",
+				"image": "https://source.unsplash.com/random",
+				"alt": "Bild des Autors 1",
+				"href": "/vorlesungen"
+			},
+			"feature2": {
+				"title": "Vorlesungsbewertungen",
+				"image": "https://source.unsplash.com/random",
+				"alt": "Bild des Autors 2",
+				"href": "/vorlesungen/grundlagen-der-mathematik"
+			},
+			"feature3": {
+				"title": "Karte",
+				"image": "https://source.unsplash.com/random",
+				"alt": "Bild des Autors 3",
+				"href": "/map"
+			},
+			"feature4": {
+				"title": "Chat",
+				"image": "https://source.unsplash.com/random",
+				"alt": "Bild des Autors 4",
+				"href": "/chat"
+			},
+			"feature5": {
+				"title": "Ki-Chat",
+				"image": "https://source.unsplash.com/random",
+				"alt": "Bild des Autors 5",
+				"href": "/ai-chat"
+			},
+			"feature6": {
+				"title": "Häufig gestellte Fragen",
+				"image": "https://source.unsplash.com/random",
+				"alt": "Bild des Autors 6",
+				"href": "/faq"
+			}
+		}
 	}
 }

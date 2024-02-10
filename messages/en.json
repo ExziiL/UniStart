@@ -1,5 +1,46 @@
 {
 	"Home": {
-		"title": "Hello world!"
+		"title": "Explore & Engage: Your University Companion!",
+		"sub-heading": "Navigate your campus, connect with peers, and find your place in university life - all with ease!",
+		"button": "Get started - it's free!",
+		"image-alt": "Illustration of a student with a backpack and a smartphone",
+		"features": {
+			"feature1": {
+				"title": "Course Overviews",
+				"image": "https://source.unsplash.com/random",
+				"alt": "Picture of the author 1",
+				"href": "/courses"
+			},
+			"feature2": {
+				"title": "Course Reviews",
+				"image": "https://source.unsplash.com/random",
+				"alt": "Picture of the author 2",
+				"href": "/vorlesungen/grundlagen-der-mathematik"
+			},
+			"feature3": {
+				"title": "Locations",
+				"image": "https://source.unsplash.com/random",
+				"alt": "Picture of the author 3",
+				"href": "/map"
+			},
+			"feature4": {
+				"title": "Chat",
+				"image": "https://source.unsplash.com/random",
+				"alt": "Picture of the author 4",
+				"href": "/chat"
+			},
+			"feature5": {
+				"title": "Ai-Chat",
+				"image": "https://source.unsplash.com/random",
+				"alt": "Picture of the author 5",
+				"href": "/ai-chat"
+			},
+			"feature6": {
+				"title": "Frequently Asked Questions",
+				"image": "https://source.unsplash.com/random",
+				"alt": "Picture of the author 6",
+				"href": "/faq"
+			}
+		}
 	}
 }
