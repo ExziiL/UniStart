@@ -24,7 +24,7 @@ export default function RootLayout({
 	params: { locale },
 }: {
 	children: React.ReactNode;
-	params: { locale: string };
+	params: { locale: "en" | "de" };
 }) {
 	const messages = useMessages();
 
@@ -34,10 +34,7 @@ export default function RootLayout({
 			suppressHydrationWarning
 		>
 			<body className={inter.className}>
-				<NextIntlClientProvider
-					locale={locale}
-					messages={messages}
-				>
+				<NextIntlClientProvider messages={messages}>
 					<Providers>
 						<Navigation />
 						<main className="wrapper">
