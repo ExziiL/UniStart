@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 import CourseReviews from "@/frontend/components/course-reviews";
@@ -8,14 +10,13 @@ import Link from "next/link";
 
 interface PageProps {
 	params: {
-		vorlesung: VorlesungProps["slug"];
+		locale: string;
+		course: VorlesungProps["slug"];
 	};
 }
 
 function Page({ params }: PageProps) {
-	const vorlesung = VORLESUNGEN.find((vorlesung) => vorlesung.slug === params.vorlesung);
-
-	console.log(params);
+	const vorlesung = VORLESUNGEN.find((vorlesung) => vorlesung.slug === params.course);
 
 	if (!vorlesung) {
 		// TODO: add (custom) 404 page

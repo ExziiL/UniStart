@@ -2,7 +2,6 @@
 
 import IconWithText from "@/frontend/components/icon-with-text";
 import ProfessorDetails from "@/frontend/components/professor-details";
-import { useRouter } from "@/navigation";
 import { VorlesungProps } from "@/types/IVorlesung";
 import { Variants, motion } from "framer-motion";
 import { ArrowRight, Home, Star } from "lucide-react";
