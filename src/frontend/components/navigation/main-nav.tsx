@@ -1,8 +1,8 @@
 "use client";
 
+import LocaleSwitcher from "@/frontend/components/locale-switcher";
 import NavAvatar from "@/frontend/components/navigation/nav-avatar";
 import generateNavItems from "@/frontend/components/navigation/nav-items";
-import ThemeToggle from "@/frontend/components/theme-toggle";
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -81,7 +81,11 @@ const MainNav = () => {
 			{/* ----------------------------------------------- */}
 
 			{/* Diese div ist dafür da um die navigation items durch das "justify-between" zentral zu halten, deshalb nicht löschen! */}
-			<NavAvatar />
+
+			<div className="flex flex-row space-x-2">
+				<LocaleSwitcher />
+				<NavAvatar />
+			</div>
 		</div>
 	);
 };

@@ -1,16 +1,16 @@
+import { locales } from '@/config';
 import { getRequestConfig } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
-const locales = ['en', 'de']
-
 export default getRequestConfig(async ({locale}) => {
-    const baseLocale = new Intl.Locale(locale).baseName;
-
-    if (!locales.includes(baseLocale)) {
-        return notFound()
-    }
+    if (!locales.includes(locale as any)) notFound()
     
     return {
-        messages: (await import (`../messages/${baseLocale}.json`)).default
-    }
+        messages: (
+          await (locale === 'en'
+            ? // When using Turbopack, this will enable HMR for `en`
+              import('../messages/en.json')
+            : import(`../messages/${locale}.json`))
+        ).default
+      };
 })

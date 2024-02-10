@@ -1,4 +1,8 @@
 {
+	"LocaleSwitcher": {
+		"label": "Change language",
+		"locale": "{locale, select, de {🇩🇪 Deutsch} en {🇺🇸 English} other {Unknown}}"
+	},
 	"Home": {
 		"title": "Explore & Engage: Your University Companion!",
 		"sub-heading": "Navigate your campus, connect with peers, and find your place in university life - all with ease!",

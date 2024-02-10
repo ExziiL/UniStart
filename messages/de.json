@@ -1,4 +1,8 @@
 {
+	"LocaleSwitcher": {
+		"label": "Sprache ändern",
+		"locale": "{locale, select, de {🇩🇪 Deutsch} en {🇺🇸 English} other {Unbekannt}}"
+	},
 	"Home": {
 		"title": "Erkunden & Engagieren: Dein Universitätsbegleiter!",
 		"sub-heading": "Navigiere durch deinen Campus, vernetze dich mit Gleichgesinnten und finde deinen Platz im Universitätsleben - alles ganz einfach!",
