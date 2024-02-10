@@ -4,10 +4,9 @@ import { localePrefix, locales, pathnames } from './config'
 export default createMiddleware({
     // Used when no locale mathes
     defaultLocale: 'en',
-
-    localePrefix,
     locales,
-    pathnames
+    pathnames,
+    localePrefix
 })
 
 export const config = {

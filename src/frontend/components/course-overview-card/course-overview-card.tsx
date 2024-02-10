@@ -2,9 +2,11 @@
 
 import IconWithText from "@/frontend/components/icon-with-text";
 import ProfessorDetails from "@/frontend/components/professor-details";
+import { useRouter } from "@/navigation";
 import { VorlesungProps } from "@/types/IVorlesung";
 import { Variants, motion } from "framer-motion";
 import { ArrowRight, Home, Star } from "lucide-react";
+import { useLocale } from "next-intl";
 import Link from "next/link";
 import React from "react";
 import { useHover } from "usehooks-ts";
@@ -16,6 +18,7 @@ interface CourseOverViewCardProps extends React.HTMLAttributes<HTMLDivElement> {
 function CourseOverviewCard({ vorlesung, className }: CourseOverViewCardProps) {
 	const hoverRef = React.useRef<HTMLDivElement>(null);
 	const isHovered = useHover(hoverRef);
+	const activeLocale = useLocale();
 
 	const arrowVariants: Variants = {
 		tapped: { x: 3 },
@@ -48,7 +51,10 @@ function CourseOverviewCard({ vorlesung, className }: CourseOverViewCardProps) {
 
 			<div className="flex flex-col gap-3">
 				<div className="flex justify-between">
-					<Link href={`/vorlesungen/${vorlesung.slug}`}>
+					<Link
+						href={`/courses/${vorlesung.slug}`}
+						locale={activeLocale}
+					>
 						<motion.div
 							className="relative flex cursor-pointer items-center gap-2 text-link/95 transition-colors hover:text-link"
 							ref={hoverRef}

@@ -34,7 +34,10 @@ export default function RootLayout({
 			suppressHydrationWarning
 		>
 			<body className={inter.className}>
-				<NextIntlClientProvider messages={messages}>
+				<NextIntlClientProvider
+					messages={messages}
+					locale={locale}
+				>
 					<Providers>
 						<Navigation />
 						<main className="wrapper">

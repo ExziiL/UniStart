@@ -1,6 +1,8 @@
 "use client";
 
 import clsx from "clsx";
+import { useLocale } from "next-intl";
+import { useParams } from "next/navigation";
 import { ChangeEvent, ReactNode, useTransition } from "react";
 import { usePathname, useRouter } from "../../../navigation";
 
@@ -11,14 +13,16 @@ type Props = {
 };
 
 function LocaleSwitcherSelect({ children, defaultValue, label }: Props) {
-	const router = useRouter();
 	const [isPending, startTransition] = useTransition();
+	const router = useRouter();
 	const pathname = usePathname();
+	const localeActive = useLocale();
+	const params = useParams();
 
 	function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
 		const nextLocale = event.target.value;
 
-		startTransition(() => router.replace(pathname, { locale: nextLocale }));
+		startTransition(() => router.push({ pathname, params: params as any }, { locale: nextLocale }));
 	}
 
 	return (
@@ -26,7 +30,7 @@ function LocaleSwitcherSelect({ children, defaultValue, label }: Props) {
 			<p className="sr-only">{label}</p>
 			<select
 				className="inline-flex appearance-none bg-transparent py-3 pl-2 pr-6"
-				defaultValue={defaultValue}
+				defaultValue={localeActive}
 				disabled={isPending}
 				onChange={onSelectChange}
 			>

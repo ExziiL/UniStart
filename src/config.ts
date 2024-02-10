@@ -9,8 +9,8 @@ export const pathnames = {
 
 	// If locales use different paths, you can
 	// specify each external path per locale.
-	"/lectures": {
-		en: "/lectures",
+	"/courses": {
+		en: "/courses",
 		de: "/vorlesungen",
 	},
 
@@ -19,9 +19,9 @@ export const pathnames = {
 	// 	en: "/news/[articleSlug]-[articleId]",
 	// 	de: "/neuigkeiten/[articleSlug]-[articleId]",
 	// },
-	"/lectures/[lecture]": {
-		en: "/lectures/[lecture]",
-		de: "/vorlesungen/[lecture]",
+	"/courses/[course]": {
+		en: "/courses/[course]",
+		de: "/vorlesungen/[course]",
 	},
 
 	// Also (optional) catch-all segments are supported
