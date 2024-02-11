@@ -19,23 +19,15 @@ import { Edit } from "lucide-react";
 import React, { useEffect } from "react";
 import { useQuery } from '@tanstack/react-query'
 import { toast } from "@/frontend/hooks/use-toast";
-import userReducer from "@/reducer/user-reducer";
 import { useUserContext } from "@/context/user-context/user-context";
+import { fetchUsers, createConversation, fetchConversation } from "./actions";
+import { conversation } from "@prisma/client";
 
-const fetchData = async (id: string | number) => {
-
-	const response = await fetch('api/conversationusers', {
-		method: 'POST',
-		headers: { 'Content-Type': 'application' },
-		body: JSON.stringify(id)
-	});
-
-	if (!response.ok) {
-		throw new Error('Network response was not ok');
-	}
-
-	return await response.json();
+type ConversationObject = {
+	receiver: User,
+	conversation: conversation
 }
+
 
 function UserConversations() {
 	const { userState } = useUserContext();
@@ -43,42 +35,58 @@ function UserConversations() {
 	const [selectedUsers, setSelectedUsers] = React.useState<string[]>([]);
 	const [users, setUsers] = React.useState<Array<User> | []>([]);
 	const [shouldFetch, setShouldFetch] = React.useState<boolean>(false);
+	const [conversations, setConversations] = React.useState<Array<ConversationObject>|[]>([])
 
 
+	const handleUserClick = (convoid: string) => {
+		setActiveChat(convoid);
 
-	const handleUserClick = (userId: string) => {
-		// console.log(userId, " clicked");
-		setActiveChat(userId);
-		console.log(userState);
 	};
 
 	const handleNewUserClick = () => {
 		console.log(selectedUsers);
-
-		// console.log("new user clicked with id: ", id);		
+		const conversation = createConversation(selectedUsers);
 	};
 
 	useEffect(() => {
-		if (!shouldFetch && userState.id !== '0') {
+		if (!shouldFetch && userState.id != '0') {
 			setShouldFetch(true);
+			setSelectedUsers([userState.id]);
 		}
 	}, [userState])
 
-	const { isPending, isError, error, data } = useQuery({ queryKey: ['getUsers'], queryFn: () => fetchData(userState.id), enabled: shouldFetch });
+	const getUsers = useQuery({ queryKey: ['getUsers'], queryFn: () => fetchUsers(userState.id), enabled: shouldFetch });
+	const getConversations = useQuery({ queryKey: ['getConversations'], queryFn: () => fetchConversation(userState.id), enabled: shouldFetch });
+
+
 
 	useEffect(() => {
-		if (isPending) { }
-		if (isError) {
+		if (getUsers.isPending) { }
+		if (getUsers.isError) {
 			toast({
 				title: 'Error getting users',
-				description: error.message,
+				description: getUsers.error.message,
 			});
 		}
-		if (!isError && data) {
-			setUsers(data?.users);
+		if (!getUsers.isError && getUsers.data) {
 			setShouldFetch(false);
+			setUsers(getUsers.data?.users);
 		};
-	}, [isPending, isError]);
+	}, [getUsers]);
+
+	useEffect(() => {
+		if (getConversations.isPending) { }
+		if (getConversations.isError) {
+			toast({
+				title: 'Error getting converstaions',
+				description: getConversations.error.message,
+			});
+		}
+		if (!getConversations.isError && getConversations.data) {
+			setShouldFetch(false);
+			setConversations(getConversations.data?.conversations);
+		};
+	}, [getConversations]);
 
 	function handleUserSelection(id: string) {
 		setSelectedUsers((prev) => {
@@ -88,9 +96,6 @@ function UserConversations() {
 				return ([...prev, id]);
 			}
 		})
-
-		console.log(selectedUsers);
-
 	}
 
 	return (
@@ -140,13 +145,13 @@ function UserConversations() {
 			</div>
 
 			<div className="">
-				{USERS.map((user, index) => (
+				{conversations.map((elem, index) => (
 					<div
 						key={index}
-						onClick={() => handleUserClick(user.id)}
+						onClick={() => handleUserClick(elem.conversation.id)}
 					>
 						<SingleUserConversation
-							user={user}
+							user={elem.receiver}
 							activeChat={activeChat}
 						/>
 						{/* <div>{user.id}</div> */}

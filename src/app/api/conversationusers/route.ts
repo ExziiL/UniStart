@@ -3,9 +3,9 @@ import driver from "@/backend/lib/neo4j";
 import User from "@/types/IUser";
 
 export async function POST(req: NextRequest) {
+    const client = driver.session();
     try {
         const currentID: string = await req.json();
-        const client = driver.session();
 
         const response = await client.executeRead((tsx) => {
             return tsx.run(` 
@@ -32,5 +32,7 @@ export async function POST(req: NextRequest) {
             message: "An error occurred while fetching users",
             error: error
         }, { status: 500 });
+    }finally{
+        client.close();
     }
 }

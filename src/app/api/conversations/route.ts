@@ -2,24 +2,36 @@ import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import prisma from "@/backend/lib/prisma";
 import driver from "@/backend/lib/neo4j";
+import { create } from "domain";
+import { conversation } from "@prisma/client";
 
-export async function GET(req: NextRequest) {
+export async function POST(req: NextRequest) {
     const client = driver.session();
 
     try {
-        const { id } = Object.fromEntries(req.nextUrl.searchParams);
+        const { id } = await req.json();
 
         const result = await client.executeRead((tsx) => {
             return tsx.run(`
-            MATCH (u:User {id: $id})-[:MEMBER]-(c:Conversation)
-            RETURN c`,
-            {id}
+            MATCH (u:User {id: $id})-[:MEMBER]-(c:Conversation)-[:MEMBER]-(receiver:User)
+            RETURN c as conversation, receiver`, 
+            { id }
             )
         })
         if (!result) return NextResponse.json({ message: "No conversations aviable" }, { status: 500 })
-        return NextResponse.json({ data: result }, { status: 200 })
+
+        const conversations = result.records.map(record => {
+            let obj = Object();
+            record.keys.forEach(key => {
+                obj[key] = record.get(key)?.properties;
+            });
+            return obj;
+        }); 
+        return NextResponse.json({ conversations }, { status: 200 })
     } catch (error) {
         return NextResponse.json({ message: "Error while getting conversations", error: error }, { status: 500 })
+    }finally{
+        client.close();
     }
 }
 
@@ -27,24 +39,31 @@ export async function PUT(req: NextRequest) {
     const client = driver.session();
 
     try {
-        const { isgroup } = await req.json();
-        const resultMongoDB = prisma.conversation.create({});
+        const { isgroup, members } = await req.json();
+        const conversationMongo = await prisma.conversation.create({});
 
-        if (!resultMongoDB) { return NextResponse.json({ message: "Creating Conversation failed" }, { status: 500 }); }
+        if (!conversationMongo) { return NextResponse.json({ message: "Creating Conversation failed" }, { status: 500 }); }
+        let match = "MATCH ";
+        let createRelation = ""
+        let createConversation = ' CREATE ( conversation:Conversation {id: $conversation.id, lastmessage: "", group: $isgroup})'
 
-        const resultNeo4j = await client.executeWrite((tsx) => {
-            return tsx.run(`
-                CREATE ( c:Conversation {
-                    id: conversation.id,
-                    lastmessage: "",
-                    group: isgroup}
-                    )
-                    RETURN c`,
-                { resultMongoDB, isgroup });
+        for (let i = 1; i <= members.length; i++) {
+            match += "(user" + i + ":User {id: '" + members[i - 1] + "'})"
+            createRelation += " CREATE (conversation)-[:MEMBER]->(user" + i + ")";
+            if (i < members.length) match += ", ";
+        }
+
+        const query = match + createConversation + createRelation + " RETURN *"
+        const conversationNeo4j = await client.executeWrite((tsx) => {
+            return tsx.run(query, { conversation: conversationMongo, members, isgroup });
         });
 
-        if (!resultNeo4j) return NextResponse.json({ message: "Node Creation failed" }, { status: 500 });
-        return NextResponse.json({ message: "Node Creation succeeded" }, { status: 200 });
+        if (!conversationNeo4j) return NextResponse.json({ message: "Node Creation failed" }, { status: 500 });
+
+        const conversations = conversationNeo4j.records.flatMap(record => {
+            return record.keys.map(key => ({ [key]: record.get(key)?.properties }));
+        });
+        return NextResponse.json({conversations}, { status: 200 });
     } catch (error) {
         return NextResponse.json({ message: "Error while creating node", error: error }, { status: 500 });
     } finally {
