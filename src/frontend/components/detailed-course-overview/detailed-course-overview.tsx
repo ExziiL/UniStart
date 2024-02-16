@@ -13,6 +13,19 @@ interface DetailedCourseOverviewProps {
 }
 
 function DetailedCourseOverview({ vorlesung }: DetailedCourseOverviewProps) {
+	const [isDescriptionExpanded, setDescriptionExpanded] = React.useState(false);
+
+	const toggleDescription = () => {
+		setDescriptionExpanded(!isDescriptionExpanded);
+	};
+
+	const maxCharacters = 292;
+
+	const descriptionPreview =
+		vorlesung.longDescription.slice(0, maxCharacters) +
+		(vorlesung.longDescription.length > maxCharacters ? "..." : "");
+	const showFade = !isDescriptionExpanded && vorlesung.longDescription.length > maxCharacters;
+
 	return (
 		<div className="text-primary">
 			<div className="flex flex-col gap-4">
@@ -67,7 +80,28 @@ function DetailedCourseOverview({ vorlesung }: DetailedCourseOverviewProps) {
 				/>
 			</div>
 
-			<p className="">{vorlesung.longDescription}</p>
+			{/* <p className="">{vorlesung.longDescription}</p> */}
+
+			<>
+				<div
+					className={`relative ${
+						showFade
+							? "[mask-image:linear-gradient(to_bottom,transparent,white_0%,white_40%,transparent)]"
+							: ""
+					}`}
+				>
+					<p className="">{isDescriptionExpanded ? vorlesung.longDescription : descriptionPreview}</p>
+				</div>
+
+				{vorlesung.longDescription.length > maxCharacters && (
+					<p
+						className="w-fit cursor-pointer pt-4 text-sm text-link hover:underline"
+						onClick={toggleDescription}
+					>
+						{isDescriptionExpanded ? "Weniger anzeigen" : "Mehr anzeigen"}
+					</p>
+				)}
+			</>
 		</div>
 	);
 }
