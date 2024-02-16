@@ -6,6 +6,7 @@ interface IconWithTextProps {
 }
 
 const IconWithText = ({ text, icon }: IconWithTextProps) => {
+	const formattedText = Number.isInteger(text) ? `${text}.0` : text;
 	const defaultIconProps = {
 		size: 20,
 		strokeWidth: 2,
@@ -20,7 +21,7 @@ const IconWithText = ({ text, icon }: IconWithTextProps) => {
 			{/* size={16}
 				strokeWidth={2}
 				className="text-primary" */}
-			<span className="pt-[2px] text-base font-normal">{text}</span>
+			<span className="pt-[2px] text-base font-normal">{formattedText}</span>
 		</div>
 	);
 };
