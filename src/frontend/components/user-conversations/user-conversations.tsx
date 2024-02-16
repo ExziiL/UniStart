@@ -20,8 +20,14 @@ import React, { useEffect } from "react";
 import { useQuery } from '@tanstack/react-query'
 import { toast } from "@/frontend/hooks/use-toast";
 import { useUserContext } from "@/context/user-context/user-context";
-import { fetchUsers, createConversation, fetchConversation } from "./actions";
-import { conversation } from "@prisma/client";
+import * as action from "./actions";
+import { conversation, message } from "@prisma/client";
+
+interface UserConversationsProps {
+	messages: message[],
+	setMessages: React.Dispatch<React.SetStateAction<message[]>>,
+	setCurrentConversationId: React.Dispatch<React.SetStateAction<string>>
+}
 
 type ConversationObject = {
 	receiver: User,
@@ -29,23 +35,25 @@ type ConversationObject = {
 }
 
 
-function UserConversations() {
+function UserConversations({ messages, setMessages, setCurrentConversationId }: UserConversationsProps) {
 	const { userState } = useUserContext();
 	const [activeChat, setActiveChat] = React.useState<string | undefined>(undefined);
 	const [selectedUsers, setSelectedUsers] = React.useState<string[]>([]);
 	const [users, setUsers] = React.useState<Array<User> | []>([]);
 	const [shouldFetch, setShouldFetch] = React.useState<boolean>(false);
-	const [conversations, setConversations] = React.useState<Array<ConversationObject>|[]>([])
+	const [conversations, setConversations] = React.useState<Array<ConversationObject> | []>([])
 
 
-	const handleUserClick = (convoid: string) => {
+	const handleUserClick = async (convoid: string) => {
 		setActiveChat(convoid);
-
+		const response = await action.fetchMessages(convoid);
+		setMessages(response?.messages);
+		setCurrentConversationId(convoid);
 	};
 
 	const handleNewUserClick = () => {
 		console.log(selectedUsers);
-		const conversation = createConversation(selectedUsers);
+		const conversation = action.createConversation(selectedUsers);
 	};
 
 	useEffect(() => {
@@ -55,8 +63,8 @@ function UserConversations() {
 		}
 	}, [userState])
 
-	const getUsers = useQuery({ queryKey: ['getUsers'], queryFn: () => fetchUsers(userState.id), enabled: shouldFetch });
-	const getConversations = useQuery({ queryKey: ['getConversations'], queryFn: () => fetchConversation(userState.id), enabled: shouldFetch });
+	const getUsers = useQuery({ queryKey: ['getUsers'], queryFn: () => action.fetchUsers(userState.id), enabled: shouldFetch });
+	const getConversations = useQuery({ queryKey: ['getConversations'], queryFn: () => action.fetchConversation(userState.id), enabled: shouldFetch });
 
 
 

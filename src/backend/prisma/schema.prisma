@@ -56,7 +56,6 @@ model account {
 model conversation {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  messageIds String[]
   messages   message[] @relation(name: "conversations")
 }
 
@@ -71,8 +70,11 @@ model message {
   senderid String @db.ObjectId
   //sender   user   @relation(fields: [senderid], references: [id])
 
-  seenIds String[] @db.ObjectId
+  //seenIds String[] @db.ObjectId
   //seen    user     @relation("seen", fields: [seenIds], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 //#region types and enums

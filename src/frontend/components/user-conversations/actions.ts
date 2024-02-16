@@ -23,6 +23,11 @@ const createConversation = async (users: string[]) => {
             body: JSON.stringify({ members: users, isgroup: users.length > 2 }
             )
         });
+
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+
     return await response.json();
 }
 
@@ -39,4 +44,16 @@ const fetchConversation = async (userid: string) => {
     return await response.json();
 }
 
-export { fetchUsers, createConversation, fetchConversation }
+const fetchMessages = async (conversationid: string) => {
+    const response = await fetch('api/messages', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ conversationid: conversationid })
+    });
+
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return await response.json();
+}
+
+export { fetchUsers, createConversation, fetchConversation, fetchMessages }

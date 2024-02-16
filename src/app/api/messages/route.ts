@@ -1,27 +1,25 @@
-import { NextRequest, NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
 import prisma from "@/backend/lib/prisma";
-
-
-export async function PUT(req: NextRequest) {
-    try {
-        const data = await req.json();
-
-        const result = await prisma.message.create({
-            data: { senderid: data.id, image: data.image, content: data.message, conversationid: data.convoId }
-        });
-
-        if (!result) return NextResponse.json({ message: "No message created" }, { status: 500 });
-        return NextResponse.json({ message: "message created", data: result }, { status: 200 });
-    } catch (error) {
-        return NextResponse.json({ message: "Error creating message", error: error }, {status: 500 });
-    }
-}
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
+    try {
+        const body = await req.json();
+        const messages = await prisma.conversation.findUnique({
+            where: { id: body.conversationid },
+            include: {
+                messages: {
+                    orderBy: { createdAt: 'desc' },
+                    skip: 0,
+                    take: 100 //TODO make this variable
 
-}
+                }
+            }
+        })
 
-export async function DELETE(req: NextRequest) {
+        if (!messages) return NextResponse.json({ message: "No messages were found" }, { status: 500 });
+        return NextResponse.json({ ...messages }, { status: 200 });
+    } catch (error) {
+        return NextResponse.json({ message: "Error while getting messages", error: error }, { status: 500 });
 
+    }
 }
