@@ -18,9 +18,6 @@ const IconWithText = ({ text, icon }: IconWithTextProps) => {
 	return (
 		<div className="flex items-center gap-2 text-light">
 			{iconWithProps}
-			{/* size={16}
-				strokeWidth={2}
-				className="text-primary" */}
 			<span className="pt-[2px] text-base font-normal">{formattedText}</span>
 		</div>
 	);
