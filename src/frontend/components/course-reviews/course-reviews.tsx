@@ -58,14 +58,16 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 					</div>
 				))}
 
-				<div className="pt-7">
-					<p
-						className="w-fit cursor-pointer text-light transition-colors hover:text-primary"
-						onClick={handleShowMoreClick}
-					>
-						{showAllReviews ? "Show Less" : `Load more comments (${numOfReviews - 3})`}
-					</p>
-				</div>
+				{numOfReviews > 3 && (
+					<div className="pt-7">
+						<p
+							className="w-fit cursor-pointer text-light transition-colors hover:text-primary"
+							onClick={handleShowMoreClick}
+						>
+							{showAllReviews ? "Show Less" : `Load more comments (${numOfReviews - 3})`}
+						</p>
+					</div>
+				)}
 			</div>
 		</div>
 	);
