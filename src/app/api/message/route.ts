@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import prisma from "@/backend/lib/prisma";
+import { pusherServer } from "@/backend/lib/pusher";
 
 
 export async function PUT(req: NextRequest) {
@@ -10,7 +11,7 @@ export async function PUT(req: NextRequest) {
         console.log(data);
 
 
-        const result = await prisma.message.create({
+        const message = await prisma.message.create({
             data: {
                 image: data.image,
                 content: data.message,
@@ -19,8 +20,10 @@ export async function PUT(req: NextRequest) {
             }
         });
 
-        if (!result) return NextResponse.json({ message: "No message created" }, { status: 500 });
-        return NextResponse.json({ message: "message created", data: result }, { status: 200 });
+        await pusherServer.trigger(data.conversationId, 'new:message', message)
+
+        if (!message) return NextResponse.json({ message: "No message created" }, { status: 500 });
+        return NextResponse.json({ message }, { status: 200 });
     } catch (error) {
         return NextResponse.json({ message: "Error creating message", error: error }, { status: 500 });
     }

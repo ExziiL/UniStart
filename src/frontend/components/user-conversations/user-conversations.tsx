@@ -24,7 +24,7 @@ import * as action from "./actions";
 import { conversation, message } from "@prisma/client";
 
 interface UserConversationsProps {
-	messages: message[],
+	currentConvoId: string,
 	setMessages: React.Dispatch<React.SetStateAction<message[]>>,
 	setCurrentConversationId: React.Dispatch<React.SetStateAction<string>>
 }
@@ -35,7 +35,7 @@ type ConversationObject = {
 }
 
 
-function UserConversations({ messages, setMessages, setCurrentConversationId }: UserConversationsProps) {
+function UserConversations({ currentConvoId, setMessages, setCurrentConversationId }: UserConversationsProps) {
 	const { userState } = useUserContext();
 	const [activeChat, setActiveChat] = React.useState<string | undefined>(undefined);
 	const [selectedUsers, setSelectedUsers] = React.useState<string[]>([]);

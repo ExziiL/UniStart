@@ -21,7 +21,7 @@ function Chat() {
 			<div className="grid grid-cols-[auto,_1fr]">
 				<div className="max-w-xs pl-3">
 					{/* TODO: erst ab  size lg anzeigen, davor eine mobile ansicht darstellen */}
-					<UserConversations messages={messages} setMessages={setMessages} setCurrentConversationId={setConversationId} />
+					<UserConversations currentConvoId={conversationId} setMessages={setMessages} setCurrentConversationId={setConversationId} />
 				</div>
 				<div className="w-full max-w-4xl content-center justify-self-center">
 					<UserChatBox messages={messages} conversationid={conversationId}/>
