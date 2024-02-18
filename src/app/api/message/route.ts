@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
 import prisma from "@/backend/lib/prisma";
 import { pusherServer } from "@/backend/lib/pusher";
 
@@ -7,9 +6,6 @@ import { pusherServer } from "@/backend/lib/pusher";
 export async function PUT(req: NextRequest) {
     try {
         const data = await req.json();
-
-        console.log(data);
-
 
         const message = await prisma.message.create({
             data: {

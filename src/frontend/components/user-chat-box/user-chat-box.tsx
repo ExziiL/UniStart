@@ -1,21 +1,48 @@
 "use client";
 
+import { pusherClient } from '@/backend/lib/pusher';
 import { useUserContext } from '@/context/user-context/user-context';
 import ChatMessage from '@/frontend/components/chat-message';
 import MessageInput from '@/frontend/components/message-input';
 import { cn } from '@/lib/utils';
 import { message } from '@prisma/client';
-import e from 'express';
+import { find } from 'lodash';
 import React from 'react';
 
 interface UserChatBoxProps extends React.HTMLAttributes<HTMLDivElement> {
 	children?: React.ReactNode;
 	messages: message[] | [];
 	conversationid: string;
+	setMessages: React.Dispatch<React.SetStateAction<message[]>>
 }
 
-function UserChatBox({ children, className, ...props }: UserChatBoxProps) {
+
+function UserChatBox({ children, className, setMessages, ...props }: UserChatBoxProps) {
 	const { userState } = useUserContext();
+
+	React.useEffect(() => {
+		pusherClient.subscribe(props.conversationid);
+
+		const messageHandler = (message: message) => {
+			console.log(message);
+			
+			setMessages((current: message[]) => {
+				if (find(current, { id: message.id })) {
+					return current
+				}
+				return [...current, message]
+			});
+		}
+
+		pusherClient.bind('new:message', messageHandler);
+
+		return () => {
+			pusherClient.unsubscribe(props.conversationid);
+			pusherClient.unbind('new:message', messageHandler);
+		}
+	}, [props.conversationid])
+
+
 	return (
 		<div
 			className={cn(`flex h-full flex-col justify-end p-4`, className)}
@@ -31,9 +58,6 @@ function UserChatBox({ children, className, ...props }: UserChatBoxProps) {
 							message={message}
 							variant={message.senderid == userState.id ? "outgoing" : "incoming"}
 						></ChatMessage>)}
-					{/* <ChatMessage variant="incoming" />
-					<ChatMessage />
-					<ChatMessage variant="incoming" /> */}
 				</div>
 				<MessageInput conversationid={props.conversationid} />
 			</div>

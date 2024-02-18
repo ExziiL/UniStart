@@ -24,7 +24,6 @@ import * as action from "./actions";
 import { conversation, message } from "@prisma/client";
 
 interface UserConversationsProps {
-	currentConvoId: string,
 	setMessages: React.Dispatch<React.SetStateAction<message[]>>,
 	setCurrentConversationId: React.Dispatch<React.SetStateAction<string>>
 }
@@ -35,7 +34,7 @@ type ConversationObject = {
 }
 
 
-function UserConversations({ currentConvoId, setMessages, setCurrentConversationId }: UserConversationsProps) {
+function UserConversations({ setMessages, setCurrentConversationId }: UserConversationsProps) {
 	const { userState } = useUserContext();
 	const [activeChat, setActiveChat] = React.useState<string | undefined>(undefined);
 	const [selectedUsers, setSelectedUsers] = React.useState<string[]>([]);
@@ -105,6 +104,7 @@ function UserConversations({ currentConvoId, setMessages, setCurrentConversation
 			}
 		})
 	}
+
 
 	return (
 		<div className="bg-background">
