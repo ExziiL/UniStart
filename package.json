@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "dev-backend": "npx tsx ./src/backend/lib/neo4j.ts"
+    "dev-backend": "npx tsx ./src/app/api/scrapper/route.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
@@ -50,6 +50,7 @@
     "next-auth": "^4.24.5",
     "next-themes": "^0.2.1",
     "pg": "^8.11.3",
+    "promise-status-async": "^1.2.10",
     "pusher": "^5.2.0",
     "pusher-js": "^8.4.0-rc2",
     "react": "^18",

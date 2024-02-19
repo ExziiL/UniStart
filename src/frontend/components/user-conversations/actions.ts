@@ -4,7 +4,7 @@ const fetchUsers = async (id: string | number) => {
 
     const response = await fetch('api/conversationusers', {
         method: 'POST',
-        headers: { 'Content-Type': 'application' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(id)
     });
 

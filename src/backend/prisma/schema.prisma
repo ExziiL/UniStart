@@ -77,6 +77,14 @@ model message {
   updatedAt DateTime @updatedAt
 }
 
+model appointment {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  semester String
+  infos Infos[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 //#region types and enums
 
 type Profile {
@@ -117,6 +125,12 @@ type SiteSettings {
 type PrivacySettings {
   hideOnlineStatus Boolean?
   verified         Boolean?
+}
+
+type Infos {
+  title String
+  dates String[]
+  annotation String
 }
 
 enum Role {
