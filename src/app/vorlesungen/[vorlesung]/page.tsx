@@ -1,6 +1,7 @@
 import React from "react";
 
 import CourseReviews from "@/frontend/components/course-reviews";
+import NoReviews from "@/frontend/components/course-reviews/no-reviews";
 import DetailedCourseOverview from "@/frontend/components/detailed-course-overview";
 import { VORLESUNGEN } from "@/frontend/constants/vorlesungen";
 import { VorlesungProps } from "@/types/IVorlesung";
@@ -14,6 +15,7 @@ interface PageProps {
 
 function Page({ params }: PageProps) {
 	const vorlesung = VORLESUNGEN.find((vorlesung) => vorlesung.slug === params.vorlesung);
+	const numOfReviews = vorlesung?.reviews.length || 0;
 
 	if (!vorlesung) {
 		// TODO: add (custom) 404 page
@@ -32,7 +34,12 @@ function Page({ params }: PageProps) {
 	return (
 		<div className="col-start-2 flex flex-col gap-16">
 			<DetailedCourseOverview vorlesung={vorlesung} />
-			<CourseReviews reviews={vorlesung.reviews} />
+
+			{numOfReviews == 0 ? (
+				<NoReviews numOfReviews={numOfReviews} />
+			) : (
+				<CourseReviews reviews={vorlesung.reviews} />
+			)}
 		</div>
 	);
 }
