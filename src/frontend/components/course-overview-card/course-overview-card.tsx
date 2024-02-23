@@ -1,9 +1,7 @@
 "use client";
 
-import CourseBadge from "@/frontend/components/course-badge";
 import IconWithText from "@/frontend/components/icon-with-text";
 import ProfessorDetails from "@/frontend/components/professor-details";
-import StarRating from "@/frontend/components/star-rating";
 import { VorlesungProps } from "@/types/IVorlesung";
 import { Variants, motion } from "framer-motion";
 import { ArrowRight, Home, Star } from "lucide-react";
@@ -11,11 +9,11 @@ import Link from "next/link";
 import React from "react";
 import { useHover } from "usehooks-ts";
 
-interface CourseOverViewCardProps {
+interface CourseOverViewCardProps extends React.HTMLAttributes<HTMLDivElement> {
 	vorlesung: VorlesungProps;
 }
 
-function CourseOverviewCard({ vorlesung }: CourseOverViewCardProps) {
+function CourseOverviewCard({ vorlesung, className }: CourseOverViewCardProps) {
 	const hoverRef = React.useRef<HTMLDivElement>(null);
 	const isHovered = useHover(hoverRef);
 
@@ -26,7 +24,7 @@ function CourseOverviewCard({ vorlesung }: CourseOverViewCardProps) {
 	};
 
 	return (
-		<div className="flex w-80 flex-col justify-between gap-3 rounded-md border p-4">
+		<div className={`flex w-[380px] flex-col justify-between gap-3 rounded-md border p-4 ${className}`}>
 			<div className="flex flex-col gap-3">
 				<div className="flex flex-col gap-1">
 					<h2 className="truncate text-lg font-medium text-primary">{vorlesung.name}</h2>

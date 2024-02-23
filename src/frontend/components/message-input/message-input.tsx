@@ -24,7 +24,9 @@ function MessageInput({ conversationid }: MessageInputProps) {
 			textarea.style.height = "inherit"; // Shrink to fit new content
 
 			// Calculate the desired and respect the maximum height
-			const maxHeight = 102; // Set the max height in pixels
+			// 102px for 5 lines of code
+			//  82px for 4 lines of code
+			const maxHeight = 82; // Set the max height in pixels
 			const desiredHeight = Math.min(textarea.scrollHeight, maxHeight);
 			textarea.style.height = `${desiredHeight}px`; // Set the new height
 		}
@@ -56,8 +58,6 @@ function MessageInput({ conversationid }: MessageInputProps) {
 					/>
 				</Button>
 			</div>
-
-			{/* <p className="text-sm text-muted-foreground">Your message will be copied to the support team.</p> */}
 		</div>
 	);
 }
