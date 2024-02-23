@@ -26,7 +26,7 @@ const chatMessageVariants = cva("w-fit rounded-md bg-light-foreground p-2 px-4",
 
 interface ChatMessageProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof chatMessageVariants> {
 	userMessage?: boolean;
-	messageData: message;
+	messageData?: message;
 }
 
 function ChatMessage({ variant, messageData }: ChatMessageProps) {
@@ -42,7 +42,7 @@ function ChatMessage({ variant, messageData }: ChatMessageProps) {
 			)}
 
 			<div className={cn(chatMessageVariants({ variant }))}>
-				<div className="">{messageData.content}</div>
+				<div className="">{messageData?.content}</div>
 			</div>
 		</div>
 	);

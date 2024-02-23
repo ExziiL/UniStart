@@ -9,9 +9,9 @@ import React from "react";
 interface AiConversationsProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 function AiConversations() {
-	const [activeChat, setActiveChat] = React.useState<number | undefined>(undefined);
+	const [activeChat, setActiveChat] = React.useState<string | undefined>(undefined);
 
-	const handleAiClick = (userId: number) => {
+	const handleAiClick = (userId: string) => {
 		// console.log(userId, " clicked");
 		setActiveChat(userId);
 	};
