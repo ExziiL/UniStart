@@ -1,21 +1,20 @@
 "use client";
 
-import { pusherClient } from '@/backend/lib/pusher';
-import { useUserContext } from '@/context/user-context/user-context';
-import ChatMessage from '@/frontend/components/chat-message';
-import MessageInput from '@/frontend/components/message-input';
-import { cn } from '@/lib/utils';
-import { message } from '@prisma/client';
-import { find } from 'lodash';
-import React from 'react';
+import { pusherClient } from "@/backend/lib/pusher";
+import { useUserContext } from "@/context/user-context/user-context";
+import ChatMessage from "@/frontend/components/chat-message";
+import MessageInput from "@/frontend/components/message-input";
+import { cn } from "@/lib/utils";
+import { message } from "@prisma/client";
+import { find } from "lodash";
+import React from "react";
 
 interface UserChatBoxProps extends React.HTMLAttributes<HTMLDivElement> {
 	children?: React.ReactNode;
 	messages: message[] | [];
 	conversationid: string;
-	setMessages: React.Dispatch<React.SetStateAction<message[]>>
+	setMessages: React.Dispatch<React.SetStateAction<message[]>>;
 }
-
 
 function UserChatBox({ children, className, setMessages, ...props }: UserChatBoxProps) {
 	const { userState } = useUserContext();
@@ -25,23 +24,22 @@ function UserChatBox({ children, className, setMessages, ...props }: UserChatBox
 
 		const messageHandler = (message: message) => {
 			console.log(message);
-			
+
 			setMessages((current: message[]) => {
 				if (find(current, { id: message.id })) {
-					return current
+					return current;
 				}
-				return [...current, message]
+				return [...current, message];
 			});
-		}
+		};
 
-		pusherClient.bind('new:message', messageHandler);
+		pusherClient.bind("new:message", messageHandler);
 
 		return () => {
 			pusherClient.unsubscribe(props.conversationid);
-			pusherClient.unbind('new:message', messageHandler);
-		}
-	}, [props.conversationid])
-
+			pusherClient.unbind("new:message", messageHandler);
+		};
+	}, [props.conversationid, setMessages]);
 
 	return (
 		<div
@@ -52,12 +50,13 @@ function UserChatBox({ children, className, setMessages, ...props }: UserChatBox
 
 			<div className="flex flex-col gap-6">
 				<div className="flex flex-col gap-6">
-					{props.messages?.map((message, index) =>
+					{props.messages?.map((message, index) => (
 						<ChatMessage
 							key={index}
-							message={message}
+							messageData={message}
 							variant={message.senderid == userState.id ? "outgoing" : "incoming"}
-						></ChatMessage>)}
+						></ChatMessage>
+					))}
 				</div>
 				<MessageInput conversationid={props.conversationid} />
 			</div>
