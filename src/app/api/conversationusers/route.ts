@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
 import driver from "@/backend/lib/neo4j";
 import User from "@/types/IUser";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
     const client = driver.session();

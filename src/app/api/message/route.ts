@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/backend/lib/prisma";
 import { pusherServer } from "@/backend/lib/pusher";
+import { NextRequest, NextResponse } from "next/server";
 
 
 export async function PUT(req: NextRequest) {

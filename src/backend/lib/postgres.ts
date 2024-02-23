@@ -1,5 +1,5 @@
+import { config } from "dotenv";
 import { Client } from "pg";
-import {config} from "dotenv";
 
 config();
 

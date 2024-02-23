@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
-import prisma from "@/backend/lib/prisma";
 import driver from "@/backend/lib/neo4j";
-import { create } from "domain";
+import prisma from "@/backend/lib/prisma";
 import { conversation } from "@prisma/client";
+import bcrypt from "bcryptjs";
+import { create } from "domain";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
     const client = driver.session();
