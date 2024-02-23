@@ -48,7 +48,10 @@ function Faq() {
 					collapsible
 				>
 					{questions.map((question, index) => (
-						<AccordionItem value={"item-" + index}>
+						<AccordionItem
+							key={"item-" + index}
+							value={"item-" + index}
+						>
 							<AccordionTrigger className="text-start">{question.question}</AccordionTrigger>
 							<AccordionContent className="text-light">{question.answer}</AccordionContent>
 						</AccordionItem>
