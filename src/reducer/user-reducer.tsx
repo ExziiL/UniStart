@@ -1,74 +1,20 @@
-import { UserGender, UserRole } from "@/enums/user";
+import User from "@/types/IUser";
 
-export const initialUserState = {
-	uuid: 1,
-	// TODO: change the input into empty strings
-	name: "(User)Name",
-	firstName: "firstName",
-	lastName: "lastName",
-	age: 21,
-	email: "contactInfo@email",
-	gender: UserGender.MALE,
-	password: "password",
-	role: UserRole.USER,
-	profile: {
-		profilePicture: {
-			avatarUrl: "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200",
-		},
-		bio: "This is the bio description for the user",
-	},
-	contactInfo: {
-		countryPrefix: 49,
-		phone: "0123456789",
-		address: {
-			country: "contactInfo.address.country",
-			city: "contactInfo.address.city",
-			street: "contactInfo.address.street",
-			houseNumber: 21,
-			zipCode: "contactInfo.address.zipCode",
-		},
-	},
-	activity: {
-		isOnline: true,
-		lastActivity: new Date(),
-		accountCreated: new Date(),
-	},
-	university: {
-		name: "university.name",
-		faculty: "university.faculty",
-		course: "university.course",
-		focus: "university.focus",
-		enrollment: "university.enrollment",
-		semester: 1,
-	},
-	siteSettings: {
-		theme: "light",
-		language: "de",
-	},
-	privacySettings: {
-		//* possible additions to the privacy settings
-		// isEmailPublic: true,
-		// isPhonePublic: true,
-		// isAddressPublic: true,
-		// isProfilePublic: true,
-		// isActivityPublic: true,
-		// isUniversityPublic: true,
-		// isSiteSettingsPublic: true,
-		// isPrivacySettingsPublic: true,
-		hideOnlineStatus: false,
-		verified: false,
-	},
-};
+const userReducer = (state: User, action: any) => {
+	const initialUserState: User = { id: "0", name: "", email: "", image: "" };
 
-// TODO: change the any here
-const userReducer = (state = initialUserState, action: any) => {
+	const user = action.payload?.user;
+
 	switch (action.type) {
 		case "SET_USER":
 			return {
-				...state,
-				user: action.payload,
+				...user,
 			};
 		// hier weitere cases einfügen
+		case "CLEAR_USER":
+			return {
+				...initialUserState,
+			};
 		// case "ADD_USER":
 		// ...
 

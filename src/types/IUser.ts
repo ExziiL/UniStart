@@ -49,11 +49,11 @@ import { UserGender, UserRole } from '@/enums/user';
 //     friends?: number[],
 // }
 
-interface User {
-    uuid: number,
+/* interface User {
+	uuid: number,
 	// TODO: change the input into empty strings
-    name: string,
-    email: string,
+	name: string,
+	email: string,
 	firstName?: string,
 	lastName?: string,
 	age?: number,
@@ -108,6 +108,63 @@ interface User {
 		hideOnlineStatus: Boolean,
 		verified: Boolean,
 	},
+} */
+
+interface User {
+	id: string,
+	name: string,
+	email: string,
+	image: string,
+	password?: string,
+
+	role?: string,
+	firstName?: string,
+	lastName?: string,
+	
+	
+	profile?: {
+		bio: string,
+	},
+	contactInfo?: {
+		age?: number,
+		gender?: string,
+		countryPrefix?: number,
+		phone?: string,
+		address?: {
+			country: string,
+			city: string,
+			street: string,
+			houseNumber: number,
+			postalCode: string,
+		},
+	},
+	universityInfo?: {
+		name: string,
+		faculty: string,
+		semester: number,
+		course: string,
+		focus: string,
+		enrollment: Date,
+	},
+	siteSettings?: {
+		theme: string,
+		language: string,
+	},
+	privacySettings?: {
+		//* possible additions to the privacy settings
+		// isEmailPublic: true,
+		// isPhonePublic: true,
+		// isAddressPublic: true,
+		// isProfilePublic: true,
+		// isActivityPublic: true,
+		// isUniversityPublic: true,
+		// isSiteSettingsPublic: true,
+		// isPrivacySettingsPublic: true,
+		hideOnlineStatus: boolean,
+		verified: boolean,
+	},
+	createdAt?: Date,
+	updatedAt?: Date,
 }
 
 export default User;
