@@ -1,14 +1,28 @@
-import React from 'react';
+'use client';
 
+import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/frontend/components/ui/table';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/frontend/components/ui/tooltip';
 import { Info } from 'lucide-react';
-import { Information, dateScrapper } from '@/backend/web-scrapper/scrapper';
+import { useQuery } from '@tanstack/react-query';
+import { fetchAppointments } from './actions';
+import { Infos } from '@prisma/client';
 
+const AppointmentTable = () => {
+	const { isPending, isError, error, data } = useQuery({
+		queryKey: ['webscrapper'], queryFn: fetchAppointments, retry: false
+	})
 
-const AppointmentTable = async () => {
-	
-	const entries: Information[] = Object.values(JSON.parse(await dateScrapper(new Date())))[0] as Information[];	
+	if (isPending) {
+		return (
+			<div>Waiting for data</div>
+		)
+	}
+	if (isError) {
+		return (<div>{error.message}</div>)
+	}
+
+	const entries: Infos[] = data?.appointments;
 
 	return (
 		<Table>
