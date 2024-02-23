@@ -103,7 +103,7 @@ model lecture {
   longDescription String
   location        String
   rating          Int?
-  difficulty      Difficulty    @default(MEDIUM)
+  difficulty      Difficulty    @default(medium)
 
   reviews review[]
 }
@@ -112,12 +112,10 @@ model review {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
   headline String
-  rating   Int
+  courserating   Int
   content  String
 
-  upvotes   Int
-  downvotes Int
-
+  votes     Int
   creatorId String? @db.ObjectId
   creator   user?   @relation(fields: [creatorId], references: [id])
 
@@ -224,9 +222,9 @@ enum Language {
 }
 
 enum Difficulty {
-  EASY
-  MEDIUM
-  HARD
+  easy
+  medium
+  hard
 }
 
 //#endregion

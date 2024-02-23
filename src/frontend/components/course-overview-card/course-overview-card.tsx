@@ -33,7 +33,7 @@ function CourseOverviewCard({ lecture }: CourseOverViewCardProps) {
 
 					<div className="flex flex-row gap-6">
 						<IconWithText
-							text={lecture.rating}
+							text={lecture.rating??""}
 							icon={<Star />}
 						/>
 						<IconWithText
