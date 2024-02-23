@@ -1,7 +1,7 @@
 
 import * as cheerio from 'cheerio';
 import prisma from '@/backend/lib/prisma';
-import { Infos, appointment } from '@prisma/client';
+import { Infos } from '@prisma/client';
 import { NextResponse } from 'next/server';
 
 const uri = 'https://www.hs-aalen.de/semesters/'; // URL we're scraping
