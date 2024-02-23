@@ -11,8 +11,7 @@ export async function POST(req: NextRequest) {
             return tsx.run(` 
                 MATCH (u:User)
                 WHERE NOT u.id = $currentID
-                WITH collect(u) as users
-                RETURN users`,
+                RETURN u as user `,
                 { currentID });
         })
         if (!response) return NextResponse.json({
@@ -21,8 +20,10 @@ export async function POST(req: NextRequest) {
 
         const users = Array<User>()
         response.records.forEach((record) => {
-            let node = record.get('users')
-            users.push(node[0]?.properties);
+            let node = record.get('user')
+            console.log(node);
+            
+            users.push(node?.properties);
         })
 
         return NextResponse.json({ users }, { status: 200 })
