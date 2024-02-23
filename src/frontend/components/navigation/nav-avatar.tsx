@@ -6,17 +6,18 @@ import {
 	DropdownMenuGroup,
 	DropdownMenuItem,
 	DropdownMenuLabel,
-	DropdownMenuPortal,
 	DropdownMenuSeparator,
 	DropdownMenuShortcut,
-	DropdownMenuSub,
-	DropdownMenuSubContent,
-	DropdownMenuSubTrigger,
 	DropdownMenuTrigger,
 } from "@/frontend/components/ui/dropdown-menu";
 import { LogOut, Settings, SunMoon, User } from "lucide-react";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
+
+async function handleLogOut() {
+	await signOut();
+}
 
 function NavAvatar() {
 	return (
@@ -56,7 +57,7 @@ function NavAvatar() {
 						</DropdownMenuShortcut>
 					</DropdownMenuItem>
 					<DropdownMenuSeparator />
-					<DropdownMenuItem>
+					<DropdownMenuItem onClick={handleLogOut}>
 						<LogOut className="mr-2 h-4 w-4" />
 						<span>Log out</span>
 						<DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>

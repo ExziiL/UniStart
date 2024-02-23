@@ -17,8 +17,12 @@ import {
 } from '@/frontend/components/ui/form';
 import { Input } from '@/frontend/components/ui/input';
 import { useToast } from '@/frontend/hooks/use-toast';
+import { register} from './actions';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
-const registrationFormSchema = z
+
+export const registrationFormSchema = z
 	.object({
 		email: z.string().email(),
 		username: z.string().min(3, { message: 'Username must be at least 3 characters.' }).max(20),
@@ -37,6 +41,8 @@ const registrationFormSchema = z
 
 function RegistrationForm() {
 	const { toast } = useToast();
+	const router = useRouter();
+	const session = useSession();
 
 	const form = useForm<z.infer<typeof registrationFormSchema>>({
 		resolver: zodResolver(registrationFormSchema),
@@ -49,8 +55,8 @@ function RegistrationForm() {
 	});
 
 	// TODO: Add loading state
-	function onSubmit(values: z.infer<typeof registrationFormSchema>) {
-		console.log('form submitted', values);
+	async function onSubmit(values: z.infer<typeof registrationFormSchema>) {
+		// console.log('form submitted', values);
 		toast({
 			title: 'You submitted the following values:',
 			description: (
@@ -59,7 +65,20 @@ function RegistrationForm() {
 				</pre>
 			),
 		});
+
+		try {
+			const res = await register('credentials', values);
+	
+			if (res?.ok) {
+				//await registerGraph(session.data, router)
+			}			
+		} catch (error) {
+			// console.log("Something went wrong\n"+ error);
+			
+		}
+
 	}
+
 
 	return (
 		<Form {...form}>

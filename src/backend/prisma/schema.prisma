@@ -1,0 +1,162 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_ADMIN")
+}
+
+model user {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?   @unique
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+
+  role            Role             @default(USER)
+  profile         Profile?
+  contactInfo     ContactInfo?
+  universityInfo  UniversityInfo?
+  siteSettings    SiteSettings?
+  privacySettings PrivacySettings?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  accounts account[]
+
+  //message message[]
+  //seen    message[] @relation("seen")
+}
+
+model account {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
+
+  user user @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model conversation {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  messages   message[] @relation(name: "conversations")
+}
+
+model message {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  image   String?
+  content String?
+
+  conversationid String       @db.ObjectId
+  conversation   conversation @relation(name: "conversations", fields: [conversationid], references: [id])
+
+  senderid String @db.ObjectId
+  //sender   user   @relation(fields: [senderid], references: [id])
+
+  //seenIds String[] @db.ObjectId
+  //seen    user     @relation("seen", fields: [seenIds], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model appointment {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  semester String
+  infos Infos[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+//#region types and enums
+
+type Profile {
+  bio      String  @default("")
+  isOnline Boolean @default(false)
+}
+
+type ContactInfo {
+  age    Int?
+  gender Gender?
+  phone  String?
+  email  String?
+  adress Address?
+}
+
+type Address {
+  country     String?
+  city        String?
+  street      String?
+  houseNumber Int?
+  postalCode  Int?
+}
+
+type UniversityInfo {
+  name       String?
+  faculty    String?
+  semester   Int?
+  course     Course?
+  focus      Focus?
+  enrollment DateTime?
+}
+
+type SiteSettings {
+  theme    String?
+  language Language @default(GERMAN)
+}
+
+type PrivacySettings {
+  hideOnlineStatus Boolean?
+  verified         Boolean?
+}
+
+type Infos {
+  title String
+  dates String[]
+  annotation String
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  DIVERSE
+}
+
+enum Course {
+  COMPUTER_SIENCE
+}
+
+enum Focus {
+  SOFTWARE_ENGINEERING
+  IT_SECURITY
+  MEDIA_COMPUTER_SIENCE
+  GENERAL_COMPUTER_SIENCE
+}
+
+enum Language {
+  ENGLISH
+  GERMAN
+}
+//#endregion

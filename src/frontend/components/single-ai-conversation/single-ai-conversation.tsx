@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { AnimatePresence, motion } from 'framer-motion';
-import { Archive, ChevronDown, Trash2, User } from 'lucide-react';
-import React from 'react';
+import { AnimatePresence, motion } from "framer-motion";
+import { Archive, ChevronDown, Trash2, User } from "lucide-react";
+import React from "react";
 
 interface SingleUserConversationProps {
 	chat: any;
-	activeChat?: number;
+	activeChat?: string;
 }
 
 function SingleUserConversation({ chat, activeChat }: SingleUserConversationProps) {
@@ -28,7 +28,7 @@ function SingleUserConversation({ chat, activeChat }: SingleUserConversationProp
 	return (
 		<div
 			className={` w-fill mx-2 my-2 flex cursor-pointer gap-4 rounded-md px-3 py-3 transition-all hover:bg-muted ${
-				activeChat === chat.id ? 'bg-muted' : ''
+				activeChat === chat.id ? "bg-muted" : ""
 			}`}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}

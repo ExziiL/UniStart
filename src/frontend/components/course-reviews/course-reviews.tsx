@@ -24,7 +24,7 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 
 	return (
 		<div className="flex flex-col">
-			<div className="flex justify-between">
+			<div className="flex justify-between pb-8">
 				<h2 className="text-2xl font-medium text-primary">
 					Reviews <span className="pl-1 text-lg font-normal text-light">({numOfReviews})</span>
 				</h2>
@@ -32,7 +32,8 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 				<CourseReviewsDialog />
 			</div>
 
-			<div className="flex flex-row gap-8 pb-4 pt-5">
+			{/* Filter and Sort UI, functionality can be added later */}
+			{/* <div className="flex flex-row gap-8 pb-4 pt-5">
 				<div className="flex cursor-pointer flex-row items-center gap-3">
 					<ArrowUpDown
 						size={18}
@@ -47,7 +48,7 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 					/>
 					<p>Filter</p>
 				</div>
-			</div>
+			</div> */}
 
 			<div>
 				{displayedReviews.map((review, index) => (
@@ -58,14 +59,16 @@ function CourseReviews({ reviews }: CourseReviewsProps) {
 					</div>
 				))}
 
-				<div className="pt-7">
-					<p
-						className="w-fit cursor-pointer text-light transition-colors hover:text-primary"
-						onClick={handleShowMoreClick}
-					>
-						{showAllReviews ? "Show Less" : `Load more comments (${numOfReviews - 3})`}
-					</p>
-				</div>
+				{numOfReviews > 3 && (
+					<div className="pt-7">
+						<p
+							className="w-fit cursor-pointer text-light transition-colors hover:text-primary"
+							onClick={handleShowMoreClick}
+						>
+							{showAllReviews ? "Show Less" : `Load more comments (${numOfReviews - 3})`}
+						</p>
+					</div>
+				)}
 			</div>
 		</div>
 	);

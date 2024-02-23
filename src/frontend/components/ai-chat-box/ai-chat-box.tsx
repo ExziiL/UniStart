@@ -38,7 +38,8 @@ function AiChatBox({ className, ...props }: AiChatBoxProps) {
 					<ScrollBar orientation="vertical" />
 				</ScrollArea>
 
-				<MessageInput />
+				{/* ! NEED TO FIX THAT, ADD CONVERSATIONID TO AI CHAT HERE */}
+				<MessageInput conversationid="" />
 			</div>
 		</div>
 	);

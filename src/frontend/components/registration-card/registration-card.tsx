@@ -9,14 +9,37 @@ import RegistrationForm from './registration-form';
 
 import { FaGithub } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
+import { register } from './actions';
 
 function RegistrationCard() {
-	const handleGitHubRegistration = () => {
-		console.log('github registration');
+	const handleGitHubRegistration = async () => {
+
+		// console.log('github registration');
+		try {
+			const res = await register('github', null);
+
+			if (res?.ok) {
+				// console.log('Successfully registered')
+			}
+		} catch (error) {
+			// console.log("Something went wrong\n" + error);
+
+		}
+
 	};
 
-	const handleGoogleRegistration = () => {
-		console.log('google registration');
+	const handleGoogleRegistration = async () => {
+		// console.log('google registration');
+		try {
+			const res = await register('google', null);
+
+			if (res?.ok) {
+				// console.log('Successfully registered')
+			}
+		} catch (error) {
+			// console.log("Something went wrong\n" + error);
+
+		}
 	};
 
 	return (
