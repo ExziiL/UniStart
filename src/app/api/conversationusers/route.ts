@@ -21,8 +21,6 @@ export async function POST(req: NextRequest) {
         const users = Array<User>()
         response.records.forEach((record) => {
             let node = record.get('user')
-            console.log(node);
-            
             users.push(node?.properties);
         })
 

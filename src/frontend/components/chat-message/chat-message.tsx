@@ -36,7 +36,7 @@ function ChatMessage({ variant, message }: ChatMessageProps) {
 		<div className={`${isOutgoingMessage ? 'items-end' : ''} flex flex-col gap-2`}>
 			{!isOutgoingMessage && (
 				<Avatar>
-					<AvatarImage src="https://github.com/shadcn.png" />
+					<AvatarImage src={message.image ?? undefined} />
 					<AvatarFallback>CN</AvatarFallback>
 				</Avatar>
 			)}

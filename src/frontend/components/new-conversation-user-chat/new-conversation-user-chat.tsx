@@ -8,7 +8,7 @@ interface NewConversationUserChatProps extends React.HTMLAttributes<HTMLDivEleme
 };
 
 // TODO: change static data to user data
-function NewConversationUserChat({ user}: NewConversationUserChatProps) {
+function NewConversationUserChat({ user }: NewConversationUserChatProps) {
 	const [isSelected, setIsSelected] = React.useState(false);
 
 	return (

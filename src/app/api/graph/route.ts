@@ -17,6 +17,7 @@ export async function PUT(request: NextRequest) {
                 email: true,
                 name: true,
                 role: true,
+                image: true
             }
         })
 
@@ -29,6 +30,7 @@ export async function PUT(request: NextRequest) {
                     email: $user.email,
                     role: $user.role,
                     online: true,
+                    image: $user.image
                     bio: ""
                 })
                 RETURN u`,
