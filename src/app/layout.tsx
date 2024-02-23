@@ -29,8 +29,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 						{children}
 						<SpeedInsights />
 						<Toaster />
+						<AiQuickChatTrigger />
 					</main>
-					<AiQuickChatTrigger />
 					<TailwindIndictor />
 				</Providers>
 			</body>

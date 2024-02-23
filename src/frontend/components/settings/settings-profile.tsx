@@ -7,9 +7,7 @@ import { Separator } from "../ui/separator";
 
 function SettingsProfile() {
 	return (
-		<div className="mx-auto w-full max-w-[960px] space-y-8 p-4">
-			<h1 className="pt-6 text-xl font-semibold text-primary">Profile</h1>
-			<Separator />
+		<div className="mx-auto w-full max-w-[1024px] space-y-8">
 			<div className="space-y-8">
 				<div className="flex flex-row gap-6">
 					<Avatar className="h-16 w-16">

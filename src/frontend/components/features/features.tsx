@@ -42,7 +42,7 @@ const features = [
 
 function Features() {
 	return (
-		<div className="grid w-full grid-cols-2 gap-6 sm:grid-cols-3">
+		<div className="grid w-full max-w-[1024px] grid-cols-2 gap-6 sm:grid-cols-3">
 			{features.map((feature) => (
 				<FeatureCardWrapper
 					key={feature.title}

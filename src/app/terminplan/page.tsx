@@ -29,7 +29,7 @@ const eintraege = [
 
 function Terminplan() {
 	return (
-		<div className="mx-auto max-w-[960px] space-y-16">
+		<div className="mx-auto max-w-[1024px] space-y-16">
 			<h1 className="my-16 text-6xl font-bold text-primary">Terminplan für das WS 2023/2024</h1>
 
 			<div className="space-y-6">

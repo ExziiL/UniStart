@@ -6,7 +6,7 @@ function SettingsPage() {
 		<div className="full-bleed flex flex-row">
 			<SettingsSidebar />
 
-			<div>Please select an options settings</div>
+			<div>Oops. There is nothing here! please select an option in the sidebar.</div>
 		</div>
 	);
 }

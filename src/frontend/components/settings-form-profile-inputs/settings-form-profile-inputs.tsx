@@ -11,6 +11,7 @@ import {
 	FormMessage,
 } from "@/frontend/components/ui/form";
 import { Input } from "@/frontend/components/ui/input";
+import { Textarea } from "@/frontend/components/ui/textarea";
 import { toast } from "@/frontend/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
@@ -22,6 +23,7 @@ const FormSchema = z.object({
 	lastName: z.string().min(3).max(32),
 	email: z.string().email(),
 	username: z.string().min(3).max(32),
+	bio: z.string().max(256),
 });
 
 function ProfileFormInput() {
@@ -50,7 +52,7 @@ function ProfileFormInput() {
 				onSubmit={form.handleSubmit(onSubmit)}
 				className="space-y-2"
 			>
-				<div className="grid grid-cols-10 grid-rows-3 gap-4">
+				<div className="grid grid-cols-10 grid-rows-5 gap-4">
 					<FormField
 						control={form.control}
 						name="username"
@@ -109,6 +111,23 @@ function ProfileFormInput() {
 								<FormControl>
 									<Input
 										placeholder="example@email.com"
+										{...field}
+									/>
+								</FormControl>
+								<FormMessage />
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name="bio"
+						render={({ field }) => (
+							<FormItem className="col-span-6 row-span-2 row-start-4">
+								<FormLabel>Bio</FormLabel>
+								<FormControl>
+									<Textarea
+										placeholder="Tell us a little bit about yourself"
+										className="h-24"
 										{...field}
 									/>
 								</FormControl>

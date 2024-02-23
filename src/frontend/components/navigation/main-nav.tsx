@@ -18,7 +18,7 @@ import React from "react";
 
 const MainNav = () => {
 	return (
-		<div className="hidden w-full max-w-[960px] justify-between md:flex">
+		<div className="hidden w-full max-w-[1024px] justify-between md:flex">
 			<Link
 				href="/"
 				className="mr-6 flex items-center space-x-2"

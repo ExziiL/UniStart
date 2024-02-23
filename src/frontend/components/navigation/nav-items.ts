@@ -36,7 +36,7 @@ const navItems: { title: string; href: string; description: string }[] = [
 	},
 	{
 		title: 'Profile Settings',
-		href: '/settings',
+		href: '/settings/profile',
 		description: 'Übersicht aller wichtigsten Settingseinstellungen',
 	},
 	{
