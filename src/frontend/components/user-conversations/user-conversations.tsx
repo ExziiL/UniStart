@@ -14,7 +14,6 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from "@/frontend/components/ui/sheet";
-import { USERS } from "@/frontend/constants/users";
 import { toast } from "@/frontend/hooks/use-toast";
 import User from "@/types/IUser";
 import { conversation, message } from "@prisma/client";
@@ -167,7 +166,7 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 							activeChat={activeChat}
 						/>
 						{/* <div>{user.id}</div> */}
-						{index !== USERS.length - 1 && (
+						{index !== users.length - 1 && (
 							<div className="mx-4">
 								<Separator />
 							</div>
