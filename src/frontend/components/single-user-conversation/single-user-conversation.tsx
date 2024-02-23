@@ -16,7 +16,7 @@ import React from 'react';
 
 interface SingleUserConversationProps {
 	user: IUser;
-	activeChat?: number;
+	activeChat?: string;
 }
 
 function SingleUserConversation({ user, activeChat }: SingleUserConversationProps) {
@@ -24,13 +24,13 @@ function SingleUserConversation({ user, activeChat }: SingleUserConversationProp
 	const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 	const dropdownRef = React.useRef<HTMLDivElement>(null);
 
-	function getMessageDate() {
+	/* function getMessageDate() {
 		const date = new Date(user.messages![0].date);
 		const hours = date.getHours();
 		const minutes = date.getMinutes();
 		const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
 		return `${hours}:${formattedMinutes}`;
-	}
+	} */
 
 	const handleChevronClick = (event: any) => {
 		event.stopPropagation();
@@ -71,29 +71,29 @@ function SingleUserConversation({ user, activeChat }: SingleUserConversationProp
 				<div className="relative">
 					<Avatar>
 						<AvatarImage
-							src={user.profile!.avatar}
+							src={user.image}
 							alt="@shadcn"
 						/>
 						<AvatarFallback>Profile Picture</AvatarFallback>
 					</Avatar>
-					{user.chatSettings.isOnline && (
+					{/* {user.chatSettings.isOnline && (
 						<div className="relative -right-1 -top-3 flex w-full justify-end">
 							<div className="rounded-full bg-background p-[3px]">
 								<div className="h-[10px] w-[10px] rounded-full bg-green-600 text-green-600"></div>
 							</div>
 						</div>
-					)}
+					)} */}
 				</div>
 			)}
 
 			<div className="flex w-full flex-col gap-1">
 				<div className="flex justify-between">
 					<h2 className="font-medium">{user.name}</h2>
-					<span className="text-primary-muted">{getMessageDate()}</span>
+					{/* <span className="text-primary-muted">{getMessageDate()}</span> */}
 				</div>
 				<div className="relative flex justify-between">
-					<p className=" line-clamp-1 text-primary-muted">{user.messages![0].text}</p>
-
+					{/* <p className=" line-clamp-1 text-primary-muted">{user.messages![0].text}</p>
+ */}
 					<AnimatePresence>
 						{(isHovered || isDropdownOpen) && (
 							<motion.div

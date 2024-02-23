@@ -1,29 +1,28 @@
-import React from 'react';
+'use client';
 
-import { getOneFromMongo, setMongoSingleData } from '@/backend/databases/mongo';
-import { Information, dateScrapper } from '@/backend/scrapper/scrapper';
-import {
-	Table,
-	TableBody,
-	TableCaption,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from '@/frontend/components/ui/table';
+import React from 'react';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/frontend/components/ui/table';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/frontend/components/ui/tooltip';
 import { Info } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
+import { fetchAppointments } from './actions';
+import { Infos } from '@prisma/client';
 
-const AppointmentTable = async () => {
-	let data = await getOneFromMongo('scrapper', { semester: 'WS23' }, { projection: { table: 1 } });
+const AppointmentTable = () => {
+	const { isPending, isError, error, data } = useQuery({
+		queryKey: ['webscrapper'], queryFn: fetchAppointments, retry: false
+	})
 
-	if (!data.exists) {
-		console.log('Not n database found');
-		setMongoSingleData('scrapper', { semester: 'WS23', table: await dateScrapper() });
-		data = await getOneFromMongo('scrapper', { semester: 'WS23' }, { projection: { table: 1 } });
+	if (isPending) {
+		return (
+			<div>Waiting for data</div>
+		)
+	}
+	if (isError) {
+		return (<div>{error.message}</div>)
 	}
 
-	const entries: Information[] = Object.values(data.result)[1] as Information[];
+	const entries: Infos[] = data?.appointments;
 
 	return (
 		<Table>

@@ -3,10 +3,15 @@
 import { useUserContext } from "@/context/user-context/user-context";
 import { Button } from "@/frontend/components/ui/button";
 import { Textarea } from "@/frontend/components/ui/textarea";
-import { Send } from "lucide-react";
+import { send } from "@/frontend/components/message-input/actions";
 import React from "react";
+import { Send } from "lucide-react";
 
-function MessageInput() {
+type MessageInputProps = {
+	conversationid: string
+}
+
+function MessageInput({ conversationid }: MessageInputProps) {
 	const [message, setMessage] = React.useState("");
 	const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 	const { userState, userDispatch } = useUserContext();
@@ -28,7 +33,7 @@ function MessageInput() {
 	};
 
 	const handleButtonClick = () => {
-		console.log(message);
+		send(userState, message, conversationid)
 	};
 
 	return (
