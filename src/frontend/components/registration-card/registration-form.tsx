@@ -170,7 +170,7 @@ function RegistrationForm() {
 			<Button
 				type="submit"
 				form="registration-form"
-				className="mt-6 w-full"
+				className="mt-6 w-full bg-foreground/90"
 				disabled={isLoading ? true : false}
 			>
 				{isLoading ? (
