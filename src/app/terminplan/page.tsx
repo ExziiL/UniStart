@@ -80,7 +80,7 @@ function Terminplan() {
 
 	return (
 		<div className="mx-auto max-w-[1024px] space-y-16">
-			<h1 className="my-16 text-6xl font-bold text-primary">Terminplan für das WS 2023/2024</h1>
+			<h1 className="my-16 text-6xl font-bold text-primary">Terminplan für das SS 2024</h1>
 
 			<div className="space-y-6">
 				<div className="flex items-end gap-4">
