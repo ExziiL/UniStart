@@ -13,7 +13,7 @@ import {
 	navigationMenuTriggerStyle,
 } from "@/frontend/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { GraduationCap, Library } from "lucide-react";
+import { Bird, GraduationCap, Library } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -25,7 +25,12 @@ const MainNav = () => {
 				className="mr-6 flex items-center space-x-2"
 			>
 				{/* <Icons.logo className="h-6 w-6" /> */}
-				<span className="hidden font-bold sm:inline-block">LOGO</span>
+				<span className="hidden font-bold sm:inline-block">
+					<Bird
+						size={32}
+						strokeWidth={1.5}
+					/>
+				</span>
 			</Link>
 
 			<NavigationMenu className="flex gap-2">

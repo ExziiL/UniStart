@@ -1,19 +1,16 @@
 "use client";
 
-import React from "react";
-
-import Link, { LinkProps } from "next/link";
-import { useRouter } from "next/navigation";
-
-import { Sheet, SheetContent, SheetTrigger } from "@/frontend/components/ui/sheet";
-
+import navItems from "@/frontend/components/navigation/nav-items";
 import { Separator } from "@/frontend/components/ui/separator";
+import { Sheet, SheetContent, SheetTrigger } from "@/frontend/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { ViewVerticalIcon } from "@radix-ui/react-icons";
+import { Bird } from "lucide-react";
+import Link, { LinkProps } from "next/link";
+import { useRouter } from "next/navigation";
+import React from "react";
 import { Button } from "../ui/button";
 import { ScrollArea } from "../ui/scroll-area";
-
-import navItems from "@/frontend/components/navigation/nav-items";
 
 const MobileNav = () => {
 	const [open, setOpen] = React.useState(false);
@@ -38,11 +35,16 @@ const MobileNav = () => {
 			>
 				<MobileLink
 					href="/"
-					className="flex items-center"
+					className="flex w-fit items-center"
 					onOpenChange={setOpen}
 				>
 					{/* <Icons.logo className="mr-2 h-4 w-4" /> */}
-					<span className="font-bold">LOGO</span>
+					<span className="font-bold">
+						<Bird
+							size={32}
+							strokeWidth={1.5}
+						/>
+					</span>
 				</MobileLink>
 
 				<ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10">
