@@ -1,5 +1,4 @@
 import CourseOverviewCard from "@/frontend/components/course-overview-card";
-import { ScrollArea, ScrollBar } from "@/frontend/components/ui/scroll-area";
 import { VORLESUNGEN } from "@/frontend/constants/vorlesungen";
 import React from "react";
 
@@ -9,11 +8,11 @@ interface SemesterCarouselProps {
 
 function SemesterCarousel({ semester }: SemesterCarouselProps) {
 	return (
-		<div className="m-4 space-y-4">
+		<div className="space-y-4 sm:m-4">
 			<h1 className="text-2xl font-medium">{semester}. Semester</h1>
 
-			<ScrollArea className="">
-				<div className="flex w-max gap-4">
+			<div className="overflow-x-auto rounded-md border bg-foreground/5 p-4 dark:bg-foreground/15">
+				<div className="flex w-max gap-4 space-x-4">
 					{VORLESUNGEN.map(
 						(vorlesung, index) =>
 							vorlesung.semester == semester && (
@@ -24,8 +23,7 @@ function SemesterCarousel({ semester }: SemesterCarouselProps) {
 							)
 					)}
 				</div>
-				<ScrollBar orientation="horizontal" />
-			</ScrollArea>
+			</div>
 		</div>
 	);
 }

@@ -24,7 +24,9 @@ function CourseOverviewCard({ vorlesung, className }: CourseOverViewCardProps) {
 	};
 
 	return (
-		<div className={`flex w-[380px] flex-col justify-between gap-3 rounded-md border p-4 ${className}`}>
+		<div
+			className={`flex w-[380px] flex-col justify-between gap-3 rounded-md border bg-background p-4 ${className}`}
+		>
 			<div className="flex flex-col gap-3">
 				<div className="flex flex-col gap-1">
 					<h2 className="truncate text-lg font-medium text-primary">{vorlesung.name}</h2>
