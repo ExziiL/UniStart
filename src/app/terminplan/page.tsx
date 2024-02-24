@@ -76,7 +76,15 @@ function Terminplan() {
 
 	const entries: Infos[] = data?.appointments;
 
-	const firstFourEntries = entries.slice(0, 4);
+	const currentDate = new Date();
+
+	const upcomingEntries = entries
+		.filter((entry) => {
+			const [day, month, year] = entry.dates[0].split(".");
+			const entryDate = new Date(`${year}-${month}-${day}`);
+			return entryDate >= currentDate;
+		})
+		.slice(0, 4);
 
 	return (
 		<div className="mx-auto max-w-[1024px] space-y-16">
@@ -87,7 +95,7 @@ function Terminplan() {
 					<h2 className="text-4xl font-medium text-primary">Upcoming Appointments</h2>
 				</div>
 				<div className="grid grid-cols-2 gap-6">
-					{firstFourEntries.map((entry) => (
+					{upcomingEntries.map((entry) => (
 						<AppointmentCard
 							key={entry.title}
 							entry={entry}
