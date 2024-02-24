@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 import { Sheet, SheetContent, SheetTrigger } from "@/frontend/components/ui/sheet";
 
+import { Separator } from "@/frontend/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { ViewVerticalIcon } from "@radix-ui/react-icons";
 import { Button } from "../ui/button";
@@ -44,18 +45,22 @@ const MobileNav = () => {
 					<span className="font-bold">LOGO</span>
 				</MobileLink>
 
-				<ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
-					<nav className="flex flex-col space-y-3">
+				<ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10">
+					<nav className="flex flex-col pr-8">
 						{navItems.map(
 							(item) =>
 								item.href && (
-									<MobileLink
-										key={item.href + item.title}
-										href={item.href}
-										onOpenChange={setOpen}
-									>
-										{item.title}
-									</MobileLink>
+									<>
+										<MobileLink
+											key={item.href + item.title}
+											href={item.href}
+											onOpenChange={setOpen}
+											className="py-4 pl-2"
+										>
+											{item.title}
+										</MobileLink>
+										<Separator className="w-full" />
+									</>
 								)
 						)}
 					</nav>
