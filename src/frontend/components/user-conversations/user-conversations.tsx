@@ -40,11 +40,12 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 	const [shouldFetch, setShouldFetch] = React.useState<boolean>(false);
 	const [conversations, setConversations] = React.useState<Array<ConversationObject> | []>([]);
 
-	const handleUserClick = async (convoid: string) => {
-		setActiveChat(convoid);
-		const response = await action.fetchMessages(convoid);
+	const handleUserClick = async (convoId: string, receiverId: string) => {
+		const response = await action.fetchMessages(convoId);
+
+		setActiveChat(receiverId);
 		setMessages(response?.messages);
-		setCurrentConversationId(convoid);
+		setCurrentConversationId(convoId);
 	};
 
 	const handleNewUserClick = () => {
@@ -159,7 +160,7 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 				{conversations.map((elem, index) => (
 					<div
 						key={index}
-						onClick={() => handleUserClick(elem.conversation.id)}
+						onClick={() => handleUserClick(elem.conversation.id, elem.receiver.id)}
 					>
 						<SingleUserConversation
 							user={elem.receiver}

@@ -85,12 +85,12 @@ function SingleUserConversation({ user, activeChat }: SingleUserConversationProp
 				</div>
 			)}
 
-			<div className="flex w-full flex-col gap-1">
+			<div className="flex w-full flex-row items-center justify-between gap-1">
 				<div className="flex justify-between">
 					<h2 className="font-medium">{user.name}</h2>
 					{/* <span className="text-primary-muted">{getMessageDate()}</span> */}
 				</div>
-				<div className="relative flex justify-between">
+				<div className="relative flex flex-row justify-between">
 					{/* <p className=" line-clamp-1 text-primary-muted">{user.messages[0].text}</p> */}
 
 					<AnimatePresence>
