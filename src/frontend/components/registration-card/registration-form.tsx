@@ -55,7 +55,6 @@ function RegistrationForm() {
 
 	// TODO: Add loading state
 	async function onSubmit(values: z.infer<typeof registrationFormSchema>) {
-		// console.log('form submitted', values);
 		toast({
 			title: "You submitted the following values:",
 			description: (
@@ -69,10 +68,10 @@ function RegistrationForm() {
 			const res = await register("credentials", values);
 
 			if (res?.ok) {
-				//await registerGraph(session.data, router)
+				router.replace("/");
 			}
 		} catch (error) {
-			// console.log("Something went wrong\n"+ error);
+			console.log("Something went wrong\n" + error);
 		}
 	}
 
@@ -96,7 +95,6 @@ function RegistrationForm() {
 									placeholder="E-Mail"
 								/>
 							</FormControl>
-							{/* <FormDescription>This is you E-Mail</FormDescription> */}
 							<FormMessage />
 						</FormItem>
 					)}
@@ -114,7 +112,6 @@ function RegistrationForm() {
 									placeholder="Username"
 								/>
 							</FormControl>
-							{/* <FormDescription>This is your public display name</FormDescription> */}
 							<FormMessage />
 						</FormItem>
 					)}
@@ -132,7 +129,6 @@ function RegistrationForm() {
 									placeholder="Password"
 								/>
 							</FormControl>
-							{/* <FormDescription>This is your public display name</FormDescription> */}
 							<FormMessage />
 						</FormItem>
 					)}
@@ -150,7 +146,6 @@ function RegistrationForm() {
 									placeholder="Confirm Password"
 								/>
 							</FormControl>
-							{/* <FormDescription>This is your public display name</FormDescription> */}
 							<FormMessage />
 						</FormItem>
 					)}
