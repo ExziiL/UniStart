@@ -39,6 +39,7 @@ export const registrationFormSchema = z
 
 function RegistrationForm() {
 	const [isLoading, setIsLoading] = React.useState(false);
+	const [isError, setIsError] = React.useState(false);
 	const router = useRouter();
 
 	const form = useForm<z.infer<typeof registrationFormSchema>>({
@@ -60,8 +61,10 @@ function RegistrationForm() {
 			if (res?.ok) {
 				router.replace("/");
 			} else {
+				// If the user already exists, set isError to true
 				setTimeout(() => {
 					setIsLoading(false);
+					setIsError(true);
 				}, 1200);
 			}
 		} catch (error) {
