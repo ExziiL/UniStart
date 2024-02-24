@@ -105,11 +105,17 @@ function LoginForm() {
 			<Button
 				type="submit"
 				form="login-form"
-				className="mt-6 w-full"
+				className="mt-6 w-full bg-foreground/90"
 				disabled={isLoading ? true : false}
 			>
-				{isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-				Login
+				{isLoading ? (
+					<div className="flex flex-row items-center justify-center gap-1">
+						<Loader2 className="mr-2 h-4 w-4 animate-spin" />
+						Logging In...
+					</div>
+				) : (
+					<div>Get Started</div>
+				)}
 			</Button>
 		</Form>
 	);
