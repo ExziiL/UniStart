@@ -1,8 +1,6 @@
 "use client";
 
 import NavAvatar from "@/frontend/components/navigation/nav-avatar";
-import navItems from "@/frontend/components/navigation/nav-items";
-import ThemeToggle from "@/frontend/components/theme-toggle";
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -13,7 +11,7 @@ import {
 	navigationMenuTriggerStyle,
 } from "@/frontend/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { Bird, GraduationCap, Library } from "lucide-react";
+import { Bird, Library } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 

@@ -21,7 +21,7 @@ async function handleLogOut() {
 
 function NavAvatar() {
 	return (
-		<div>
+		<div className="h-full pt-1.5">
 			<DropdownMenu>
 				<DropdownMenuTrigger>
 					<Avatar>
