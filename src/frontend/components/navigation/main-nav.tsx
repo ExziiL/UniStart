@@ -65,7 +65,7 @@ const MainNav = () => {
 								</li>
 								<ListItem
 									href="/terminplan"
-									title="Schedule Overview"
+									title="Schedule"
 								>
 									A concise summary of all key dates and deadlines.
 								</ListItem>
