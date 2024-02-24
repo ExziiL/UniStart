@@ -50,7 +50,6 @@ async function emailRegister(values: z.infer<typeof registrationFormSchema> | nu
 
     if (response.ok) {
         const { user } = await response.json()
-        // console.log(user);
 
         await createNode(user);
     }

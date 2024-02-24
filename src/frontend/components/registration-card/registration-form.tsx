@@ -20,6 +20,10 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { register } from "./actions";
 
+interface CustomResponse extends Response {
+	userExists?: boolean;
+}
+
 export const registrationFormSchema = z
 	.object({
 		email: z.string().email(),
@@ -39,6 +43,7 @@ export const registrationFormSchema = z
 
 function RegistrationForm() {
 	const [isLoading, setIsLoading] = React.useState(false);
+	const [userExistsErr, setUserExistsErr] = React.useState(false);
 	const [isError, setIsError] = React.useState(false);
 	const router = useRouter();
 
@@ -52,23 +57,25 @@ function RegistrationForm() {
 		},
 	});
 
-	// TODO: Add loading state
 	async function onSubmit(values: z.infer<typeof registrationFormSchema>) {
 		try {
 			setIsLoading(true);
-			const res = await register("credentials", values);
+			const res = (await register("credentials", values)) as CustomResponse;
 
 			if (res?.ok) {
 				router.replace("/");
-			} else {
-				// If the user already exists, set isError to true
+			} else if (res?.userExists) {
 				setTimeout(() => {
+					setUserExistsErr(true);
 					setIsLoading(false);
+				}, 1200);
+			} else {
+				setTimeout(() => {
 					setIsError(true);
+					setIsLoading(false);
 				}, 1200);
 			}
 		} catch (error) {
-			console.log("Something went wrong\n" + error);
 			setIsLoading(false);
 		}
 	}
@@ -130,7 +137,7 @@ function RegistrationForm() {
 							<FormMessage />
 						</FormItem>
 					)}
-				/>{" "}
+				/>
 				<FormField
 					control={form.control}
 					name="confirmPassword"
@@ -149,14 +156,31 @@ function RegistrationForm() {
 					)}
 				/>
 			</form>
+
+			{userExistsErr && (
+				<div
+					className={`mt-6 border border-destructive bg-red-50 p-2 text-base text-red-900 dark:bg-red-950 dark:text-red-50 ${
+						isLoading && "hidden"
+					}`}
+				>
+					E-Mail already in use. Please use another E-Mail.
+				</div>
+			)}
+
 			<Button
 				type="submit"
 				form="registration-form"
 				className="mt-6 w-full"
 				disabled={isLoading ? true : false}
 			>
-				{isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-				Create account
+				{isLoading ? (
+					<div className="flex flex-row items-center justify-center gap-1">
+						<Loader2 className="mr-2 h-4 w-4 animate-spin" />
+						Creating Account...
+					</div>
+				) : (
+					<div>Get Started</div>
+				)}
 			</Button>
 		</Form>
 	);
