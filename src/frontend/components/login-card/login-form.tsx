@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
+import { zodResolver } from "@hookform/resolvers/zod";
+import React from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
-import { Button } from '@/frontend/components/ui/button';
+import { Button } from "@/frontend/components/ui/button";
 import {
 	Form,
 	FormControl,
@@ -14,16 +14,16 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from '@/frontend/components/ui/form';
-import { Input } from '@/frontend/components/ui/input';
-import { useToast } from '@/frontend/hooks/use-toast';
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+} from "@/frontend/components/ui/form";
+import { Input } from "@/frontend/components/ui/input";
+import { useToast } from "@/frontend/hooks/use-toast";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const loginFormSchema = z.object({
 	// TODO: Add valid checks -> Check if username exists in db and if password matches
-	username: z.string().min(3, { message: 'Please enter correct password' }).max(20),
-	password: z.string().min(8, { message: 'Password must be at least 8 characters.' }),
+	username: z.string().min(3, { message: "Please enter correct password" }).max(20),
+	password: z.string().min(8, { message: "Password must be at least 8 characters." }),
 });
 
 function LoginForm() {
@@ -33,8 +33,8 @@ function LoginForm() {
 	const form = useForm<z.infer<typeof loginFormSchema>>({
 		resolver: zodResolver(loginFormSchema),
 		defaultValues: {
-			username: 'fillerUser',
-			password: 'fillerPassword',
+			username: "filler@email.com",
+			password: "fillerPassword",
 		},
 	});
 
@@ -42,7 +42,7 @@ function LoginForm() {
 	async function onSubmit(values: z.infer<typeof loginFormSchema>) {
 		// console.log('form submitted', values);
 		toast({
-			title: 'You submitted the following values:',
+			title: "You submitted the following values:",
 			description: (
 				<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
 					<code className="text-white">{JSON.stringify(values, null, 2)}</code>
@@ -50,22 +50,21 @@ function LoginForm() {
 			),
 		});
 
-		try {			
-			const res = await signIn('credentials', {
+		try {
+			const res = await signIn("credentials", {
 				email: values.username,
 				password: values.password,
 				redirect: false,
 			});
 
 			if (res?.error) {
-				// console.log("Invalid credentials");				
+				// console.log("Invalid credentials");
 				return;
 			}
 
-			router.replace("/")
+			router.replace("/");
 		} catch (error) {
 			// console.log(error);
-			
 		}
 	}
 
@@ -81,12 +80,12 @@ function LoginForm() {
 					name="username"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel htmlFor={field.name}>Username</FormLabel>
+							<FormLabel htmlFor={field.name}>E-Mail</FormLabel>
 							<FormControl>
 								<Input
 									{...field}
 									id={field.name}
-									placeholder="Username"
+									placeholder="E-Mail"
 								/>
 							</FormControl>
 							{/* <FormDescription>This is your public display name</FormDescription> */}
