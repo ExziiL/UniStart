@@ -1,10 +1,5 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-
 import { Button } from "@/frontend/components/ui/button";
 import {
 	Form,
@@ -17,8 +12,13 @@ import {
 } from "@/frontend/components/ui/form";
 import { Input } from "@/frontend/components/ui/input";
 import { useToast } from "@/frontend/hooks/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import React from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
 const loginFormSchema = z.object({
 	// TODO: Add valid checks -> Check if username exists in db and if password matches
@@ -27,6 +27,7 @@ const loginFormSchema = z.object({
 });
 
 function LoginForm() {
+	const [isLoading, setIsLoading] = React.useState(false);
 	const { toast } = useToast();
 	const router = useRouter();
 
@@ -51,6 +52,7 @@ function LoginForm() {
 		});
 
 		try {
+			setIsLoading(true);
 			const res = await signIn("credentials", {
 				email: values.username,
 				password: values.password,
@@ -116,7 +118,9 @@ function LoginForm() {
 				type="submit"
 				form="login-form"
 				className="mt-6 w-full"
+				disabled={isLoading ? true : false}
 			>
+				{isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
 				Login
 			</Button>
 		</Form>

@@ -1,10 +1,5 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-
 import { Button } from "@/frontend/components/ui/button";
 import {
 	Form,
@@ -17,8 +12,13 @@ import {
 } from "@/frontend/components/ui/form";
 import { Input } from "@/frontend/components/ui/input";
 import { useToast } from "@/frontend/hooks/use-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import React from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 import { register } from "./actions";
 
 export const registrationFormSchema = z
@@ -39,9 +39,9 @@ export const registrationFormSchema = z
 	});
 
 function RegistrationForm() {
+	const [isLoading, setIsLoading] = React.useState(false);
 	const { toast } = useToast();
 	const router = useRouter();
-	const session = useSession();
 
 	const form = useForm<z.infer<typeof registrationFormSchema>>({
 		resolver: zodResolver(registrationFormSchema),
@@ -65,13 +65,19 @@ function RegistrationForm() {
 		});
 
 		try {
+			setIsLoading(true);
 			const res = await register("credentials", values);
 
 			if (res?.ok) {
 				router.replace("/");
+			} else {
+				setTimeout(() => {
+					setIsLoading(false);
+				}, 1200);
 			}
 		} catch (error) {
 			console.log("Something went wrong\n" + error);
+			setIsLoading(false);
 		}
 	}
 
@@ -155,7 +161,9 @@ function RegistrationForm() {
 				type="submit"
 				form="registration-form"
 				className="mt-6 w-full"
+				disabled={isLoading ? true : false}
 			>
+				{isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
 				Create account
 			</Button>
 		</Form>
