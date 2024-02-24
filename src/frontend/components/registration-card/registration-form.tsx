@@ -11,7 +11,6 @@ import {
 	FormMessage,
 } from "@/frontend/components/ui/form";
 import { Input } from "@/frontend/components/ui/input";
-import { useToast } from "@/frontend/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import { useSession } from "next-auth/react";
@@ -40,7 +39,6 @@ export const registrationFormSchema = z
 
 function RegistrationForm() {
 	const [isLoading, setIsLoading] = React.useState(false);
-	const { toast } = useToast();
 	const router = useRouter();
 
 	const form = useForm<z.infer<typeof registrationFormSchema>>({
@@ -55,15 +53,6 @@ function RegistrationForm() {
 
 	// TODO: Add loading state
 	async function onSubmit(values: z.infer<typeof registrationFormSchema>) {
-		toast({
-			title: "You submitted the following values:",
-			description: (
-				<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-					<code className="text-white">{JSON.stringify(values, null, 2)}</code>
-				</pre>
-			),
-		});
-
 		try {
 			setIsLoading(true);
 			const res = await register("credentials", values);
