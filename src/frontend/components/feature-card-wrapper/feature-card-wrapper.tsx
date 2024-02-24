@@ -37,7 +37,7 @@ function FeatureCardWrapper({ feature }: { feature: { title: string; image: stri
 					<div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-lg bg-gradient-to-t from-zinc-900 via-transparent" />
 
 					<FeatureCard.Title>
-						<div className="flex w-full flex-row items-center">
+						<div className="flex w-full flex-row items-center text-white">
 							{feature.title}
 
 							{/* ab hier */}
