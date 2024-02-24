@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/frontend/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from "@/frontend/components/ui/avatar";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -8,11 +8,11 @@ import {
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from '@/frontend/components/ui/dropdown-menu';
-import IUser from '@/types/IUser';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Archive, ChevronDown, Trash2, User } from 'lucide-react';
-import React from 'react';
+} from "@/frontend/components/ui/dropdown-menu";
+import IUser from "@/types/IUser";
+import { AnimatePresence, motion } from "framer-motion";
+import { Archive, ChevronDown, Trash2, User } from "lucide-react";
+import React from "react";
 
 interface SingleUserConversationProps {
 	user: IUser;
@@ -49,32 +49,31 @@ function SingleUserConversation({ user, activeChat }: SingleUserConversationProp
 
 	React.useEffect(() => {
 		if (isDropdownOpen) {
-			document.addEventListener('mousedown', handleClickOutside);
+			document.addEventListener("mousedown", handleClickOutside);
 		} else {
-			document.removeEventListener('mousedown', handleClickOutside);
+			document.removeEventListener("mousedown", handleClickOutside);
 		}
 
 		return () => {
-			document.removeEventListener('mousedown', handleClickOutside);
+			document.removeEventListener("mousedown", handleClickOutside);
 		};
 	}, [isDropdownOpen]);
 
 	return (
 		<div
 			className={` w-fill mx-2 my-2 flex cursor-pointer gap-4 rounded-md px-3 py-3 transition-all hover:bg-muted ${
-				activeChat === user.id ? 'bg-muted' : ''
+				activeChat === user.id ? "bg-muted" : ""
 			}`}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
 		>
-			{user && (
+			{user.image && (
 				<div className="relative">
 					<Avatar>
 						<AvatarImage
 							src={user.image}
-							alt="@shadcn"
+							alt={user.name}
 						/>
-						<AvatarFallback>Profile Picture</AvatarFallback>
 					</Avatar>
 					{/* {user.chatSettings.isOnline && (
 						<div className="relative -right-1 -top-3 flex w-full justify-end">
@@ -92,8 +91,8 @@ function SingleUserConversation({ user, activeChat }: SingleUserConversationProp
 					{/* <span className="text-primary-muted">{getMessageDate()}</span> */}
 				</div>
 				<div className="relative flex justify-between">
-					{/* <p className=" line-clamp-1 text-primary-muted">{user.messages![0].text}</p>
- */}
+					{/* <p className=" line-clamp-1 text-primary-muted">{user.messages[0].text}</p> */}
+
 					<AnimatePresence>
 						{(isHovered || isDropdownOpen) && (
 							<motion.div
