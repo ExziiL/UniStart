@@ -4,16 +4,16 @@ const navItems: { title: string; href: string; description: string }[] = [
 		href: '/',
 		description: 'Home page',
 	},
-	{
-		title: 'Registration',
-		href: '/registration',
-		description: 'Registration page',
-	},
-	{
-		title: 'Login',
-		href: '/login',
-		description: 'Login page',
-	},
+	// {
+	// 	title: 'Registration',
+	// 	href: '/registration',
+	// 	description: 'Registration page',
+	// },
+	// {
+	// 	title: 'Login',
+	// 	href: '/login',
+	// 	description: 'Login page',
+	// },
 	{
 		title: 'Terminkalender',
 		href: '/terminplan',
@@ -35,19 +35,9 @@ const navItems: { title: string; href: string; description: string }[] = [
 		description: 'User-Chat',
 	},
 	{
-		title: 'Profile Settings',
-		href: '/settings/profile',
-		description: 'Übersicht aller wichtigsten Settingseinstellungen',
-	},
-	{
 		title: 'FAQ',
 		href: '/faq',
 		description: 'Frequently Asked Questions',
-	},
-	{
-		title: 'Not Found',
-		href: '/not-found',
-		description: 'Übersicht aller wichtigen Termine der Hochschule',
 	},
 ];
 
