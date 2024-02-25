@@ -7,20 +7,13 @@ import React from "react";
 const chatMessageVariants = cva("w-fit rounded-md bg-light-foreground p-2 px-4", {
 	variants: {
 		variant: {
-			outgoing: "bg-foreground/95 text-secondary ml-4",
+			outgoing: "bg-foreground/95 text-secondary",
 			incoming: "text-primary",
 			ai: "border border-light/15 mr-4 bg-light/15",
 		},
-		// size: {
-		// 	default: 'h-10 px-4 py-2',
-		// 	sm: 'h-9 rounded-md px-3',
-		// 	lg: 'h-11 rounded-md px-8',
-		// 	icon: 'h-10 w-10',
-		// },
 	},
 	defaultVariants: {
 		variant: "outgoing",
-		// size: 'default',
 	},
 });
 
@@ -33,10 +26,10 @@ function ChatMessage({ variant, messageData }: ChatMessageProps) {
 	const isOutgoingMessage = variant === "outgoing" || variant == undefined;
 
 	return (
-		<div className={`${isOutgoingMessage ? "items-end" : ""} flex flex-col gap-2`}>
-			{!isOutgoingMessage && (
+		<div className={`${isOutgoingMessage ? "items-end pr-4" : ""} flex flex-col gap-2`}>
+			{!isOutgoingMessage && messageData?.image && (
 				<Avatar>
-					<AvatarImage src="https://github.com/shadcn.png" />
+					<AvatarImage src={messageData.image} />
 					<AvatarFallback>CN</AvatarFallback>
 				</Avatar>
 			)}
