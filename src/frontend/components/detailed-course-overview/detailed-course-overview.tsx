@@ -8,11 +8,11 @@ import { Calendar, CalendarDays, GraduationCap, Home, Star } from "lucide-react"
 import React from "react";
 import ProfessorDetails from "../professor-details";
 
-interface DetailedCourseOverviewProps {
+interface DetailedCourseOverviewProps extends React.HTMLAttributes<HTMLDivElement> {
 	vorlesung: VorlesungProps;
 }
 
-function DetailedCourseOverview({ vorlesung }: DetailedCourseOverviewProps) {
+function DetailedCourseOverview({ vorlesung, className }: DetailedCourseOverviewProps) {
 	const [isDescriptionExpanded, setDescriptionExpanded] = React.useState(false);
 
 	const toggleDescription = () => {
@@ -27,7 +27,7 @@ function DetailedCourseOverview({ vorlesung }: DetailedCourseOverviewProps) {
 	const showFade = !isDescriptionExpanded && vorlesung.longDescription.length > maxCharacters;
 
 	return (
-		<div className="text-primary">
+		<div className={`text-primary` + className}>
 			<div className="flex flex-col gap-4">
 				<div className="flex h-full gap-4">
 					<h1 className="text-xl font-medium">{vorlesung.name}</h1>
