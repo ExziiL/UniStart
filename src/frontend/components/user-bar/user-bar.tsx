@@ -37,9 +37,8 @@ function UserBar({ userId, activeChat }: UserBarProps) {
 		}
 		if (!getUsers.isError && getUsers.data) {
 			setShouldFetch(false);
-			getUsers.data?.users.map(
-				(user: any) => setSelectedUser(getUsers.data?.users.find((user: User) => user.id === activeChat)),
-				console.log(selectedUser)
+			getUsers.data?.users.map((user: any) =>
+				setSelectedUser(getUsers.data?.users.find((user: User) => user.id === activeChat))
 			);
 		}
 	}, [getUsers]);

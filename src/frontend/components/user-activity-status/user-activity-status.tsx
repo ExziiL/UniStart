@@ -10,8 +10,6 @@ interface UserActivityStatusProps {
 function UserActivityStatus({ selectedUser }: UserActivityStatusProps) {
 	if (!selectedUser) return;
 
-	console.log("sel user: ", selectedUser);
-
 	return (
 		<div className="flex gap-4">
 			<div className="">

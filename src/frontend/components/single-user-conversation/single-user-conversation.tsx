@@ -9,6 +9,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/frontend/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
 import IUser from "@/types/IUser";
 import { AnimatePresence, motion } from "framer-motion";
 import { Archive, ChevronDown, Trash2, User } from "lucide-react";
@@ -75,13 +76,18 @@ function SingleUserConversation({ user, activeChat }: SingleUserConversationProp
 							alt={user.name}
 						/>
 					</Avatar>
-					{/* {user.chatSettings.isOnline && (
+					{user.online && (
 						<div className="relative -right-1 -top-3 flex w-full justify-end">
 							<div className="rounded-full bg-background p-[3px]">
-								<div className="h-[10px] w-[10px] rounded-full bg-green-600 text-green-600"></div>
+								<div
+									className={cn("h-[10px] w-[10px] rounded-full", {
+										"bg-green-600": user.online,
+										"bg-red-600": !user.online,
+									})}
+								></div>
 							</div>
 						</div>
-					)} */}
+					)}
 				</div>
 			)}
 
