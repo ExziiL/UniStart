@@ -21,23 +21,23 @@ function Terminplan() {
 
 	if (isPending) {
 		return (
-			<div className="mx-auto max-w-[1024px] space-y-16">
-				<Skeleton className="my-16 h-16 w-[1000px]" />
+			<div className="mx-auto max-w-[1024px] space-y-8">
+				<Skeleton className="my-6 h-6 w-[250px]" />
 
 				<div className="space-y-6">
-					<div className="flex items-end gap-4">
-						<Skeleton className="h-10 w-[425px]" />
+					<div className="flex items-end gap-4 sm:w-full md:w-[700px]">
+						<Skeleton className="h-10 w-[400px]" />
 					</div>
-					<div className="grid grid-cols-2 gap-6">
-						<Skeleton className="h-[150px] w-full" />
-						<Skeleton className="h-[150px] w-full" />
-						<Skeleton className="h-[150px] w-full" />
-						<Skeleton className="h-[150px] w-full" />
+					<div className="grid grid-cols-2 gap-6 pb-8">
+						<Skeleton className="h-[120px] w-full" />
+						<Skeleton className="h-[120px] w-full" />
+						<Skeleton className="h-[120px] w-full" />
+						<Skeleton className="h-[120px] w-full" />
 					</div>
 				</div>
 
 				<div className="space-y-6 pb-16">
-					<Skeleton className="h-12 w-[400px]" />
+					<Skeleton className="h-10 w-[400px]" />
 
 					<div>
 						<Skeleton className="h-[600px] w-full" />
