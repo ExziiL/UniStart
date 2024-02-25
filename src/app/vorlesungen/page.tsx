@@ -7,6 +7,7 @@ function Vorlesungen() {
 		<div className="flex flex-col gap-10">
 			<SemesterCarousel semester={1} />
 			<SemesterCarousel semester={2} />
+			<SemesterCarousel semester={3} />
 		</div>
 	);
 }

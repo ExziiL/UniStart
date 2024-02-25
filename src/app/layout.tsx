@@ -1,13 +1,13 @@
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
-import '@smastrom/react-rating/style.css';
-import Navigation from '@/frontend/components/navigation';
-import { Toaster } from '@/frontend/components/ui/toaster';
-import { Providers } from "./providers";
+import AiQuickChatTrigger from "@/frontend/components/ai-quick-chat-trigger";
+import Navigation from "@/frontend/components/navigation";
 import TailwindIndictor from "@/frontend/components/tailwind-indictor";
-
+import { Toaster } from "@/frontend/components/ui/toaster";
+import "@smastrom/react-rating/style.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,10 +29,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 						{children}
 						<SpeedInsights />
 						<Toaster />
+						<AiQuickChatTrigger />
 					</main>
 					<TailwindIndictor />
 				</Providers>
-			</body >
-		</html >
+			</body>
+		</html>
 	);
 }

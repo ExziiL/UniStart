@@ -7,9 +7,7 @@ import { Separator } from "../ui/separator";
 
 function SettingsProfile() {
 	return (
-		<div className="mx-auto w-full max-w-[960px] space-y-8 p-4">
-			<h1>Profile</h1>
-			<Separator />
+		<div className="mx-auto w-full max-w-[1024px] space-y-8">
 			<div className="space-y-8">
 				<div className="flex flex-row gap-6">
 					<Avatar className="h-16 w-16">
@@ -17,7 +15,7 @@ function SettingsProfile() {
 						<AvatarFallback>CN</AvatarFallback>
 					</Avatar>
 					<div className="flex flex-col gap-3">
-						<div>Profile Picture</div>
+						<div className="font-semibold">Profile Picture</div>
 						<div className="flex gap-3">
 							<Button>
 								<Upload
@@ -34,7 +32,7 @@ function SettingsProfile() {
 								Delete
 							</Button>
 						</div>
-						<p className="text-xs text-light">We support PNGs, JPEGs under 10MB</p>
+						<p className="text-sm text-light">We support PNGs, JPEGs under 10MB</p>
 					</div>
 				</div>
 

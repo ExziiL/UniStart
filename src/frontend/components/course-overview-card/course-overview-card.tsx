@@ -1,6 +1,5 @@
 "use client";
 
-import CourseBadge from "@/frontend/components/course-badge";
 import IconWithText from "@/frontend/components/icon-with-text";
 import ProfessorDetails from "@/frontend/components/professor-details";
 import StarRating from "@/frontend/components/star-rating";
@@ -11,11 +10,11 @@ import Link from "next/link";
 import React from "react";
 import { useHover } from "usehooks-ts";
 
-interface CourseOverViewCardProps {
+interface CourseOverViewCardProps extends React.HTMLAttributes<HTMLDivElement> {
 	lecture: lecture;
 }
 
-function CourseOverviewCard({ lecture }: CourseOverViewCardProps) {
+function CourseOverviewCard({ lecture, className }: CourseOverViewCardProps) {
 	const hoverRef = React.useRef<HTMLDivElement>(null);
 	const isHovered = useHover(hoverRef);
 
@@ -26,7 +25,7 @@ function CourseOverviewCard({ lecture }: CourseOverViewCardProps) {
 	};
 
 	return (
-		<div className="flex w-80 flex-col justify-between gap-3 rounded-md border p-4">
+		<div className={`flex w-[380px] flex-col justify-between gap-3 rounded-md border p-4 ${className}`}>
 			<div className="flex flex-col gap-3">
 				<div className="flex flex-col gap-1">
 					<h2 className="truncate text-lg font-medium text-primary">{lecture.name}</h2>
@@ -50,7 +49,7 @@ function CourseOverviewCard({ lecture }: CourseOverViewCardProps) {
 
 			<div className="flex flex-col gap-3">
 				<div className="flex justify-between">
-					<Link href={`/vorlesungen/${lecture.slug}`}>
+				<Link href={`/vorlesungen/${lecture.slug}`}>
 						<motion.div
 							className="relative flex cursor-pointer items-center gap-2 text-link/95 transition-colors hover:text-link"
 							ref={hoverRef}

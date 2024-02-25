@@ -1,35 +1,35 @@
-import React from 'react';
+import React from "react";
 
-import AppointmentCard from '@/frontend/components/appointment-card';
-import AppointmentTable from '@/frontend/components/appointment-table';
-import { Download } from 'lucide-react';
+import AppointmentCard from "@/frontend/components/appointment-card";
+import AppointmentTable from "@/frontend/components/appointment-table";
+import { Download } from "lucide-react";
 
 const eintraege = [
 	{
-		title: 'Infoveranstaltung für Masterstudiengänge',
-		date: 'Montag, 10.07.2023',
-		dueDay: 'fällig in 9 Tagen',
+		title: "Infoveranstaltung für Masterstudiengänge",
+		date: "Montag, 10.07.2023",
+		dueDay: "fällig in 9 Tagen",
 	},
 	{
-		title: 'Infoveranstaltung für Bachelorstudiengänge',
-		date: 'Mittwoch, 12.07.2023',
-		dueDay: 'fällig in 12 Tagen',
+		title: "Infoveranstaltung für Bachelorstudiengänge",
+		date: "Mittwoch, 12.07.2023",
+		dueDay: "fällig in 12 Tagen",
 	},
 	{
-		title: 'Bewerbungsschluss für Masterstudiengänge',
-		date: 'Samstag, 15.07.2023',
-		dueDay: 'fällig in 16 Tagen',
+		title: "Bewerbungsschluss für Masterstudiengänge",
+		date: "Samstag, 15.07.2023",
+		dueDay: "fällig in 16 Tagen",
 	},
 	{
-		title: 'Letzter Termin zur Immatrikulation bei NC-freien Bachelorstudiengängen und höheren Semestern	',
-		date: 'Samstag, 06.10.2023',
-		dueDay: 'fällig in 43 Tagen',
+		title: "Letzter Termin zur Immatrikulation bei NC-freien Bachelorstudiengängen und höheren Semestern	",
+		date: "Samstag, 06.10.2023",
+		dueDay: "fällig in 43 Tagen",
 	},
 ];
 
 function Terminplan() {
 	return (
-		<div className="mx-auto max-w-[960px] space-y-16">
+		<div className="mx-auto max-w-[1024px] space-y-16">
 			<h1 className="my-16 text-6xl font-bold text-primary">Terminplan für das WS 2023/2024</h1>
 
 			<div className="space-y-6">

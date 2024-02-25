@@ -1,5 +1,6 @@
 "use client";
 
+import { useUserContext } from "@/context/user-context/user-context";
 import NewConversationUserChat from "@/frontend/components/new-conversation-user-chat";
 import SingleUserConversation from "@/frontend/components/single-user-conversation";
 import { Button } from "@/frontend/components/ui/button";
@@ -13,26 +14,23 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from "@/frontend/components/ui/sheet";
-import { USERS } from "@/frontend/constants/users";
+import { toast } from "@/frontend/hooks/use-toast";
 import User from "@/types/IUser";
+import { conversation, message } from "@prisma/client";
+import { useQuery } from "@tanstack/react-query";
 import { Edit } from "lucide-react";
 import React, { useEffect } from "react";
-import { useQuery } from '@tanstack/react-query'
-import { toast } from "@/frontend/hooks/use-toast";
-import { useUserContext } from "@/context/user-context/user-context";
 import * as action from "./actions";
-import { conversation, message } from "@prisma/client";
 
 interface UserConversationsProps {
-	setMessages: React.Dispatch<React.SetStateAction<message[]>>,
-	setCurrentConversationId: React.Dispatch<React.SetStateAction<string>>
+	setMessages: React.Dispatch<React.SetStateAction<message[]>>;
+	setCurrentConversationId: React.Dispatch<React.SetStateAction<string>>;
 }
 
 type ConversationObject = {
-	receiver: User,
-	conversation: conversation
-}
-
+	receiver: User;
+	conversation: conversation;
+};
 
 function UserConversations({ setMessages, setCurrentConversationId }: UserConversationsProps) {
 	const { userState } = useUserContext();
@@ -40,8 +38,7 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 	const [selectedUsers, setSelectedUsers] = React.useState<string[]>([]);
 	const [users, setUsers] = React.useState<Array<User> | []>([]);
 	const [shouldFetch, setShouldFetch] = React.useState<boolean>(false);
-	const [conversations, setConversations] = React.useState<Array<ConversationObject> | []>([])
-
+	const [conversations, setConversations] = React.useState<Array<ConversationObject> | []>([]);
 
 	const handleUserClick = async (convoid: string) => {
 		setActiveChat(convoid);
@@ -56,43 +53,51 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 	};
 
 	useEffect(() => {
-		if (!shouldFetch && userState.id != '0') {
+		if (!shouldFetch && userState.id != "0") {
 			setShouldFetch(true);
 			setSelectedUsers([userState.id]);
 		}
-	}, [userState])
+	}, [userState, shouldFetch]);
 
-	const getUsers = useQuery({ queryKey: ['getUsers'], queryFn: () => action.fetchUsers(userState.id), enabled: shouldFetch });
-	const getConversations = useQuery({ queryKey: ['getConversations'], queryFn: () => action.fetchConversation(userState.id), enabled: shouldFetch });
-
-
+	const getUsers = useQuery({
+		queryKey: ["getUsers"],
+		queryFn: () => action.fetchUsers(userState.id),
+		enabled: shouldFetch,
+	});
+	const getConversations = useQuery({
+		queryKey: ["getConversations"],
+		queryFn: () => action.fetchConversation(userState.id),
+		enabled: shouldFetch,
+	});
 
 	useEffect(() => {
-		if (getUsers.isPending) { }
+		if (getUsers.isPending) {
+		}
 		if (getUsers.isError) {
 			toast({
-				title: 'Error getting users',
+				title: "Error getting users",
 				description: getUsers.error.message,
 			});
 		}
 		if (!getUsers.isError && getUsers.data) {
 			setShouldFetch(false);
 			setUsers(getUsers.data?.users);
-		};
+		}
 	}, [getUsers]);
 
 	useEffect(() => {
-		if (getConversations.isPending) { }
+		if (getConversations.isPending) {
+		}
 		if (getConversations.isError) {
 			toast({
-				title: 'Error getting converstaions',
+				title: "Error getting converstaions",
 				description: getConversations.error.message,
 			});
 		}
 		if (!getConversations.isError && getConversations.data) {
 			setShouldFetch(false);
 			setConversations(getConversations.data?.conversations);
-		};
+		}
 	}, [getConversations]);
 
 	function handleUserSelection(id: string) {
@@ -100,11 +105,10 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 			if (prev.includes(id)) {
 				return prev.filter((user) => user !== id);
 			} else {
-				return ([...prev, id]);
+				return [...prev, id];
 			}
-		})
+		});
 	}
-
 
 	return (
 		<div className="bg-background">
@@ -131,10 +135,9 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 								{users.map((user, index) => (
 									<div
 										key={index}
-										onClick={() => handleUserSelection(user.id)}>
-										<NewConversationUserChat
-											user={user}
-										/>
+										onClick={() => handleUserSelection(user.id)}
+									>
+										<NewConversationUserChat user={user} />
 									</div>
 								))}
 								<ScrollBar orientation="vertical" />
@@ -163,7 +166,7 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 							activeChat={activeChat}
 						/>
 						{/* <div>{user.id}</div> */}
-						{index !== USERS.length - 1 && (
+						{index !== users.length - 1 && (
 							<div className="mx-4">
 								<Separator />
 							</div>
