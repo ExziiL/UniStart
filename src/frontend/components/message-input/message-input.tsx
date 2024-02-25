@@ -16,6 +16,13 @@ function MessageInput({ conversationid }: MessageInputProps) {
 	const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 	const { userState, userDispatch } = useUserContext();
 
+	const handleKeyPress = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+		if (event.key === "Enter" && !event.shiftKey) {
+			event.preventDefault();
+			handleButtonClick();
+		}
+	};
+
 	const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 		setMessage(e.target.value);
 
@@ -46,6 +53,7 @@ function MessageInput({ conversationid }: MessageInputProps) {
 					placeholder="Type your message here."
 					value={message}
 					onChange={handleTextChange}
+					onKeyDown={handleKeyPress}
 					rows={2}
 				/>
 				<Button
