@@ -34,6 +34,7 @@ function MessageInput({ conversationid }: MessageInputProps) {
 
 	const handleButtonClick = () => {
 		send(userState, message, conversationid);
+		setMessage("");
 	};
 
 	return (
