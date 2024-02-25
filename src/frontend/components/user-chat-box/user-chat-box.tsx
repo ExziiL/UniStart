@@ -58,7 +58,7 @@ function UserChatBox({ children, className, setMessages, ...props }: UserChatBox
 							<div className="flex flex-col gap-6">
 								{props.messages?.map((message, index) => (
 									<ChatMessage
-										key={index}
+										key={message.id}
 										messageData={message}
 										variant={message.senderid == userState.id ? "outgoing" : "incoming"}
 									></ChatMessage>
