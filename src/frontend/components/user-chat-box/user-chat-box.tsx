@@ -44,14 +44,14 @@ function UserChatBox({ children, className, setMessages, ...props }: UserChatBox
 
 	return (
 		<div
-			className={cn(`flex h-full flex-col p-4`, className)}
+			className={cn(`flex h-full flex-col justify-center p-4`, className)}
 			style={{ height: "100%" }}
 			{...props}
 		>
 			{children}
 
 			{/* <div className="flex flex-col gap-6"> */}
-			<div className="flex flex-1 flex-col gap-6">
+			<div className="flex flex-col gap-6">
 				{props.messages?.length != 0 ? (
 					<div className="flex h-[calc(100vh-155px)] flex-col justify-end gap-6">
 						<ScrollArea className="h-max">
