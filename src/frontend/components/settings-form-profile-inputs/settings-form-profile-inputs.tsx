@@ -1,5 +1,6 @@
 "use client";
 
+import { useUserContext } from "@/context/user-context/user-context";
 import { Button } from "@/frontend/components/ui/button";
 import {
 	Form,
@@ -27,11 +28,14 @@ const FormSchema = z.object({
 });
 
 function ProfileFormInput() {
+	const { userState } = useUserContext();
+
 	const form = useForm<z.infer<typeof FormSchema>>({
 		resolver: zodResolver(FormSchema),
 		defaultValues: {
 			// TODO: Hier muss der Username aus der Datenbank geladen werden
-			username: "",
+			username: userState.name,
+			email: userState.email,
 		},
 	});
 
@@ -61,7 +65,8 @@ function ProfileFormInput() {
 								<FormLabel>Username</FormLabel>
 								<FormControl>
 									<Input
-										placeholder="shadcn"
+										// placeholder="shadcn"
+
 										{...field}
 									/>
 								</FormControl>
@@ -77,10 +82,7 @@ function ProfileFormInput() {
 							<FormItem className="col-span-3 row-start-2">
 								<FormLabel>First Name</FormLabel>
 								<FormControl>
-									<Input
-										placeholder="Max"
-										{...field}
-									/>
+									<Input {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -94,7 +96,7 @@ function ProfileFormInput() {
 								<FormLabel>Last Name</FormLabel>
 								<FormControl>
 									<Input
-										placeholder="Mustermann"
+										// placeholder="Mustermann"
 										{...field}
 									/>
 								</FormControl>
@@ -110,7 +112,7 @@ function ProfileFormInput() {
 								<FormLabel>E-mail</FormLabel>
 								<FormControl>
 									<Input
-										placeholder="example@email.com"
+										// placeholder="example@email.com"
 										{...field}
 									/>
 								</FormControl>

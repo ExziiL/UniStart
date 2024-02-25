@@ -1,17 +1,18 @@
+import { useUserContext } from "@/context/user-context/user-context";
 import ProfileFormInputs from "@/frontend/components/settings-form-profile-inputs/settings-form-profile-inputs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/frontend/components/ui/avatar";
 import { Button } from "@/frontend/components/ui/button";
 import { Trash2, Upload } from "lucide-react";
 import React from "react";
-import { Separator } from "../ui/separator";
 
 function SettingsProfile() {
+	const { userState } = useUserContext();
 	return (
 		<div className="mx-auto w-full max-w-[1024px] space-y-8">
 			<div className="space-y-8">
 				<div className="flex flex-row gap-6">
 					<Avatar className="h-16 w-16">
-						<AvatarImage src="https://github.com/shadcn.png" />
+						<AvatarImage src={userState.image} />
 						<AvatarFallback>CN</AvatarFallback>
 					</Avatar>
 					<div className="flex flex-col gap-3">
