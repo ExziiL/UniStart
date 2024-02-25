@@ -18,10 +18,10 @@ import { toast } from "@/frontend/hooks/use-toast";
 import User from "@/types/IUser";
 import { conversation, message } from "@prisma/client";
 import { useQuery } from "@tanstack/react-query";
-import { Edit } from "lucide-react";
+import { Edit, Loader2 } from "lucide-react";
+import { useSession } from "next-auth/react";
 import React, { useEffect } from "react";
 import * as action from "./actions";
-import { useSession } from "next-auth/react";
 
 interface UserConversationsProps {
 	setMessages: React.Dispatch<React.SetStateAction<message[]>>;
@@ -40,7 +40,8 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 	const [users, setUsers] = React.useState<Array<User> | []>([]);
 	const [shouldFetch, setShouldFetch] = React.useState<boolean>(false);
 	const [conversations, setConversations] = React.useState<Array<ConversationObject> | []>([]);
-	const session = useSession()
+	const [usersLoading, setUsersLoading] = React.useState<boolean>(true);
+	const session = useSession();
 
 	const handleUserClick = async (convoId: string, receiverId: string) => {
 		const response = await action.fetchMessages(convoId);
@@ -58,7 +59,7 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 	useEffect(() => {
 		if (session.data && !shouldFetch && userState.id.length > 1) {
 			setShouldFetch(true);
-			setSelectedUsers([userState.id]);
+			// setSelectedUsers([userState.id]);
 		}
 	}, [userState, shouldFetch, session]);
 
@@ -98,8 +99,13 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 			});
 		}
 		if (!getConversations.isError && getConversations.data) {
+			const randomDelay = Math.random() * 1500;
+
 			setShouldFetch(false);
-			setConversations(getConversations.data?.conversations);
+			setTimeout(() => {
+				setUsersLoading(false);
+				setConversations(getConversations.data?.conversations);
+			}, randomDelay);
 		}
 	}, [getConversations]);
 
@@ -159,6 +165,12 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 			</div>
 
 			<div className="">
+				{usersLoading && (
+					<Loader2
+						className="mt-8 w-full animate-spin text-ultra-light"
+						size={32}
+					/>
+				)}
 				{conversations.map((elem, index) => (
 					<div
 						key={index}
@@ -168,7 +180,6 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 							user={elem.receiver}
 							activeChat={activeChat}
 						/>
-						{/* <div>{user.id}</div> */}
 						{index !== users.length - 1 && (
 							<div className="mx-4">
 								<Separator />
