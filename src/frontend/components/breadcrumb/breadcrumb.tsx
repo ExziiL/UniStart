@@ -2,13 +2,13 @@ import { capitalize } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import * as React from "react";
 
-interface BreadcrumbProps {
+interface BreadcrumbProps extends React.HTMLAttributes<HTMLDivElement> {
 	sections: string[];
 }
 
-function Breadcrumb({ sections }: BreadcrumbProps) {
+function Breadcrumb({ sections, className }: BreadcrumbProps) {
 	return (
-		<div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
+		<div className={`mt-6 flex items-center space-x-1 text-sm text-muted-foreground ${className}`}>
 			{sections.map((section, index) => (
 				<React.Fragment key={section}>
 					{index !== 0 && <ChevronRight size={16} />}

@@ -1,3 +1,4 @@
+import Breadcrumb from "@/frontend/components/breadcrumb";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/frontend/components/ui/accordion";
 import React from "react";
 
@@ -34,29 +35,36 @@ const questions: Array<{ question: string; answer: string }> = [
 
 function Faq() {
 	return (
-		<div className="flex flex-col items-center ">
-			<div className="py-8">
-				<h1 className="text-3xl font-medium">Frequently Asked Questions</h1>
-				<p className="text-base text-light">
-					Looking for more information? Here are some things other students have asked us in the past.
-				</p>
-			</div>
+		<div className="flex flex-col">
+			<Breadcrumb
+				sections={["Frequently Asked Questions"]}
+				className="lg:pl-[156px]"
+			/>
 
-			<div className="max-w-[720px] py-4 md:w-[720px]">
-				<Accordion
-					type="single"
-					collapsible
-				>
-					{questions.map((question, index) => (
-						<AccordionItem
-							key={"item-" + index}
-							value={"item-" + index}
-						>
-							<AccordionTrigger className="text-start">{question.question}</AccordionTrigger>
-							<AccordionContent className="text-light">{question.answer}</AccordionContent>
-						</AccordionItem>
-					))}
-				</Accordion>
+			<div className="flex flex-col items-center">
+				<div className="pb-8 pt-1">
+					{/* <h1 className="text-3xl font-medium">Frequently Asked Questions</h1> */}
+					<p className="text-base text-light">
+						Looking for more information? Here are some things other students have asked us in the past.
+					</p>
+				</div>
+
+				<div className="max-w-[720px] py-4 md:w-[720px]">
+					<Accordion
+						type="single"
+						collapsible
+					>
+						{questions.map((question, index) => (
+							<AccordionItem
+								key={"item-" + index}
+								value={"item-" + index}
+							>
+								<AccordionTrigger className="text-start">{question.question}</AccordionTrigger>
+								<AccordionContent className="text-light">{question.answer}</AccordionContent>
+							</AccordionItem>
+						))}
+					</Accordion>
+				</div>
 			</div>
 		</div>
 	);

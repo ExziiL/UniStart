@@ -37,14 +37,8 @@ const SettingsSection: React.FC = () => {
 			<div className="full-bleed flex flex-row ">
 				<SettingsSidebar />
 
-				<div className="grow p-4 xl:mr-[256px]">
+				<div className="grow p-4 py-0 xl:mr-[256px]">
 					<div className="mx-auto max-w-[1024px]">
-						{/* Breadcrumb Component */}
-						{/* <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
-							<div className="overflow-hidden text-ellipsis whitespace-nowrap">Settings</div>
-							<ChevronRight size={16} />
-							<div className="font-medium text-foreground">{capitalize(section)}</div>
-						</div> */}
 						<Breadcrumb sections={["Settings", section]} />
 
 						<div className="space-y-8">

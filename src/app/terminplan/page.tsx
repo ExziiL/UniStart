@@ -3,6 +3,7 @@
 import AppointmentCard from "@/frontend/components/appointment-card";
 import AppointmentTable from "@/frontend/components/appointment-table";
 import { fetchAppointments } from "@/frontend/components/appointment-table/actions";
+import Breadcrumb from "@/frontend/components/breadcrumb";
 import { Button } from "@/frontend/components/ui/button";
 import { Skeleton } from "@/frontend/components/ui/skeleton";
 import { Infos } from "@prisma/client";
@@ -87,12 +88,12 @@ function Terminplan() {
 		.slice(0, 4);
 
 	return (
-		<div className="mx-auto max-w-[1024px] space-y-16">
-			<h1 className="my-16 text-6xl font-bold text-primary">Terminplan für das SS 2024</h1>
+		<div className="mx-auto max-w-[1024px] space-y-8">
+			<Breadcrumb sections={["Terminplan für das Sommersemester 2024"]} />
 
 			<div className="space-y-6">
 				<div className="flex items-end gap-4">
-					<h2 className="text-4xl font-medium text-primary">Upcoming Appointments</h2>
+					<h2 className="text-2xl font-medium text-primary">Upcoming Appointments</h2>
 				</div>
 				<div className="grid grid-cols-2 gap-6">
 					{upcomingEntries.map((entry) => (
@@ -104,8 +105,8 @@ function Terminplan() {
 				</div>
 			</div>
 
-			<div className="space-y-6">
-				<h2 className="text-4xl font-medium text-primary">Appointment Overview</h2>
+			<div className="space-y-6 pt-12">
+				<h2 className="text-2xl font-medium text-primary">Appointment Overview</h2>
 
 				<AppointmentTable />
 			</div>

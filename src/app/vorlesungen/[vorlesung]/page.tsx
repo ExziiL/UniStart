@@ -1,5 +1,6 @@
 import React from "react";
 
+import Breadcrumb from "@/frontend/components/breadcrumb";
 import CourseReviews from "@/frontend/components/course-reviews";
 import NoReviews from "@/frontend/components/course-reviews/no-reviews";
 import DetailedCourseOverview from "@/frontend/components/detailed-course-overview";
@@ -32,8 +33,13 @@ function Page({ params }: PageProps) {
 	}
 
 	return (
-		<div className="col-start-2 flex flex-col gap-16">
-			<DetailedCourseOverview vorlesung={vorlesung} />
+		<div className="col-start-2 flex flex-col gap-8">
+			<Breadcrumb sections={["Vorlesungen", vorlesung.name]} />
+
+			<DetailedCourseOverview
+				vorlesung={vorlesung}
+				className=" mb-8"
+			/>
 
 			{numOfReviews == 0 ? (
 				<NoReviews numOfReviews={numOfReviews} />
