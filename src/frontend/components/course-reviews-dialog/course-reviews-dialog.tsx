@@ -1,7 +1,5 @@
 "use client";
 
-import StarRating from "@/frontend/components/star-rating";
-
 import { Button } from "@/frontend/components/ui/button";
 import {
 	Dialog,

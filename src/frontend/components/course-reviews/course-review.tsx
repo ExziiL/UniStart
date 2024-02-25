@@ -26,7 +26,7 @@ function CourseReview({ review }: CourseReviewProps) {
 				<div className="flex gap-3 pb-2 pt-1">
 					<StarRating
 						value={review.rating}
-						style={{ maxWidth: 100 }}
+						style={{ maxWidth: 100, minWidth: 75 }}
 						readOnly
 					/>
 
