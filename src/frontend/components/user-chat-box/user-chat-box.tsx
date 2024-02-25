@@ -70,7 +70,7 @@ function UserChatBox({ children, className, setMessages, ...props }: UserChatBox
 					</div>
 				) : (
 					<>
-						<div className="mb-24 text-center text-xl text-light">
+						<div className="mb-24 text-center text-lg text-light">
 							There is currently no conversation selected. Please select a conversation.
 						</div>
 					</>
