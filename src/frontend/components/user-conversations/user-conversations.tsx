@@ -143,7 +143,6 @@ function UserConversations({
 						<SheetHeader>
 							<SheetTitle>New Chat</SheetTitle>
 							<SheetDescription>Select the person you want to start chatting.</SheetDescription>
-							<div>{selectedUsers}</div>
 						</SheetHeader>
 
 						<div className="flex h-full flex-col pb-12 pt-4">
