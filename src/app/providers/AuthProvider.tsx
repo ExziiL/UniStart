@@ -13,7 +13,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 	const { data: session } = useSession();
 	const { fetchUser } = useFetchUser();
 
-	useEffect(() => {
+	useEffect(() => {				
 		if (session) fetchUser(session);
 	}, [session]);
 

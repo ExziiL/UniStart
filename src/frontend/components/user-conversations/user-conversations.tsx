@@ -21,6 +21,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Edit } from "lucide-react";
 import React, { useEffect } from "react";
 import * as action from "./actions";
+import { useSession } from "next-auth/react";
 
 interface UserConversationsProps {
 	setMessages: React.Dispatch<React.SetStateAction<message[]>>;
@@ -39,6 +40,7 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 	const [users, setUsers] = React.useState<Array<User> | []>([]);
 	const [shouldFetch, setShouldFetch] = React.useState<boolean>(false);
 	const [conversations, setConversations] = React.useState<Array<ConversationObject> | []>([]);
+	const session = useSession()
 
 	const handleUserClick = async (convoId: string, receiverId: string) => {
 		const response = await action.fetchMessages(convoId);
@@ -54,11 +56,11 @@ function UserConversations({ setMessages, setCurrentConversationId }: UserConver
 	};
 
 	useEffect(() => {
-		if (!shouldFetch && userState.id != "0") {
+		if (session.data && !shouldFetch && userState.id.length > 1) {
 			setShouldFetch(true);
 			setSelectedUsers([userState.id]);
 		}
-	}, [userState, shouldFetch]);
+	}, [userState, shouldFetch, session]);
 
 	const getUsers = useQuery({
 		queryKey: ["getUsers"],

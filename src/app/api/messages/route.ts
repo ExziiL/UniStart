@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
             where: { id: body.conversationid },
             include: {
                 messages: {
-                    orderBy: { createdAt: 'desc' },
+                    orderBy: { createdAt: 'asc' },
                     skip: 0,
                     take: 100 //TODO make this variable
 
