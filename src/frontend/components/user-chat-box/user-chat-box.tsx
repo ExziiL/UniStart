@@ -49,16 +49,26 @@ function UserChatBox({ children, className, setMessages, ...props }: UserChatBox
 			{children}
 
 			<div className="flex flex-col gap-6">
-				<div className="flex flex-col gap-6">
-					{props.messages?.map((message, index) => (
-						<ChatMessage
-							key={index}
-							messageData={message}
-							variant={message.senderid == userState.id ? "outgoing" : "incoming"}
-						></ChatMessage>
-					))}
-				</div>
-				<MessageInput conversationid={props.conversationid} />
+				{props.messages?.length != 0 ? (
+					<>
+						<div className="flex flex-col gap-6">
+							{props.messages?.map((message, index) => (
+								<ChatMessage
+									key={index}
+									messageData={message}
+									variant={message.senderid == userState.id ? "outgoing" : "incoming"}
+								></ChatMessage>
+							))}
+						</div>
+						<MessageInput conversationid={props.conversationid} />
+					</>
+				) : (
+					<>
+						<div className="mb-24 text-center text-xl text-light">
+							There is currently no conversation selected. Please select a conversation.
+						</div>
+					</>
+				)}
 			</div>
 		</div>
 	);
