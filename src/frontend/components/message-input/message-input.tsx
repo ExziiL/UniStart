@@ -1,15 +1,15 @@
 "use client";
 
 import { useUserContext } from "@/context/user-context/user-context";
+import { send } from "@/frontend/components/message-input/actions";
 import { Button } from "@/frontend/components/ui/button";
 import { Textarea } from "@/frontend/components/ui/textarea";
-import { send } from "@/frontend/components/message-input/actions";
-import React from "react";
 import { Send } from "lucide-react";
+import React from "react";
 
 type MessageInputProps = {
-	conversationid: string
-}
+	conversationid: string;
+};
 
 function MessageInput({ conversationid }: MessageInputProps) {
 	const [message, setMessage] = React.useState("");
@@ -33,7 +33,7 @@ function MessageInput({ conversationid }: MessageInputProps) {
 	};
 
 	const handleButtonClick = () => {
-		send(userState, message, conversationid)
+		send(userState, message, conversationid);
 	};
 
 	return (
@@ -45,7 +45,7 @@ function MessageInput({ conversationid }: MessageInputProps) {
 					placeholder="Type your message here."
 					value={message}
 					onChange={handleTextChange}
-					rows={1}
+					rows={2}
 				/>
 				<Button
 					onClick={handleButtonClick}
