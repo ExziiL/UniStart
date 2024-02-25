@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { message } from "@prisma/client";
 import { find } from "lodash";
 import React from "react";
+import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 
 interface UserChatBoxProps extends React.HTMLAttributes<HTMLDivElement> {
 	children?: React.ReactNode;
@@ -43,25 +44,30 @@ function UserChatBox({ children, className, setMessages, ...props }: UserChatBox
 
 	return (
 		<div
-			className={cn(`flex h-full flex-col justify-end p-4`, className)}
+			className={cn(`flex h-full flex-col p-4`, className)}
+			style={{ height: "100%" }}
 			{...props}
 		>
 			{children}
 
-			<div className="flex flex-col gap-6">
+			{/* <div className="flex flex-col gap-6"> */}
+			<div className="flex flex-1 flex-col gap-6">
 				{props.messages?.length != 0 ? (
-					<>
-						<div className="flex flex-col gap-6">
-							{props.messages?.map((message, index) => (
-								<ChatMessage
-									key={index}
-									messageData={message}
-									variant={message.senderid == userState.id ? "outgoing" : "incoming"}
-								></ChatMessage>
-							))}
-						</div>
+					<div className="flex h-[calc(100vh-155px)] flex-col justify-end gap-6">
+						<ScrollArea className="h-max">
+							<div className="flex flex-col gap-6">
+								{props.messages?.map((message, index) => (
+									<ChatMessage
+										key={index}
+										messageData={message}
+										variant={message.senderid == userState.id ? "outgoing" : "incoming"}
+									></ChatMessage>
+								))}
+							</div>
+							<ScrollBar orientation="vertical" />
+						</ScrollArea>
 						<MessageInput conversationid={props.conversationid} />
-					</>
+					</div>
 				) : (
 					<>
 						<div className="mb-24 text-center text-xl text-light">
