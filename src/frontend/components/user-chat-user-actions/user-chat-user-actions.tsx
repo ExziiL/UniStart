@@ -6,22 +6,23 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuShortcut,
 	DropdownMenuTrigger,
-} from '@/frontend/components/ui/dropdown-menu';
-import { Archive, Trash2, User } from 'lucide-react';
-import React from 'react';
+} from "@/frontend/components/ui/dropdown-menu";
+import { Archive, Trash2, User } from "lucide-react";
+import React from "react";
 
 interface UserChatUserActionsProps {
 	children?: React.ReactNode;
 	onClick?: () => void;
+	userId?: string;
 }
 
-function UserChatUserActions({ children, ...props }: UserChatUserActionsProps) {
+function UserChatUserActions({ children, userId, ...props }: UserChatUserActionsProps) {
 	return (
 		<div {...props}>
 			<DropdownMenu>
 				<DropdownMenuTrigger
 					asChild
-					className="text-primary-muted cursor-pointer transition-colors hover:text-primary active:text-primary"
+					className="cursor-pointer text-primary-muted transition-colors hover:text-primary active:text-primary"
 				>
 					{children}
 				</DropdownMenuTrigger>

@@ -26,6 +26,8 @@ import * as action from "./actions";
 interface UserConversationsProps {
 	setMessages: React.Dispatch<React.SetStateAction<message[]>>;
 	setCurrentConversationId: React.Dispatch<React.SetStateAction<string>>;
+	activeChat: string | undefined;
+	setActiveChat: React.Dispatch<React.SetStateAction<string>>;
 }
 
 type ConversationObject = {
@@ -33,9 +35,14 @@ type ConversationObject = {
 	conversation: conversation;
 };
 
-function UserConversations({ setMessages, setCurrentConversationId }: UserConversationsProps) {
+function UserConversations({
+	setMessages,
+	setCurrentConversationId,
+	setActiveChat,
+	activeChat,
+}: UserConversationsProps) {
 	const { userState } = useUserContext();
-	const [activeChat, setActiveChat] = React.useState<string | undefined>(undefined);
+	// const [activeChat, setActiveChat] = React.useState<string | undefined>(undefined);
 	const [selectedUsers, setSelectedUsers] = React.useState<string[]>([]);
 	const [users, setUsers] = React.useState<Array<User> | []>([]);
 	const [shouldFetch, setShouldFetch] = React.useState<boolean>(false);

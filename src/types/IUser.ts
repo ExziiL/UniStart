@@ -116,7 +116,7 @@ interface User {
 	email: string,
 	image: string,
 	password?: string,
-
+	online?: true,
 	role?: string,
 	firstName?: string,
 	lastName?: string,

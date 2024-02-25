@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import React from "react";
 
 function Chat() {
+	const [activeChat, setActiveChat] = React.useState<string>("");
 	const [messages, setMessages] = React.useState<Array<message> | []>([]);
 	const [conversationId, setConversationId] = React.useState<string>("");
 
@@ -21,7 +22,7 @@ function Chat() {
 						exit={{ y: -100, opacity: 0 }}
 						transition={{ type: "spring", stiffness: 50 }}
 					>
-						<UserBar className="" />
+						<UserBar activeChat={activeChat} />
 					</motion.div>
 				)}
 			</div>
@@ -33,6 +34,8 @@ function Chat() {
 					<UserConversations
 						setMessages={setMessages}
 						setCurrentConversationId={setConversationId}
+						setActiveChat={setActiveChat}
+						activeChat={activeChat}
 					/>
 				</div>
 				<div className="w-full max-w-4xl content-center justify-self-center">

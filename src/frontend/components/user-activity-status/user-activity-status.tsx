@@ -1,23 +1,38 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/frontend/components/ui/avatar';
-import React from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from "@/frontend/components/ui/avatar";
+import { cn } from "@/lib/utils";
+import User from "@/types/IUser";
+import React from "react";
 
-function UserActivityStatus() {
+interface UserActivityStatusProps {
+	selectedUser: User | undefined;
+}
+
+function UserActivityStatus({ selectedUser }: UserActivityStatusProps) {
+	if (!selectedUser) return;
+
+	console.log("sel user: ", selectedUser);
+
 	return (
 		<div className="flex gap-4">
 			<div className="">
 				<Avatar>
 					<AvatarImage
-						src="https://github.com/shadcn.png"
-						alt="@shadcn"
+						src={selectedUser.image}
+						alt="User Image"
 					/>
-					<AvatarFallback>Profile Picture</AvatarFallback>
+					<AvatarFallback>{selectedUser.name}</AvatarFallback>
 				</Avatar>
 			</div>
 			<div>
-				<h2 className=" font-medium">Angela Bower</h2>
+				<h2 className=" font-medium">{selectedUser.name}</h2>
 				<div className="flex items-center gap-3">
-					<div className="h-[10px] w-[10px] rounded-full bg-green-600 text-green-600"></div>
-					<span className="text-sm text-zinc-400">Active Now</span>
+					<div
+						className={cn("h-[10px] w-[10px] rounded-full", {
+							"bg-green-600 text-green-600": selectedUser.online,
+							"bg-red-600 text-red-600": !selectedUser.online,
+						})}
+					></div>
+					<span className="text-sm text-zinc-400">{selectedUser.online ? "Active Now" : "Offline"}</span>
 				</div>
 			</div>
 		</div>
