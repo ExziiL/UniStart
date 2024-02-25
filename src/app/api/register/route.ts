@@ -5,9 +5,14 @@ import prisma from "@/backend/lib/prisma";
 
 export async function GET(request: NextRequest) {
     try {
-        const { email } = Object.fromEntries(request.nextUrl.searchParams);
-        const user = await prisma.user.findUnique({
-            where: { email: email },
+        const { email, name } = Object.fromEntries(request.nextUrl.searchParams);
+        const user = await prisma.user.findFirst({
+            where: {
+                OR: [
+                    { email: email },
+                    { name: name }
+                ]
+            },
             select: { id: true }
         });
 

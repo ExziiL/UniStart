@@ -25,7 +25,7 @@ async function emailRegister(values: z.infer<typeof registrationFormSchema> | nu
     if (!values) throw new Error('Invalid values');
 
     const userExists = await fetch('api/register?' +
-        new URLSearchParams({ email: values.email }), {
+        new URLSearchParams({ email: values.email, name: values.username }), {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' }
     });
