@@ -3,14 +3,16 @@ import AiChatEmptyState from "@/frontend/components/ai-chat-empty-state";
 import ChatMessage from "@/frontend/components/chat-message";
 import MessageInput from "@/frontend/components/message-input";
 import { ScrollArea, ScrollBar } from "@/frontend/components/ui/scroll-area";
+import { AI_CHATS } from "@/frontend/constants/ai-chats";
 import { cn } from "@/lib/utils";
 import React from "react";
 
-interface AiChatBoxProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface AiChatBoxProps extends React.HTMLAttributes<HTMLDivElement> {
+	selectedAiChat: any;
+}
 
-function AiChatBox({ className, ...props }: AiChatBoxProps) {
-	const chatMessages = [];
-
+function AiChatBox({ selectedAiChat, className, ...props }: AiChatBoxProps) {
+	console.log(selectedAiChat);
 	return (
 		// <div className={`${className} flex h-full flex-col ${children ? 'justify-between' : 'justify-end'} p-4`}>
 		<div
@@ -19,21 +21,23 @@ function AiChatBox({ className, ...props }: AiChatBoxProps) {
 		>
 			<AiChatBar />
 
-			{/* {chatMessages.length == 0 && <AiChatEmptyState />} */}
+			{AI_CHATS.length == 0 && <AiChatEmptyState />}
 
 			<div className="flex h-[calc(100vh-200px)] flex-col justify-end gap-6">
 				<ScrollArea className="h-max">
 					<div className="flex h-min flex-col gap-6">
-						<ChatMessage variant="ai" />
-						<ChatMessage />
-						<ChatMessage variant="ai" />
-						<ChatMessage />
-						<ChatMessage variant="ai" />
-						<ChatMessage />
-						<ChatMessage variant="ai" />
-						<ChatMessage />
-						<ChatMessage variant="ai" />
-						<ChatMessage />
+						{selectedAiChat?.messages?.map((messages: any, index: number) => (
+							<div key={index}>
+								{messages.role === "assistant" ? (
+									<ChatMessage
+										messageData={messages}
+										variant="ai"
+									/>
+								) : (
+									<ChatMessage messageData={messages} />
+								)}
+							</div>
+						))}
 					</div>
 					<ScrollBar orientation="vertical" />
 				</ScrollArea>

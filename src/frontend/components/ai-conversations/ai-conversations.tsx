@@ -2,55 +2,52 @@
 
 import SingleAiConversation from "@/frontend/components/single-ai-conversation";
 import { Separator } from "@/frontend/components/ui/separator";
+import { AI_CHATS } from "@/frontend/constants/ai-chats";
 import { Edit } from "lucide-react";
 import React from "react";
 
-interface AiConversationsProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface AiConversationsProps extends React.HTMLAttributes<HTMLDivElement> {
+	setSelectedAiChat: React.Dispatch<React.SetStateAction<string | undefined>>;
+}
 
-function AiConversations() {
+function AiConversations({ setSelectedAiChat }: AiConversationsProps) {
 	const [activeChat, setActiveChat] = React.useState<string | undefined>(undefined);
 
-	const handleAiClick = (userId: string) => {
+	const handleAiClick = (chat: any) => {
 		// console.log(userId, " clicked");
-		setActiveChat(userId);
+		setActiveChat(chat.id);
+		setSelectedAiChat(chat);
 	};
 
-	// PROVISORISCHES RETURN! LOSCHEN WENN DIE users aus der DB eingebunden werden
 	return (
-		<div>
-			Provisorisches return, unten ist das eigentliche, bei dem man USERS mit den users aus der DB tauschen muss{" "}
+		<div className="bg-background">
+			<div className="flex items-end justify-between p-4 pb-2 text-lg font-semibold">
+				<h2 className="">Conversations</h2>
+				<div className="cursor-pointer text-primary-muted transition-colors hover:text-primary">
+					<Edit />
+				</div>
+			</div>
+			<div className="">
+				{AI_CHATS.map((chat, index) => (
+					<div
+						key={chat.id}
+						onClick={() => handleAiClick(chat)}
+					>
+						<SingleAiConversation
+							chat={chat}
+							activeChat={activeChat}
+						/>
+						{/* <div>{user.id}</div> */}
+						{index !== AI_CHATS.length - 1 && (
+							<div className="mx-4">
+								<Separator />
+							</div>
+						)}
+					</div>
+				))}
+			</div>
 		</div>
 	);
-
-	// return (
-	// 	<div className="bg-background">
-	// 		<div className="flex items-end justify-between p-4 pb-2 text-lg font-semibold">
-	// 			<h2 className="">Conversation</h2>
-	// 			<div className="cursor-pointer text-primary-muted transition-colors hover:text-primary">
-	// 				<Edit />
-	// 			</div>
-	// 		</div>
-	// 		<div className="">
-	// 			{USERS.map((chat, index) => (
-	// 				<div
-	// 					key={chat.id}
-	// 					onClick={() => handleAiClick(chat.id)}
-	// 				>
-	// 					<SingleAiConversation
-	// 						chat={chat}
-	// 						activeChat={activeChat}
-	// 					/>
-	// 					{/* <div>{user.id}</div> */}
-	// 					{index !== USERS.length - 1 && (
-	// 						<div className="mx-4">
-	// 							<Separator />
-	// 						</div>
-	// 					)}
-	// 				</div>
-	// 			))}
-	// 		</div>
-	// 	</div>
-	// );
 }
 
 export default AiConversations;
