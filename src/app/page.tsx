@@ -24,6 +24,7 @@ export default function Home() {
 				</div>
 				<div className="hidden w-1/2 md:block">
 					<Image
+						priority
 						src={graduationHat}
 						alt="Picture of the author"
 					/>

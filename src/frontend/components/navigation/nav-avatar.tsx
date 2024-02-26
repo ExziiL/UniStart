@@ -11,7 +11,7 @@ import {
 	DropdownMenuShortcut,
 	DropdownMenuTrigger,
 } from "@/frontend/components/ui/dropdown-menu";
-import { LogOut, Settings, SunMoon, User } from "lucide-react";
+import { LogOut, Settings, SunMoon, User, UserCircle } from "lucide-react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
@@ -29,7 +29,12 @@ function NavAvatar() {
 				<DropdownMenuTrigger>
 					<Avatar>
 						<AvatarImage src={userState.image} />
-						<AvatarFallback>CN</AvatarFallback>
+						<AvatarFallback>
+							<UserCircle
+								size={40}
+								strokeWidth={1.25}
+							/>
+						</AvatarFallback>
 					</Avatar>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent className="w-56">

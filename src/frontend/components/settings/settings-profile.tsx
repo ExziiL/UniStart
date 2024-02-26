@@ -2,7 +2,7 @@ import { useUserContext } from "@/context/user-context/user-context";
 import ProfileFormInputs from "@/frontend/components/settings-form-profile-inputs/settings-form-profile-inputs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/frontend/components/ui/avatar";
 import { Button } from "@/frontend/components/ui/button";
-import { Trash2, Upload } from "lucide-react";
+import { Trash2, Upload, UserCircle } from "lucide-react";
 import React from "react";
 
 function SettingsProfile() {
@@ -13,7 +13,12 @@ function SettingsProfile() {
 				<div className="flex flex-row gap-6">
 					<Avatar className="h-16 w-16">
 						<AvatarImage src={userState.image} />
-						<AvatarFallback>CN</AvatarFallback>
+						<AvatarFallback>
+							<UserCircle
+								size={80}
+								strokeWidth={1}
+							/>
+						</AvatarFallback>
 					</Avatar>
 					<div className="flex flex-col gap-3">
 						<div className="font-semibold">Profile Picture</div>
