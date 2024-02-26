@@ -11,14 +11,14 @@ export default async function NotFound() {
 					className="mb-8 h-40 w-40 text-primary"
 					strokeWidth={1}
 				/>
-				<h2 className="text-4xl font-semibold">Page not found.</h2>
+				<h2 className="text-4xl font-semibold">Page not found</h2>
 				<div className="pt-4">
 					<Button
 						variant="ghost"
 						asChild
 						className="font-medium"
 					>
-						<Link href="/">
+						<Link href="/vorlesungen">
 							<ChevronLeft
 								size={20}
 								className="mr-2"
