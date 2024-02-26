@@ -112,7 +112,7 @@ function LoginForm() {
 						isLoading && "hidden"
 					}`}
 				>
-					An Error occured, please try again.
+					An error has occured, please try again.
 				</div>
 			)}
 
