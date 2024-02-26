@@ -24,7 +24,7 @@ function SingleUserConversation({ user, activeChat }: SingleUserConversationProp
 	const [isHovered, setIsHovered] = React.useState(false);
 	const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 	const dropdownRef = React.useRef<HTMLDivElement>(null);
-
+	
 	/* function getMessageDate() {
 		const date = new Date(user.messages![0].date);
 		const hours = date.getHours();

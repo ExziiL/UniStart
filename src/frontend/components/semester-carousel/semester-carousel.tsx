@@ -8,8 +8,12 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "@/frontend/components/ui/carousel";
+import { ScrollArea, ScrollBar } from "@/frontend/components/ui/scroll-area";
 import { VORLESUNGEN } from "@/frontend/constants/vorlesungen";
+import { lecture } from "@prisma/client";
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import { fetchLectures } from "./actions";
 
 interface SemesterCarouselProps {
 	semester: number;
@@ -17,6 +21,20 @@ interface SemesterCarouselProps {
 
 function SemesterCarousel({ semester }: SemesterCarouselProps) {
 	const OPTIONS: any = { dragFree: true, align: "center" };
+	const { isPending, isError, error, data } = useQuery({
+		queryKey: ["lectures"],
+		queryFn: fetchLectures,
+		retry: false,
+	});
+
+	if (isPending) {
+		return <div>Waiting for data</div>;
+	}
+	if (isError) {
+		return <div>{error.message}</div>;
+	}
+
+	const lectures: lecture[] = data.lectures;
 
 	return (
 		<div className="my-4 space-y-4 sm:m-4">
@@ -28,14 +46,14 @@ function SemesterCarousel({ semester }: SemesterCarouselProps) {
 					className="flex flex-col"
 				>
 					<CarouselContent>
-						{VORLESUNGEN.map(
-							(vorlesung, index) =>
-								vorlesung.semester == semester && (
+						{lectures.map(
+							(lecture, index) =>
+								lecture.semester == semester && (
 									<CarouselItem
 										key={index}
 										className="basis-auto"
 									>
-										<CourseOverviewCard vorlesung={vorlesung} />
+										<CourseOverviewCard lecture={lecture} />
 									</CarouselItem>
 								)
 						)}
@@ -45,6 +63,20 @@ function SemesterCarousel({ semester }: SemesterCarouselProps) {
 					<CarouselNext className="-right-3 mt-44" />
 				</Carousel>
 			</div>
+			<ScrollArea className="">
+				<div className="flex w-max gap-4">
+					{lectures.map(
+						(lecture, index) =>
+							lecture.semester == semester && (
+								<CourseOverviewCard
+									key={index}
+									lecture={lecture}
+								/>
+							)
+					)}
+				</div>
+				<ScrollBar orientation="horizontal" />
+			</ScrollArea>
 		</div>
 	);
 }

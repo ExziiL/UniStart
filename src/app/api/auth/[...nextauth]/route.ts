@@ -1,12 +1,12 @@
-import prisma from "@/backend/lib/prisma";
-import { setOnlineState } from "@/frontend/components/login-card/actions";
-import { createNode } from "@/frontend/components/registration-card/actions";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import bcrypt from "bcryptjs";
 import NextAuth, { AuthOptions } from "next-auth";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
+import bcrypt from "bcryptjs"
+import prisma from "@/backend/lib/prisma";
+import { createNode } from "@/frontend/components/registration-card/actions";
+import { setOnlineState } from "@/frontend/components/login-card/actions";
 
 export const authOptions: AuthOptions = {
     adapter: PrismaAdapter(prisma),
@@ -85,4 +85,4 @@ export const authOptions: AuthOptions = {
 };
 
 const handler = NextAuth(authOptions);
-export { handler as GET, handler as POST };
+export { handler as GET, handler as POST }

@@ -18,7 +18,10 @@ model user {
   image         String?
   password      String?
 
-  role            Role             @default(USER)
+  role      Role    @default(USER)
+  firstName String?
+  lastName  String?
+
   profile         Profile?
   contactInfo     ContactInfo?
   universityInfo  UniversityInfo?
@@ -29,6 +32,7 @@ model user {
   updatedAt DateTime @updatedAt
 
   accounts account[]
+  review   review[]
 
   //message message[]
   //seen    message[] @relation("seen")
@@ -56,7 +60,7 @@ model account {
 model conversation {
   id String @id @default(auto()) @map("_id") @db.ObjectId
 
-  messages   message[] @relation(name: "conversations")
+  messages message[] @relation(name: "conversations")
 }
 
 model message {
@@ -79,8 +83,45 @@ model message {
 
 model appointment {
   id String @id @default(auto()) @map("_id") @db.ObjectId
+
   semester String
-  infos Infos[]
+  infos    Infos[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model lecture {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  slug            String
+  name            String
+  semester        Int
+  dates           LecturesDates
+  professor       Professor
+  description     String
+  longDescription String
+  location        String
+  rating          Int?
+  difficulty      Difficulty    @default(medium)
+
+  reviews review[]
+}
+
+model review {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  headline String
+  courserating   Int
+  content  String
+
+  votes     Int
+  creatorId String? @db.ObjectId
+  creator   user?   @relation(fields: [creatorId], references: [id])
+
+  lecturesId String?  @db.ObjectId
+  lectures   lecture? @relation(fields: [lecturesId], references: [id])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -128,9 +169,29 @@ type PrivacySettings {
 }
 
 type Infos {
-  title String
-  dates String[]
+  title      String
+  dates      String[]
   annotation String
+}
+
+type LecturesDates {
+  firstLecture  WeekDate
+  secondLecture WeekDate
+}
+
+type Professor {
+  name  String
+  email String
+}
+
+type WeekDate {
+  weekday String
+  time    Time
+}
+
+type Time {
+  start String
+  end   String
 }
 
 enum Role {
@@ -159,4 +220,11 @@ enum Language {
   ENGLISH
   GERMAN
 }
+
+enum Difficulty {
+  easy
+  medium
+  hard
+}
+
 //#endregion
