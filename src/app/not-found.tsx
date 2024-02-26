@@ -1,5 +1,5 @@
 import { Button } from "@/frontend/components/ui/button";
-import { Bird, ChevronRight } from "lucide-react";
+import { Bird, ChevronLeft } from "lucide-react";
 import { headers } from "next/headers";
 import Link from "next/link";
 
@@ -19,11 +19,11 @@ export default async function NotFound() {
 						className="font-medium"
 					>
 						<Link href="/">
-							Take me home{" "}
-							<ChevronRight
+							<ChevronLeft
 								size={20}
-								className="ml-2"
+								className="mr-2"
 							/>
+							Take me home
 						</Link>
 					</Button>
 				</div>
