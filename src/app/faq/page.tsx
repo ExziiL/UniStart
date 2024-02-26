@@ -84,7 +84,7 @@ function Faq() {
 	}
 
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col pb-8">
 			<Breadcrumb
 				sections={["Frequently Asked Questions"]}
 				className="lg:pl-[156px]"
