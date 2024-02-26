@@ -32,7 +32,7 @@ function LoginCard() {
 	};
 
 	return (
-		<div className="m-4 h-fit w-96 rounded-lg border border-border p-6 text-primary">
+		<div className="m-auto h-fit w-96 rounded-lg border border-border p-6 text-primary">
 			<h1 className="text-3xl font-semibold">Welcome back!</h1>
 			<p className="mt-2 text-sm text-light">Enter your info to continue.</p>
 			<div className="mt-6 flex w-full flex-row space-x-4">
