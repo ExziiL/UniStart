@@ -38,7 +38,7 @@ function SettingsProfile() {
 								Delete
 							</Button>
 						</div>
-						<p className="text-sm text-light">We support PNGs, JPEGs under 10MB</p>
+						<p className="text-xs text-light">We support PNGs, JPEGs under 10MB</p>
 					</div>
 				</div>
 

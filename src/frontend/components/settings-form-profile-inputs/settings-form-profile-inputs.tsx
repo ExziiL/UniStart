@@ -56,12 +56,12 @@ function ProfileFormInput() {
 				onSubmit={form.handleSubmit(onSubmit)}
 				className="space-y-2"
 			>
-				<div className="grid grid-cols-10 grid-rows-5 gap-4">
+				<div className="grid grid-cols-8 gap-4">
 					<FormField
 						control={form.control}
 						name="username"
 						render={({ field }) => (
-							<FormItem className="col-span-5 sm:col-span-4 lg:col-span-3">
+							<FormItem className="col-span-4 sm:col-span-4 lg:col-span-3">
 								<FormLabel>Username</FormLabel>
 								<FormControl>
 									<Input
@@ -70,7 +70,9 @@ function ProfileFormInput() {
 										{...field}
 									/>
 								</FormControl>
-								<FormDescription>This is your public display name.</FormDescription>
+								<FormDescription className="text-xs text-light">
+									This is your public display name.
+								</FormDescription>
 								<FormMessage />
 							</FormItem>
 						)}
@@ -79,7 +81,7 @@ function ProfileFormInput() {
 						control={form.control}
 						name="firstName"
 						render={({ field }) => (
-							<FormItem className="col-span-5 row-start-2 sm:col-span-4 lg:col-span-3">
+							<FormItem className="col-span-4 row-start-2 sm:col-span-4 lg:col-span-3">
 								<FormLabel>First Name</FormLabel>
 								<FormControl>
 									<Input {...field} />
@@ -92,7 +94,7 @@ function ProfileFormInput() {
 						control={form.control}
 						name="lastName"
 						render={({ field }) => (
-							<FormItem className="col-span-5 row-start-2 sm:col-span-4 lg:col-span-3">
+							<FormItem className="col-span-4 row-start-2 sm:col-span-4 lg:col-span-3">
 								<FormLabel>Last Name</FormLabel>
 								<FormControl>
 									<Input
@@ -108,7 +110,7 @@ function ProfileFormInput() {
 						control={form.control}
 						name="email"
 						render={({ field }) => (
-							<FormItem className="col-span-5 row-start-3 sm:col-span-4 lg:col-span-3">
+							<FormItem className="col-span-4 row-start-3 sm:col-span-4 lg:col-span-3">
 								<FormLabel>E-mail</FormLabel>
 								<FormControl>
 									<Input
@@ -124,7 +126,7 @@ function ProfileFormInput() {
 						control={form.control}
 						name="bio"
 						render={({ field }) => (
-							<FormItem className="col-span-10 row-span-2 row-start-4 sm:col-span-8 lg:col-span-6">
+							<FormItem className="col-span-10 row-span-1 sm:col-span-8 sm:row-span-2 lg:col-span-6 ">
 								<FormLabel>Bio</FormLabel>
 								<FormControl>
 									<Textarea
