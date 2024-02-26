@@ -91,7 +91,7 @@ function Faq() {
 			/>
 
 			<div className="flex flex-col items-center">
-				<div className="pb-8 pt-1">
+				<div className="pb-8 pt-4">
 					{/* <h1 className="text-3xl font-medium">Frequently Asked Questions</h1> */}
 					<p className="text-base text-light">
 						Looking for more information? Here are some things other students have asked us in the past.
