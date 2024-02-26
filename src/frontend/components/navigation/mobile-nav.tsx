@@ -61,7 +61,7 @@ const MobileNav = () => {
 												key={item.href + item.title}
 												href={item.href}
 												onOpenChange={setOpen}
-												className="flex h-full py-3 pl-2"
+												className="my-1 flex h-full rounded-lg py-3 pl-2 hover:bg-ultra-light/10"
 											>
 												{item.title}
 											</MobileLink>
