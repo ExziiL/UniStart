@@ -16,12 +16,16 @@ function AiChatBox({ selectedAiChat, className, ...props }: AiChatBoxProps) {
 	return (
 		// <div className={`${className} flex h-full flex-col ${children ? 'justify-between' : 'justify-end'} p-4`}>
 		<div
-			className={cn(` flex max-h-min flex-col justify-between rounded-xl bg-muted p-4`, className)}
+			className={cn(
+				`flex  max-h-min flex-col justify-between rounded-xl bg-muted p-4`,
+				selectedAiChat == "-1" ? "h-[calc(100vh-95px)]" : "",
+				className
+			)}
 			{...props}
 		>
 			<AiChatBar />
 
-			{AI_CHATS.length == 0 && <AiChatEmptyState />}
+			{(AI_CHATS.length == 0 || selectedAiChat == "-1") && <AiChatEmptyState />}
 
 			<div className="flex h-[calc(100vh-200px)] flex-col justify-end gap-6">
 				<ScrollArea className="h-max">

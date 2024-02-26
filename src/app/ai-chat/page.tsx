@@ -8,7 +8,7 @@ import { Separator } from "@/frontend/components/ui/separator";
 import React from "react";
 
 function AiChat() {
-	const [selectedAiChat, setSelectedAiChat] = React.useState<string | undefined>();
+	const [selectedAiChat, setSelectedAiChat] = React.useState<string | undefined>("-1");
 
 	return (
 		<div className="flex h-full flex-row justify-between">
