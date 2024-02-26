@@ -24,7 +24,7 @@ import { Input } from "@/frontend/components/ui/input";
 import { Textarea } from "@/frontend/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Rating } from "@smastrom/react-rating";
-import { Edit3 } from "lucide-react";
+import { Edit3, ShieldAlert } from "lucide-react";
 import * as React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -149,6 +149,20 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 								)}
 							/>
 						</div>
+
+						<div
+							className={`my-3 flex flex-row items-center gap-3 rounded-sm border border-destructive bg-orange-50 p-3 text-base text-orange-900 dark:bg-orange-950 dark:text-orange-50`}
+						>
+							<ShieldAlert
+								size={20}
+								strokeWidth={1.75}
+							/>
+							<p>
+								Your review will be submitted and displayed{" "}
+								<span className="underline">anonymously</span>.
+							</p>
+						</div>
+
 						<DialogFooter>
 							<DialogClose asChild>
 								<Button variant="outline">Cancel</Button>
