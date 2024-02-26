@@ -9,7 +9,7 @@ function SettingsProfile() {
 	const { userState } = useUserContext();
 	return (
 		<div className="mx-auto w-full max-w-[1024px] space-y-8">
-			<div className="space-y-8">
+			<div className="mb-8 space-y-8">
 				<div className="flex flex-row gap-6">
 					<Avatar className="h-16 w-16">
 						<AvatarImage src={userState.image} />
@@ -17,7 +17,7 @@ function SettingsProfile() {
 					</Avatar>
 					<div className="flex flex-col gap-3">
 						<div className="font-semibold">Profile Picture</div>
-						<div className="flex gap-3">
+						<div className="flex flex-col gap-3 sm:flex-row">
 							<Button>
 								<Upload
 									size={16}
