@@ -22,21 +22,21 @@ export const authOptions: AuthOptions = {
         CredentialsProvider({
             name: "credentials",
             credentials: {
-                email: { label: "email", type: "text" },
+                username_email: { label: "email", type: "text" },
                 password: { label: "password", type: "password" }
             },
             async authorize(credentials) {
-                if (!credentials?.email || !credentials?.password) {
+                if (!credentials?.username_email || !credentials?.password) {
                     throw new Error("Invalid credentials");
                 }
-                const { email, password } = credentials;
+                const { username_email, password } = credentials;
 
                 try {
                     const user = await prisma.user.findFirst({
                         where: {
                             OR: [
-                                { email: email },
-                                { name: email }
+                                { email: username_email },
+                                { name: username_email }
                             ]
                         }
                     })

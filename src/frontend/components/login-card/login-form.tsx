@@ -21,7 +21,7 @@ import * as z from "zod";
 
 const loginFormSchema = z.object({
 	// TODO: Add valid checks -> Check if username exists in db and if password matches
-	username: z.string().min(3, { message: "Please enter correct password" }).max(20),
+	username_email: z.string().min(3, { message: "Please enter correct password" }).max(20),
 	password: z.string().min(8, { message: "Password must be at least 8 characters." }),
 });
 
@@ -33,7 +33,7 @@ function LoginForm() {
 	const form = useForm<z.infer<typeof loginFormSchema>>({
 		resolver: zodResolver(loginFormSchema),
 		defaultValues: {
-			username: "filler@email.com",
+			username_email: "filler@email.com",
 			password: "fillerPassword",
 		},
 	});
@@ -43,7 +43,7 @@ function LoginForm() {
 		try {
 			setIsLoading(true);
 			const res = await signIn("credentials", {
-				email: values.username,
+				username_email: values.username_email,
 				password: values.password,
 				redirect: false,
 			});
@@ -70,7 +70,7 @@ function LoginForm() {
 			>
 				<FormField
 					control={form.control}
-					name="username"
+					name="username_email"
 					render={({ field }) => (
 						<FormItem>
 							<FormLabel htmlFor={field.name}>E-Mail</FormLabel>
