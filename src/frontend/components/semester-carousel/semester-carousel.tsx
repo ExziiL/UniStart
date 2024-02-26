@@ -19,7 +19,7 @@ function SemesterCarousel({ semester }: SemesterCarouselProps) {
 	const OPTIONS: any = { dragFree: true, align: "center" };
 
 	return (
-		<div className="space-y-4 sm:m-4">
+		<div className="my-4 space-y-4 sm:m-4">
 			<h1 className="text-2xl font-medium">{semester}. Semester</h1>
 
 			<div className="rounded-md border bg-foreground/5 p-4 dark:bg-foreground/15">
@@ -41,8 +41,8 @@ function SemesterCarousel({ semester }: SemesterCarouselProps) {
 						)}
 					</CarouselContent>
 
-					<CarouselPrevious className="left-0 mt-20" />
-					<CarouselNext className="right-0 mt-20" />
+					<CarouselPrevious className="-left-3 mt-44" />
+					<CarouselNext className="-right-3 mt-44" />
 				</Carousel>
 			</div>
 		</div>

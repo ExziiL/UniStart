@@ -11,7 +11,7 @@ function Vorlesungen() {
 		<>
 			<Breadcrumb sections={["Vorlesungen"]} />
 
-			<div className={`flex flex-col gap-10 py-8`}>
+			<div className={`flex flex-col gap-10 py-8 pb-16`}>
 				<SemesterCarousel semester={1} />
 				<SemesterCarousel semester={2} />
 				<SemesterCarousel semester={3} />
