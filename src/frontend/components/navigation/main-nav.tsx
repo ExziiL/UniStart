@@ -92,15 +92,85 @@ const MainNav = () => {
 					</Link>
 				</NavigationMenuList>
 
-				{/* <Link
-					href="/vorlesungen/grundlagen-der-mathematik"
-					legacyBehavior
-					passHref
-				>
-					<NavigationMenuLink className={navigationMenuTriggerStyle()}>
-						Detailed-Vorlesungen
-					</NavigationMenuLink>
-				</Link> */}
+				{/* Alle Routen */}
+				<NavigationMenuList>
+					<NavigationMenuItem>
+						<NavigationMenuTrigger>All Routes</NavigationMenuTrigger>
+						<NavigationMenuContent>
+							<div className="p-4 pb-0 text-sm text-light">
+								Diese Seite dient für eine bessere Navigation während der Bewertungsphase.
+							</div>
+							<ul className="grid gap-3 p-4 md:w-[400px] md:grid-cols-[.75fr_1fr] lg:w-[500px]">
+								<ListItem
+									href="/"
+									title="Home"
+								>
+									/
+								</ListItem>
+								<ListItem
+									href="/login"
+									title="Login"
+								>
+									/login
+								</ListItem>
+								<ListItem
+									href="/registration"
+									title="Registration"
+								>
+									/registration
+								</ListItem>
+								<ListItem
+									href="/settings"
+									title="Settings"
+								>
+									/settings
+								</ListItem>
+								<ListItem
+									href="/not-found"
+									title="404-Page"
+								>
+									/not-found
+								</ListItem>
+								<ListItem
+									href="/terminplan"
+									title="Schedule"
+								>
+									/terminplan
+								</ListItem>
+								<ListItem
+									href="/vorlesungen"
+									title="Courses"
+								>
+									/vorlesungen
+								</ListItem>
+								<ListItem
+									href="/vorlesungen/grundlagen-der-mathematik"
+									title="Detailed Course"
+								>
+									/vorlesungen/grundlagen-der-mathematik
+								</ListItem>
+								<ListItem
+									href="/faq"
+									title="FAQ"
+								>
+									/faq
+								</ListItem>
+								<ListItem
+									href="chat"
+									title="Chat"
+								>
+									/chat
+								</ListItem>
+								<ListItem
+									href="ai-chat"
+									title="Ai-Chat"
+								>
+									/ai-chat
+								</ListItem>
+							</ul>
+						</NavigationMenuContent>
+					</NavigationMenuItem>
+				</NavigationMenuList>
 			</NavigationMenu>
 
 			{/* ----------------------------------------------- */}
