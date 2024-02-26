@@ -4,37 +4,37 @@ import * as React from "react";
 const features = [
 	{
 		title: "Course Overviews",
-		image: "https://source.unsplash.com/random",
+		image: "https://images.pexels.com/photos/6238039/pexels-photo-6238039.jpeg?auto=compress&cs=tinysrgb&w=800",
 		alt: "Picture of the author",
 		href: "/vorlesungen",
 	},
 	{
 		title: "Course Reviews",
-		image: "https://source.unsplash.com/random",
+		image: "https://images.pexels.com/photos/9821386/pexels-photo-9821386.jpeg?auto=compress&cs=tinysrgb&w=800",
 		alt: "Picture of the author",
 		href: "/vorlesungen/grundlagen-der-mathematik",
 	},
 	{
 		title: "Locations",
-		image: "https://source.unsplash.com/random",
+		image: "https://images.pexels.com/photos/35969/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 		alt: "Picture of the author",
 		href: "/map",
 	},
 	{
 		title: "Chat",
-		image: "https://source.unsplash.com/random",
+		image: "https://images.pexels.com/photos/1111368/pexels-photo-1111368.jpeg?auto=compress&cs=tinysrgb&w=800",
 		alt: "Picture of the author",
 		href: "/chat",
 	},
 	{
 		title: "Ai-Chat",
-		image: "https://source.unsplash.com/random",
+		image: "https://images.pexels.com/photos/6153354/pexels-photo-6153354.jpeg?auto=compress&cs=tinysrgb&w=800",
 		alt: "Picture of the author",
 		href: "/ai-chat",
 	},
 	{
 		title: "Frequently Asked Questions",
-		image: "https://source.unsplash.com/random",
+		image: "https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=800",
 		alt: "Picture of the author",
 		href: "/faq",
 	},

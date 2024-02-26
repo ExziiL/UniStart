@@ -5,12 +5,14 @@ import Testimonials from "@/frontend/components/testimonials";
 import { Button } from "@/frontend/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import learningBro from "../../public/Learning-bro.svg";
+import graduationHat from "../../public/graduation-hats.svg";
 
 export default function Home() {
 	return (
-		<div className="full-bleed flex flex-col items-center gap-32 px-4 py-16 lg:pt-32">
-			<div className="flex max-w-[1024px] flex-col gap-16 md:flex-row">
-				<div className="flex flex-col">
+		<div className="full-bleed flex flex-col items-center gap-20 px-4 py-16 md:gap-28 lg:pt-10">
+			<div className="flex max-w-[1024px] flex-col md:flex-row md:gap-24">
+				<div className="flex flex-col md:justify-center">
 					<h1 className="text-4xl font-medium">Explore & Engage: Your University Companion!</h1>
 					<p className="pb-12 pt-6 text-light">
 						Navigate your campus, connect with peers, and find your place in university life - all with
@@ -20,13 +22,18 @@ export default function Home() {
 						<Link href="/registration">Get started - it is free!</Link>
 					</Button>
 				</div>
-				<Image
-					src="https://source.unsplash.com/random"
-					alt="Picture of the author"
-					width={400}
-					height={400}
-					style={{ borderRadius: "8px", objectFit: "contain" }}
-				/>
+				<div className="hidden w-1/2 md:block">
+					<Image
+						src={graduationHat}
+						alt="Picture of the author"
+					/>
+					<a
+						href="https://storyset.com/education"
+						className="text-xs text-ultra-light"
+					>
+						Education illustrations by Storyset
+					</a>
+				</div>
 			</div>
 
 			<Features />

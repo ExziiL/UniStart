@@ -3,6 +3,7 @@
 import FeatureCard from "@/frontend/components/feature-card";
 import { Variants, motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 import { useHover } from "usehooks-ts";
