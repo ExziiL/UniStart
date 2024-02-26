@@ -2,13 +2,13 @@
 import { useUserContext } from '@/context/user-context/user-context';
 import { Session } from 'next-auth';
 
-
 export const useFetchUser = () => {
     const { userDispatch } = useUserContext();
 
     const fetchUser = async (session: Session) => {
         try {          
-            const response = await fetch('api/user', {
+            // const response = await fetch(pathname + '/api/user', {
+            const response = await fetch('/api/user', {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: session?.user?.email })
             });
