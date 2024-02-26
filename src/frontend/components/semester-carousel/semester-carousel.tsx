@@ -1,4 +1,13 @@
+"use client";
+
 import CourseOverviewCard from "@/frontend/components/course-overview-card";
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+	CarouselNext,
+	CarouselPrevious,
+} from "@/frontend/components/ui/carousel";
 import { VORLESUNGEN } from "@/frontend/constants/vorlesungen";
 import React from "react";
 
@@ -7,22 +16,34 @@ interface SemesterCarouselProps {
 }
 
 function SemesterCarousel({ semester }: SemesterCarouselProps) {
+	const OPTIONS: any = { dragFree: true, align: "center" };
+
 	return (
 		<div className="space-y-4 sm:m-4">
 			<h1 className="text-2xl font-medium">{semester}. Semester</h1>
 
-			<div className="overflow-x-auto rounded-md border bg-foreground/5 p-4 dark:bg-foreground/15">
-				<div className="flex w-max gap-4 space-x-4">
-					{VORLESUNGEN.map(
-						(vorlesung, index) =>
-							vorlesung.semester == semester && (
-								<CourseOverviewCard
-									key={index}
-									vorlesung={vorlesung}
-								/>
-							)
-					)}
-				</div>
+			<div className="rounded-md border bg-foreground/5 p-4 dark:bg-foreground/15">
+				<Carousel
+					opts={OPTIONS}
+					className="flex flex-col"
+				>
+					<CarouselContent>
+						{VORLESUNGEN.map(
+							(vorlesung, index) =>
+								vorlesung.semester == semester && (
+									<CarouselItem
+										key={index}
+										className="basis-auto"
+									>
+										<CourseOverviewCard vorlesung={vorlesung} />
+									</CarouselItem>
+								)
+						)}
+					</CarouselContent>
+
+					<CarouselPrevious className="left-0 mt-20" />
+					<CarouselNext className="right-0 mt-20" />
+				</Carousel>
 			</div>
 		</div>
 	);
