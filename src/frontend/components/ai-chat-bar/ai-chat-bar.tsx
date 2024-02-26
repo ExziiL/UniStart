@@ -21,9 +21,6 @@ function AiChatBar() {
 						<h2 className=" font-semibold">Not a Human</h2>
 					</div>
 				</div>
-				<div className="cursor-pointer text-light transition-colors hover:text-foreground">
-					<Trash2 />
-				</div>
 			</div>
 			<Separator className="my-4 dark:bg-zinc-700" />
 		</div>
