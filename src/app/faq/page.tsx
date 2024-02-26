@@ -1,6 +1,11 @@
+"use client";
+
 import Breadcrumb from "@/frontend/components/breadcrumb";
 import FaqBadge from "@/frontend/components/faq-badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/frontend/components/ui/accordion";
+import { Button } from "@/frontend/components/ui/button";
+import { Separator } from "@/frontend/components/ui/separator";
+import { Eye, EyeOff } from "lucide-react";
 import React from "react";
 
 const questions: Array<{ question: string; answer: string; type: any[] }> = [
@@ -72,6 +77,12 @@ const questions: Array<{ question: string; answer: string; type: any[] }> = [
 ];
 
 function Faq() {
+	const [showBadges, setShowBadges] = React.useState(true);
+
+	function handleBadgeTrigger() {
+		return setShowBadges(!showBadges);
+	}
+
 	return (
 		<div className="flex flex-col">
 			<Breadcrumb
@@ -88,6 +99,29 @@ function Faq() {
 				</div>
 
 				<div className="max-w-[720px] py-4 md:w-[720px]">
+					<div className="flex w-full justify-end pb-2">
+						<Button
+							variant="outline"
+							onClick={handleBadgeTrigger}
+						>
+							{showBadges ? (
+								<Eye
+									size={24}
+									strokeWidth={1.75}
+								/>
+							) : (
+								<EyeOff
+									size={24}
+									strokeWidth={1.75}
+								/>
+							)}
+							<Separator
+								orientation="vertical"
+								className="mx-2"
+							/>
+							{showBadges ? "Hide" : "Show"} Badges
+						</Button>
+					</div>
 					<Accordion
 						type="single"
 						collapsible
@@ -100,14 +134,16 @@ function Faq() {
 								<AccordionTrigger className="text-start">
 									<div className="flex flex-col">
 										{question.question}
-										<div className="flex flex-row space-x-2">
-											{question.type.map((typ) => (
-												<FaqBadge
-													key={question.question}
-													text={typ}
-												/>
-											))}
-										</div>
+										{showBadges && (
+											<div className="flex flex-row space-x-2">
+												{question.type.map((typ, index) => (
+													<FaqBadge
+														key={typ + "-" + index}
+														text={typ}
+													/>
+												))}
+											</div>
+										)}
 									</div>
 								</AccordionTrigger>
 								<AccordionContent className="text-light">{question.answer}</AccordionContent>
