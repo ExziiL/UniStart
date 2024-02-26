@@ -21,7 +21,7 @@ function SettingsProfile() {
 						</AvatarFallback>
 					</Avatar>
 					<div className="flex flex-col gap-3">
-						<div className="font-semibold">Profile Picture</div>
+						<div className="font-semibold">Hi {userState.name}!</div>
 						<div className="flex flex-col gap-3 sm:flex-row">
 							<Button>
 								<Upload
