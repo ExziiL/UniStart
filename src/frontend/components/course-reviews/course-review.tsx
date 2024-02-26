@@ -10,22 +10,16 @@ interface CourseReviewProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 function CourseReview({ review }: CourseReviewProps) {
-	const upvotes = review.upvotes;
-	const downvotes = review.downvotes;
-
 	return (
 		<div className="flex gap-3 text-primary">
 			<div className="flex flex-col justify-center">
-				<Voting
-					upvotes={upvotes}
-					downvotes={downvotes}
-				/>
+				<Voting votes={review.votes} />
 			</div>
 			<div>
 				<h2 className="font-medium">{review.headline}</h2>
 				<div className="flex gap-3 pb-2 pt-1">
 					<StarRating
-						value={review.rating}
+						value={review.courserating}
 						style={{ maxWidth: 100, minWidth: 75 }}
 						readOnly
 					/>
@@ -60,13 +54,13 @@ function CourseReview({ review }: CourseReviewProps) {
 	);
 }
 
-const Voting = ({ upvotes, downvotes }: { upvotes: number; downvotes: number }) => {
+const Voting = ({ votes }: any) => {
 	return (
 		<div className="flex flex-col items-center justify-center gap-1">
 			<div className="cursor-pointer text-ultra-light transition-colors hover:text-light">
 				<ThumbsUp size={20} />
 			</div>
-			<span className=" text-lg font-medium text-primary">{upvotes - downvotes}</span>
+			<span className=" text-lg font-medium text-primary">{votes}</span>
 			<div className="cursor-pointer text-ultra-light transition-colors hover:text-light">
 				<ThumbsDown size={20} />
 			</div>

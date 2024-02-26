@@ -34,48 +34,43 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		reviews: [
 			{
 				headline: "The perfect course for product managers who are new to the role",
-				rating: 5,
+				courserating: 5,
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				upvotes: 48,
-				downvotes: 8,
+				votes: 40,
 			},
 			{
 				headline: "Insightful and Comprehensive Overview of Modern Web Development",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				upvotes: 18,
-				downvotes: 4,
+				votes: 18,
 			},
 			{
 				headline: "Excellent Deep Dive into Data Structures and Algorithms",
-				rating: 3.5,
+				courserating: 3.5,
 				date: new Date("2022-09-05"),
 				description:
 					"For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.",
-				upvotes: 2,
-				downvotes: 13,
+				votes: 18,
 			},
 			{
 				headline: "Practical and Engaging Introduction to Object-Oriented Programming",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				upvotes: 4,
-				downvotes: 3,
+				votes: 18,
 			},
 			{
 				headline: "A Comprehensive Journey through Software Engineering Principles",
-				rating: 2,
+				courserating: 2,
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				upvotes: 0,
-				downvotes: 40,
+				votes: 18,
 			},
 		],
 	},
@@ -112,48 +107,43 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		reviews: [
 			{
 				headline: "The perfect course for product managers who are new to the role",
-				rating: 5,
+				courserating: 5,
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				upvotes: 48,
-				downvotes: 8,
+				votes: 18,
 			},
 			{
 				headline: "Insightful and Comprehensive Overview of Modern Web Development",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				upvotes: 18,
-				downvotes: 4,
+				votes: 18,
 			},
 			{
 				headline: "Excellent Deep Dive into Data Structures and Algorithms",
-				rating: 3,
+				courserating: 3,
 				date: new Date("2022-09-05"),
 				description:
 					"For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.",
-				upvotes: 2,
-				downvotes: 13,
+				votes: 18,
 			},
 			{
 				headline: "Practical and Engaging Introduction to Object-Oriented Programming",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				upvotes: 4,
-				downvotes: 3,
+				votes: 18,
 			},
 			{
 				headline: "A Comprehensive Journey through Software Engineering Principles",
-				rating: 2,
+				courserating: 2,
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				upvotes: 0,
-				downvotes: 40,
+				votes: 18,
 			},
 		],
 	},
@@ -190,48 +180,43 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		reviews: [
 			{
 				headline: "The perfect course for product managers who are new to the role",
-				rating: 5,
+				courserating: 5,
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				upvotes: 48,
-				downvotes: 8,
+				votes: 18,
 			},
 			{
 				headline: "Insightful and Comprehensive Overview of Modern Web Development",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				upvotes: 18,
-				downvotes: 4,
+				votes: 18,
 			},
 			{
 				headline: "Excellent Deep Dive into Data Structures and Algorithms",
-				rating: 3,
+				courserating: 3,
 				date: new Date("2022-09-05"),
 				description:
 					"For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.",
-				upvotes: 2,
-				downvotes: 13,
+				votes: 18,
 			},
 			{
 				headline: "Practical and Engaging Introduction to Object-Oriented Programming",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				upvotes: 4,
-				downvotes: 3,
+				votes: 18,
 			},
 			{
 				headline: "A Comprehensive Journey through Software Engineering Principles",
-				rating: 2,
+				courserating: 2,
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				upvotes: 0,
-				downvotes: 40,
+				votes: 18,
 			},
 		],
 	},
@@ -268,48 +253,43 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		reviews: [
 			{
 				headline: "The perfect course for product managers who are new to the role",
-				rating: 5,
+				courserating: 5,
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				upvotes: 48,
-				downvotes: 8,
+				votes: 18,
 			},
 			{
 				headline: "Insightful and Comprehensive Overview of Modern Web Development",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				upvotes: 18,
-				downvotes: 4,
+				votes: 18,
 			},
 			{
 				headline: "Excellent Deep Dive into Data Structures and Algorithms",
-				rating: 3,
+				courserating: 3,
 				date: new Date("2022-09-05"),
 				description:
 					"For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.",
-				upvotes: 2,
-				downvotes: 13,
+				votes: 18,
 			},
 			{
 				headline: "Practical and Engaging Introduction to Object-Oriented Programming",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				upvotes: 4,
-				downvotes: 3,
+				votes: 18,
 			},
 			{
 				headline: "A Comprehensive Journey through Software Engineering Principles",
-				rating: 2,
+				courserating: 2,
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				upvotes: 0,
-				downvotes: 40,
+				votes: 18,
 			},
 		],
 	},
@@ -346,48 +326,43 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		reviews: [
 			{
 				headline: "The perfect course for product managers who are new to the role",
-				rating: 5,
+				courserating: 5,
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				upvotes: 48,
-				downvotes: 8,
+				votes: 18,
 			},
 			{
 				headline: "Insightful and Comprehensive Overview of Modern Web Development",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				upvotes: 18,
-				downvotes: 4,
+				votes: 18,
 			},
 			{
 				headline: "Excellent Deep Dive into Data Structures and Algorithms",
-				rating: 3,
+				courserating: 3,
 				date: new Date("2022-09-05"),
 				description:
 					"For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.",
-				upvotes: 2,
-				downvotes: 13,
+				votes: 18,
 			},
 			{
 				headline: "Practical and Engaging Introduction to Object-Oriented Programming",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				upvotes: 4,
-				downvotes: 3,
+				votes: 18,
 			},
 			{
 				headline: "A Comprehensive Journey through Software Engineering Principles",
-				rating: 2,
+				courserating: 2,
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				upvotes: 0,
-				downvotes: 40,
+				votes: 18,
 			},
 		],
 	},
@@ -424,48 +399,43 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		reviews: [
 			{
 				headline: "The perfect course for product managers who are new to the role",
-				rating: 5,
+				courserating: 5,
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				upvotes: 48,
-				downvotes: 8,
+				votes: 18,
 			},
 			{
 				headline: "Insightful and Comprehensive Overview of Modern Web Development",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				upvotes: 18,
-				downvotes: 4,
+				votes: 18,
 			},
 			{
 				headline: "Excellent Deep Dive into Data Structures and Algorithms",
-				rating: 3,
+				courserating: 3,
 				date: new Date("2022-09-05"),
 				description:
 					"For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.",
-				upvotes: 2,
-				downvotes: 13,
+				votes: 18,
 			},
 			{
 				headline: "Practical and Engaging Introduction to Object-Oriented Programming",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				upvotes: 4,
-				downvotes: 3,
+				votes: 18,
 			},
 			{
 				headline: "A Comprehensive Journey through Software Engineering Principles",
-				rating: 2,
+				courserating: 2,
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				upvotes: 0,
-				downvotes: 40,
+				votes: 18,
 			},
 		],
 	},
@@ -502,48 +472,43 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		reviews: [
 			{
 				headline: "The perfect course for product managers who are new to the role",
-				rating: 5,
+				courserating: 5,
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				upvotes: 48,
-				downvotes: 8,
+				votes: 18,
 			},
 			{
 				headline: "Insightful and Comprehensive Overview of Modern Web Development",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				upvotes: 18,
-				downvotes: 4,
+				votes: 18,
 			},
 			{
 				headline: "Excellent Deep Dive into Data Structures and Algorithms",
-				rating: 3,
+				courserating: 3,
 				date: new Date("2022-09-05"),
 				description:
 					"For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.",
-				upvotes: 2,
-				downvotes: 13,
+				votes: 18,
 			},
 			{
 				headline: "Practical and Engaging Introduction to Object-Oriented Programming",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				upvotes: 4,
-				downvotes: 3,
+				votes: 18,
 			},
 			{
 				headline: "A Comprehensive Journey through Software Engineering Principles",
-				rating: 2,
+				courserating: 2,
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				upvotes: 0,
-				downvotes: 40,
+				votes: 18,
 			},
 		],
 	},
@@ -580,48 +545,43 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		reviews: [
 			{
 				headline: "The perfect course for product managers who are new to the role",
-				rating: 5,
+				courserating: 5,
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				upvotes: 48,
-				downvotes: 8,
+				votes: 18,
 			},
 			{
 				headline: "Insightful and Comprehensive Overview of Modern Web Development",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				upvotes: 18,
-				downvotes: 4,
+				votes: 18,
 			},
 			{
 				headline: "Excellent Deep Dive into Data Structures and Algorithms",
-				rating: 3,
+				courserating: 3,
 				date: new Date("2022-09-05"),
 				description:
 					"For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.",
-				upvotes: 2,
-				downvotes: 13,
+				votes: 18,
 			},
 			{
 				headline: "Practical and Engaging Introduction to Object-Oriented Programming",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				upvotes: 4,
-				downvotes: 3,
+				votes: 18,
 			},
 			{
 				headline: "A Comprehensive Journey through Software Engineering Principles",
-				rating: 2,
+				courserating: 2,
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				upvotes: 0,
-				downvotes: 40,
+				votes: 18,
 			},
 		],
 	},
@@ -658,48 +618,43 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		reviews: [
 			{
 				headline: "The perfect course for product managers who are new to the role",
-				rating: 5,
+				courserating: 5,
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				upvotes: 48,
-				downvotes: 8,
+				votes: 18,
 			},
 			{
 				headline: "Insightful and Comprehensive Overview of Modern Web Development",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				upvotes: 18,
-				downvotes: 4,
+				votes: 18,
 			},
 			{
 				headline: "Excellent Deep Dive into Data Structures and Algorithms",
-				rating: 3,
+				courserating: 3,
 				date: new Date("2022-09-05"),
 				description:
 					"For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.",
-				upvotes: 2,
-				downvotes: 13,
+				votes: 18,
 			},
 			{
 				headline: "Practical and Engaging Introduction to Object-Oriented Programming",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				upvotes: 4,
-				downvotes: 3,
+				votes: 18,
 			},
 			{
 				headline: "A Comprehensive Journey through Software Engineering Principles",
-				rating: 2,
+				courserating: 2,
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				upvotes: 0,
-				downvotes: 40,
+				votes: 18,
 			},
 		],
 	},
@@ -736,48 +691,43 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		reviews: [
 			{
 				headline: "The perfect course for product managers who are new to the role",
-				rating: 5,
+				courserating: 5,
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				upvotes: 48,
-				downvotes: 8,
+				votes: 18,
 			},
 			{
 				headline: "Insightful and Comprehensive Overview of Modern Web Development",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				upvotes: 18,
-				downvotes: 4,
+				votes: 18,
 			},
 			{
 				headline: "Excellent Deep Dive into Data Structures and Algorithms",
-				rating: 3,
+				courserating: 3,
 				date: new Date("2022-09-05"),
 				description:
 					"For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.",
-				upvotes: 2,
-				downvotes: 13,
+				votes: 18,
 			},
 			{
 				headline: "Practical and Engaging Introduction to Object-Oriented Programming",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				upvotes: 4,
-				downvotes: 3,
+				votes: 18,
 			},
 			{
 				headline: "A Comprehensive Journey through Software Engineering Principles",
-				rating: 2,
+				courserating: 2,
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				upvotes: 0,
-				downvotes: 40,
+				votes: 18,
 			},
 		],
 	},
@@ -814,48 +764,43 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		reviews: [
 			{
 				headline: "The perfect course for product managers who are new to the role",
-				rating: 5,
+				courserating: 5,
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				upvotes: 48,
-				downvotes: 8,
+				votes: 18,
 			},
 			{
 				headline: "Insightful and Comprehensive Overview of Modern Web Development",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				upvotes: 18,
-				downvotes: 4,
+				votes: 18,
 			},
 			{
 				headline: "Excellent Deep Dive into Data Structures and Algorithms",
-				rating: 3,
+				courserating: 3,
 				date: new Date("2022-09-05"),
 				description:
 					"For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.",
-				upvotes: 2,
-				downvotes: 13,
+				votes: 18,
 			},
 			{
 				headline: "Practical and Engaging Introduction to Object-Oriented Programming",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				upvotes: 4,
-				downvotes: 3,
+				votes: 18,
 			},
 			{
 				headline: "A Comprehensive Journey through Software Engineering Principles",
-				rating: 2,
+				courserating: 2,
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				upvotes: 0,
-				downvotes: 40,
+				votes: 18,
 			},
 		],
 	},
@@ -892,48 +837,43 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		reviews: [
 			{
 				headline: "The perfect course for product managers who are new to the role",
-				rating: 5,
+				courserating: 5,
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				upvotes: 48,
-				downvotes: 8,
+				votes: 18,
 			},
 			{
 				headline: "Insightful and Comprehensive Overview of Modern Web Development",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				upvotes: 18,
-				downvotes: 4,
+				votes: 18,
 			},
 			{
 				headline: "Excellent Deep Dive into Data Structures and Algorithms",
-				rating: 3,
+				courserating: 3,
 				date: new Date("2022-09-05"),
 				description:
 					"For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.",
-				upvotes: 2,
-				downvotes: 13,
+				votes: 18,
 			},
 			{
 				headline: "Practical and Engaging Introduction to Object-Oriented Programming",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				upvotes: 4,
-				downvotes: 3,
+				votes: 18,
 			},
 			{
 				headline: "A Comprehensive Journey through Software Engineering Principles",
-				rating: 2,
+				courserating: 2,
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				upvotes: 0,
-				downvotes: 40,
+				votes: 18,
 			},
 		],
 	},
@@ -971,30 +911,27 @@ export const VORLESUNGEN: VorlesungProps[] = [
 		reviews: [
 			{
 				headline: "Insightful and Practical Approach to Advanced Programming Concepts",
-				rating: 4.5,
+				courserating: 4.5,
 				date: new Date("2022-09-05"),
 				description:
 					"This course offers an insightful and practical approach to understanding advanced programming concepts. The hands-on exercises and real-world examples provided valuable insights that enhanced my programming skills significantly.",
-				upvotes: 12,
-				downvotes: 1,
+				votes: 18,
 			},
 			{
 				headline: "Challenging Yet Rewarding Exploration of Database Systems",
-				rating: 4,
+				courserating: 4,
 				date: new Date("2022-10-20"),
 				description:
 					"This course presents a challenging yet rewarding exploration of database systems. The depth of coverage on data modeling, SQL, and advanced topics like concurrency control made it a valuable learning experience for me.",
-				upvotes: 8,
-				downvotes: 2,
+				votes: 18,
 			},
 			{
 				headline: "Comprehensive and Practical Guide to Web Development",
-				rating: 4.2,
+				courserating: 4.2,
 				date: new Date("2022-11-15"),
 				description:
 					"This course provides a comprehensive and practical guide to web development. The hands-on projects and in-depth discussions on modern web technologies have equipped me with the skills needed to build dynamic and responsive web applications.",
-				upvotes: 10,
-				downvotes: 3,
+				votes: 18,
 			},
 		],
 	},
