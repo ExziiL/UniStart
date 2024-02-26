@@ -12,7 +12,6 @@ interface AiChatBoxProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 function AiChatBox({ selectedAiChat, className, ...props }: AiChatBoxProps) {
-	console.log(selectedAiChat);
 	return (
 		// <div className={`${className} flex h-full flex-col ${children ? 'justify-between' : 'justify-end'} p-4`}>
 		<div
