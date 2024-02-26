@@ -27,6 +27,7 @@ const loginFormSchema = z.object({
 
 function LoginForm() {
 	const [isLoading, setIsLoading] = React.useState(false);
+	const [isError, setIsError] = React.useState(false);
 	const router = useRouter();
 
 	const form = useForm<z.infer<typeof loginFormSchema>>({
@@ -48,11 +49,13 @@ function LoginForm() {
 			});
 
 			if (res?.error) {
-				// console.log("Invalid credentials");
+				console.log("Invalid credentials");
+				setIsError(true);
+				setIsLoading(false);
 				return;
 			}
 
-			router.replace("/");
+			router.replace("/vorlesungen");
 		} catch (error) {
 			// console.log(error);
 		}
@@ -102,6 +105,17 @@ function LoginForm() {
 					)}
 				/>
 			</form>
+
+			{isError && (
+				<div
+					className={`mt-6 border border-destructive bg-red-50 p-2 text-base text-red-900 dark:bg-red-950 dark:text-red-50 ${
+						isLoading && "hidden"
+					}`}
+				>
+					An Error occured, please try again.
+				</div>
+			)}
+
 			<Button
 				type="submit"
 				form="login-form"

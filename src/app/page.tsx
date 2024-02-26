@@ -4,6 +4,7 @@ import Features from "@/frontend/components/features";
 import Testimonials from "@/frontend/components/testimonials";
 import { Button } from "@/frontend/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
 	return (
@@ -15,7 +16,9 @@ export default function Home() {
 						Navigate your campus, connect with peers, and find your place in university life - all with
 						ease!
 					</p>
-					<Button className="w-fit">Get started - it is free!</Button>
+					<Button className="w-fit">
+						<Link href="/registration">Get started - it is free!</Link>
+					</Button>
 				</div>
 				<Image
 					src="https://source.unsplash.com/random"
@@ -37,7 +40,9 @@ export default function Home() {
 				<p className="max-w-[480px] pb-12 pt-6 text-light">
 					Navigate your campus, connect with peers, and find your place in university life - all with ease!
 				</p>
-				<Button className="w-fit">Get started - it is free!</Button>
+				<Button className="w-fit">
+					<Link href="/registration">Get started - it is free!</Link>
+				</Button>
 			</div>
 		</div>
 	);

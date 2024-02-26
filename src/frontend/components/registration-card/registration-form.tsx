@@ -63,7 +63,7 @@ function RegistrationForm() {
 			const res = (await register("credentials", values)) as CustomResponse;
 
 			if (res?.ok) {
-				router.replace("/");
+				router.replace("/vorlesungen");
 			} else if (res?.userExists) {
 				setTimeout(() => {
 					setUserExistsErr(true);
@@ -163,7 +163,7 @@ function RegistrationForm() {
 						isLoading && "hidden"
 					}`}
 				>
-					E-Mail already in use. Please use another E-Mail.
+					E-Mail or Username already in use. Please use another E-Mail or Username.
 				</div>
 			)}
 
