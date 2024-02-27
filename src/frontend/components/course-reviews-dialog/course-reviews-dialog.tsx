@@ -21,6 +21,7 @@ import {
 	FormMessage,
 } from "@/frontend/components/ui/form";
 import { Input } from "@/frontend/components/ui/input";
+import { ScrollArea, ScrollBar } from "@/frontend/components/ui/scroll-area";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/frontend/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/frontend/components/ui/tabs";
 import { Textarea } from "@/frontend/components/ui/textarea";
@@ -94,163 +95,166 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 				</Button>
 			</DialogTrigger>
 
-			<DialogContent className="">
-				<Form {...form}>
-					<form
-						onSubmit={form.handleSubmit(onSubmit)}
-						className="flex flex-col gap-4"
-					>
-						<DialogHeader>
-							<DialogTitle>Create a Review</DialogTitle>
-							<DialogDescription>How would you rate this course?</DialogDescription>
-						</DialogHeader>
-						<div className="flex flex-col gap-4">
-							<FormField
-								control={form.control}
-								name="rating"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>Overall Rating</FormLabel>
-										<FormControl>
-											<Rating
-												{...field}
-												value={field.value}
-												style={{ maxWidth: 160 }}
-												isRequired
-											/>
-										</FormControl>
-										<FormMessage className="pt-1" />
-									</FormItem>
-								)}
-							/>
-							<FormField
-								control={form.control}
-								name="headline"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>Title</FormLabel>
-										<FormControl>
-											<Input
-												placeholder="This course was..."
-												{...field}
-											/>
-										</FormControl>
-										<FormMessage className="pt-1" />
-										<FormDescription>{/* This is the Form Description */}</FormDescription>
-									</FormItem>
-								)}
-							/>
-							<FormField
-								control={form.control}
-								name="description"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>Description</FormLabel>
-										<FormControl>
-											<Textarea
-												placeholder="Describe your experience in more detail..."
-												className="h-24 resize-none"
-												{...field}
-											/>
-										</FormControl>
-										<FormDescription className="pt-1">
-											{`${field.value.length}/${maxDescriptionLength}`}
-										</FormDescription>
-										<FormMessage />
-									</FormItem>
-								)}
-							/>
-							<FormField
-								control={form.control}
-								name="focus"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>Focus</FormLabel>
-										<Select
-											onValueChange={field.onChange}
-											defaultValue={field.value}
-										>
-											<FormControl>
-												<SelectTrigger>
-													<SelectValue placeholder="Select your course focus" />
-												</SelectTrigger>
-											</FormControl>
-											<SelectContent>
-												<SelectItem value="Allgemeine Informatik">
-													Allgemeine Informatik
-												</SelectItem>
-												<SelectItem value="Software Engineering">
-													Software Engineering
-												</SelectItem>
-												<SelectItem value="Medieninformatik">Medieninformatik</SelectItem>
-												<SelectItem value="IT-Security">IT-Security</SelectItem>
-												<SelectItem value="Data Science">Data Science</SelectItem>
-											</SelectContent>
-										</Select>
-										<FormMessage className="pt-1" />
-									</FormItem>
-								)}
-							/>
-							<FormField
-								control={form.control}
-								name="semester"
-								render={({ field }) => (
-									<FormItem>
-										<FormLabel>Semester</FormLabel>
-										<Tabs className="w-full">
-											<TabsList className="w-full">
-												<TabsTrigger
-													value="1"
-													className="w-full"
-													onClick={() => handleSemesterChange("1")}
-												>
-													1
-												</TabsTrigger>
-												<TabsTrigger
-													value="2"
-													className="w-full"
-													onClick={() => handleSemesterChange("2")}
-												>
-													2
-												</TabsTrigger>
-												<TabsTrigger
-													value="3"
-													className="w-full"
-													onClick={() => handleSemesterChange("3")}
-												>
-													3
-												</TabsTrigger>
-											</TabsList>
-										</Tabs>
-										<FormMessage className="pt-1" />
-									</FormItem>
-								)}
-							/>
-						</div>
-
-						<div
-							className={`my-3 flex flex-row items-center gap-3 rounded-sm border border-destructive bg-orange-50 p-3 text-base text-orange-900 dark:bg-orange-950 dark:text-orange-50`}
+			<DialogContent className="p-1">
+				<ScrollArea className="h-[600px] sm:h-full">
+					<Form {...form}>
+						<form
+							onSubmit={form.handleSubmit(onSubmit)}
+							className="flex flex-col gap-4 p-2"
 						>
-							<div>
-								<ShieldAlert
-									size={20}
-									strokeWidth={1.75}
+							<DialogHeader>
+								<DialogTitle>Create a Review</DialogTitle>
+								<DialogDescription>How would you rate this course?</DialogDescription>
+							</DialogHeader>
+							<div className="flex flex-col gap-4">
+								<FormField
+									control={form.control}
+									name="rating"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Overall Rating</FormLabel>
+											<FormControl>
+												<Rating
+													{...field}
+													value={field.value}
+													style={{ maxWidth: 160 }}
+													isRequired
+												/>
+											</FormControl>
+											<FormMessage className="pt-1" />
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={form.control}
+									name="headline"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Title</FormLabel>
+											<FormControl>
+												<Input
+													placeholder="This course was..."
+													{...field}
+												/>
+											</FormControl>
+											<FormMessage className="pt-1" />
+											<FormDescription>{/* This is the Form Description */}</FormDescription>
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={form.control}
+									name="description"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Description</FormLabel>
+											<FormControl>
+												<Textarea
+													placeholder="Describe your experience in more detail..."
+													className="h-24 resize-none"
+													{...field}
+												/>
+											</FormControl>
+											<FormDescription className="pt-1">
+												{`${field.value.length}/${maxDescriptionLength}`}
+											</FormDescription>
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={form.control}
+									name="focus"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Focus</FormLabel>
+											<Select
+												onValueChange={field.onChange}
+												defaultValue={field.value}
+											>
+												<FormControl>
+													<SelectTrigger>
+														<SelectValue placeholder="Select your course focus" />
+													</SelectTrigger>
+												</FormControl>
+												<SelectContent>
+													<SelectItem value="Allgemeine Informatik">
+														Allgemeine Informatik
+													</SelectItem>
+													<SelectItem value="Software Engineering">
+														Software Engineering
+													</SelectItem>
+													<SelectItem value="Medieninformatik">Medieninformatik</SelectItem>
+													<SelectItem value="IT-Security">IT-Security</SelectItem>
+													<SelectItem value="Data Science">Data Science</SelectItem>
+												</SelectContent>
+											</Select>
+											<FormMessage className="pt-1" />
+										</FormItem>
+									)}
+								/>
+								<FormField
+									control={form.control}
+									name="semester"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Semester</FormLabel>
+											<Tabs className="w-full">
+												<TabsList className="w-full">
+													<TabsTrigger
+														value="1"
+														className="w-full"
+														onClick={() => handleSemesterChange("1")}
+													>
+														1
+													</TabsTrigger>
+													<TabsTrigger
+														value="2"
+														className="w-full"
+														onClick={() => handleSemesterChange("2")}
+													>
+														2
+													</TabsTrigger>
+													<TabsTrigger
+														value="3"
+														className="w-full"
+														onClick={() => handleSemesterChange("3")}
+													>
+														3
+													</TabsTrigger>
+												</TabsList>
+											</Tabs>
+											<FormMessage className="pt-1" />
+										</FormItem>
+									)}
 								/>
 							</div>
-							<p>
-								Your review will be submitted and displayed{" "}
-								<span className="underline">anonymously</span>.
-							</p>
-						</div>
 
-						<DialogFooter>
-							<DialogClose asChild>
-								<Button variant="outline">Cancel</Button>
-							</DialogClose>
-							<Button type="submit">Submit</Button>
-						</DialogFooter>
-					</form>
-				</Form>
+							<div
+								className={`my-3 flex flex-row items-center gap-3 rounded-sm border border-destructive bg-orange-50 p-3 text-base text-orange-900 dark:bg-orange-950 dark:text-orange-50`}
+							>
+								<div>
+									<ShieldAlert
+										size={20}
+										strokeWidth={1.75}
+									/>
+								</div>
+								<p>
+									Your review will be submitted and displayed{" "}
+									<span className="underline">anonymously</span>.
+								</p>
+							</div>
+
+							<DialogFooter className="gap-2">
+								<DialogClose asChild>
+									<Button variant="outline">Cancel</Button>
+								</DialogClose>
+								<Button type="submit">Submit</Button>
+							</DialogFooter>
+						</form>
+					</Form>
+					<ScrollBar orientation="vertical" />
+				</ScrollArea>
 			</DialogContent>
 		</Dialog>
 	);
