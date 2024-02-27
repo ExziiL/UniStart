@@ -11,7 +11,7 @@ interface CourseReviewProps extends React.HTMLAttributes<HTMLDivElement> {
 
 function CourseReview({ review }: CourseReviewProps) {
 	return (
-		<div className="flex gap-3 text-primary">
+		<div className="flex flex-col-reverse gap-3 text-primary md:flex-row">
 			<div className="flex flex-col justify-center">
 				<Voting votes={review.votes} />
 			</div>
@@ -56,7 +56,7 @@ function CourseReview({ review }: CourseReviewProps) {
 
 const Voting = ({ votes }: any) => {
 	return (
-		<div className="flex flex-col items-center justify-center gap-1">
+		<div className="flex items-center gap-3 md:flex-col md:justify-center md:gap-1">
 			<div className="cursor-pointer text-ultra-light transition-colors hover:text-light">
 				<ThumbsUp size={20} />
 			</div>
