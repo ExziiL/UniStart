@@ -14,7 +14,7 @@ const features = [
 		description:
 			"An extended summary that includes all essential dates and deadlines, providing a comprehensive schedule overview.",
 		alt: "Calendar image",
-		href: "/vorlesungen/grundlagen-der-mathematik",
+		href: "/terminplan",
 	},
 	{
 		title: "Locations",

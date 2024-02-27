@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/frontend/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import IUser from "@/types/IUser";
+import { ImageOff } from "lucide-react";
 import React from "react";
 
 interface NewConversationUserChatProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -27,7 +28,12 @@ function NewConversationUserChat({ user }: NewConversationUserChatProps) {
 						src={user?.image}
 						alt="@shadcn"
 					/>
-					<AvatarFallback>Profile Picture</AvatarFallback>
+					<AvatarFallback>
+						<ImageOff
+							strokeWidth={1.5}
+							size={20}
+						/>
+					</AvatarFallback>
 				</Avatar>
 				{user?.online && (
 					// {
