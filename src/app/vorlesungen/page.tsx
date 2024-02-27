@@ -8,7 +8,7 @@ import { useWindowSize } from "usehooks-ts";
 function Vorlesungen() {
 	const { width } = useWindowSize();
 	return (
-		<>
+		<div>
 			<Breadcrumb sections={["Vorlesungen"]} />
 
 			<div className={`flex flex-col gap-10 py-8 pb-16`}>
@@ -16,7 +16,7 @@ function Vorlesungen() {
 				<SemesterCarousel semester={2} />
 				<SemesterCarousel semester={3} />
 			</div>
-		</>
+		</div>
 	);
 }
 
