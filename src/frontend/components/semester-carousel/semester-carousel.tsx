@@ -63,20 +63,6 @@ function SemesterCarousel({ semester }: SemesterCarouselProps) {
 					<CarouselNext className="-right-3 mt-44" />
 				</Carousel>
 			</div>
-			<ScrollArea className="">
-				<div className="flex w-max gap-4">
-					{lectures.map(
-						(lecture, index) =>
-							lecture.semester == semester && (
-								<CourseOverviewCard
-									key={index}
-									lecture={lecture}
-								/>
-							)
-					)}
-				</div>
-				<ScrollBar orientation="horizontal" />
-			</ScrollArea>
 		</div>
 	);
 }
