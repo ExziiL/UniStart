@@ -3,14 +3,18 @@
 import UserBar from "@/frontend/components/user-bar/user-bar";
 import UserChatBox from "@/frontend/components/user-chat-box";
 import UserConversations from "@/frontend/components/user-conversations";
+import UserConversationsMobile from "@/frontend/components/user-conversations-mobile";
 import { message } from "@prisma/client";
 import { motion } from "framer-motion";
 import React from "react";
+import { useWindowSize } from "usehooks-ts";
 
 function Chat() {
 	const [activeChat, setActiveChat] = React.useState<string>("");
 	const [messages, setMessages] = React.useState<Array<message> | []>([]);
 	const [conversationId, setConversationId] = React.useState<string>("");
+
+	const { width = 0 } = useWindowSize();
 
 	return (
 		<div className="full-bleed grid grid-cols-1 grid-rows-[auto,_1fr]">
@@ -26,18 +30,26 @@ function Chat() {
 					</motion.div>
 				)}
 			</div>
-			{/* <div className="flex flex-row"> */}
-			{/* TODO: UserCHatMessages ab md: anzeigen, davor anders darstellen */}
-			<div className="grid grid-cols-[auto,_1fr]">
-				<div className="min-w-[280px] max-w-xs pl-3">
-					{/* TODO: erst ab  size lg anzeigen, davor eine mobile ansicht darstellen */}
-					<UserConversations
+
+			<div className="md:grid md:grid-cols-[auto,_1fr]">
+				{width >= 768 ? (
+					<div className="min-w-[280px] max-w-xs pl-3">
+						<UserConversations
+							setMessages={setMessages}
+							setCurrentConversationId={setConversationId}
+							setActiveChat={setActiveChat}
+							activeChat={activeChat}
+						/>
+					</div>
+				) : (
+					<UserConversationsMobile
 						setMessages={setMessages}
 						setCurrentConversationId={setConversationId}
 						setActiveChat={setActiveChat}
 						activeChat={activeChat}
 					/>
-				</div>
+				)}
+
 				<div className="w-full max-w-4xl content-center justify-self-center">
 					<UserChatBox
 						messages={messages}
