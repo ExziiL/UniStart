@@ -1,25 +1,18 @@
-'use client';
+"use client";
 
-import { AnimatePresence, motion } from 'framer-motion';
-import { Archive, ChevronDown, Trash2, User } from 'lucide-react';
-import React from 'react';
+import { AnimatePresence, motion } from "framer-motion";
+import { Archive, ChevronDown, Trash2, User } from "lucide-react";
+import React from "react";
 
 interface SingleUserConversationProps {
 	chat: any;
-	activeChat?: number;
+	activeChat?: string;
 }
 
 function SingleUserConversation({ chat, activeChat }: SingleUserConversationProps) {
 	const [isHovered, setIsHovered] = React.useState(false);
 	const dropdownRef = React.useRef<HTMLDivElement>(null);
-
-	function getMessageDate() {
-		const date = new Date(chat.messages![0].date);
-		const hours = date.getHours();
-		const minutes = date.getMinutes();
-		const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
-		return `${hours}:${formattedMinutes}`;
-	}
+	const messagePreview = chat.messages && chat.messages.length > 0 ? chat.messages[0].content : "";
 
 	const handleTrashIconClick = (event: any) => {
 		// event.stopPropagation();
@@ -28,18 +21,15 @@ function SingleUserConversation({ chat, activeChat }: SingleUserConversationProp
 	return (
 		<div
 			className={` w-fill mx-2 my-2 flex cursor-pointer gap-4 rounded-md px-3 py-3 transition-all hover:bg-muted ${
-				activeChat === chat.id ? 'bg-muted' : ''
+				activeChat === chat.id ? "bg-muted" : ""
 			}`}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
 		>
 			<div className="flex w-full flex-col gap-1">
-				<div className="flex justify-between">
-					<h2 className="font-medium">{chat.name}</h2>
-					<span className="text-primary-muted">{getMessageDate()}</span>
-				</div>
+				<div className="flex justify-between"></div>
 				<div className="relative flex justify-between">
-					<p className="line-clamp-1 text-primary-muted">{chat.messages![0].text}</p>
+					<p className="line-clamp-1 text-primary-muted">{messagePreview}</p>
 
 					<AnimatePresence>
 						{isHovered && (

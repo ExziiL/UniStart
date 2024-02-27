@@ -10,23 +10,17 @@ interface CourseReviewProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 function CourseReview({ review }: CourseReviewProps) {
-	const upvotes = review.upvotes;
-	const downvotes = review.downvotes;
-
 	return (
-		<div className="flex gap-3 text-primary">
+		<div className="flex flex-col-reverse gap-3 text-primary md:flex-row">
 			<div className="flex flex-col justify-center">
-				<Voting
-					upvotes={upvotes}
-					downvotes={downvotes}
-				/>
+				<Voting votes={review.votes} />
 			</div>
 			<div>
 				<h2 className="font-medium">{review.headline}</h2>
-				<div className="flex gap-3 pb-2 pt-1">
+				<div className="flex gap-3 pb-3 pt-2">
 					<StarRating
-						value={review.rating}
-						style={{ maxWidth: 100 }}
+						value={review.courserating}
+						style={{ maxWidth: 100, minWidth: 75 }}
 						readOnly
 					/>
 
@@ -46,13 +40,13 @@ function CourseReview({ review }: CourseReviewProps) {
 						<Separator orientation="vertical" />
 					</div>
 
-					<span className="flex flex-col justify-center text-sm text-light">Sem. von Verf.</span>
+					<span className="flex flex-col justify-center text-sm text-light">{review.semester}. Sem.</span>
 
-					<div className="py-1">
+					<div className="hidden py-1 sm:block">
 						<Separator orientation="vertical" />
 					</div>
 
-					<span className="flex flex-col justify-center text-sm text-light">St.-gang von Verf.</span>
+					<span className="hidden flex-col justify-center text-sm text-light sm:flex">{review.focus}</span>
 				</div>
 				<p className="">{review.description}</p>
 			</div>
@@ -60,13 +54,13 @@ function CourseReview({ review }: CourseReviewProps) {
 	);
 }
 
-const Voting = ({ upvotes, downvotes }: { upvotes: number; downvotes: number }) => {
+const Voting = ({ votes }: any) => {
 	return (
-		<div className="flex flex-col items-center justify-center gap-1">
+		<div className="flex items-center gap-3 md:flex-col md:justify-center md:gap-1">
 			<div className="cursor-pointer text-ultra-light transition-colors hover:text-light">
 				<ThumbsUp size={20} />
 			</div>
-			<span className=" text-lg font-medium text-primary">{upvotes - downvotes}</span>
+			<span className=" text-lg font-medium text-primary">{votes}</span>
 			<div className="cursor-pointer text-ultra-light transition-colors hover:text-light">
 				<ThumbsDown size={20} />
 			</div>

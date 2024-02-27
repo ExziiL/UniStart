@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/frontend/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from "@/frontend/components/ui/avatar";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -8,29 +8,30 @@ import {
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
-} from '@/frontend/components/ui/dropdown-menu';
-import IUser from '@/types/IUser';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Archive, ChevronDown, Trash2, User } from 'lucide-react';
-import React from 'react';
+} from "@/frontend/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
+import IUser from "@/types/IUser";
+import { AnimatePresence, motion } from "framer-motion";
+import { Archive, ChevronDown, Trash2, User } from "lucide-react";
+import React from "react";
 
 interface SingleUserConversationProps {
 	user: IUser;
-	activeChat?: number;
+	activeChat?: string;
 }
 
 function SingleUserConversation({ user, activeChat }: SingleUserConversationProps) {
 	const [isHovered, setIsHovered] = React.useState(false);
 	const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 	const dropdownRef = React.useRef<HTMLDivElement>(null);
-
-	function getMessageDate() {
+	
+	/* function getMessageDate() {
 		const date = new Date(user.messages![0].date);
 		const hours = date.getHours();
 		const minutes = date.getMinutes();
 		const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
 		return `${hours}:${formattedMinutes}`;
-	}
+	} */
 
 	const handleChevronClick = (event: any) => {
 		event.stopPropagation();
@@ -49,50 +50,54 @@ function SingleUserConversation({ user, activeChat }: SingleUserConversationProp
 
 	React.useEffect(() => {
 		if (isDropdownOpen) {
-			document.addEventListener('mousedown', handleClickOutside);
+			document.addEventListener("mousedown", handleClickOutside);
 		} else {
-			document.removeEventListener('mousedown', handleClickOutside);
+			document.removeEventListener("mousedown", handleClickOutside);
 		}
 
 		return () => {
-			document.removeEventListener('mousedown', handleClickOutside);
+			document.removeEventListener("mousedown", handleClickOutside);
 		};
 	}, [isDropdownOpen]);
 
 	return (
 		<div
 			className={` w-fill mx-2 my-2 flex cursor-pointer gap-4 rounded-md px-3 py-3 transition-all hover:bg-muted ${
-				activeChat === user.id ? 'bg-muted' : ''
+				activeChat === user.id ? "bg-muted" : ""
 			}`}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
 		>
-			{user && (
+			{user.image && (
 				<div className="relative">
 					<Avatar>
 						<AvatarImage
-							src={user.profile!.avatar}
-							alt="@shadcn"
+							src={user.image}
+							alt={user.name}
 						/>
-						<AvatarFallback>Profile Picture</AvatarFallback>
 					</Avatar>
-					{user.chatSettings.isOnline && (
+					{user.online && (
 						<div className="relative -right-1 -top-3 flex w-full justify-end">
 							<div className="rounded-full bg-background p-[3px]">
-								<div className="h-[10px] w-[10px] rounded-full bg-green-600 text-green-600"></div>
+								<div
+									className={cn("h-[10px] w-[10px] rounded-full", {
+										"bg-green-600": user.online,
+										"bg-red-600": !user.online,
+									})}
+								></div>
 							</div>
 						</div>
 					)}
 				</div>
 			)}
 
-			<div className="flex w-full flex-col gap-1">
+			<div className="flex w-full flex-row items-center justify-between gap-1">
 				<div className="flex justify-between">
 					<h2 className="font-medium">{user.name}</h2>
-					<span className="text-primary-muted">{getMessageDate()}</span>
+					{/* <span className="text-primary-muted">{getMessageDate()}</span> */}
 				</div>
-				<div className="relative flex justify-between">
-					<p className=" line-clamp-1 text-primary-muted">{user.messages![0].text}</p>
+				<div className="relative flex flex-row justify-between">
+					{/* <p className=" line-clamp-1 text-primary-muted">{user.messages[0].text}</p> */}
 
 					<AnimatePresence>
 						{(isHovered || isDropdownOpen) && (

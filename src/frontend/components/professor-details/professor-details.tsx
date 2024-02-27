@@ -1,3 +1,5 @@
+'use client'
+
 import { ProfessorProps } from '@/types/IProfessor';
 import React from 'react';
 

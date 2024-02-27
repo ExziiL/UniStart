@@ -1,11 +1,6 @@
-'use client';
+"use client";
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
-
-import { Button } from '@/frontend/components/ui/button';
+import { Button } from "@/frontend/components/ui/button";
 import {
 	Form,
 	FormControl,
@@ -14,38 +9,56 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from '@/frontend/components/ui/form';
-import { Input } from '@/frontend/components/ui/input';
-import { useToast } from '@/frontend/hooks/use-toast';
+} from "@/frontend/components/ui/form";
+import { Input } from "@/frontend/components/ui/input";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import React from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
 const loginFormSchema = z.object({
 	// TODO: Add valid checks -> Check if username exists in db and if password matches
-	username: z.string().min(3, { message: 'Please enter correct password' }).max(20),
-	password: z.string().min(8, { message: 'Password must be at least 8 characters.' }),
+	username_email: z.string().min(3, { message: "Please enter correct password" }).max(20),
+	password: z.string().min(8, { message: "Password must be at least 8 characters." }),
 });
 
 function LoginForm() {
-	const { toast } = useToast();
+	const [isLoading, setIsLoading] = React.useState(false);
+	const [isError, setIsError] = React.useState(false);
+	const router = useRouter();
 
 	const form = useForm<z.infer<typeof loginFormSchema>>({
 		resolver: zodResolver(loginFormSchema),
 		defaultValues: {
-			username: 'fillerUser',
-			password: 'fillerPassword',
+			username_email: "filler@email.com",
+			password: "fillerPassword",
 		},
 	});
 
 	// TODO: Add loading state
-	function onSubmit(values: z.infer<typeof loginFormSchema>) {
-		console.log('form submitted', values);
-		toast({
-			title: 'You submitted the following values:',
-			description: (
-				<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-					<code className="text-white">{JSON.stringify(values, null, 2)}</code>
-				</pre>
-			),
-		});
+	async function onSubmit(values: z.infer<typeof loginFormSchema>) {
+		try {
+			setIsLoading(true);
+			const res = await signIn("credentials", {
+				username_email: values.username_email,
+				password: values.password,
+				redirect: false,
+			});
+
+			if (res?.error) {
+				console.log("Invalid credentials");
+				setIsError(true);
+				setIsLoading(false);
+				return;
+			}
+
+			router.replace("/vorlesungen");
+		} catch (error) {
+			// console.log(error);
+		}
 	}
 
 	return (
@@ -57,15 +70,15 @@ function LoginForm() {
 			>
 				<FormField
 					control={form.control}
-					name="username"
+					name="username_email"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel htmlFor={field.name}>Username</FormLabel>
+							<FormLabel htmlFor={field.name}>E-Mail</FormLabel>
 							<FormControl>
 								<Input
 									{...field}
 									id={field.name}
-									placeholder="Username"
+									placeholder="E-Mail"
 								/>
 							</FormControl>
 							{/* <FormDescription>This is your public display name</FormDescription> */}
@@ -92,12 +105,31 @@ function LoginForm() {
 					)}
 				/>
 			</form>
+
+			{isError && (
+				<div
+					className={`mt-6 border border-destructive bg-red-50 p-2 text-sm text-red-900 dark:bg-red-950 dark:text-red-50 ${
+						isLoading && "hidden"
+					}`}
+				>
+					E-Mail or Password seems to be wrong. Please enter a correct E-Mail or Password.
+				</div>
+			)}
+
 			<Button
 				type="submit"
 				form="login-form"
-				className="mt-6 w-full"
+				className="mt-6 w-full bg-foreground/90"
+				disabled={isLoading ? true : false}
 			>
-				Login
+				{isLoading ? (
+					<div className="flex flex-row items-center justify-center gap-1">
+						<Loader2 className="mr-2 h-4 w-4 animate-spin" />
+						Logging In...
+					</div>
+				) : (
+					<div>Get Started</div>
+				)}
 			</Button>
 		</Form>
 	);

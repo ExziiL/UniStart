@@ -13,6 +13,7 @@ import {
 	navigationMenuTriggerStyle,
 } from "@/frontend/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import { Bird, Library } from "lucide-react";
 import { useLocale } from "next-intl";
 import Link from "next/link";
 import React from "react";
@@ -28,7 +29,12 @@ const MainNav = () => {
 				className="mr-6 flex items-center space-x-2"
 			>
 				{/* <Icons.logo className="h-6 w-6" /> */}
-				<span className="hidden font-bold sm:inline-block">LOGO</span>
+				<span className="hidden font-bold sm:inline-block">
+					<Bird
+						size={32}
+						strokeWidth={1.5}
+					/>
+				</span>
 			</Link>
 
 			<NavigationMenu className="flex gap-2">
@@ -44,38 +50,133 @@ const MainNav = () => {
 					<NavigationMenuItem>
 						<NavigationMenuTrigger>Components</NavigationMenuTrigger>
 						<NavigationMenuContent>
-							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-								{navItems.map((component) => (
-									<ListItem
-										key={component.title}
-										title={component.title}
-										href={component.href}
-									>
-										{component.description}
-									</ListItem>
-								))}
+							<ul className="grid gap-3 p-4 md:w-[500px] md:grid-cols-[.75fr_1fr]">
+								<li className="row-span-3">
+									<NavigationMenuLink asChild>
+										<a
+											className="flex h-full w-full select-none flex-col justify-center rounded-md bg-gradient-to-b from-muted/50 to-muted p-4 no-underline outline-none transition-colors hover:bg-muted/70 focus:shadow-md"
+											href="/vorlesungen"
+										>
+											<Library className="h-6 w-6" />
+											<div className="mb-2 mt-4 text-lg font-medium">Course Overview</div>
+											<p className="text-sm leading-tight text-muted-foreground">
+												A comprehensive overview of courses, allowing students to easily
+												navigate through the academic offerings and plan their semester
+												effectively.
+											</p>
+										</a>
+									</NavigationMenuLink>
+								</li>
+								<ListItem
+									href="/terminplan"
+									title="Schedule"
+								>
+									A concise summary of all key dates and deadlines.
+								</ListItem>
+								<ListItem
+									href="/faq"
+									title="FAQ"
+								>
+									Find answers on navigating university life effectively.
+								</ListItem>
+								<ListItem
+									href="ai-chat"
+									title="Ai-Chat"
+								>
+									Engage with our smart AI-driven chat system.
+								</ListItem>
+							</ul>
+						</NavigationMenuContent>
+					</NavigationMenuItem>
+
+					<Link
+						href="/chat"
+						legacyBehavior
+						passHref
+					>
+						<NavigationMenuLink className={navigationMenuTriggerStyle()}>Chat</NavigationMenuLink>
+					</Link>
+				</NavigationMenuList>
+
+				{/* Alle Routen */}
+				<NavigationMenuList>
+					<NavigationMenuItem>
+						<NavigationMenuTrigger>All Routes</NavigationMenuTrigger>
+						<NavigationMenuContent>
+							<div className="p-4 pb-0 text-sm text-light">
+								Diese Seite dient für eine bessere Navigation während der Bewertungsphase.
+							</div>
+							<ul className="grid gap-3 p-4 md:w-[400px] md:grid-cols-[.75fr_1fr] lg:w-[500px]">
+								<ListItem
+									href="/"
+									title="Home"
+								>
+									/
+								</ListItem>
+								<ListItem
+									href="/login"
+									title="Login"
+								>
+									/login
+								</ListItem>
+								<ListItem
+									href="/registration"
+									title="Registration"
+								>
+									/registration
+								</ListItem>
+								<ListItem
+									href="/settings"
+									title="Settings"
+								>
+									/settings
+								</ListItem>
+								<ListItem
+									href="/not-found"
+									title="404-Page"
+								>
+									/not-found
+								</ListItem>
+								<ListItem
+									href="/terminplan"
+									title="Schedule"
+								>
+									/terminplan
+								</ListItem>
+								<ListItem
+									href="/vorlesungen"
+									title="Courses"
+								>
+									/vorlesungen
+								</ListItem>
+								<ListItem
+									href="/vorlesungen/grundlagen-der-mathematik"
+									title="Detailed Course"
+								>
+									/vorlesungen/grundlagen-der-mathematik
+								</ListItem>
+								<ListItem
+									href="/faq"
+									title="FAQ"
+								>
+									/faq
+								</ListItem>
+								<ListItem
+									href="chat"
+									title="Chat"
+								>
+									/chat
+								</ListItem>
+								<ListItem
+									href="ai-chat"
+									title="Ai-Chat"
+								>
+									/ai-chat
+								</ListItem>
 							</ul>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
 				</NavigationMenuList>
-
-				<Link
-					href="/faq"
-					legacyBehavior
-					passHref
-				>
-					<NavigationMenuLink className={navigationMenuTriggerStyle()}>FAQ</NavigationMenuLink>
-				</Link>
-
-				{/* <Link
-					href="/vorlesungen/grundlagen-der-mathematik"
-					legacyBehavior
-					passHref
-				>
-					<NavigationMenuLink className={navigationMenuTriggerStyle()}>
-						Detailed-Vorlesungen
-					</NavigationMenuLink>
-				</Link> */}
 			</NavigationMenu>
 
 			{/* ----------------------------------------------- */}
@@ -83,7 +184,7 @@ const MainNav = () => {
 			{/* Diese div ist dafür da um die navigation items durch das "justify-between" zentral zu halten, deshalb nicht löschen! */}
 
 			<div className="flex flex-row space-x-2">
-				<LocaleSwitcher />
+				{/* <LocaleSwitcher /> */}
 				<NavAvatar />
 			</div>
 		</div>

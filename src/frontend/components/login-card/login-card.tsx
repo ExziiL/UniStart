@@ -1,27 +1,38 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 
-import { Button } from '../ui/button';
-import { Separator } from '../ui/separator';
+import { Button } from "../ui/button";
+import { Separator } from "../ui/separator";
 
-import Link from 'next/link';
-import LoginForm from './login-form';
+import Link from "next/link";
+import LoginForm from "./login-form";
 
-import { FaGithub } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc';
+import { signIn } from "next-auth/react";
+import { FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 function LoginCard() {
-	const handleGitHubLogin = () => {
-		console.log('github login');
+	const handleGitHubLogin = async () => {
+		console.log("github login");
+		const res = await signIn("github");
+
+		if (res?.ok) {
+			console.log("Successfully logged in");
+		}
 	};
 
-	const handleGoogleLogin = () => {
-		console.log('google login');
+	const handleGoogleLogin = async () => {
+		console.log("google login");
+		const res = await signIn("google");
+
+		if (res?.ok) {
+			console.log("Successfully logged in");
+		}
 	};
 
 	return (
-		<div className="m-4 w-96 rounded-lg border border-border p-6 text-primary">
+		<div className="m-auto h-fit w-96 rounded-lg border border-border p-6 text-primary">
 			<h1 className="text-3xl font-semibold">Welcome back!</h1>
 			<p className="mt-2 text-sm text-light">Enter your info to continue.</p>
 			<div className="mt-6 flex w-full flex-row space-x-4">
@@ -53,9 +64,9 @@ function LoginCard() {
 
 			<LoginForm />
 
-			<p className="pt-2 text-xs">
-				First time here?{' '}
-				<span className="cursor-pointer text-link hover:text-link/90">
+			<p className="pt-4 text-xs">
+				First time here?{" "}
+				<span className="cursor-pointer text-link hover:text-link/90 hover:underline">
 					<Link href="/registration">Sign up for free.</Link>
 				</span>
 			</p>

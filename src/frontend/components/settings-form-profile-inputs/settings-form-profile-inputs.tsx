@@ -1,5 +1,6 @@
 "use client";
 
+import { useUserContext } from "@/context/user-context/user-context";
 import { Button } from "@/frontend/components/ui/button";
 import {
 	Form,
@@ -27,11 +28,14 @@ const FormSchema = z.object({
 });
 
 function ProfileFormInput() {
+	const { userState } = useUserContext();
+
 	const form = useForm<z.infer<typeof FormSchema>>({
 		resolver: zodResolver(FormSchema),
 		defaultValues: {
 			// TODO: Hier muss der Username aus der Datenbank geladen werden
-			username: "",
+			username: userState.name,
+			email: userState.email,
 		},
 	});
 
@@ -52,20 +56,23 @@ function ProfileFormInput() {
 				onSubmit={form.handleSubmit(onSubmit)}
 				className="space-y-2"
 			>
-				<div className="grid grid-cols-10 grid-rows-5 gap-4">
+				<div className="grid grid-cols-8 gap-4">
 					<FormField
 						control={form.control}
 						name="username"
 						render={({ field }) => (
-							<FormItem className="col-span-3">
+							<FormItem className="col-span-4 sm:col-span-4 lg:col-span-3">
 								<FormLabel>Username</FormLabel>
 								<FormControl>
 									<Input
-										placeholder="shadcn"
+										// placeholder="shadcn"
+
 										{...field}
 									/>
 								</FormControl>
-								<FormDescription>This is your public display name.</FormDescription>
+								<FormDescription className="text-xs text-light">
+									This is your public display name.
+								</FormDescription>
 								<FormMessage />
 							</FormItem>
 						)}
@@ -74,13 +81,10 @@ function ProfileFormInput() {
 						control={form.control}
 						name="firstName"
 						render={({ field }) => (
-							<FormItem className="col-span-3 row-start-2">
+							<FormItem className="col-span-4 row-start-2 sm:col-span-4 lg:col-span-3">
 								<FormLabel>First Name</FormLabel>
 								<FormControl>
-									<Input
-										placeholder="Max"
-										{...field}
-									/>
+									<Input {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -90,11 +94,11 @@ function ProfileFormInput() {
 						control={form.control}
 						name="lastName"
 						render={({ field }) => (
-							<FormItem className="col-span-3 row-start-2">
+							<FormItem className="col-span-4 row-start-2 sm:col-span-4 lg:col-span-3">
 								<FormLabel>Last Name</FormLabel>
 								<FormControl>
 									<Input
-										placeholder="Mustermann"
+										// placeholder="Mustermann"
 										{...field}
 									/>
 								</FormControl>
@@ -106,11 +110,11 @@ function ProfileFormInput() {
 						control={form.control}
 						name="email"
 						render={({ field }) => (
-							<FormItem className="col-span-3 row-start-3">
+							<FormItem className="col-span-4 row-start-3 sm:col-span-4 lg:col-span-3">
 								<FormLabel>E-mail</FormLabel>
 								<FormControl>
 									<Input
-										placeholder="example@email.com"
+										// placeholder="example@email.com"
 										{...field}
 									/>
 								</FormControl>
@@ -122,7 +126,7 @@ function ProfileFormInput() {
 						control={form.control}
 						name="bio"
 						render={({ field }) => (
-							<FormItem className="col-span-6 row-span-2 row-start-4">
+							<FormItem className="col-span-10 row-span-1 sm:col-span-8 sm:row-span-2 lg:col-span-6 ">
 								<FormLabel>Bio</FormLabel>
 								<FormControl>
 									<Textarea

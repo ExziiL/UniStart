@@ -2,40 +2,43 @@
 
 import SingleAiConversation from "@/frontend/components/single-ai-conversation";
 import { Separator } from "@/frontend/components/ui/separator";
-import { USERS } from "@/frontend/constants/users";
+import { AI_CHATS } from "@/frontend/constants/ai-chats";
 import { Edit } from "lucide-react";
 import React from "react";
 
-interface AiConversationsProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface AiConversationsProps extends React.HTMLAttributes<HTMLDivElement> {
+	setSelectedAiChat: React.Dispatch<React.SetStateAction<string | undefined>>;
+}
 
-function AiConversations() {
-	const [activeChat, setActiveChat] = React.useState<number | undefined>(undefined);
+function AiConversations({ setSelectedAiChat }: AiConversationsProps) {
+	const [activeChat, setActiveChat] = React.useState<string | undefined>(undefined);
 
-	const handleAiClick = (userId: number) => {
-		console.log(userId, " clicked");
-		setActiveChat(userId);
+	const handleAiClick = (chat: any) => {
+		// console.log(userId, " clicked");
+		setActiveChat(chat.id);
+		setSelectedAiChat(chat);
 	};
 
 	return (
 		<div className="bg-background">
 			<div className="flex items-end justify-between p-4 pb-2 text-lg font-semibold">
-				<h2 className="">Conversation</h2>
+				<h2 className="">Conversations</h2>
 				<div className="cursor-pointer text-primary-muted transition-colors hover:text-primary">
 					<Edit />
 				</div>
 			</div>
 			<div className="">
-				{USERS.map((chat, index) => (
+				{AI_CHATS.map((chat, index) => (
 					<div
 						key={chat.id}
-						onClick={() => handleAiClick(chat.id)}
+						onClick={() => handleAiClick(chat)}
 					>
 						<SingleAiConversation
 							chat={chat}
 							activeChat={activeChat}
 						/>
 						{/* <div>{user.id}</div> */}
-						{index !== USERS.length - 1 && (
+						{index !== AI_CHATS.length - 1 && (
 							<div className="mx-4">
 								<Separator />
 							</div>

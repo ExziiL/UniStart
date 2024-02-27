@@ -1,15 +1,27 @@
 "use client";
 
 import { useUserContext } from "@/context/user-context/user-context";
+import { send } from "@/frontend/components/message-input/actions";
 import { Button } from "@/frontend/components/ui/button";
 import { Textarea } from "@/frontend/components/ui/textarea";
 import { Send } from "lucide-react";
 import React from "react";
 
-function MessageInput() {
+type MessageInputProps = {
+	conversationid: string;
+};
+
+function MessageInput({ conversationid }: MessageInputProps) {
 	const [message, setMessage] = React.useState("");
 	const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 	const { userState, userDispatch } = useUserContext();
+
+	const handleKeyPress = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+		if (event.key === "Enter" && !event.shiftKey) {
+			event.preventDefault();
+			handleButtonClick();
+		}
+	};
 
 	const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 		setMessage(e.target.value);
@@ -28,7 +40,8 @@ function MessageInput() {
 	};
 
 	const handleButtonClick = () => {
-		console.log(message);
+		send(userState, message, conversationid);
+		setMessage("");
 	};
 
 	return (
@@ -40,7 +53,8 @@ function MessageInput() {
 					placeholder="Type your message here."
 					value={message}
 					onChange={handleTextChange}
-					rows={1}
+					onKeyDown={handleKeyPress}
+					rows={2}
 				/>
 				<Button
 					onClick={handleButtonClick}

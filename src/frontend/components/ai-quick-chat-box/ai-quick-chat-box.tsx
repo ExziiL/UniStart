@@ -37,7 +37,7 @@ function AiQuickChatBox({ className, ...props }: AiQuickChatBoxProps) {
 					<ScrollBar orientation="vertical" />
 				</ScrollArea>
 
-				<MessageInput />
+				<MessageInput conversationid="" />
 			</div>
 		</div>
 	);

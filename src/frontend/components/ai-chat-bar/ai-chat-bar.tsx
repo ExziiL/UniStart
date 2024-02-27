@@ -1,7 +1,7 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/frontend/components/ui/avatar';
-import { Separator } from '@/frontend/components/ui/separator';
-import { Trash2 } from 'lucide-react';
-import React from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from "@/frontend/components/ui/avatar";
+import { Separator } from "@/frontend/components/ui/separator";
+import { Trash2 } from "lucide-react";
+import React from "react";
 
 function AiChatBar() {
 	return (
@@ -20,9 +20,6 @@ function AiChatBar() {
 					<div>
 						<h2 className=" font-semibold">Not a Human</h2>
 					</div>
-				</div>
-				<div>
-					<Trash2 />
 				</div>
 			</div>
 			<Separator className="my-4 dark:bg-zinc-700" />
