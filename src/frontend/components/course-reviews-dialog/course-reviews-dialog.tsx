@@ -21,6 +21,8 @@ import {
 	FormMessage,
 } from "@/frontend/components/ui/form";
 import { Input } from "@/frontend/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/frontend/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/frontend/components/ui/tabs";
 import { Textarea } from "@/frontend/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Rating } from "@smastrom/react-rating";
@@ -38,9 +40,11 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 
 	// Define Form Validation
 	const formSchema = z.object({
-		headline: z.string().min(5).max(100),
+		headline: z.string().min(3).max(100),
 		description: z.string().min(5).max(maxDescriptionLength),
 		rating: z.number().min(1).max(5),
+		focus: z.string().optional(),
+		semester: z.string().min(0).max(12).optional(),
 	});
 
 	// Define Form
@@ -50,6 +54,8 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 			headline: "",
 			description: "",
 			rating: 0,
+			focus: "",
+			semester: "0",
 		},
 	});
 
@@ -65,7 +71,13 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 			description: "",
 			headline: "",
 			rating: 0,
+			focus: "",
+			semester: "0",
 		});
+	};
+
+	const handleSemesterChange = (value: string) => {
+		form.setValue("semester", value);
 	};
 
 	// TODO: add a loading state to the form
@@ -145,6 +157,72 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 											{`${field.value.length}/${maxDescriptionLength}`}
 										</FormDescription>
 										<FormMessage />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="focus"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Focus</FormLabel>
+										<Select
+											onValueChange={field.onChange}
+											defaultValue={field.value}
+										>
+											<FormControl>
+												<SelectTrigger>
+													<SelectValue placeholder="Select your course focus" />
+												</SelectTrigger>
+											</FormControl>
+											<SelectContent>
+												<SelectItem value="Allgemeine Informatik">
+													Allgemeine Informatik
+												</SelectItem>
+												<SelectItem value="Software Engineering">
+													Software Engineering
+												</SelectItem>
+												<SelectItem value="Medieninformatik">Medieninformatik</SelectItem>
+												<SelectItem value="IT-Security">IT-Security</SelectItem>
+												<SelectItem value="Data Science">Data Science</SelectItem>
+											</SelectContent>
+										</Select>
+										<FormMessage className="pt-1" />
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name="semester"
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>Semester</FormLabel>
+										<Tabs className="w-full">
+											<TabsList className="w-full">
+												<TabsTrigger
+													value="1"
+													className="w-full"
+													onClick={() => handleSemesterChange("1")}
+												>
+													1
+												</TabsTrigger>
+												<TabsTrigger
+													value="2"
+													className="w-full"
+													onClick={() => handleSemesterChange("2")}
+												>
+													2
+												</TabsTrigger>
+												<TabsTrigger
+													value="3"
+													className="w-full"
+													onClick={() => handleSemesterChange("3")}
+												>
+													3
+												</TabsTrigger>
+											</TabsList>
+										</Tabs>
+										<FormMessage className="pt-1" />
 									</FormItem>
 								)}
 							/>
