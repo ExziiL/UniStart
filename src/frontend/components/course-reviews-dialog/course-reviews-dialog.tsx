@@ -95,7 +95,7 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 				</Button>
 			</DialogTrigger>
 
-			<DialogContent className="p-1">
+			<DialogContent className="w-[340px] p-1 sm:w-[640px] lg:w-[960px]">
 				<ScrollArea className="h-[600px] sm:h-full">
 					<Form {...form}>
 						<form
@@ -166,7 +166,7 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 									control={form.control}
 									name="focus"
 									render={({ field }) => (
-										<FormItem>
+										<FormItem className=" max-w-xs sm:max-w-[275px]">
 											<FormLabel>Focus</FormLabel>
 											<Select
 												onValueChange={field.onChange}
@@ -197,7 +197,7 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 									control={form.control}
 									name="semester"
 									render={({ field }) => (
-										<FormItem>
+										<FormItem className=" max-w-xs sm:max-w-[275px]">
 											<FormLabel>Semester</FormLabel>
 											<Tabs className="w-full">
 												<TabsList className="w-full">
