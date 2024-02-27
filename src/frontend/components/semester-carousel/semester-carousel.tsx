@@ -8,8 +8,7 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "@/frontend/components/ui/carousel";
-import { ScrollArea, ScrollBar } from "@/frontend/components/ui/scroll-area";
-import { VORLESUNGEN } from "@/frontend/constants/vorlesungen";
+import { Skeleton } from "@/frontend/components/ui/skeleton";
 import { lecture } from "@prisma/client";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
@@ -28,7 +27,12 @@ function SemesterCarousel({ semester }: SemesterCarouselProps) {
 	});
 
 	if (isPending) {
-		return <div>Waiting for data</div>;
+		return (
+			<div>
+				<Skeleton className="mb-4 h-[40px] w-[150px]" />
+				<Skeleton className="mb-8 h-[300px]" />
+			</div>
+		);
 	}
 	if (isError) {
 		return <div>{error.message}</div>;
