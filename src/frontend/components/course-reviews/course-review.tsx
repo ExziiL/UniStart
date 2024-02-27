@@ -17,7 +17,7 @@ function CourseReview({ review }: CourseReviewProps) {
 			</div>
 			<div>
 				<h2 className="font-medium">{review.headline}</h2>
-				<div className="flex gap-3 pb-2 pt-1">
+				<div className="flex gap-3 pb-3 pt-2">
 					<StarRating
 						value={review.courserating}
 						style={{ maxWidth: 100, minWidth: 75 }}
@@ -42,11 +42,11 @@ function CourseReview({ review }: CourseReviewProps) {
 
 					<span className="flex flex-col justify-center text-sm text-light">{review.semester}. Sem.</span>
 
-					<div className="py-1">
+					<div className="hidden py-1 sm:block">
 						<Separator orientation="vertical" />
 					</div>
 
-					<span className="flex flex-col justify-center text-sm text-light">{review.focus}</span>
+					<span className="hidden flex-col justify-center text-sm text-light sm:flex">{review.focus}</span>
 				</div>
 				<p className="">{review.description}</p>
 			</div>
