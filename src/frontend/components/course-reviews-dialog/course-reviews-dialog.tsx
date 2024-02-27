@@ -153,10 +153,12 @@ function CourseReviewsDialog({}: CourseReviewsDialogProps) {
 						<div
 							className={`my-3 flex flex-row items-center gap-3 rounded-sm border border-destructive bg-orange-50 p-3 text-base text-orange-900 dark:bg-orange-950 dark:text-orange-50`}
 						>
-							<ShieldAlert
-								size={20}
-								strokeWidth={1.75}
-							/>
+							<div>
+								<ShieldAlert
+									size={20}
+									strokeWidth={1.75}
+								/>
+							</div>
 							<p>
 								Your review will be submitted and displayed{" "}
 								<span className="underline">anonymously</span>.
