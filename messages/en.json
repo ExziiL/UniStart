@@ -4,46 +4,62 @@
 		"locale": "{locale, select, de {🇩🇪 Deutsch} en {🇺🇸 English} other {Unknown}}"
 	},
 	"Home": {
-		"title": "Explore & Engage: Your University Companion!",
+		"title": "UniStart. Your University Companion!",
 		"sub-heading": "Navigate your campus, connect with peers, and find your place in university life - all with ease!",
 		"button": "Get started - it's free!",
-		"image-alt": "Illustration of a student with a backpack and a smartphone",
+		"illustration": "Education illustrations by Storyset",
 		"features": {
 			"feature1": {
 				"title": "Course Overviews",
-				"image": "https://source.unsplash.com/random",
-				"alt": "Picture of the author 1",
+				"description": "A comprehensive overview of courses, allowing students to easily navigate through the academic offerings and plan their semester effectively.",
 				"href": "/courses"
 			},
 			"feature2": {
 				"title": "Course Reviews",
-				"image": "https://source.unsplash.com/random",
-				"alt": "Picture of the author 2",
+				"description": "An extended summary that includes all essential dates and deadlines, providing a comprehensive schedule overview.",
 				"href": "/courses/grundlagen-der-mathematik"
 			},
 			"feature3": {
 				"title": "Locations",
-				"image": "https://source.unsplash.com/random",
-				"alt": "Picture of the author 3",
+				"description": "This page is not implemended, it simulates a error 404 page",
 				"href": "/map"
 			},
 			"feature4": {
 				"title": "Chat",
-				"image": "https://source.unsplash.com/random",
-				"alt": "Picture of the author 4",
+				"description": "Connect with peers and professors in real-time to discuss course material and collaborate on projects.",
 				"href": "/chat"
 			},
 			"feature5": {
 				"title": "Ai-Chat",
-				"image": "https://source.unsplash.com/random",
-				"alt": "Picture of the author 5",
+				"description": "Engage with our smart AI-driven chat system, designed to provide personalized assistance and support.",
 				"href": "/ai-chat"
 			},
 			"feature6": {
 				"title": "Frequently Asked Questions",
-				"image": "https://source.unsplash.com/random",
-				"alt": "Picture of the author 6",
+				"description": "Find answers on navigating university life effectively.",
 				"href": "/faq"
+			}
+		},
+		"testimonials": {
+			"testimonial1": {
+				"quote": "UniStart has made managing my day effortless. We have used it across our team and had definitely helped finding the best time to meet and ensure we are not wasting time during some of our busiest hours.",
+				"name": "Max Mustermann",
+				"title": "CEO at Pepsi"
+			},
+			"testimonial2": {
+				"quote": "As a current student at Aalen University, I've been continuously impressed by the wealth of resources and opportunities available. The diverse course offerings allow me to tailor my education to my interests, while the passionate faculty and vibrant campus life make every day a new adventure. It's a place where curiosity is nurtured and dreams are turned into reality.",
+				"name": "Tobi Lütke",
+				"title": "Alumni at Aalen University"
+			},
+			"testimonial3": {
+				"quote": " The university's focus on holistic development, safety, and supportive environment ensures that students not only excel academically but also grow personally.",
+				"name": "Maria Ehrich",
+				"title": "Student"
+			},
+			"testimonial4": {
+				"quote": "Coming to Aalen University from abroad, I found a welcoming and inclusive community. The multicultural environment has allowed me to learn about different cultures while sharing my own. The support services for international students have made my transition smooth, and I've found a home away from home here.",
+				"name": "Amro Albanna",
+				"title": "International Student"
 			}
 		}
 	},

@@ -51,36 +51,32 @@ function Features() {
 	const features = [
 		{
 			title: t("feature1.title"),
-			description:
-				"A comprehensive overview of courses, allowing students to easily navigate through the academic offerings and plan their semester effectively.",
+			description: t("feature1.description"),
 			href: t("feature1.href"),
 		},
 		{
 			title: t("feature2.title"),
-			description:
-				"An extended summary that includes all essential dates and deadlines, providing a comprehensive schedule overview.",
+			description: t("feature2.description"),
 			href: t("feature2.href"),
 		},
 		{
 			title: t("feature3.title"),
-			description: "This page is not implemended, it simulates a error 404 page",
+			description: t("feature3.description"),
 			href: t("feature3.href"),
 		},
 		{
 			title: t("feature4.title"),
-			description:
-				"Connect with peers and professors in real-time to discuss course material and collaborate on projects.",
+			description: t("feature4.description"),
 			href: t("feature4.href"),
 		},
 		{
 			title: t("feature5.title"),
-			description:
-				"Engage with our smart AI-driven chat system, designed to provide personalized assistance and support.",
+			description: t("feature5.description"),
 			href: t("feature5.href"),
 		},
 		{
 			title: t("feature6.title"),
-			description: "Find answers on navigating university life effectively.",
+			description: t("feature6.description"),
 			href: t("feature6.href"),
 		},
 	];

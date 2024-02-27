@@ -29,7 +29,7 @@ export default function Home() {
 						href="https://storyset.com/education"
 						className="text-xs text-ultra-light"
 					>
-						Education illustrations by Storyset
+						{t("illustration")}
 					</a>
 				</div>
 			</div>

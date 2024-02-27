@@ -184,7 +184,9 @@ const MainNav = () => {
 			{/* Diese div ist dafür da um die navigation items durch das "justify-between" zentral zu halten, deshalb nicht löschen! */}
 
 			<div className="flex flex-row space-x-2">
-				{/* <LocaleSwitcher /> */}
+				<div className="mr-2 flex">
+					<LocaleSwitcher locales={[locale]} />
+				</div>
 				<NavAvatar />
 			</div>
 		</div>

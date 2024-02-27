@@ -4,46 +4,62 @@
 		"locale": "{locale, select, de {🇩🇪 Deutsch} en {🇺🇸 English} other {Unbekannt}}"
 	},
 	"Home": {
-		"title": "Erkunden & Engagieren: Dein Universitätsbegleiter!",
+		"title": "UniStart. Dein Universitätsbegleiter!",
 		"sub-heading": "Navigiere durch deinen Campus, vernetze dich mit Gleichgesinnten und finde deinen Platz im Universitätsleben - alles ganz einfach!",
 		"button": "Leg los - es ist kostenlos!",
-		"image-alt": "Illustration eines Studenten mit einem Rucksack und einem Smartphone",
+		"illustration": "Bildungsdarstellungen von Storyset",
 		"features": {
 			"feature1": {
-				"title": "Vorlesungsübersicht",
-				"image": "https://source.unsplash.com/random",
-				"alt": "Bild des Autors 1",
-				"href": "/vorlesungen"
+				"title": "Kursübersichten",
+				"description": "Eine umfassende Übersicht über Kurse, die es Studierenden ermöglicht, sich leicht durch das akademische Angebot zu navigieren und ihr Semester effektiv zu planen.",
+				"href": "/kurse"
 			},
 			"feature2": {
-				"title": "Vorlesungsbewertungen",
-				"image": "https://source.unsplash.com/random",
-				"alt": "Bild des Autors 2",
-				"href": "/vorlesungen/grundlagen-der-mathematik"
+				"title": "Kursbewertungen",
+				"description": "Eine erweiterte Zusammenfassung, die alle wesentlichen Termine und Fristen enthält und einen umfassenden Überblick über den Zeitplan bietet.",
+				"href": "/kurse/grundlagen-der-mathematik"
 			},
 			"feature3": {
-				"title": "Karte",
-				"image": "https://source.unsplash.com/random",
-				"alt": "Bild des Autors 3",
-				"href": "/map"
+				"title": "Standorte",
+				"description": "Diese Seite ist nicht implementiert, sie simuliert einen 404 Fehler.",
+				"href": "/karte"
 			},
 			"feature4": {
 				"title": "Chat",
-				"image": "https://source.unsplash.com/random",
-				"alt": "Bild des Autors 4",
+				"description": "Vernetze dich in Echtzeit mit Kommilitonen und Professoren, um Kursmaterial zu diskutieren und an Projekten zusammenzuarbeiten.",
 				"href": "/chat"
 			},
 			"feature5": {
-				"title": "Ki-Chat",
-				"image": "https://source.unsplash.com/random",
-				"alt": "Bild des Autors 5",
-				"href": "/ai-chat"
+				"title": "KI-Chat",
+				"description": "Nutze unser intelligentes KI-gesteuertes Chatsystem, das darauf ausgelegt ist, personalisierte Hilfe und Unterstützung zu bieten.",
+				"href": "/ki-chat"
 			},
 			"feature6": {
 				"title": "Häufig gestellte Fragen",
-				"image": "https://source.unsplash.com/random",
-				"alt": "Bild des Autors 6",
-				"href": "/faq"
+				"description": "Finde Antworten, um das Universitätsleben effektiv zu meistern.",
+				"href": "/häufig-gestellte-fragen"
+			}
+		},
+		"testimonials": {
+			"testimonial1": {
+				"quote": "UniStart hat das Verwalten meines Tages mühelos gemacht. Wir haben es im gesamten Team eingesetzt und es hat definitiv geholfen, die beste Zeit für Treffen zu finden und sicherzustellen, dass wir während einiger unserer geschäftigsten Stunden keine Zeit verschwenden.",
+				"name": "Max Mustermann",
+				"title": "Geschäftsführer bei Pepsi"
+			},
+			"testimonial2": {
+				"quote": "Als aktueller Student an der Universität Aalen bin ich kontinuierlich beeindruckt von der Fülle an Ressourcen und Möglichkeiten, die zur Verfügung stehen. Das vielfältige Kursangebot ermöglicht es mir, meine Ausbildung an meine Interessen anzupassen, während die leidenschaftlichen Dozenten und das lebendige Campusleben jeden Tag zu einem neuen Abenteuer machen. Es ist ein Ort, an dem Neugier gepflegt wird und Träume Wirklichkeit werden.",
+				"name": "Tobi Lütke",
+				"title": "Alumni der Universität Aalen"
+			},
+			"testimonial3": {
+				"quote": "Der Fokus der Universität auf ganzheitliche Entwicklung, Sicherheit und eine unterstützende Umgebung stellt sicher, dass die Studierenden nicht nur akademisch hervorragend sind, sondern auch persönlich wachsen.",
+				"name": "Maria Ehrich",
+				"title": "Studentin"
+			},
+			"testimonial4": {
+				"quote": "Als ich von außerhalb an die Universität Aalen kam, fand ich eine einladende und inklusive Gemeinschaft. Das multikulturelle Umfeld hat es mir ermöglicht, verschiedene Kulturen kennenzulernen, während ich meine eigene teile. Die Unterstützungsdienste für internationale Studierende haben meinen Übergang erleichtert und ich habe hier ein zweites Zuhause gefunden.",
+				"name": "Amro Albanna",
+				"title": "Internationaler Student"
 			}
 		}
 	},
