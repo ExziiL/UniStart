@@ -108,11 +108,11 @@ function LoginForm() {
 
 			{isError && (
 				<div
-					className={`mt-6 border border-destructive bg-red-50 p-2 text-base text-red-900 dark:bg-red-950 dark:text-red-50 ${
+					className={`mt-6 border border-destructive bg-red-50 p-2 text-sm text-red-900 dark:bg-red-950 dark:text-red-50 ${
 						isLoading && "hidden"
 					}`}
 				>
-					An error has occured, please try again.
+					E-Mail or Password seems to be wrong. Please enter a correct E-Mail or Password.
 				</div>
 			)}
 
