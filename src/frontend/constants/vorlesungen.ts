@@ -244,7 +244,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				votes: 13,
+				votes: 3,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -287,7 +287,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				votes: 13,
+				votes: 43,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -297,7 +297,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				votes: 13,
+				votes: 41,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -307,7 +307,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-09-05"),
 				description:
 					"For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.",
-				votes: 13,
+				votes: 3,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -317,7 +317,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				votes: 13,
+				votes: 0,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -327,7 +327,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				votes: 13,
+				votes: -13,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -370,7 +370,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				votes: 13,
+				votes: 37,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -380,7 +380,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				votes: 13,
+				votes: 23,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -390,7 +390,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-09-05"),
 				description:
 					"For anyone looking to strengthen their understanding of data structures and algorithms, this course is a must. The instructor breaks down complex concepts in an understandable way, making it easier to grasp challenging topics.",
-				votes: 13,
+				votes: 9,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -400,7 +400,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				votes: 13,
+				votes: 8,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -410,7 +410,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				votes: 13,
+				votes: 3,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -453,7 +453,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				votes: 13,
+				votes: 53,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -463,7 +463,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				votes: 13,
+				votes: 26,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -483,7 +483,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				votes: 13,
+				votes: 3,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -493,7 +493,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				votes: 13,
+				votes: -6,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -536,7 +536,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-11-17T15:27:36"),
 				description:
 					"This course is a great introduction to product management. It covers a wide range of topics and gives you a good overview of the role. I would recommend this course to anyone who is new to product management.",
-				votes: 13,
+				votes: 33,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -546,7 +546,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-10-12"),
 				description:
 					"This course provided a thorough dive into modern web development techniques. It is ideal for those who already have some programming experience but want to update their skills with current trends and technologies in web development.",
-				votes: 13,
+				votes: 17,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -566,7 +566,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-08-20"),
 				description:
 					"I found this course to be both practical and engaging. It offers a great balance of theory and hands-on exercises, which helped solidify my understanding of object-oriented programming concepts.",
-				votes: 13,
+				votes: 1,
 				semester: 2,
 				focus: "Software Engineering",
 			},
@@ -576,7 +576,7 @@ export const VORLESUNGEN: VorlesungProps[] = [
 				date: new Date("2022-07-15"),
 				description:
 					"This course covers all the key areas of software engineering, from development methodologies to project management. The content is up-to-date and presented in a way that is easy to follow and understand. Highly beneficial for aspiring software engineers.",
-				votes: 13,
+				votes: 0,
 				semester: 2,
 				focus: "Software Engineering",
 			},

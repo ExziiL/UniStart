@@ -40,13 +40,13 @@ function CourseReview({ review }: CourseReviewProps) {
 						<Separator orientation="vertical" />
 					</div>
 
-					<span className="flex flex-col justify-center text-sm text-light">Sem. von Verf.</span>
+					<span className="flex flex-col justify-center text-sm text-light">{review.semester}. Sem.</span>
 
 					<div className="py-1">
 						<Separator orientation="vertical" />
 					</div>
 
-					<span className="flex flex-col justify-center text-sm text-light">St.-gang von Verf.</span>
+					<span className="flex flex-col justify-center text-sm text-light">{review.focus}</span>
 				</div>
 				<p className="">{review.description}</p>
 			</div>
