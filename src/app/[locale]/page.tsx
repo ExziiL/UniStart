@@ -4,8 +4,7 @@ import { Button } from "@/frontend/components/ui/button";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import learningBro from "../../public/Learning-bro.svg";
-import graduationHat from "../../public/graduation-hats.svg";
+import graduationHat from "../../../public/graduation-hats.svg";
 
 export default function Home() {
 	const t = useTranslations("Home");

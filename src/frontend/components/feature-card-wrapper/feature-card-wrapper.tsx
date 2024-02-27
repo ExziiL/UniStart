@@ -8,11 +8,7 @@ import Link from "next/link";
 import * as React from "react";
 import { useHover } from "usehooks-ts";
 
-function FeatureCardWrapper({
-	feature,
-}: {
-	feature: { title: string; description: string; alt: string; href: string };
-}) {
+function FeatureCardWrapper({ feature }: { feature: { title: string; description: string; href: string } }) {
 	const hoverRef = React.useRef<HTMLDivElement>(null);
 	const isHovered = useHover(hoverRef);
 

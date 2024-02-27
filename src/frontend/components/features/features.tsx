@@ -51,38 +51,36 @@ function Features() {
 	const features = [
 		{
 			title: t("feature1.title"),
-			description: "https://source.unsplash.com/random",
-			alt: t("feature1.alt"),
+			description:
+				"A comprehensive overview of courses, allowing students to easily navigate through the academic offerings and plan their semester effectively.",
 			href: t("feature1.href"),
 		},
 		{
 			title: t("feature2.title"),
-			description: "https://source.unsplash.com/random",
-			alt: t("feature2.alt"),
+			description:
+				"An extended summary that includes all essential dates and deadlines, providing a comprehensive schedule overview.",
 			href: t("feature2.href"),
 		},
 		{
 			title: t("feature3.title"),
-			description: "https://source.unsplash.com/random",
-			alt: t("feature3.alt"),
+			description: "This page is not implemended, it simulates a error 404 page",
 			href: t("feature3.href"),
 		},
 		{
 			title: t("feature4.title"),
-			description: "https://source.unsplash.com/random",
-			alt: t("feature4.alt"),
+			description:
+				"Connect with peers and professors in real-time to discuss course material and collaborate on projects.",
 			href: t("feature4.href"),
 		},
 		{
 			title: t("feature5.title"),
-			description: "https://source.unsplash.com/random",
-			alt: t("feature5.alt"),
+			description:
+				"Engage with our smart AI-driven chat system, designed to provide personalized assistance and support.",
 			href: t("feature5.href"),
 		},
 		{
 			title: t("feature6.title"),
-			description: "https://source.unsplash.com/random",
-			alt: t("feature6.alt"),
+			description: "Find answers on navigating university life effectively.",
 			href: t("feature6.href"),
 		},
 	];
