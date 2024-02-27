@@ -8,12 +8,14 @@ import { ScrollArea, ScrollBar } from "@/frontend/components/ui/scroll-area";
 import { Separator } from "@/frontend/components/ui/separator";
 import {
 	Sheet,
+	SheetClose,
 	SheetContent,
 	SheetDescription,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
 } from "@/frontend/components/ui/sheet";
+import * as action from "@/frontend/components/user-conversations/actions";
 import { toast } from "@/frontend/hooks/use-toast";
 import User from "@/types/IUser";
 import { conversation, message } from "@prisma/client";
@@ -21,7 +23,6 @@ import { useQuery } from "@tanstack/react-query";
 import { Edit, Loader2, MessageSquarePlus, Plus } from "lucide-react";
 import { useSession } from "next-auth/react";
 import React, { useEffect } from "react";
-import * as action from "./actions";
 
 interface UserConversationsMobileProps {
 	setMessages: React.Dispatch<React.SetStateAction<message[]>>;
@@ -129,7 +130,10 @@ function UserConversationsMobile({
 	return (
 		<div className="flex w-full justify-end">
 			<Sheet>
-				<SheetTrigger className="mt-2 flex bg-background pr-4">
+				<SheetTrigger
+					asChild
+					className="mr-4 mt-2 flex bg-background pr-4"
+				>
 					<Button
 						className="flex flex-row items-center"
 						variant="outline"
@@ -203,10 +207,12 @@ function UserConversationsMobile({
 									key={index}
 									onClick={() => handleUserClick(elem.conversation.id, elem.receiver.id)}
 								>
-									<SingleUserConversation
-										user={elem.receiver}
-										activeChat={activeChat}
-									/>
+									<SheetClose className="w-full">
+										<SingleUserConversation
+											user={elem.receiver}
+											activeChat={activeChat}
+										/>
+									</SheetClose>
 									{index !== conversations.length - 1 && (
 										<div className="mx-4">
 											<Separator />
