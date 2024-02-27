@@ -186,7 +186,7 @@ function UserConversations({
 							user={elem.receiver}
 							activeChat={activeChat}
 						/>
-						{index !== users.length - 1 && (
+						{index !== conversations.length - 1 && (
 							<div className="mx-4">
 								<Separator />
 							</div>
