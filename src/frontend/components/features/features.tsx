@@ -3,38 +3,42 @@ import * as React from "react";
 
 const features = [
 	{
-		title: "Course Overviews",
-		image: "https://images.pexels.com/photos/6238039/pexels-photo-6238039.jpeg?auto=compress&cs=tinysrgb&w=800",
+		title: "Courses",
+		description:
+			"A comprehensive overview of courses, allowing students to easily navigate through the academic offerings and plan their semester effectively.",
 		alt: "Picture of the author",
 		href: "/vorlesungen",
 	},
 	{
-		title: "Course Reviews",
-		image: "https://images.pexels.com/photos/9821386/pexels-photo-9821386.jpeg?auto=compress&cs=tinysrgb&w=800",
-		alt: "Picture of the author",
+		title: "Schedule",
+		description:
+			"An extended summary that includes all essential dates and deadlines, providing a comprehensive schedule overview.",
+		alt: "Calendar image",
 		href: "/vorlesungen/grundlagen-der-mathematik",
 	},
 	{
 		title: "Locations",
-		image: "https://images.pexels.com/photos/35969/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+		description: "This page is not implemended, it simulates a error 404 page",
 		alt: "Picture of the author",
 		href: "/map",
 	},
 	{
 		title: "Chat",
-		image: "https://images.pexels.com/photos/1111368/pexels-photo-1111368.jpeg?auto=compress&cs=tinysrgb&w=800",
+		description:
+			"Connect with peers and professors in real-time to discuss course material and collaborate on projects.",
 		alt: "Picture of the author",
 		href: "/chat",
 	},
 	{
 		title: "Ai-Chat",
-		image: "https://images.pexels.com/photos/6153354/pexels-photo-6153354.jpeg?auto=compress&cs=tinysrgb&w=800",
+		description:
+			"Engage with our smart AI-driven chat system, designed to provide personalized assistance and support.",
 		alt: "Picture of the author",
 		href: "/ai-chat",
 	},
 	{
 		title: "Frequently Asked Questions",
-		image: "https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=800",
+		description: "Find answers on navigating university life effectively.",
 		alt: "Picture of the author",
 		href: "/faq",
 	},
@@ -42,7 +46,7 @@ const features = [
 
 function Features() {
 	return (
-		<div className="grid w-full max-w-[1024px] grid-cols-2 gap-6 sm:grid-cols-3">
+		<div className="grid w-full max-w-[1024px] grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:gap-6">
 			{features.map((feature) => (
 				<FeatureCardWrapper
 					key={feature.title}
