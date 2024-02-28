@@ -1,4 +1,3 @@
 export { default } from "next-auth/middleware";
 
-//export const config = { matcher: ['/','/terminplan', '/vorlesungen'] };
-export const config = { matcher: [] };
+export const config = { matcher: [,'/terminplan', '/vorlesungen', '/chat', '/ai-chat', '/faq', '/settings'] };
