@@ -5,6 +5,8 @@ export async function setOnlineState(email: String, isonline: boolean) {
 
 	console.log(baseUrl);
 
+	console.log(email);
+
 	const res = await fetch(baseUrl + "/api-calls/online", {
 		// const res = await fetch("/api-calls/online", {
 		method: "POST",
@@ -13,7 +15,7 @@ export async function setOnlineState(email: String, isonline: boolean) {
 	});
 
 	if (!res.ok) {
-		throw new Error("Fail setting online state: \n" + (await res.json()));
+		throw new Error("Fail setting online state: ");
 	}
 
 	return res.json();

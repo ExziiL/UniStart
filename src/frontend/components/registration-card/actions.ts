@@ -65,6 +65,6 @@ export async function createNode(user: User, hostUrl = "") {
 	});
 
 	if (!res.ok) {
-		throw new Error("User Cretaion in Graph didn't work properly\n" + (await res.json()));
+		throw new Error("User Cretaion in Graph didn't work properly " + (await res.json()));
 	}
 }

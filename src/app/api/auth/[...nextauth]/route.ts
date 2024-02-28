@@ -49,7 +49,7 @@ export const authOptions: AuthOptions = {
 
 					return user;
 				} catch (error) {
-					throw new Error("Something went wrong: \n" + error);
+					throw new Error("Something went wrong: " + error);
 				}
 			},
 		}),
@@ -76,9 +76,9 @@ export const authOptions: AuthOptions = {
 		strategy: "jwt",
 	},
 	secret: process.env.NEXTAUTH_SECRET,
-	pages: {
-		signIn: "/login",
-	},
+	// pages: {
+	// 	signIn: "/login",
+	// },
 };
 
 const handler = NextAuth(authOptions);

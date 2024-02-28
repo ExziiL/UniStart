@@ -17,7 +17,7 @@ import Link from "next/link";
 import React from "react";
 
 async function handleLogOut() {
-	await signOut();
+	await signOut({ callbackUrl: "https://localhost:3000/" });
 }
 
 function NavAvatar() {

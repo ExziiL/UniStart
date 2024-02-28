@@ -25,7 +25,7 @@ function RegistrationCard() {
 				// console.log('Successfully registered')
 			}
 		} catch (error) {
-			// console.log("Something went wrong\n" + error);
+			// console.log("Something went wrong " + error);
 		}
 	};
 
@@ -39,7 +39,7 @@ function RegistrationCard() {
 				// console.log('Successfully registered')
 			}
 		} catch (error) {
-			// console.log("Something went wrong\n" + error);
+			// console.log("Something went wrong " + error);
 		}
 	};
 

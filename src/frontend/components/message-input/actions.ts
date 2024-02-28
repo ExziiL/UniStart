@@ -13,7 +13,7 @@ export async function send(user: User, message: string, convoId: string) {
 	});
 
 	if (!res.ok) {
-		throw new Error("Message did not send correctly\n" + res.body);
+		throw new Error("Message did not send correctly " + res.body);
 	}
 	return res.json();
 }
