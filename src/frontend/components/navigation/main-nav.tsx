@@ -159,13 +159,13 @@ const MainNav = () => {
 									/faq
 								</ListItem>
 								<ListItem
-									href="chat"
+									href="/chat"
 									title="Chat"
 								>
 									/chat
 								</ListItem>
 								<ListItem
-									href="ai-chat"
+									href="/ai-chat"
 									title="Ai-Chat"
 								>
 									/ai-chat
