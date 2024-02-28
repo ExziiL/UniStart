@@ -12,6 +12,12 @@ export async function register(action: string, values: z.infer<typeof registrati
 			break;
 		case "credentials":
 			response = await emailRegister(values);
+			await signIn(action,
+				{
+					username_email: values?.email,
+					password: values?.password,
+					redirect: false
+				});
 			break;
 		default:
 			console.error("Invalid action");
