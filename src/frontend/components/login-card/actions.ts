@@ -5,8 +5,8 @@ export async function setOnlineState(email: String, isonline: boolean) {
 
 	console.log(baseUrl);
 
-	// const res = await fetch(baseUrl + "api/online", {
-	const res = await fetch("/api/online", {
+	const res = await fetch(baseUrl + "/api/online", {
+		// const res = await fetch("/api/online", {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify({ useremail: email, online: isonline }),
