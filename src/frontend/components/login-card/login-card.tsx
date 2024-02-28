@@ -9,9 +9,9 @@ import Link from "next/link";
 import LoginForm from "./login-form";
 
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { useRouter } from "next/navigation";
 
 function LoginCard() {
 	const router = useRouter();
@@ -21,7 +21,7 @@ function LoginCard() {
 		const res = await signIn("github");
 
 		if (res?.ok) {
-			router.replace('vorlesungen');
+			router.replace("vorlesungen");
 			console.log("Successfully logged in");
 		}
 	};
@@ -31,7 +31,7 @@ function LoginCard() {
 		const res = await signIn("google");
 
 		if (res?.ok) {
-			router.replace('vorlesungen');
+			router.replace("vorlesungen");
 			console.log("Successfully logged in");
 		}
 	};

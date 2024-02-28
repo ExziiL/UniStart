@@ -7,14 +7,13 @@ import { Button } from "@/frontend/components/ui/button";
 import { Separator } from "@/frontend/components/ui/separator";
 import RegistrationForm from "./registration-form";
 
+import { useRouter } from "next/navigation";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { register } from "./actions";
-import { useRouter } from "next/navigation";
 
 function RegistrationCard() {
 	const router = useRouter();
-
 
 	const handleGitHubRegistration = async () => {
 		// console.log('github registration');
@@ -22,7 +21,7 @@ function RegistrationCard() {
 			const res = await register("github", null);
 
 			if (res?.ok) {
-				router.replace('vorlesungen');
+				router.replace("vorlesungen");
 				// console.log('Successfully registered')
 			}
 		} catch (error) {
@@ -36,8 +35,7 @@ function RegistrationCard() {
 			const res = await register("google", null);
 
 			if (res?.ok) {
-				router.replace('vorlesungen');
-
+				router.replace("vorlesungen");
 				// console.log('Successfully registered')
 			}
 		} catch (error) {
