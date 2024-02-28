@@ -45,7 +45,7 @@ function LoginForm() {
 			const res = await signIn("credentials", {
 				username_email: values.username_email,
 				password: values.password,
-				redirect: true,
+				redirect: false,
 			});
 
 			if (res?.error) {
@@ -56,7 +56,8 @@ function LoginForm() {
 			}
 
 			if (res?.ok) {
-				router.replace("vorlesungen");
+				router.replace("/vorlesungen");
+				return;
 			}
 		} catch (error) {
 			// console.log(error);

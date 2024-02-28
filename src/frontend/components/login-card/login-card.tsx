@@ -21,7 +21,7 @@ function LoginCard() {
 		const res = await signIn("github");
 
 		if (res?.ok) {
-			router.replace("vorlesungen");
+			router.replace("/");
 			console.log("Successfully logged in");
 		}
 	};
@@ -31,7 +31,7 @@ function LoginCard() {
 		const res = await signIn("google");
 
 		if (res?.ok) {
-			router.replace("vorlesungen");
+			router.replace("/");
 			console.log("Successfully logged in");
 		}
 	};

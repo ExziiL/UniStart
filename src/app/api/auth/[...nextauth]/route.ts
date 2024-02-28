@@ -9,9 +9,9 @@ import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: AuthOptions = {
-	pages: {
-		signIn: "/terminplan",
-	},
+	// pages: {
+	// 	signIn: "/login",
+	// },
 	callbacks: {
 		// async signIn({ user, account, profile, email, credentials }) {
 		// 	const isAllowedToSignIn = true;
