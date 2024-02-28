@@ -61,7 +61,6 @@ export async function PUT(req: NextRequest) {
 
 		if (!conversationCreateNeo4j) return NextResponse.json({ message: "Node Creation failed" }, { status: 500 });
 
-
 		const conversationGetNeo4j = await client.executeRead((tsx) => {
 			return tsx.run(
 				`
@@ -70,9 +69,8 @@ export async function PUT(req: NextRequest) {
 				RETURN conversation, receiver
 				`,
 				{ conversationID: conversationMongo.id, currentID: members[0] }
-			)
-		})
-
+			);
+		});
 
 		const conversations = conversationGetNeo4j.records.map((record) => {
 			let obj = Object();
