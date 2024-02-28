@@ -10,7 +10,7 @@
 ## Inhaltsverzeichnis
 
 1. [Einleitung](#einleitung)
-2. [Projektüberblick](#projektüberblick)
+2. [Projektüberblick und -ziel](#projektüberblick)
 3. [Inbetriebnahme](#inbetriebnahme)
 
 ## Einleitung
