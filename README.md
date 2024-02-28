@@ -1,36 +1,26 @@
-# This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)
+# Software Engineering Projekt - UniStart
 
-## Getting Started
+## Projektinformationen
 
-First, run the development server:
+-   **Projektname:** UniStart
+-   **Entwickler:** Johannes Preisach, Andre Derjagin
+-   **Professor:**
+-   **URL:** [uni-start.vercel.app](https://uni-start.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Inhaltsverzeichnis
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. [Einleitung](#einleitung)
+2. [Projektüberblick und -ziel](#projektüberblick)
+3. [Inbetriebnahme](#inbetriebnahme)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Einleitung
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Das Projekt Uni-Start stellt eine Web-Applikation dar, die mit dem vorrangigen Ziel konzipiert wurde, Studienanfängern im Fachbereich Informatik an der Hochschule Aalen einen nahtlosen und erleichterten Übergang in das akademische Umfeld zu gewährleisten.
 
-## Learn More
+## Projektüberblick und -ziel
 
-To learn more about Next.js, take a look at the following resources:
+Dieses Projekt wurde im Rahmen des Software Engineering Projektes im Laufe des 6. Studiensemesters entwickelt. Das primäre Ziel dieser Arbeit bestand darin, eine Web-Applikation zu entwickeln, die Studienanfängern einen erleichterten Einstieg ins Studium ermöglichen sollte. Die App soll als Plattform dienen, um den Studierenden Zugang zu verschiedenen Ressourcen und Tools bereitzustellen, die speziell darauf ausgerichtet sind, die gängigen Herausforderungen und Probleme zu Beginn des Studiums zu adressieren.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Inbetriebnahme
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Für die Bereitstellung der App wurde Vercel als Hosting-Plattform gewählt, eine Entscheidung, die durch die enge Integration mit Next.js und die Optimierung für serverlose Architekturen und statische Websites motiviert war. Unter [uni-start.vercel.app](https://uni-start.vercel.app/) kann auf das Projekt zugegriffen werden.

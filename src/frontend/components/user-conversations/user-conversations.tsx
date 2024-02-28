@@ -64,7 +64,7 @@ function UserConversations({
 	};
 
 	useEffect(() => {
-		if (session.data && !shouldFetch && userState.id.length > 1) {
+		if (session.data && !shouldFetch && userState?.id?.length > 1) {
 			setShouldFetch(true);
 			// setSelectedUsers([userState.id]);
 		}
@@ -126,6 +126,10 @@ function UserConversations({
 		});
 	}
 
+	if (userState.name == "") {
+		return <div>You are currently not logged in. Please sign in to use this functionality.</div>;
+	}
+
 	return (
 		<div className="bg-background">
 			<div className="flex items-end justify-between p-4 pb-2 text-lg font-semibold">
@@ -171,6 +175,9 @@ function UserConversations({
 			</div>
 
 			<div className="">
+				{conversations.length == 0 && !usersLoading && (
+					<div className="pt-4">There are currently no conversations.</div>
+				)}
 				{usersLoading && (
 					<Loader2
 						className="mt-8 w-full animate-spin text-ultra-light"
