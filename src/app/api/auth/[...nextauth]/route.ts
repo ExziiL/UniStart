@@ -9,6 +9,19 @@ import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: AuthOptions = {
+	pages: {
+		signIn: "/terminplan",
+	},
+	callbacks: {
+		// async signIn({ user, account, profile, email, credentials }) {
+		// 	const isAllowedToSignIn = true;
+		// 	if (isAllowedToSignIn) {
+		// 		return true;
+		// 	} else {
+		// 		return false;
+		// 	}
+		// },
+	},
 	adapter: PrismaAdapter(prisma),
 	providers: [
 		GitHubProvider({
@@ -76,9 +89,6 @@ export const authOptions: AuthOptions = {
 		strategy: "jwt",
 	},
 	secret: process.env.NEXTAUTH_SECRET,
-	// pages: {
-	// 	signIn: "/login",
-	// },
 };
 
 const handler = NextAuth(authOptions);
