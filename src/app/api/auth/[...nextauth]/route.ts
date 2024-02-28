@@ -62,14 +62,8 @@ export const authOptions: AuthOptions = {
 		},
 		signOut: async (data) => {
 			const online = false;
-			try {
-				if (!data.session.user?.email) {
-					throw new Error("User email not available");
-				}
-				await setOnlineState(data.session.user.email, online);
-			} catch (error) {
-				console.error("Error setting user offline state:", error);
-			}
+
+			await setOnlineState(data.session.user?.email!, online);
 		},
 		createUser: async (data) => {
 			const baseUrl = process.env.VERCEL_URL ?? process.env.NEXTAUTH_URL!;
