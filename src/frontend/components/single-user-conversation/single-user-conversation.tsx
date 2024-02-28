@@ -24,7 +24,7 @@ function SingleUserConversation({ user, activeChat }: SingleUserConversationProp
 	const [isHovered, setIsHovered] = React.useState(false);
 	const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 	const dropdownRef = React.useRef<HTMLDivElement>(null);
-	
+
 	/* function getMessageDate() {
 		const date = new Date(user.messages![0].date);
 		const hours = date.getHours();
@@ -63,12 +63,12 @@ function SingleUserConversation({ user, activeChat }: SingleUserConversationProp
 	return (
 		<div
 			className={` w-fill mx-2 my-2 flex cursor-pointer gap-4 rounded-md px-3 py-3 transition-all hover:bg-muted ${
-				activeChat === user.id ? "bg-muted" : ""
+				activeChat === user?.id ? "bg-muted" : ""
 			}`}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
 		>
-			{user.image && (
+			{user?.image && (
 				<div className="relative">
 					<Avatar>
 						<AvatarImage
@@ -93,7 +93,7 @@ function SingleUserConversation({ user, activeChat }: SingleUserConversationProp
 
 			<div className="flex w-full flex-row items-center justify-between gap-1">
 				<div className="flex justify-between">
-					<h2 className="font-medium">{user.name}</h2>
+					<h2 className="font-medium">{user?.name}</h2>
 					{/* <span className="text-primary-muted">{getMessageDate()}</span> */}
 				</div>
 				<div className="relative flex flex-row justify-between">

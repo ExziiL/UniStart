@@ -188,10 +188,10 @@ function UserConversations({
 				{conversations.map((elem, index) => (
 					<div
 						key={index}
-						onClick={() => handleUserClick(elem.conversation.id, elem.receiver.id)}
+						onClick={() => handleUserClick(elem.conversation.id, elem.receiver?.id)}
 					>
 						<SingleUserConversation
-							user={elem.receiver}
+							user={elem?.receiver}
 							activeChat={activeChat}
 						/>
 						{index !== conversations.length - 1 && (
