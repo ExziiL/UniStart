@@ -65,7 +65,7 @@ function UserConversationsMobile({
 	};
 
 	useEffect(() => {
-		if (session.data && !shouldFetch && userState.id.length > 1) {
+		if (session.data && !shouldFetch && userState?.id?.length > 1) {
 			setShouldFetch(true);
 			// setSelectedUsers([userState.id]);
 		}
@@ -196,6 +196,9 @@ function UserConversationsMobile({
 						</div>
 
 						<div className="">
+							{conversations.length == 0 && (
+								<div className="pt-4">There are currently no conversations.</div>
+							)}
 							{usersLoading && (
 								<Loader2
 									className="mt-8 w-full animate-spin text-ultra-light"
