@@ -44,7 +44,7 @@ function RegistrationCard() {
 	};
 
 	return (
-		<div className="m-auto h-fit w-96 rounded-lg border p-6 text-primary">
+		<div className="m-auto my-16 mb-8 h-fit w-full max-w-[360px] rounded-lg border p-6 text-primary">
 			<h1 className="text-3xl font-semibold">Create an account</h1>
 			<p className="mt-2 text-sm text-light">Enter your email below to create your account.</p>
 			<div className="mt-6 flex w-full flex-row space-x-4">
