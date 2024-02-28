@@ -30,7 +30,7 @@ export async function PUT(request: NextRequest) {
                     email: $user.email,
                     role: $user.role,
                     online: true,
-                    image: $user.image
+                    image: $user.image,
                     bio: ""
                 })
                 RETURN u`,
