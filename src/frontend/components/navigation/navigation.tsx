@@ -20,7 +20,8 @@ const Navigation = () => {
 					<MobileNav />
 				</div>
 			</header>
-			{isUserStateEmpty && (
+
+			{(isUserStateEmpty || userState.name == "") && (
 				<div>You are currently not logged in. Please log in to get all the functionality.</div>
 			)}
 		</>
