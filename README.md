@@ -4,7 +4,7 @@
 
 -   **Projektname:** UniStart
 -   **Entwickler:** Johannes Preisach, Andre Derjagin
--   **Professor:** Prof. Dr. Gregor Grambow
+-   **Professor:**
 -   **URL:** [uni-start.vercel.app](https://uni-start.vercel.app/)
 
 ## Inhaltsverzeichnis
@@ -20,11 +20,7 @@ Das Projekt Uni-Start stellt eine Web-Applikation dar, die mit dem vorrangigen Z
 
 ## Projektüberblick
 
-Dieses Projekt wurde im Rahmen der Vorlesung Virtual und Augmented Reality entwickelt. Es zielt darauf ab, die Grenzen zwischen realer und virtueller Welt zu verwischen und den Spielern eine immersive Erfahrung zu bieten. "Stapelmeister" ist das Ergebnis intensiver Arbeit mit Technologien wie Unity, Blender und verschiedenen VR-Systemen.
-
-## Projekziel
-
-Das primäre Ziel dieser Arbeit besteht darin, eine Web-Applikation zu entwickeln, die Studienanfängern einen erleichterten Einstieg ins Studium ermöglicht. Die App soll als Plattform dienen, um den Studierenden Zugang zu verschiedenen Ressourcen und Tools bereitzustellen, die speziell darauf ausgerichtet sind, die gängigen Herausforderungen und Probleme zu Beginn des Studiums zu adressieren.
+Dieses Projekt wurde im Rahmen des Software Engineering Projektes im Laufe des 6. Studiensemesters entwickelt. Das primäre Ziel dieser Arbeit bestand darin, eine Web-Applikation zu entwickeln, die Studienanfängern einen erleichterten Einstieg ins Studium ermöglichen sollte. Die App soll als Plattform dienen, um den Studierenden Zugang zu verschiedenen Ressourcen und Tools bereitzustellen, die speziell darauf ausgerichtet sind, die gängigen Herausforderungen und Probleme zu Beginn des Studiums zu adressieren.
 
 ## Inbetriebnahme
 
