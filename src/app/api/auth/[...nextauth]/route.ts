@@ -63,7 +63,9 @@ export const authOptions: AuthOptions = {
 		signOut: async (data) => {
 			const online = false;
 
-			await setOnlineState(data.session.user?.email!, online);
+			if (data.session && data.session.user) {
+				await setOnlineState(data.session.user?.email!, online);
+			}
 		},
 		createUser: async (data) => {
 			const baseUrl = process.env.VERCEL_URL ?? process.env.NEXTAUTH_URL!;
@@ -74,9 +76,9 @@ export const authOptions: AuthOptions = {
 		strategy: "jwt",
 	},
 	secret: process.env.NEXTAUTH_SECRET,
-	pages: {
-		signIn: "/",
-	},
+	// pages: {
+	// 	signIn: "/",
+	// },
 };
 
 const handler = NextAuth(authOptions);
