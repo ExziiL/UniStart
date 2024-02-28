@@ -63,7 +63,7 @@ function RegistrationForm() {
 			const res = (await register("credentials", values)) as CustomResponse;
 
 			if (res?.ok) {
-				router.replace("/vorlesungen");
+				router.replace("vorlesungen");
 			} else if (res?.userExists) {
 				setTimeout(() => {
 					setUserExistsErr(true);

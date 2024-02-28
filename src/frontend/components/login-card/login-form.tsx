@@ -55,7 +55,7 @@ function LoginForm() {
 				return;
 			}
 
-			router.replace("/vorlesungen");
+			router.replace("vorlesungen");
 		} catch (error) {
 			// console.log(error);
 		}

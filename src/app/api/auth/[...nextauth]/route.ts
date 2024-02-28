@@ -64,7 +64,7 @@ export const authOptions: AuthOptions = {
     events: {
         signIn: async (data) => {
             const online = true;
-            await setOnlineState(data.user.email!, online)
+            await setOnlineState(data.user.email!, online);
         },
         signOut: async (data) => {
             const online = false;
