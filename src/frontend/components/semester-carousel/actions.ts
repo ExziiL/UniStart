@@ -1,11 +1,9 @@
 export const fetchLectures = async () => {
-    const response = await fetch('api/lectures',
-        { method: 'GET', headers: { ContentType: 'application/json' } }
-    );
+	const response = await fetch("api-calls/lectures", { method: "GET", headers: { ContentType: "application/json" } });
 
-    if (!response.ok) {
-        throw new Error("Something went wrong while fetching lectures");
-    }
+	if (!response.ok) {
+		throw new Error("Something went wrong while fetching lectures");
+	}
 
-    return await response.json();
-} 
+	return await response.json();
+};

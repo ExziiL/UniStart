@@ -25,7 +25,7 @@ async function emailRegister(values: z.infer<typeof registrationFormSchema> | nu
 	if (!values) throw new Error("Invalid values");
 
 	const userExists = await fetch(
-		"/api/register?" + new URLSearchParams({ email: values.email, name: values.username }),
+		"/api-calls/register?" + new URLSearchParams({ email: values.email, name: values.username }),
 		{
 			method: "GET",
 			headers: { "Content-Type": "application/json" },
@@ -39,7 +39,7 @@ async function emailRegister(values: z.infer<typeof registrationFormSchema> | nu
 		return { ok: false, userExists: true };
 	}
 
-	const response = await fetch("/api/register", {
+	const response = await fetch("/api-calls/register", {
 		method: "PUT",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify({
@@ -58,7 +58,7 @@ async function emailRegister(values: z.infer<typeof registrationFormSchema> | nu
 }
 
 export async function createNode(user: User, hostUrl = "") {
-	const res = await fetch(hostUrl + "/api/graph", {
+	const res = await fetch(hostUrl + "/api-calls/graph", {
 		method: "PUT",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify({ email: user?.email }),
