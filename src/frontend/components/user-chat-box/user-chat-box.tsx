@@ -52,7 +52,6 @@ function UserChatBox({ children, className, setMessages, ...props }: UserChatBox
 
 			{/* <div className="flex flex-col gap-6"> */}
 			<div className="flex flex-col gap-6">
-				{props.messages?.length != 0 ? (
 					<div className="flex h-[calc(100vh-195px)] flex-col justify-end gap-6">
 						<ScrollArea className="h-max">
 							<div className="flex flex-col gap-6">
@@ -68,13 +67,7 @@ function UserChatBox({ children, className, setMessages, ...props }: UserChatBox
 						</ScrollArea>
 						<MessageInput conversationid={props.conversationid} />
 					</div>
-				) : (
-					<>
-						<div className="mb-24 text-center text-lg text-light">
-							There is currently no conversation selected. Please select a conversation.
-						</div>
-					</>
-				)}
+				 
 			</div>
 		</div>
 	);
