@@ -12,9 +12,11 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { Button } from "../ui/button";
 import { ScrollArea } from "../ui/scroll-area";
+import { useSession } from "next-auth/react";
 
 const MobileNav = () => {
 	const [open, setOpen] = React.useState(false);
+	const session = useSession();
 
 	return (
 		<div className="flex w-full flex-row items-center justify-between md:hidden">
@@ -75,7 +77,7 @@ const MobileNav = () => {
 				</SheetContent>
 			</Sheet>
 
-			<NavAvatar />
+			{session.data ? <NavAvatar /> : <div></div>}
 		</div>
 	);
 };

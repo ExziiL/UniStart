@@ -34,7 +34,7 @@ const Navigation = () => {
 					transition={{ type: "spring", stiffness: 100, damping: 15 }}
 					layout
 				>
-					<div className="absolute flex h-10 w-full flex-row items-center justify-center border-b border-red-100 bg-red-100/65 text-sm text-light shadow-sm shadow-red-200/25 dark:border-red-900/30 dark:bg-red-800/15 dark:shadow-red-600/25">
+					<div className="absolute flex h-12 w-full flex-row items-center justify-center border-b border-red-100 bg-red-100/65 p-2 text-sm text-light shadow-sm shadow-red-200/25 dark:border-red-900/30 dark:bg-red-800/15 dark:shadow-red-600/25">
 						<div>
 							You are currently not logged in. Please{" "}
 							<span className="pr-1 text-link hover:cursor-pointer hover:underline">

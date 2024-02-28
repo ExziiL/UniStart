@@ -12,10 +12,13 @@ import {
 } from "@/frontend/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { Bird, Library } from "lucide-react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 
 const MainNav = () => {
+	const session = useSession();
+
 	return (
 		<div className="hidden w-full max-w-[1024px] justify-between md:flex">
 			<Link
@@ -176,7 +179,7 @@ const MainNav = () => {
 			{/* ----------------------------------------------- */}
 
 			{/* Diese div ist dafür da um die navigation items durch das "justify-between" zentral zu halten, deshalb nicht löschen! */}
-			<NavAvatar />
+			{session.data ? <NavAvatar /> : <div></div>}
 		</div>
 	);
 };
