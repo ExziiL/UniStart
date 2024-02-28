@@ -58,15 +58,16 @@ function UserConversations({
 		setCurrentConversationId(convoId);
 	};
 
-	const handleNewUserClick = () => {
+	const handleNewUserClick = async () => {
 		console.log(selectedUsers);
-		const conversation = action.createConversation(selectedUsers);
+		const conversation = await action.createConversation(selectedUsers);
+		setConversations([...conversations, conversation[0]]);
 	};
 
 	useEffect(() => {
 		if (session.data && !shouldFetch && userState?.id?.length > 1) {
 			setShouldFetch(true);
-			// setSelectedUsers([userState.id]);
+			setSelectedUsers([userState.id]);
 		}
 	}, [userState, shouldFetch, session]);
 

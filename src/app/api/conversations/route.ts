@@ -55,16 +55,35 @@ export async function PUT(req: NextRequest) {
 		}
 
 		const query = match + createConversation + createRelation + " RETURN *";
-		const conversationNeo4j = await client.executeWrite((tsx) => {
+		const conversationCreateNeo4j = await client.executeWrite((tsx) => {
 			return tsx.run(query, { conversation: conversationMongo, members, isgroup });
 		});
 
-		if (!conversationNeo4j) return NextResponse.json({ message: "Node Creation failed" }, { status: 500 });
+		if (!conversationCreateNeo4j) return NextResponse.json({ message: "Node Creation failed" }, { status: 500 });
 
-		const conversations = conversationNeo4j.records.flatMap((record) => {
-			return record.keys.map((key) => ({ [key]: record.get(key)?.properties }));
+
+		const conversationGetNeo4j = await client.executeRead((tsx) => {
+			return tsx.run(
+				`
+				MATCH (conversation:Conversation {id: $conversationID})-[:MEMBER]-(receiver:User)
+				WHERE NOT receiver.id = $currentID
+				RETURN conversation, receiver
+				`,
+				{ conversationID: conversationMongo.id, currentID: members[0] }
+			)
+		})
+
+
+		const conversations = conversationGetNeo4j.records.map((record) => {
+			let obj = Object();
+			record.keys.forEach((key) => {
+				obj[key] = record.get(key)?.properties;
+			});
+
+			return obj;
 		});
-		return NextResponse.json({ conversations }, { status: 200 });
+
+		return NextResponse.json({ ...conversations }, { status: 200 });
 	} catch (error) {
 		return NextResponse.json({ message: "Error while creating node", error: error }, { status: 500 });
 	} finally {
