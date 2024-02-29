@@ -6,6 +6,8 @@
 -   **Entwickler:** Johannes Preisach, Andre Derjagin
 -   **Professor:**
 -   **URL:** [uni-start.vercel.app](https://uni-start.vercel.app/)
+-   **Username for first login:** fillerUser
+-   **Password for first login:** fillerPassword
 
 ## Inhaltsverzeichnis
 
